@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Character
@@ -10,7 +8,8 @@ namespace Character
         public int health;
         public int maxHealth;
         public int defence;
-        public int energyAmount;
+        public int energy;
+        public int maxEnergy;
 
         public void Heal(int healAmount)
         {

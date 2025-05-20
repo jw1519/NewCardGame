@@ -12,7 +12,7 @@ public class CardManager : MonoBehaviour
 
     public void SelectCard(BaseCard card, BaseCharacter character)
     {
-        if (character.energyAmount - card.cardEnergy >= 0 )
+        if (character.energy - card.cardEnergy >= 0 )
         {
             cardSelected = card;
         }
