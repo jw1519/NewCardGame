@@ -7,6 +7,7 @@ namespace Card
         public Sprite cardSprite;
         public CardType cardType;
         public int cardEnergy;
+        public string description;
 
         public enum CardType
         {

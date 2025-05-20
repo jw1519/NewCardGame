@@ -1,24 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Card;
-using Enemy;
 using Character;
 
-public class CardManager : MonoBehaviour
+namespace Card
 {
-    public static CardManager instance;
-    [HideInInspector] public BaseCard cardSelected;
-
-    public void SelectCard(BaseCard card, BaseCharacter character)
+    public class CardManager : MonoBehaviour
     {
-        if (character.energy - card.cardEnergy >= 0 )
+        public static CardManager instance;
+        [HideInInspector] public BaseCard cardSelected;
+
+        public void SelectCard(GameObject card, BaseCharacter character)
         {
-            cardSelected = card;
+            if (cardSelected == null)
+            {
+                if (character.energy - card.GetComponent<SetCardUI>().card.cardEnergy >= 0)
+                {
+                    cardSelected = card.GetComponent<SetCardUI>().card;
+                    card.GetComponent<Hover>().enabled = false;
+
+                }
+                else
+                {
+                    Debug.Log("not enough energy");
+                }
+            }
+            else
+            {
+
+                cardSelected = null;
+                SelectCard(card, character);
+            }
+
         }
-        else
+        public void SelectEnemy()
         {
-            Debug.Log("not enough energy");
+
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Character
 {
-    public class Mage : MonoBehaviour
+    public class Mage : BaseCharacter
     {
         // Start is called before the first frame update
         void Start()
