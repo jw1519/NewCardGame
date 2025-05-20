@@ -53,11 +53,11 @@ namespace Character
         }
         public void UpdateDefenceUI()
         {
-            defenceText.text = character.defence.ToString();
             if (character.defence > 0)
             {
                 defenceIcon.SetActive(true);
             }
+            defenceText.text = character.defence.ToString();
         }
 
     }
