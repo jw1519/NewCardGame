@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Card
@@ -15,6 +13,10 @@ namespace Card
             Magic,
             Ranged,
             Melee
+        }
+        public virtual void Use()
+        {
+            Debug.Log("use card");
         }
     }
 }
