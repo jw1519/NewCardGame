@@ -8,12 +8,22 @@ namespace Character
 {
     public class SetCharacterUI : MonoBehaviour
     {
+        [Header("Character")]
+        public BaseCharacter character;
+
+        [Header("Health")]
         public TextMeshProUGUI healthText;
         public Slider healthSlider;
+
+        [Header("Energy")]
         public TextMeshProUGUI EnergyText;
         public Slider energySlider;
 
-        public BaseCharacter character;
+        [Header("Defence")]
+        public TextMeshProUGUI defenceText;
+        public GameObject defenceIcon;
+
+
 
         private void Awake()
         {
@@ -39,6 +49,14 @@ namespace Character
             if (energySlider.maxValue != character.maxEnergy )
             {
                 energySlider.maxValue = character.maxEnergy;
+            }
+        }
+        public void UpdateDefenceUI()
+        {
+            defenceText.text = character.defence.ToString();
+            if (character.defence > 0)
+            {
+                defenceIcon.SetActive(true);
             }
         }
 
