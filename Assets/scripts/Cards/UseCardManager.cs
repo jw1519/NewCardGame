@@ -5,9 +5,9 @@ using Character;
 
 namespace Card
 {
-    public class CardManager : MonoBehaviour
+    public class UseCardManager : MonoBehaviour
     {
-        public static CardManager instance;
+        public static UseCardManager instance;
         [HideInInspector] public BaseCard cardSelected;
 
         public void SelectCard(GameObject card, BaseCharacter character)
