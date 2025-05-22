@@ -14,6 +14,15 @@ public class Test : MonoBehaviour
         GameObject cardGO = CardFactory.instance.CreateCard(card, transform.position, Quaternion.identity);
         cardGO.transform.SetParent(hand.transform);
         StartCoroutine(hand.AddCard(cardGO));
+
+        GameObject cardGO1 = CardFactory.instance.CreateCard(card, transform.position, Quaternion.identity);
+        cardGO.transform.SetParent(hand.transform);
+        StartCoroutine(hand.AddCard(cardGO1));
+
+        GameObject cardGO2 = CardFactory.instance.CreateCard(card, transform.position, Quaternion.identity);
+        cardGO.transform.SetParent(hand.transform);
+        StartCoroutine(hand.AddCard(cardGO2));
+
     }
 
 }
