@@ -8,6 +8,7 @@ namespace Character
     {
         [Header("Character")]
         public BaseCharacter character;
+        public Image spriteObject;
 
         [Header("Health")]
         public TextMeshProUGUI healthText;
@@ -32,6 +33,8 @@ namespace Character
 
             healthSlider.value = character.health;
             energySlider.value = character.energy;
+
+            spriteObject.sprite = character.characterSprite;
         }
 
         public void UpdateHealthUI()

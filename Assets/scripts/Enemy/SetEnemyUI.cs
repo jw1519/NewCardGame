@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
 namespace Enemy
@@ -7,6 +8,7 @@ namespace Enemy
     public class SetEnemyUI : MonoBehaviour
     {
         BaseEnemy enemy;
+        public Image spriteObject;
 
         [Header("Health")]
         public TextMeshProUGUI healthText;
@@ -23,6 +25,8 @@ namespace Enemy
             healthText.text = enemy.health.ToString() + "/" + enemy.maxHealth.ToString();
             healthSlider.maxValue = enemy.maxHealth;
             healthSlider.value = enemy.health;
+
+            spriteObject.sprite = enemy.enemySprite;
         }
 
         public void UpdateHealthUI()

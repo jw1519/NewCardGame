@@ -6,8 +6,10 @@ namespace Enemy
 {
     public abstract class BaseEnemy : ScriptableObject, ITakeDamage, IHeal
     {
+        public Sprite enemySprite;
+
         [Header("Stats")]
-        public string name;
+        public string enemyName;
         public int health;
         public int damage;
         public int maxHealth;

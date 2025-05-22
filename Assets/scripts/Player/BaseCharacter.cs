@@ -4,7 +4,11 @@ namespace Character
 {
     public abstract class BaseCharacter : MonoBehaviour, ITakeDamage, IHeal
     {
+        [Header("Character Sprite")]
+        public Sprite characterSprite;
+
         [Header("Stats")]
+        public string characterName;
         public int health;
         public int maxHealth;
         public int defence;
