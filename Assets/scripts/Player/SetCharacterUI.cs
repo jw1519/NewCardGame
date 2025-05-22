@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,6 +29,9 @@ namespace Character
             EnergyText.text = character.energy.ToString() + "/" + character.maxEnergy.ToString();
             healthSlider.maxValue = character.maxHealth;
             energySlider.maxValue = character.maxEnergy;
+
+            healthSlider.value = character.health;
+            energySlider.value = character.energy;
         }
 
         public void UpdateHealthUI()
