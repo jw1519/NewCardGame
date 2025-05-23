@@ -40,6 +40,10 @@ namespace Card
             {
 
             }
+            else
+            {
+                Debug.Log("Choose Card to play");
+            }
         }
     }
 }
