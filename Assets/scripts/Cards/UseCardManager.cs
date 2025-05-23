@@ -38,7 +38,7 @@ namespace Card
         {
             if (cardSelected != null)
             {
-
+                Debug.Log("Attack enemy");
             }
             else
             {

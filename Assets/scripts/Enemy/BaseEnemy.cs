@@ -12,6 +12,7 @@ namespace Enemy
         public int damage;
         public int maxHealth;
         public int defence;
+        public int defenceAmount;
 
         public void Heal(int healAmount)
         {
