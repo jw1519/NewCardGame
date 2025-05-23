@@ -21,7 +21,7 @@ public class CardHand : MonoBehaviour
         if (cards.Count == 0)
             yield break;
 
-        float cardSpacing = 0.15f;
+        float cardSpacing = 0.12f;
         Spline spline = splineContainer.Spline;
         for (int i = 0; i < cards.Count; i++)
         {

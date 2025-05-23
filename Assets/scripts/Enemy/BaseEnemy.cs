@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Enemy
 {
-    public abstract class BaseEnemy : ScriptableObject, ITakeDamage, IHeal
+    public abstract class BaseEnemy : MonoBehaviour, ITakeDamage, IHeal
     {
         public Sprite enemySprite;
 

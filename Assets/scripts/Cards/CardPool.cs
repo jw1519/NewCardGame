@@ -18,6 +18,9 @@ namespace Card
             {
                 instance = this;
             }
+        }
+        private void Start()
+        {
             SetUp();
         }
         public void SetUp()
@@ -32,13 +35,13 @@ namespace Card
                 gameObject.transform.SetParent(cardParent);
                 pooledCards.Add(gameObject);
             }
+            CardManager.instance.cardsInDeck = pooledCards;
         }
         public GameObject GetPooledCard()
         {
-            //List<GameObject> cardDeck = CardManager.instance.deck;
-            //GameObject randomCard = cardDeck[Random.Range(0, cardDeck.Count)];
-            //return randomCard;
-            return null;
+            List<GameObject> cardDeck = CardManager.instance.cardsInDeck;
+            GameObject randomCard = cardDeck[Random.Range(0, cardDeck.Count)];
+            return randomCard;
         }
     }
 }

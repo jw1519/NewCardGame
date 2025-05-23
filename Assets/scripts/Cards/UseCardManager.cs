@@ -2,40 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Character;
+using Unity.VisualScripting;
+using Enemy;
 
 namespace Card
 {
     public class UseCardManager : MonoBehaviour
     {
         public static UseCardManager instance;
-        [HideInInspector] public BaseCard cardSelected;
+        [HideInInspector] public SetCardUI cardSelected;
 
-        public void SelectCard(GameObject card, BaseCharacter character)
+        private void Awake()
+        {
+            instance = this;
+        }
+        public void SelectCard(GameObject card)
         {
             if (cardSelected == null)
             {
-                if (character.energy - card.GetComponent<SetCardUI>().card.cardEnergy >= 0)
-                {
-                    cardSelected = card.GetComponent<SetCardUI>().card;
-                    card.GetComponent<Hover>().enabled = false;
-
-                }
-                else
-                {
-                    Debug.Log("not enough energy");
-                }
+                cardSelected = card.GetComponent<SetCardUI>();
             }
             else
             {
-
-                cardSelected = null;
-                SelectCard(card, character);
+                DeselectCard(card);
             }
-
         }
-        public void SelectEnemy()
+        public void DeselectCard(GameObject card)
         {
+            Hover hover = cardSelected.gameObject.GetComponent<Hover>();
+            hover.Deselect();
+            cardSelected = null;
+            SelectCard(card);
+        }
+        public void SelectEnemy(BaseEnemy enemy)
+        {
+            if (cardSelected != null)
+            {
 
+            }
         }
     }
 }

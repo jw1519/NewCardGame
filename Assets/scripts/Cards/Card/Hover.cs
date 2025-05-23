@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -24,6 +23,30 @@ namespace Card
             outline.enabled = false;
             transform.SetParent(parent);
             transform.SetSiblingIndex(index);
+        }
+        public void OnClick()
+        {
+            if (enabled)
+            {
+                outline.enabled = true;
+                index = transform.GetSiblingIndex();
+                parent = transform.parent;
+                transform.SetParent(transform.root);
+                UseCardManager.instance.SelectCard(gameObject);
+                enabled = false;
+            }
+            else
+            {
+                Deselect();
+                UseCardManager.instance.cardSelected = null;
+            }
+        }
+        public void Deselect()
+        {
+            outline.enabled = false;
+            transform.SetParent(parent);
+            transform.SetSiblingIndex(index);
+            enabled = true;
         }
     }
 }
