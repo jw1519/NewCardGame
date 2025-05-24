@@ -3,7 +3,11 @@ guid: 980d7b3c70f581b46a903758297ed3c9
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - enemySprite: {instanceID: 0}
+  - attackSprite: {fileID: 21300000, guid: 300675427539b7842a89d514aaa349cd, type: 3}
+  - defenceSprite: {fileID: 21300000, guid: c07d8f2ef21dc634395f674f8766dcf6, type: 3}
+  - abilitySprite: {fileID: 21300000, guid: 0ad037c82e017d7429742ed757e5dafa, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

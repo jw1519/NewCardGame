@@ -368,9 +368,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySprite: {fileID: 0}
   action: 0
-  attackSprite: {fileID: 0}
-  defenceSprite: {fileID: 0}
-  abilitySprite: {fileID: 0}
+  attackSprite: {fileID: 21300000, guid: 300675427539b7842a89d514aaa349cd, type: 3}
+  defenceSprite: {fileID: 21300000, guid: c07d8f2ef21dc634395f674f8766dcf6, type: 3}
+  abilitySprite: {fileID: 21300000, guid: 0ad037c82e017d7429742ed757e5dafa, type: 3}
   enemyName: goblin
   health: 20
   damage: 5
@@ -420,7 +420,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 153599562}
+        m_TargetAssemblyTypeName: Enemy.SelectEnemy, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &153599562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2043,8 +2055,8 @@ MonoBehaviour:
   cardsInDiscard: []
   discardedCardParent: {fileID: 2105656239}
   deckCardParent: {fileID: 1098776580}
-  starttingCardsInHand: 0
-  maxCardsInHand: 0
+  startingCardsInHand: 5
+  maxCardsInHand: 7
 --- !u!1 &1098776579
 GameObject:
   m_ObjectHideFlags: 0

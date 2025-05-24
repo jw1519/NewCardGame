@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
+        CardManager.instance.DrawCards();
     }
 
     public void PlayerTurn(BaseCharacter character)
