@@ -5,6 +5,11 @@ namespace Enemy
     public abstract class BaseEnemy : MonoBehaviour, ITakeDamage, IHeal
     {
         public Sprite enemySprite;
+        [Header("actions")]
+        public EnemyAction action;
+        public Sprite attackSprite;
+        public Sprite defenceSprite;
+        public Sprite abilitySprite;
 
         [Header("Stats")]
         public string enemyName;
@@ -14,6 +19,12 @@ namespace Enemy
         public int defence;
         public int defenceAmount;
 
+        public enum EnemyAction
+        {
+            Attack,
+            Defend,
+            Ability,
+        }
         public void Heal(int healAmount)
         {
             if (health + healAmount <= maxHealth)

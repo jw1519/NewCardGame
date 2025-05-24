@@ -12,21 +12,23 @@ public class GameManager : MonoBehaviour
     public List<BaseCharacter> characterList;
     public List<BaseEnemy> enemyList;
 
+    public List<GameObject> combatOrder;
+
     public Button endTurnButton;
 
     private void Start()
     {
-        PlayerTurn();
+        
     }
 
-    public void PlayerTurn()
+    public void PlayerTurn(BaseCharacter character)
     {
         endTurnButton.GetComponentInChildren<TextMeshProUGUI>().text = "End Turn";
         endTurnButton.enabled = true;
 
         CardManager.instance.DrawCards();
     }
-    public void EnemyTurn()
+    public void EnemyTurn(BaseEnemy enemy)
     {
         endTurnButton.GetComponentInChildren<TextMeshProUGUI>().text = "Enemy Turn";
         endTurnButton.enabled = false;

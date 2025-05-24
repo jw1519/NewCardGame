@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
+using static Enemy.BaseEnemy;
 
 namespace Enemy
 {
@@ -17,6 +17,10 @@ namespace Enemy
         [Header("Defence")]
         public TextMeshProUGUI defenceText;
         public GameObject defenceIcon;
+
+        [Header("Actions")]
+        public SpriteRenderer actionRenderer;
+        public TextMeshProUGUI actionText;
 
         private void Awake()
         {
@@ -45,6 +49,28 @@ namespace Enemy
                 defenceIcon.SetActive(true);
             }
             defenceText.text = enemy.defence.ToString();
+        }
+
+
+        public void UpdateActionUI(EnemyAction action)
+        {
+            switch (enemy.action)
+            {
+                case EnemyAction.Attack:
+                    actionRenderer.sprite = enemy.attackSprite;
+                    actionText.text = enemy.damage.ToString();
+                    return;
+
+                case EnemyAction.Defend:
+                    actionRenderer.sprite = enemy.defenceSprite;
+                    actionText.text = enemy.defenceAmount.ToString();
+                    return;
+
+                case EnemyAction.Ability:
+                    actionRenderer.sprite = enemy.abilitySprite;
+                    //actionText.text = enemy.healAmount.ToString();
+                    return;
+            }
         }
     }
 }

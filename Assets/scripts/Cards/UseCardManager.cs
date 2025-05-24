@@ -1,15 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Character;
-using Unity.VisualScripting;
 using Enemy;
 
 namespace Card
 {
-    public class UseCardManager : MonoBehaviour
+    public class SelectManager : MonoBehaviour
     {
-        public static UseCardManager instance;
+        public static SelectManager instance;
         [HideInInspector] public SetCardUI cardSelected;
 
         private void Awake()

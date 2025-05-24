@@ -32,13 +32,13 @@ namespace Card
                 index = transform.GetSiblingIndex();
                 parent = transform.parent;
                 transform.SetParent(transform.root);
-                UseCardManager.instance.SelectCard(gameObject);
+                SelectManager.instance.SelectCard(gameObject);
                 enabled = false;
             }
             else
             {
                 Deselect();
-                UseCardManager.instance.cardSelected = null;
+                SelectManager.instance.cardSelected = null;
             }
         }
         public void Deselect()

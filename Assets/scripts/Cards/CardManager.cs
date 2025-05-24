@@ -17,6 +17,7 @@ namespace Card
         public Transform discardedCardParent;
         public Transform deckCardParent;
 
+        public int starttingCardsInHand;
         public int maxCardsInHand;
 
         private void Awake()
@@ -30,9 +31,9 @@ namespace Card
         public void DrawCards()
         {
             //DiscardCards();
-            if (cardsInDeck.Count >= maxCardsInHand)
+            if (cardsInDeck.Count >= starttingCardsInHand)
             {
-                for (int i = 0; i < maxCardsInHand; i++)
+                for (int i = 0; i < starttingCardsInHand; i++)
                 {
                     GameObject RandomCard = CardPool.instance.GetPooledCard();
                     if (RandomCard != null)

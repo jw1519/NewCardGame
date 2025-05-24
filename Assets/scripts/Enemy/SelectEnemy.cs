@@ -15,7 +15,7 @@ namespace Enemy
         }
         public void OnClick()
         {
-            UseCardManager.instance.SelectEnemy(enemy);
+            SelectManager.instance.SelectEnemy(enemy);
         }
     }
 }
