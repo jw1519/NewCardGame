@@ -19,6 +19,8 @@ namespace Enemy
         public int defence;
         public int defenceAmount;
 
+         public bool isAlive => health > 0;
+
         public enum EnemyAction
         {
             Attack,

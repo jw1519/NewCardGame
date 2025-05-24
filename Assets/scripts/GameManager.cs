@@ -9,10 +9,8 @@ using Enemy;
 
 public class GameManager : MonoBehaviour
 {
-    public List<BaseCharacter> characterList;
-    public List<BaseEnemy> enemyList;
 
-    public List<GameObject> combatOrder;
+
 
     public Button endTurnButton;
 
@@ -21,16 +19,22 @@ public class GameManager : MonoBehaviour
         CardManager.instance.DrawCards();
     }
 
-    public void PlayerTurn(BaseCharacter character)
+    public void PlayerTurn(SetCharacterUI character)
     {
         endTurnButton.GetComponentInChildren<TextMeshProUGUI>().text = "End Turn";
         endTurnButton.enabled = true;
 
         CardManager.instance.DrawCards();
     }
-    public void EnemyTurn(BaseEnemy enemy)
+    public void EndPlayerTurn()
+    {
+        CardManager.instance.DiscardCards();
+    }
+    public void EnemyTurn(GameObject enemy)
     {
         endTurnButton.GetComponentInChildren<TextMeshProUGUI>().text = "Enemy Turn";
         endTurnButton.enabled = false;
+
+        //enemy.GetComponent<EnemyTurn>().StartTurn();
     }
 }

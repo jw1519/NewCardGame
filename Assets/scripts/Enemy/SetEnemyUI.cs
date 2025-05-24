@@ -31,6 +31,7 @@ namespace Enemy
             healthSlider.value = enemy.health;
 
             spriteObject.sprite = enemy.enemySprite;
+            SetEnemySprite(enemy.enemySprite);
         }
 
         public void UpdateHealthUI()
@@ -71,6 +72,10 @@ namespace Enemy
                     //actionText.text = enemy.healAmount.ToString();
                     return;
             }
+        }
+        public void SetEnemySprite(Sprite sprite)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = sprite;
         }
     }
 }

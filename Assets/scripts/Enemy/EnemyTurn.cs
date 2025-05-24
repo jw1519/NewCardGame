@@ -1,8 +1,8 @@
 using System;
 using UnityEngine;
 using static Enemy.BaseEnemy;
-using TMPro;
 using Character;
+using System.Collections.Generic;
 
 namespace Enemy
 {
@@ -22,13 +22,14 @@ namespace Enemy
             
             SelectNextAction();
         }
-        public void StartTurn(GameObject Target)
+        public void StartTurn()
         {
             enemy.defence = 0;
             enemyUI.UpdateDefenceUI();
             switch (enemy.action)
             {
                 case EnemyAction.Attack:
+                    GameObject Target = FindTarget();
                     EventQueue.EnqueueEvent(new EnemyAttackEvent(Target.GetComponent<SetCharacterUI>().character, enemy.damage));
                     //EndTurn();
                     return;
@@ -39,6 +40,20 @@ namespace Enemy
                     //EndTurn();
                     return;
             }
+        }
+        public GameObject FindTarget()
+        {
+            List<GameObject> targets = CombatManager.instance.combatOrder.FindAll(u => u.GetComponent<SetCharacterUI>() != null); // find all potential characters to attack
+
+            if (targets.Count == 0) return null;
+
+            return targets[UnityEngine.Random.Range(0, targets.Count)];
+
+        }
+        public void EndTurn()
+        {
+            SelectNextAction();
+            //GameManager.instance.BeginTurn();
         }
         public void SelectNextAction()
         {
