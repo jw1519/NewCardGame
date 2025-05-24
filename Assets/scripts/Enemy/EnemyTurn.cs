@@ -43,7 +43,7 @@ namespace Enemy
         }
         public GameObject FindTarget()
         {
-            List<GameObject> targets = CombatManager.instance.combatOrder.FindAll(u => u.GetComponent<SetCharacterUI>() != null); // find all potential characters to attack
+            List<GameObject> targets = CombatManager.instance.combatOrder.FindAll(u => u.GetComponent<SetCharacterUI>() != null && u.GetComponent<SetCharacterUI>().character.isAlive); // find all potential characters to attack
 
             if (targets.Count == 0) return null;
 

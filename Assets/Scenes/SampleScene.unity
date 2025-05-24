@@ -366,7 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8c04c2af0d9fd4d8b658d75c16abfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySprite: {fileID: 0}
+  enemySprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   action: 0
   attackSprite: {fileID: 21300000, guid: 300675427539b7842a89d514aaa349cd, type: 3}
   defenceSprite: {fileID: 21300000, guid: c07d8f2ef21dc634395f674f8766dcf6, type: 3}
@@ -1956,9 +1956,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e26112a16e01c48bf2fb2406c1cbd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterList: []
-  enemyList: []
-  combatOrder: []
   endTurnButton: {fileID: 470624381}
 --- !u!1 &995124774
 GameObject:

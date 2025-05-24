@@ -30,7 +30,6 @@ namespace Enemy
             healthSlider.maxValue = enemy.maxHealth;
             healthSlider.value = enemy.health;
 
-            spriteObject.sprite = enemy.enemySprite;
             SetEnemySprite(enemy.enemySprite);
         }
 
@@ -75,7 +74,7 @@ namespace Enemy
         }
         public void SetEnemySprite(Sprite sprite)
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = sprite;
+            spriteObject.sprite = sprite;
         }
     }
 }

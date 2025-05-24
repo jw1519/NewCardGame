@@ -14,6 +14,7 @@ namespace Character
         public int defence;
         public int energy;
         public int maxEnergy;
+        public bool isAlive => health > 0;
 
         public void Heal(int healAmount)
         {
