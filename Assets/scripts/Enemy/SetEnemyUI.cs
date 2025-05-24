@@ -19,7 +19,7 @@ namespace Enemy
         public GameObject defenceIcon;
 
         [Header("Actions")]
-        public SpriteRenderer actionRenderer;
+        public Image actionSprite;
         public TextMeshProUGUI actionText;
 
         private void Awake()
@@ -57,17 +57,17 @@ namespace Enemy
             switch (enemy.action)
             {
                 case EnemyAction.Attack:
-                    actionRenderer.sprite = enemy.attackSprite;
+                    actionSprite.sprite = enemy.attackSprite;
                     actionText.text = enemy.damage.ToString();
                     return;
 
                 case EnemyAction.Defend:
-                    actionRenderer.sprite = enemy.defenceSprite;
+                    actionSprite.sprite = enemy.defenceSprite;
                     actionText.text = enemy.defenceAmount.ToString();
                     return;
 
                 case EnemyAction.Ability:
-                    actionRenderer.sprite = enemy.abilitySprite;
+                    actionSprite.sprite = enemy.abilitySprite;
                     //actionText.text = enemy.healAmount.ToString();
                     return;
             }

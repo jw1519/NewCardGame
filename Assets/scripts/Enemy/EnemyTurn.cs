@@ -17,6 +17,11 @@ namespace Enemy
             enemyUI = GetComponent<SetEnemyUI>();
             enemy = GetComponent<BaseEnemy>();
         }
+        private void Start()
+        {
+            
+            SelectNextAction();
+        }
         public void StartTurn(GameObject Target)
         {
             enemy.defence = 0;
