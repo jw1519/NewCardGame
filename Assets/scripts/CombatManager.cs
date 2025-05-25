@@ -1,3 +1,4 @@
+using Character;
 using Enemy;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,12 +11,20 @@ public class CombatManager : MonoBehaviour
     public List<GameObject> combatOrder;
     int currentCombatIndex = 0;
 
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
     public IEnumerator StartCombat()
     {
 
         yield return new WaitForSeconds(1f);
 
-        if (combatOrder[currentCombatIndex] == null)
+        if (combatOrder[currentCombatIndex] != null)
         {
             GameObject Target = combatOrder[currentCombatIndex];
             if (Target.GetComponent<SetEnemyUI>() != null)
@@ -24,7 +33,7 @@ public class CombatManager : MonoBehaviour
             }
             else
             {
-
+                GameManager.instance.PlayerTurn(Target.GetComponent<SetCharacterUI>());
             }
             currentCombatIndex = (currentCombatIndex + 1) % combatOrder.Count; // moves to the next in the list and wraps around
         }

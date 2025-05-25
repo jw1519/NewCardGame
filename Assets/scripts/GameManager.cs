@@ -9,11 +9,14 @@ using Enemy;
 
 public class GameManager : MonoBehaviour
 {
-
-
-
+    public static GameManager instance;
     public Button endTurnButton;
 
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+    }
     private void Start()
     {
         CardManager.instance.DrawCards();
@@ -29,12 +32,17 @@ public class GameManager : MonoBehaviour
     public void EndPlayerTurn()
     {
         CardManager.instance.DiscardCards();
+        EnemyTurn();
     }
-    public void EnemyTurn(GameObject enemy)
+    public void EnemyTurn()
     {
         endTurnButton.GetComponentInChildren<TextMeshProUGUI>().text = "Enemy Turn";
         endTurnButton.enabled = false;
 
-        //enemy.GetComponent<EnemyTurn>().StartTurn();
+        StartCoroutine(CombatManager.instance.StartCombat());
+    }
+    public void EndEnemyTurn()
+    {
+
     }
 }

@@ -19,7 +19,6 @@ namespace Enemy
         }
         private void Start()
         {
-            
             SelectNextAction();
         }
         public void StartTurn()
@@ -31,13 +30,11 @@ namespace Enemy
                 case EnemyAction.Attack:
                     GameObject Target = FindTarget();
                     EventQueue.EnqueueEvent(new EnemyAttackEvent(Target.GetComponent<SetCharacterUI>().character, enemy.damage));
-                    //EndTurn();
                     return;
 
                 case EnemyAction.Defend:
                     EventQueue.EnqueueEvent(new EnemyDefenceEvent(enemy, enemy.defenceAmount));
                     enemyUI.UpdateDefenceUI();
-                    //EndTurn();
                     return;
             }
         }
@@ -49,11 +46,6 @@ namespace Enemy
 
             return targets[UnityEngine.Random.Range(0, targets.Count)];
 
-        }
-        public void EndTurn()
-        {
-            SelectNextAction();
-            //GameManager.instance.BeginTurn();
         }
         public void SelectNextAction()
         {

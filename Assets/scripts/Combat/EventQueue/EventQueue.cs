@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using Character;
 using Enemy;
 
@@ -10,19 +9,15 @@ public class EventQueue : MonoBehaviour
     private static Queue<GameEvent> eventQueue = new Queue<GameEvent>();
     private static bool isProcessing = false;
     public static EventQueue instance;
-    public Button button;
-    private static Button endTurnButton;
 
     private void Awake()
     {
         instance = this;
         isProcessing = false;
-        endTurnButton = button;
     }
     public void ResetProcessing()
     {
         isProcessing = false;
-        endTurnButton.enabled = true;
         eventQueue.Clear();
     }
     public static void EnqueueEvent(GameEvent gameEvent)
