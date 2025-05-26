@@ -1630,17 +1630,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pooledCards: []
   cardSO:
-  - {fileID: 11400000, guid: 2e201e03ab8589d43aba0da9bcb6ed38, type: 2}
-  - {fileID: 11400000, guid: 2e201e03ab8589d43aba0da9bcb6ed38, type: 2}
-  - {fileID: 11400000, guid: 2e201e03ab8589d43aba0da9bcb6ed38, type: 2}
-  - {fileID: 11400000, guid: 2e201e03ab8589d43aba0da9bcb6ed38, type: 2}
-  - {fileID: 11400000, guid: 2e201e03ab8589d43aba0da9bcb6ed38, type: 2}
-  - {fileID: 11400000, guid: 2e201e03ab8589d43aba0da9bcb6ed38, type: 2}
-  - {fileID: 11400000, guid: 2e201e03ab8589d43aba0da9bcb6ed38, type: 2}
-  - {fileID: 11400000, guid: 2e201e03ab8589d43aba0da9bcb6ed38, type: 2}
-  - {fileID: 11400000, guid: 2e201e03ab8589d43aba0da9bcb6ed38, type: 2}
-  - {fileID: 11400000, guid: 2e201e03ab8589d43aba0da9bcb6ed38, type: 2}
-  - {fileID: 11400000, guid: 2e201e03ab8589d43aba0da9bcb6ed38, type: 2}
+  - {fileID: 11400000, guid: 0f36b209e06d40540aa651fca13fac7c, type: 2}
+  - {fileID: 11400000, guid: 0f36b209e06d40540aa651fca13fac7c, type: 2}
+  - {fileID: 11400000, guid: 0f36b209e06d40540aa651fca13fac7c, type: 2}
+  - {fileID: 11400000, guid: 0f36b209e06d40540aa651fca13fac7c, type: 2}
+  - {fileID: 11400000, guid: 0f36b209e06d40540aa651fca13fac7c, type: 2}
+  - {fileID: 11400000, guid: 95799eb3a1b5c704c8f5498fad2ece7e, type: 2}
+  - {fileID: 11400000, guid: 95799eb3a1b5c704c8f5498fad2ece7e, type: 2}
+  - {fileID: 11400000, guid: 95799eb3a1b5c704c8f5498fad2ece7e, type: 2}
+  - {fileID: 11400000, guid: 95799eb3a1b5c704c8f5498fad2ece7e, type: 2}
+  - {fileID: 11400000, guid: 95799eb3a1b5c704c8f5498fad2ece7e, type: 2}
+  - {fileID: 11400000, guid: e30b3f93467184a4f9259233989b1b10, type: 2}
+  - {fileID: 11400000, guid: e30b3f93467184a4f9259233989b1b10, type: 2}
+  - {fileID: 11400000, guid: e30b3f93467184a4f9259233989b1b10, type: 2}
+  - {fileID: 11400000, guid: e30b3f93467184a4f9259233989b1b10, type: 2}
+  - {fileID: 11400000, guid: e30b3f93467184a4f9259233989b1b10, type: 2}
   cardToPool: {fileID: 6792751333631855732, guid: 7a54b87609f36f0439e7024b6b97bfe0, type: 3}
   cardParent: {fileID: 1098776580}
 --- !u!1 &704337340
@@ -2396,7 +2400,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatImagePrefab: {fileID: 6913415549458645158, guid: 70d12008610fc9c4ba89933008e4a1b7, type: 3}
-  combatImage: {fileID: 0}
 --- !u!1 &1374757487
 GameObject:
   m_ObjectHideFlags: 0

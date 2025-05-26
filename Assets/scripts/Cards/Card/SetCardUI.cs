@@ -10,7 +10,7 @@ namespace Card
         public TextMeshProUGUI cardTypeText;
         public TextMeshProUGUI descriptionText;
         public TextMeshProUGUI energyText;
-        private void Awake()
+        private void Start()
         {
             cardTypeText.text = card.cardType.ToString();
             energyText.text = card.cardEnergy.ToString();

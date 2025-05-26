@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa12ba093a358244d9493042f606b8bb, type: 3}
-  m_Name: card
+  m_Name: AttackCard2
   m_EditorClassIdentifier: 
-  cardSprite: {fileID: 21300000, guid: 265eba2ab2abc114284715d1901bc577, type: 3}
-  cardType: 2
-  cardEnergy: 5
-  description: does thing
+  cardSprite: {fileID: 0}
+  cardType: 0
+  cardEnergy: 1
+  description: 
+  damage: 3

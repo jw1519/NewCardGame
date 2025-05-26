@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Character;
+using Enemy;
 
 
 namespace Card
@@ -8,10 +8,15 @@ namespace Card
     [CreateAssetMenu(fileName = "New Card", menuName = "Cards/Attack Card")]
     public class AttackCard : BaseCard
     {
-
-        public override void Use()
+        public int damage;
+        private void Awake()
         {
-            base.Use();
+            description = "the card attacks for " +  damage.ToString();
+        }
+        public override void Use(GameObject target)
+        {
+            BaseEnemy enemy = target.GetComponent<BaseEnemy>();
+            EventQueue.EnqueueEvent(new PlayerAttackEvent(enemy, damage, target.GetComponent<SetEnemyUI>()));
         }
     }
 }

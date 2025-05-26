@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using Character;
 using UnityEngine;
 
 namespace Card
@@ -7,9 +6,15 @@ namespace Card
     [CreateAssetMenu(fileName = "New Card", menuName = "Cards/Defence Card")]
     public class DefenceCard : BaseCard
     {
-        public override void Use()
+        public int defenceAmount;
+        private void Awake()
         {
-            base.Use();
+            description = "the card attacks for " + defenceAmount.ToString();
+        }
+        public override void Use(GameObject target)
+        {
+            BaseCharacter character = target.GetComponent<SetCharacterUI>().character;
+            EventQueue.EnqueueEvent(new PlayerDefenceEvent(character, defenceAmount));
         }
     }
 }

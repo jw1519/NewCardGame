@@ -15,7 +15,7 @@ namespace Card
             Ranged,
             Melee
         }
-        public virtual void Use()
+        public virtual void Use(GameObject target)
         {
             Debug.Log("use card");
         }
