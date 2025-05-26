@@ -57,5 +57,8 @@ public class CombatManager : MonoBehaviour
 
         enemy.GetComponent<EnemyTurn>().StartTurn();
     }
-
+    public void RemoveFromCombat(GameObject character)
+    {
+        combatOrder.Remove(character);
+    }
 }
