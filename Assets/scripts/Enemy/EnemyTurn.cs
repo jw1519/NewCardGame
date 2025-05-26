@@ -29,13 +29,16 @@ namespace Enemy
             {
                 case EnemyAction.Attack:
                     GameObject Target = FindTarget();
-                    EventQueue.EnqueueEvent(new EnemyAttackEvent(Target.GetComponent<SetCharacterUI>().character, enemy.damage));
-                    return;
+                    EventQueue.EnqueueEvent(new EnemyAttackEvent(Target.GetComponent<SetCharacterUI>().character, enemy.damage, enemyUI));
+                    break;
 
                 case EnemyAction.Defend:
-                    EventQueue.EnqueueEvent(new EnemyDefenceEvent(enemy, enemy.defenceAmount));
+                    EventQueue.EnqueueEvent(new EnemyDefenceEvent(enemy, enemy.defenceAmount, enemyUI));
                     enemyUI.UpdateDefenceUI();
-                    return;
+                    break;
+
+                case EnemyAction.Ability:
+                    break;
             }
         }
         public GameObject FindTarget()

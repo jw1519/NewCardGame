@@ -62,11 +62,14 @@ public class EventQueue : MonoBehaviour
         else if (gameEvent is EnemyAttackEvent enemyAttack)
         {
             ApplyDamage(enemyAttack.Target, enemyAttack.Damage);
+            enemyAttack.Target.gameObject.GetComponent<SetCharacterUI>().UpdateHealthUI();
+            enemyAttack.Target.gameObject.GetComponent<SetCharacterUI>().UpdateDefenceUI();
             yield return new WaitForSeconds(1); //do animation here
         }
         else if (gameEvent is EnemyDefenceEvent enemyDefence)
         {
             enemyDefence.Target.defence = enemyDefence.Target.defenceAmount;
+            enemyDefence.EnemyUI.UpdateDefenceUI();
             yield return new WaitForSeconds(1);
         }
     }

@@ -949,7 +949,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 979024297}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: EnemyTurn
+        m_MethodName: EndPlayerTurn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1580,6 +1580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3aa68d8146ba864dbff9882a44f30bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endTurnButton: {fileID: 470624381}
   combatOrder:
   - {fileID: 153599557}
   - {fileID: 567812476}
