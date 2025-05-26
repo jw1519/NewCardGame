@@ -30,7 +30,7 @@ namespace Card
         }
         public void DrawCards()
         {
-            //DiscardCards();
+            DiscardCards();
             if (cardsInDeck.Count >= startingCardsInHand)
             {
                 for (int i = 0; i < startingCardsInHand; i++)

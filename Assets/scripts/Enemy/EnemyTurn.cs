@@ -40,6 +40,7 @@ namespace Enemy
                 case EnemyAction.Ability:
                     break;
             }
+            StartCoroutine(CombatManager.instance.StartCombat());
         }
         public GameObject FindTarget()
         {

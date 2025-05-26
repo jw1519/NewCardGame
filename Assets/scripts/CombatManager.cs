@@ -40,6 +40,7 @@ public class CombatManager : MonoBehaviour
                 PlayerTurn(Target);
             }
             currentCombatIndex = (currentCombatIndex + 1) % combatOrder.Count; // moves to the next in the list and wraps around
+
         }
     }
     public void PlayerTurn(GameObject player)
