@@ -40,6 +40,7 @@ namespace Card
                     {
                         RandomCard.gameObject.SetActive(true);
                         RandomCard.transform.SetParent(hand.transform);
+                        cardsInHand.Add(RandomCard);
                         StartCoroutine(hand.AddCard(RandomCard));
                         cardsInDeck.Remove(RandomCard);
                     }

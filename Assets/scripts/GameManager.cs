@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     }
     public void EndPlayerTurn()
     {
+        CardManager.instance.DiscardCards();
         StartCoroutine(CombatManager.instance.StartCombat());
     }
 }

@@ -11,6 +11,7 @@ public class CombatManager : MonoBehaviour
 {
     public static CombatManager instance;
     public Button endTurnButton;
+    CombatPanel combatPanel;
 
     public List<GameObject> combatOrder;
     int currentCombatIndex = 0;
@@ -21,6 +22,10 @@ public class CombatManager : MonoBehaviour
         {
             instance = this;
         }
+    }
+    private void Start()
+    {
+        combatPanel = UIManager.instance.panelList.Find(instance => instance.GetComponent<CombatPanel>() != null).GetComponent<CombatPanel>();
     }
 
     public IEnumerator StartCombat()
@@ -52,13 +57,16 @@ public class CombatManager : MonoBehaviour
     }
     public void EnemyTurn(GameObject enemy)
     {
+        combatPanel.UpdateCombatOrder();
         endTurnButton.GetComponentInChildren<TextMeshProUGUI>().text = "Enemy Turn";
         endTurnButton.enabled = false;
 
         enemy.GetComponent<EnemyTurn>().StartTurn();
+        combatPanel.UpdateCombatOrder();
     }
     public void RemoveFromCombat(GameObject character)
     {
         combatOrder.Remove(character);
+        combatPanel.RemoveFromCombat(character);
     }
 }
