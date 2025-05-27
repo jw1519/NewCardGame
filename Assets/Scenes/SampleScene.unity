@@ -1280,6 +1280,7 @@ MonoBehaviour:
   defence: 0
   energy: 5
   maxEnergy: 5
+  type: 0
 --- !u!1 &602714449 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5151422335524410621, guid: 52f3532a57e2c034baca7e7f8d75d844, type: 3}
@@ -3208,6 +3209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8be15a75c303b5d43a99b6404c97c258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterList: []
   cardSelected: {fileID: 0}
 --- !u!1 &2105656238
 GameObject:

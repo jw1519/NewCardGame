@@ -14,8 +14,15 @@ namespace Character
         public int defence;
         public int energy;
         public int maxEnergy;
+        public CharcterType type;
         public bool isAlive => health > 0;
 
+        public enum CharcterType
+        {
+            Melee,
+            Ranged,
+            Magic
+        }
         public void Heal(int healAmount)
         {
             if (health + healAmount <= maxHealth)

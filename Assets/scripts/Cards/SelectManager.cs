@@ -1,11 +1,14 @@
 using UnityEngine;
 using Enemy;
+using System.Collections.Generic;
+using Character;
 
 namespace Card
 {
     public class SelectManager : MonoBehaviour
     {
         public static SelectManager instance;
+        public List<BaseCharacter> characterList;
         [HideInInspector] public SetCardUI cardSelected;
 
         private void Awake()
@@ -39,6 +42,14 @@ namespace Card
             else
             {
                 Debug.Log("Choose Card to play");
+            }
+        }
+        public void SelectCharacter(BaseCharacter charcter)
+        {
+            BaseCharacter baseCharacter = characterList.Find(instance => instance.type.ToString() == cardSelected.card.cardType.ToString());
+            if (baseCharacter != null)
+            {
+
             }
         }
     }
