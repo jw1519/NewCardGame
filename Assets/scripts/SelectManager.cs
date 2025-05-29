@@ -33,11 +33,18 @@ namespace Card
             cardSelected = null;
             SelectCard(card);
         }
+        public void SelectPlayer(GameObject character)
+        {
+            if (cardSelected != null)
+            {
+                cardSelected.card.Use(character);
+            }
+        }
         public void SelectEnemy(BaseEnemy enemy)
         {
             if (cardSelected != null)
             {
-                Debug.Log("Attack enemy");
+                cardSelected.card.Use(enemy.gameObject);
             }
             else
             {

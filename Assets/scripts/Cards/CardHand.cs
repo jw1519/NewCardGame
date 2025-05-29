@@ -3,9 +3,10 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Splines;
 
-public class CardHand : MonoBehaviour
+public class CardHand : MonoBehaviour, IDropHandler
 {
     public List<GameObject> cards = new();
     public SplineContainer splineContainer;
@@ -36,4 +37,9 @@ public class CardHand : MonoBehaviour
         }
         yield return new WaitForSeconds(duration);
     }
+    public void OnDrop(PointerEventData eventData)
+    {
+        StartCoroutine(UpdateCardPositions(0.15f));
+    }
+
 }

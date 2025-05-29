@@ -8,11 +8,9 @@ namespace Card
     {
         int index;
         Transform parent;
-        public Outline outline;
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            outline.enabled = true;
             index = transform.GetSiblingIndex();
             parent = transform.parent;
             transform.SetParent(transform.root);
@@ -20,7 +18,6 @@ namespace Card
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            outline.enabled = false;
             transform.SetParent(parent);
             transform.SetSiblingIndex(index);
         }
@@ -28,7 +25,6 @@ namespace Card
         {
             if (enabled)
             {
-                outline.enabled = true;
                 index = transform.GetSiblingIndex();
                 parent = transform.parent;
                 transform.SetParent(transform.root);
@@ -43,7 +39,6 @@ namespace Card
         }
         public void Deselect()
         {
-            outline.enabled = false;
             transform.SetParent(parent);
             transform.SetSiblingIndex(index);
             enabled = true;
