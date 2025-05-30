@@ -6,7 +6,7 @@ using Enemy;
 namespace Card
 {
     [CreateAssetMenu(fileName = "New Card", menuName = "Cards/Attack Card")]
-    public class AttackCard : BaseCard
+    public class AttackCard : BaseCard, IAttack
     {
         public int damage;
         private void Awake()

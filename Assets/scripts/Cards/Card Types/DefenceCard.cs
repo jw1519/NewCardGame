@@ -9,7 +9,7 @@ namespace Card
         public int defenceAmount;
         private void Awake()
         {
-            description = "the card attacks for " + defenceAmount.ToString();
+            description = "the card defends for " + defenceAmount.ToString();
         }
         public override void Use(GameObject target)
         {
