@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DefenceCard
   m_EditorClassIdentifier: 
   cardSprite: {fileID: 0}
-  cardType: 0
+  cardType: 2
   cardEnergy: 1
-  description: 
+  description: the card defends for 5
   defenceAmount: 5

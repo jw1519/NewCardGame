@@ -30,7 +30,7 @@ namespace Card
         }
         public void DrawCards()
         {
-            DiscardCards();
+            DiscardAllCards();
             if (cardsInDeck.Count >= startingCardsInHand)
             {
                 for (int i = 0; i < startingCardsInHand; i++)
@@ -58,7 +58,7 @@ namespace Card
             }
         }
         //discard any unused cards when turn ends
-        public void DiscardCards()
+        public void DiscardAllCards()
         {
             // add all cards in hand to discard list
             foreach (GameObject card in cardsInHand)
@@ -76,6 +76,10 @@ namespace Card
             cardsInHand.Clear();
             hand.cards.Clear();
         }
-
+        public void DiscardCard(GameObject card)
+        {
+            card.transform.parent = discardedCardParent;
+            cardsInHand.Remove(card);
+        }
     }
 }

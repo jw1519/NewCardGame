@@ -19,7 +19,8 @@ namespace Card
                 {
                     eventData.pointerDrag.transform.SetParent(transform, false);
                     cardHand.cards.Remove(eventData.pointerDrag);
-                    //eventData.pointerDrag.GetComponent<SetCardUI>().card.Use();
+                    CardManager.instance.cardsInHand.Remove(eventData.pointerDrag);
+                    SelectManager.instance.SelectCard(eventData.pointerDrag);
                 }
             }
         }

@@ -21,27 +21,5 @@ namespace Card
             transform.SetParent(parent);
             transform.SetSiblingIndex(index);
         }
-        public void OnClick()
-        {
-            if (enabled)
-            {
-                index = transform.GetSiblingIndex();
-                parent = transform.parent;
-                transform.SetParent(transform.root);
-                SelectManager.instance.SelectCard(gameObject);
-                enabled = false;
-            }
-            else
-            {
-                Deselect();
-                SelectManager.instance.cardSelected = null;
-            }
-        }
-        public void Deselect()
-        {
-            transform.SetParent(parent);
-            transform.SetSiblingIndex(index);
-            enabled = true;
-        }
     }
 }
