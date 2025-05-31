@@ -291,7 +291,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 8}
+  m_AnchoredPosition: {x: 0, y: -19}
   m_SizeDelta: {x: 423.659, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &153599557
@@ -304,9 +304,9 @@ GameObject:
   m_Component:
   - component: {fileID: 153599558}
   - component: {fileID: 153599559}
-  - component: {fileID: 153599560}
   - component: {fileID: 153599563}
   - component: {fileID: 153599562}
+  - component: {fileID: 153599564}
   - component: {fileID: 153599561}
   m_Layer: 5
   m_Name: Enemy
@@ -332,8 +332,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 696.5737, y: 257.56427}
-  m_SizeDelta: {x: 161.1473, y: 215.1285}
+  m_AnchoredPosition: {x: 696.5737, y: 206.10638}
+  m_SizeDelta: {x: 161.1473, y: 112.2128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &153599559
 MonoBehaviour:
@@ -354,29 +354,6 @@ MonoBehaviour:
   defenceIcon: {fileID: 602714449}
   actionSprite: {fileID: 1374757489}
   actionText: {fileID: 793738200}
---- !u!114 &153599560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153599557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be8c04c2af0d9fd4d8b658d75c16abfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemySprite: {fileID: 21300000, guid: 30a64e91fb6af3d4eb4d7c8280e3aca8, type: 3}
-  action: 0
-  attackSprite: {fileID: 21300000, guid: 300675427539b7842a89d514aaa349cd, type: 3}
-  defenceSprite: {fileID: 21300000, guid: c07d8f2ef21dc634395f674f8766dcf6, type: 3}
-  abilitySprite: {fileID: 21300000, guid: 0ad037c82e017d7429742ed757e5dafa, type: 3}
-  enemyName: goblin
-  health: 20
-  damage: 5
-  maxHealth: 20
-  defence: 0
-  defenceAmount: 5
 --- !u!114 &153599561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,6 +434,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6256b51d3d061cc498d780343435379f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &153599564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153599557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a813adb1208e0542b644b931f2611aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySprite: {fileID: 1723246168, guid: 68e5930774b0b8c42bc44af5e243f9ad, type: 3}
+  action: 0
+  attackSprite: {fileID: 21300000, guid: 300675427539b7842a89d514aaa349cd, type: 3}
+  defenceSprite: {fileID: 21300000, guid: c07d8f2ef21dc634395f674f8766dcf6, type: 3}
+  abilitySprite: {fileID: 21300000, guid: 0ad037c82e017d7429742ed757e5dafa, type: 3}
+  enemyName: Slime
+  health: 10
+  damage: 2
+  maxHealth: 10
+  defence: 0
+  defenceAmount: 3
 --- !u!1 &242211019
 GameObject:
   m_ObjectHideFlags: 0
@@ -2934,7 +2934,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 52}
+  m_AnchoredPosition: {x: 0, y: 84}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1496588479
@@ -2948,6 +2948,7 @@ GameObject:
   - component: {fileID: 1496588480}
   - component: {fileID: 1496588482}
   - component: {fileID: 1496588481}
+  - component: {fileID: 1496588483}
   m_Layer: 5
   m_Name: EnemySprite
   m_TagString: Untagged
@@ -2996,8 +2997,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 30a64e91fb6af3d4eb4d7c8280e3aca8, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 1723246168, guid: 68e5930774b0b8c42bc44af5e243f9ad, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3014,6 +3015,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1496588479}
   m_CullTransparentMesh: 1
+--- !u!95 &1496588483
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496588479}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a12c69b8ca30eb84fb06e32663166b36, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1626973967
 GameObject:
   m_ObjectHideFlags: 0
