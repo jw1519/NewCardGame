@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IdleSlimeSpriteSheet_0
+      name: Idle_01
       rect:
         serializedVersion: 2
         x: 29
@@ -118,7 +118,7 @@ TextureImporter:
         width: 41
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -131,7 +131,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IdleSlimeSpriteSheet_1
+      name: Idle_02
       rect:
         serializedVersion: 2
         x: 129
@@ -139,7 +139,7 @@ TextureImporter:
         width: 41
         height: 27
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,7 +152,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IdleSlimeSpriteSheet_2
+      name: Idle_03
       rect:
         serializedVersion: 2
         x: 230
@@ -160,7 +160,7 @@ TextureImporter:
         width: 39
         height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,7 +173,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IdleSlimeSpriteSheet_3
+      name: Idle_04
       rect:
         serializedVersion: 2
         x: 329
@@ -181,7 +181,7 @@ TextureImporter:
         width: 41
         height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,7 +194,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IdleSlimeSpriteSheet_4
+      name: Idle_05
       rect:
         serializedVersion: 2
         x: 429
@@ -202,7 +202,7 @@ TextureImporter:
         width: 41
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -215,7 +215,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IdleSlimeSpriteSheet_5
+      name: Idle_06
       rect:
         serializedVersion: 2
         x: 529
@@ -223,7 +223,7 @@ TextureImporter:
         width: 41
         height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -246,12 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      IdleSlimeSpriteSheet_0: 1723246168
-      IdleSlimeSpriteSheet_1: 222033876
-      IdleSlimeSpriteSheet_2: 1389114601
-      IdleSlimeSpriteSheet_3: 251778208
-      IdleSlimeSpriteSheet_4: -1406127786
-      IdleSlimeSpriteSheet_5: 63042946
+      Idle_01: 1723246168
+      Idle_02: 222033876
+      Idle_03: 1389114601
+      Idle_04: 251778208
+      Idle_05: -1406127786
+      Idle_06: 63042946
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

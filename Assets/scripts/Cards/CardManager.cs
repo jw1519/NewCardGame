@@ -39,7 +39,7 @@ namespace Card
                     if (RandomCard != null)
                     {
                         RandomCard.gameObject.SetActive(true);
-                        RandomCard.transform.SetParent(hand.transform);
+                        RandomCard.transform.SetParent(hand.transform, false);
                         cardsInHand.Add(RandomCard);
                         StartCoroutine(hand.AddCard(RandomCard));
                         cardsInDeck.Remove(RandomCard);
@@ -69,7 +69,7 @@ namespace Card
             for (int i = hand.transform.childCount - 1; i >= 0; i--)
             {
                 Transform child = hand.transform.GetChild(i);
-                child.SetParent(discardedCardParent);
+                child.SetParent(discardedCardParent, false);
                 child.gameObject.SetActive(false);
             }
             //discard any cards left in lists
@@ -78,7 +78,7 @@ namespace Card
         }
         public void DiscardCard(GameObject card)
         {
-            card.transform.parent = discardedCardParent;
+            card.transform.SetParent(discardedCardParent, false);
             cardsInHand.Remove(card);
         }
     }

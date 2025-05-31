@@ -41,6 +41,10 @@ namespace Card
                     CardManager.instance.DiscardCard(cardSelected.gameObject);
                     cardSelected = null;
                 }
+                else
+                {
+                    Debug.Log("Select Character to defend");
+                }
             }
         }
     }
