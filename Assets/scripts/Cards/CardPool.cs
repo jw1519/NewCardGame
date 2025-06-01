@@ -31,7 +31,6 @@ namespace Card
             {
                 gameObject = Instantiate(cardToPool);
                 gameObject.GetComponent<SetCardUI>().card = Instantiate(card);
-                gameObject.SetActive(false);
                 gameObject.transform.SetParent(cardParent);
                 pooledCards.Add(gameObject);
             }
