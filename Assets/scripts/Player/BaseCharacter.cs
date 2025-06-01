@@ -23,6 +23,10 @@ namespace Character
             Ranged,
             Magic
         }
+        public virtual void Start()
+        {
+            CombatManager.instance.AddToCombat(gameObject);
+        }
         public void Heal(int healAmount)
         {
             if (health + healAmount <= maxHealth)

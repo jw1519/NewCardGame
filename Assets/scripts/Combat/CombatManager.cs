@@ -1,5 +1,4 @@
 using Card;
-using Character;
 using Enemy;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,9 +22,10 @@ public class CombatManager : MonoBehaviour
             instance = this;
         }
     }
-    private void Start()
+
+    public void AddToCombat(GameObject character)
     {
-        combatPanel = UIManager.instance.panelList.Find(instance => instance.GetComponent<CombatPanel>() != null).GetComponent<CombatPanel>();
+        combatOrder.Add(character);
     }
 
     public IEnumerator StartCombat()
@@ -61,7 +61,7 @@ public class CombatManager : MonoBehaviour
         endTurnButton.GetComponentInChildren<TextMeshProUGUI>().text = "Enemy Turn";
         endTurnButton.enabled = false;
 
-        enemy.GetComponent<EnemyTurn>().StartTurn();
+        enemy.GetComponent<EnemyCombat>().StartTurn();
         combatPanel.UpdateCombatOrder();
     }
     public void RemoveFromCombat(GameObject character)

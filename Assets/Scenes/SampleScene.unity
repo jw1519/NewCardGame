@@ -1766,9 +1766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endTurnButton: {fileID: 470624381}
-  combatOrder:
-  - {fileID: 153599557}
-  - {fileID: 567812476}
+  combatOrder: []
 --- !u!1 &679945520
 GameObject:
   m_ObjectHideFlags: 0

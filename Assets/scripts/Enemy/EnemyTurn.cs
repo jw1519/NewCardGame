@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Enemy
 {
-    public class EnemyTurn : MonoBehaviour
+    public class EnemyCombat : MonoBehaviour
     {
         BaseEnemy enemy;
         SetEnemyUI enemyUI;
@@ -20,6 +20,7 @@ namespace Enemy
         private void Start()
         {
             SelectNextAction();
+            CombatManager.instance.AddToCombat(gameObject);
         }
         public void StartTurn()
         {
@@ -38,6 +39,7 @@ namespace Enemy
                     break;
 
                 case EnemyAction.Ability:
+                    Debug.Log("Ability used");
                     break;
             }
             StartCoroutine(CombatManager.instance.StartCombat());
