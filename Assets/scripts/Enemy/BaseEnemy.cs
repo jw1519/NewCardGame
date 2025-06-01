@@ -1,3 +1,4 @@
+using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Enemy
@@ -5,6 +6,8 @@ namespace Enemy
     public abstract class BaseEnemy : MonoBehaviour, ITakeDamage, IHeal
     {
         public Sprite enemySprite;
+        public AnimatorController controller;
+
         [Header("actions")]
         public EnemyAction action;
         public Sprite attackSprite;

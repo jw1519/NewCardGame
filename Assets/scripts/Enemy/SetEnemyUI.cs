@@ -31,15 +31,8 @@ namespace Enemy
             healthSlider.value = enemy.health;
 
             SetEnemySprite(enemy.enemySprite);
+            spriteObject.GetComponent<Animator>().runtimeAnimatorController = enemy.controller;
         }
-        private void Update()
-        {
-            if (!enemy.isAlive)
-            {
-                DisableUI();
-            }
-        }
-
         public void UpdateHealthUI()
         {
             healthText.text = enemy.health.ToString() + "/" + enemy.maxHealth.ToString();
@@ -47,6 +40,10 @@ namespace Enemy
             if (healthSlider.maxValue != enemy.maxHealth)
             {
                 healthSlider.maxValue = enemy.maxHealth;
+            }
+            if (!enemy.isAlive)
+            {
+                DisableUI();
             }
         }
         public void UpdateDefenceUI()
@@ -57,8 +54,6 @@ namespace Enemy
             }
             defenceText.text = enemy.defence.ToString();
         }
-
-
         public void UpdateActionUI(EnemyAction action)
         {
             switch (action)
@@ -89,6 +84,8 @@ namespace Enemy
             {
                 child.gameObject.SetActive(false);
             }
+            spriteObject.GetComponent<Animator>().SetBool("isAlive", false);
+            GetComponent<Button>().enabled = false;
         }
     }
 }
