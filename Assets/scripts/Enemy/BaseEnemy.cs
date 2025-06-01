@@ -24,14 +24,6 @@ namespace Enemy
 
          public bool isAlive => health > 0;
 
-        private void Update()
-        {
-            if (!isAlive)
-            {
-                Debug.Log("Enemy is dead");
-            }
-        }
-
         public enum EnemyAction
         {
             Attack,
