@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 68e5930774b0b8c42bc44af5e243f9ad
+guid: 3081575c83401b44d8585ff663ecea31
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 10
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,127 +110,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle_01
+      name: SlimeDyingSprites_0
       rect:
         serializedVersion: 2
         x: 29
         y: 38
-        width: 41
-        height: 30
+        width: 48
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1019d050ccba1374ab0b4c433dff4671
-      internalID: 1723246168
+      spriteID: f06a505251490874cbe26e3a0b9ffc0f
+      internalID: 107496394
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_02
+      name: SlimeDyingSprites_1
       rect:
         serializedVersion: 2
-        x: 129
-        y: 38
-        width: 41
-        height: 30
+        x: 126
+        y: 37
+        width: 48
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b3523f4d54c34b48b5126510a9c0ae9
-      internalID: 222033876
+      spriteID: 129f82cebcc15e941a8b30cf3169c5ac
+      internalID: 345399632
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_03
+      name: SlimeDyingSprites_2
       rect:
         serializedVersion: 2
-        x: 229
-        y: 38
-        width: 41
-        height: 30
+        x: 226
+        y: 37
+        width: 48
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fb80726c2daa1241aad625ffea7bb49
-      internalID: 1389114601
+      spriteID: b3318a548a4c9a649b7c7423d8c355ba
+      internalID: -68076249
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_04
+      name: SlimeDyingSprites_3
       rect:
         serializedVersion: 2
         x: 329
-        y: 38
-        width: 41
-        height: 30
+        y: 37
+        width: 48
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c8476351c5472a4cb7040e06f667faf
-      internalID: 251778208
+      spriteID: cd304dd0194136e4c8ae1e412183b563
+      internalID: -1037960701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_05
+      name: SlimeDyingSprites_4
       rect:
         serializedVersion: 2
         x: 429
-        y: 38
-        width: 41
-        height: 30
+        y: 37
+        width: 48
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ead9651c280a054d995d4213a99f94e
-      internalID: -1406127786
+      spriteID: 41c60bbffd863d245ae2887638515d11
+      internalID: -1528719247
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_06
+      name: SlimeDyingSprites_5
       rect:
         serializedVersion: 2
         x: 529
-        y: 38
-        width: 41
-        height: 30
+        y: 37
+        width: 48
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b8d701472749024680d0f550bfd1488
-      internalID: 63042946
+      spriteID: 6386f5b58b9d96b408d0d92e2c81c93d
+      internalID: -895889996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlimeDyingSprites_6
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 37
+        width: 48
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8070aafb7dd710c4cb6c6ec2488ae162
+      internalID: -172146361
       vertices: []
       indices: 
       edges: []
@@ -246,12 +267,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Idle_01: 1723246168
-      Idle_02: 222033876
-      Idle_03: 1389114601
-      Idle_04: 251778208
-      Idle_05: -1406127786
-      Idle_06: 63042946
+      SlimeDyingSprites_0: 107496394
+      SlimeDyingSprites_1: 345399632
+      SlimeDyingSprites_2: -68076249
+      SlimeDyingSprites_3: -1037960701
+      SlimeDyingSprites_4: -1528719247
+      SlimeDyingSprites_5: -895889996
+      SlimeDyingSprites_6: -172146361
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

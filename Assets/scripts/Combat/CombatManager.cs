@@ -21,6 +21,7 @@ public class CombatManager : MonoBehaviour
         {
             instance = this;
         }
+        combatPanel = FindAnyObjectByType<CombatPanel>();
     }
 
     public void AddToCombat(GameObject character)

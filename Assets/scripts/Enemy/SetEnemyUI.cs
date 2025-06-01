@@ -32,6 +32,13 @@ namespace Enemy
 
             SetEnemySprite(enemy.enemySprite);
         }
+        private void Update()
+        {
+            if (!enemy.isAlive)
+            {
+                DisableUI();
+            }
+        }
 
         public void UpdateHealthUI()
         {
@@ -54,7 +61,7 @@ namespace Enemy
 
         public void UpdateActionUI(EnemyAction action)
         {
-            switch (enemy.action)
+            switch (action)
             {
                 case EnemyAction.Attack:
                     actionSprite.sprite = enemy.attackSprite;
@@ -75,6 +82,13 @@ namespace Enemy
         public void SetEnemySprite(Sprite sprite)
         {
             spriteObject.sprite = sprite;
+        }
+        public void DisableUI()
+        {
+            foreach (Transform child in spriteObject.transform)
+            {
+                child.gameObject.SetActive(false);
+            }
         }
     }
 }

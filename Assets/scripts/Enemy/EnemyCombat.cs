@@ -43,6 +43,7 @@ namespace Enemy
                     break;
             }
             StartCoroutine(CombatManager.instance.StartCombat());
+            SelectNextAction();
         }
         public GameObject FindTarget()
         {

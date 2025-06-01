@@ -21,6 +21,14 @@ namespace Enemy
 
          public bool isAlive => health > 0;
 
+        private void Update()
+        {
+            if (!isAlive)
+            {
+                Debug.Log("Enemy is dead");
+            }
+        }
+
         public enum EnemyAction
         {
             Attack,
@@ -61,6 +69,7 @@ namespace Enemy
             }
             else
             {
+                health = 0;
                 //character dies
                 //check if all enemies are dead
             }

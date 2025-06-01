@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SlimeAttackSpriteSheet_0
+      name: SlimeAttack_0
       rect:
         serializedVersion: 2
         x: 29
         y: 38
         width: 51
-        height: 30
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,13 +131,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttackSpriteSheet_1
+      name: SlimeAttack_01
       rect:
         serializedVersion: 2
         x: 129
         y: 38
         width: 51
-        height: 30
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,13 +152,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttackSpriteSheet_2
+      name: SlimeAttack_02
       rect:
         serializedVersion: 2
         x: 235
         y: 38
         width: 51
-        height: 30
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,13 +173,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttackSpriteSheet_3
+      name: SlimeAttack_03
       rect:
         serializedVersion: 2
         x: 326
-        y: 41
+        y: 38
         width: 51
-        height: 30
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,13 +194,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttackSpriteSheet_4
+      name: SlimeAttack_04
       rect:
         serializedVersion: 2
         x: 414
-        y: 42
+        y: 38
         width: 51
-        height: 30
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,13 +215,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttackSpriteSheet_5
+      name: SlimeAttack_05
       rect:
         serializedVersion: 2
         x: 513
-        y: 43
+        y: 38
         width: 51
-        height: 30
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,13 +236,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttackSpriteSheet_6
+      name: SlimeAttack_06
       rect:
         serializedVersion: 2
         x: 613
-        y: 43
+        y: 38
         width: 51
-        height: 30
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,13 +257,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttackSpriteSheet_7
+      name: SlimeAttack_07
       rect:
         serializedVersion: 2
         x: 712
-        y: 43
+        y: 38
         width: 51
-        height: 30
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,13 +278,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttackSpriteSheet_8
+      name: SlimeAttack_08
       rect:
         serializedVersion: 2
         x: 813
-        y: 43
+        y: 38
         width: 51
-        height: 30
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -299,13 +299,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttackSpriteSheet_9
+      name: SlimeAttack_09
       rect:
         serializedVersion: 2
         x: 913
-        y: 43
+        y: 38
         width: 51
-        height: 30
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -320,13 +320,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttackSpriteSheet_10
+      name: SlimeAttack_10
       rect:
         serializedVersion: 2
         x: 1013
-        y: 43
+        y: 38
         width: 51
-        height: 30
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -341,13 +341,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttackSpriteSheet_11
+      name: SlimeAttack_11
       rect:
         serializedVersion: 2
         x: 1113
         y: 38
         width: 51
-        height: 30
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -362,13 +362,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttackSpriteSheet_12
+      name: SlimeAttack_12
       rect:
         serializedVersion: 2
         x: 1212
         y: 38
         width: 51
-        height: 30
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -383,13 +383,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttackSpriteSheet_13
+      name: SlimeAttack_13
       rect:
         serializedVersion: 2
         x: 1329
         y: 38
         width: 51
-        height: 30
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -414,20 +414,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SlimeAttackSpriteSheet_0: 1337312374
-      SlimeAttackSpriteSheet_1: -475482044
-      SlimeAttackSpriteSheet_10: -886122907
-      SlimeAttackSpriteSheet_11: -717222132
-      SlimeAttackSpriteSheet_12: -64159654
-      SlimeAttackSpriteSheet_13: -2021422723
-      SlimeAttackSpriteSheet_2: 1577843767
-      SlimeAttackSpriteSheet_3: -1037790879
-      SlimeAttackSpriteSheet_4: -2050503788
-      SlimeAttackSpriteSheet_5: 2062734554
-      SlimeAttackSpriteSheet_6: -783024804
-      SlimeAttackSpriteSheet_7: 518322028
-      SlimeAttackSpriteSheet_8: 530034932
-      SlimeAttackSpriteSheet_9: -560853370
+      SlimeAttack_0: 1337312374
+      SlimeAttack_01: -475482044
+      SlimeAttack_02: 1577843767
+      SlimeAttack_03: -1037790879
+      SlimeAttack_04: -2050503788
+      SlimeAttack_05: 2062734554
+      SlimeAttack_06: -783024804
+      SlimeAttack_07: 518322028
+      SlimeAttack_08: 530034932
+      SlimeAttack_09: -560853370
+      SlimeAttack_10: -886122907
+      SlimeAttack_11: -717222132
+      SlimeAttack_12: -64159654
+      SlimeAttack_13: -2021422723
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

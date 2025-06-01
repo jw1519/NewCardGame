@@ -26,9 +26,12 @@ namespace Card
         {
             if (cardSelected != null)
             {
-                cardSelected.card.Use(character);
-                CardManager.instance.DiscardCard(cardSelected.gameObject);
-                cardSelected = null;
+                if (cardSelected is IDefence)
+                {
+                    cardSelected.card.Use(character);
+                    CardManager.instance.DiscardCard(cardSelected.gameObject);
+                    cardSelected = null;
+                }
             }
         }
         public void SelectEnemy(BaseEnemy enemy)
@@ -43,7 +46,7 @@ namespace Card
                 }
                 else
                 {
-                    Debug.Log("Select Character to defend");
+                    Debug.Log("Select Character");
                 }
             }
         }
