@@ -11,9 +11,10 @@ namespace Card
 
         public enum CardType
         {
-            Magic,
-            Ranged,
-            Melee
+            Attack,
+            Defence,
+            Heal,
+            Ability
         }
         public virtual void Use(GameObject target)
         {

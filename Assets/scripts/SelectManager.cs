@@ -26,7 +26,7 @@ namespace Card
         {
             if (cardSelected != null)
             {
-                if (cardSelected is IDefence)
+                if (cardSelected.card.cardType == BaseCard.CardType.Defence)
                 {
                     cardSelected.card.Use(character);
                     CardManager.instance.DiscardCard(cardSelected.gameObject);
@@ -38,7 +38,7 @@ namespace Card
         {
             if (cardSelected != null)
             {
-                if (cardSelected is IDefence == false)
+                if (cardSelected.card.cardType == BaseCard.CardType.Attack)
                 {
                     cardSelected.card.Use(enemy.gameObject);
                     CardManager.instance.DiscardCard(cardSelected.gameObject);
