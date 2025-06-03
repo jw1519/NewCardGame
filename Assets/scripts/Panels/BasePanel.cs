@@ -6,7 +6,7 @@ public abstract class BasePanel : MonoBehaviour
     {
         UIManager.instance.RegisterPanels(this);
     }
-    public void OpenPanel()
+    public virtual void OpenPanel()
     {
         gameObject.SetActive(true);
     }

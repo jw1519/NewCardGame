@@ -539,7 +539,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 242211022}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 639379987}
+        m_TargetAssemblyTypeName: BasePanel, Assembly-CSharp
+        m_MethodName: ClosePanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &242211022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1400,7 +1412,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 559026678}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 624867197}
+        m_TargetAssemblyTypeName: PilePanels, Assembly-CSharp
+        m_MethodName: OpenPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &559026678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1639,6 +1663,7 @@ GameObject:
   - component: {fileID: 624867196}
   - component: {fileID: 624867195}
   - component: {fileID: 624867194}
+  - component: {fileID: 624867197}
   m_Layer: 5
   m_Name: DiscardedCardsScroll
   m_TagString: Untagged
@@ -1735,6 +1760,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624867192}
   m_CullTransparentMesh: 1
+--- !u!114 &624867197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624867192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0da7a2d2cc4624b8f3fa77caa6693c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: {fileID: 2105656239}
 --- !u!1 &639379982
 GameObject:
   m_ObjectHideFlags: 0
@@ -1747,6 +1785,7 @@ GameObject:
   - component: {fileID: 639379986}
   - component: {fileID: 639379985}
   - component: {fileID: 639379984}
+  - component: {fileID: 639379987}
   m_Layer: 5
   m_Name: DeckCardsScroll
   m_TagString: Untagged
@@ -1818,7 +1857,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1843,6 +1882,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 639379982}
   m_CullTransparentMesh: 1
+--- !u!114 &639379987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639379982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0da7a2d2cc4624b8f3fa77caa6693c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: {fileID: 1098776580}
 --- !u!1 &652769022
 GameObject:
   m_ObjectHideFlags: 0
@@ -2222,10 +2274,10 @@ RectTransform:
   - {fileID: 1098776580}
   m_Father: {fileID: 639379983}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -17}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -516.71893, y: -8.5}
+  m_SizeDelta: {x: 1033.4379, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &906161820
 MonoBehaviour:
@@ -2935,7 +2987,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1455757193}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 624867197}
+        m_TargetAssemblyTypeName: BasePanel, Assembly-CSharp
+        m_MethodName: ClosePanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1455757193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3425,10 +3489,10 @@ RectTransform:
   - {fileID: 2105656239}
   m_Father: {fileID: 624867193}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -17}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -514.2, y: 0}
+  m_SizeDelta: {x: 1028.4, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1748400872
 MonoBehaviour:
@@ -3562,7 +3626,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1783513080}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 639379987}
+        m_TargetAssemblyTypeName: PilePanels, Assembly-CSharp
+        m_MethodName: OpenPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1783513080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3946,6 +4022,10 @@ PrefabInstance:
     - target: {fileID: 203037420188088079, guid: 52f3532a57e2c034baca7e7f8d75d844, type: 3}
       propertyPath: m_Name
       value: Defence
+      objectReference: {fileID: 0}
+    - target: {fileID: 203037420188088079, guid: 52f3532a57e2c034baca7e7f8d75d844, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4672519741121698091, guid: 52f3532a57e2c034baca7e7f8d75d844, type: 3}
       propertyPath: m_Pivot.x

@@ -43,6 +43,8 @@ namespace Card
                         cardsInHand.Add(RandomCard);
                         StartCoroutine(hand.AddCard(RandomCard));
                         cardsInDeck.Remove(RandomCard);
+                        RandomCard.GetComponent<Hover>().enabled = true;
+                        RandomCard.GetComponent<DragAndDrop>().enabled = true;
                     }
                 }
             }
