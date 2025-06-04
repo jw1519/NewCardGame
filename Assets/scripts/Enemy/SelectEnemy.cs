@@ -5,11 +5,11 @@ namespace Enemy
 {
     public class SelectEnemy : MonoBehaviour
     {
-        BaseEnemy enemy;
+        SetEnemyUI enemy;
 
         private void Awake()
         {
-            enemy = GetComponent<BaseEnemy>();
+            enemy = GetComponent<SetEnemyUI>();
         }
         public void OnClick()
         {

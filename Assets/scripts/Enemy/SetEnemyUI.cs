@@ -7,7 +7,7 @@ namespace Enemy
 {
     public class SetEnemyUI : MonoBehaviour
     {
-        BaseEnemy enemy;
+        public BaseEnemy enemy;
         public Image spriteObject;
 
         [Header("Health")]
@@ -24,8 +24,6 @@ namespace Enemy
 
         private void Awake()
         {
-            enemy = GetComponent<BaseEnemy>();
-
             healthText.text = enemy.health.ToString() + "/" + enemy.maxHealth.ToString();
             healthSlider.maxValue = enemy.maxHealth;
             healthSlider.value = enemy.health;

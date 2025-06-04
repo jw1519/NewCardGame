@@ -34,7 +34,7 @@ namespace Card
                 }
             }
         }
-        public void SelectEnemy(BaseEnemy enemy)
+        public void SelectEnemy(SetEnemyUI enemy)
         {
             if (cardSelected != null)
             {

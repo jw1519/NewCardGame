@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public abstract class BaseEnemy : MonoBehaviour, ITakeDamage, IHeal
+    public abstract class BaseEnemy : ScriptableObject, ITakeDamage, IHeal
     {
         public Sprite enemySprite;
         public AnimatorController controller;
@@ -28,6 +28,7 @@ namespace Enemy
         {
             Attack,
             Defend,
+            Heal,
             Ability,
         }
         public void Heal(int healAmount)

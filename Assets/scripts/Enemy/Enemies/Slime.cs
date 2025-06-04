@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Enemy
 {
-
+    [CreateAssetMenu(fileName = "New Enemy", menuName = "Enemy/Slime")]
     public class Slime : BaseEnemy
     {
 

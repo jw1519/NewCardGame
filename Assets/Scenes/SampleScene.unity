@@ -306,7 +306,6 @@ GameObject:
   - component: {fileID: 153599559}
   - component: {fileID: 153599563}
   - component: {fileID: 153599562}
-  - component: {fileID: 153599564}
   - component: {fileID: 153599561}
   m_Layer: 5
   m_Name: Enemy
@@ -347,6 +346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3186296ae9098084795ba2e36dc516ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
   spriteObject: {fileID: 1496588481}
   healthText: {fileID: 357663364}
   healthSlider: {fileID: 1167881571}
@@ -434,30 +434,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6256b51d3d061cc498d780343435379f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &153599564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153599557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a813adb1208e0542b644b931f2611aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemySprite: {fileID: -1037960701, guid: 3081575c83401b44d8585ff663ecea31, type: 3}
-  controller: {fileID: 9100000, guid: a12c69b8ca30eb84fb06e32663166b36, type: 2}
-  action: 0
-  attackSprite: {fileID: 21300000, guid: 300675427539b7842a89d514aaa349cd, type: 3}
-  defenceSprite: {fileID: 21300000, guid: c07d8f2ef21dc634395f674f8766dcf6, type: 3}
-  abilitySprite: {fileID: 21300000, guid: 0ad037c82e017d7429742ed757e5dafa, type: 3}
-  enemyName: Slime
-  health: 10
-  damage: 2
-  maxHealth: 10
-  defence: 0
-  defenceAmount: 3
 --- !u!1 &242211019
 GameObject:
   m_ObjectHideFlags: 0
