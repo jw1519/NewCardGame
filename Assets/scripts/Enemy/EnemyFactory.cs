@@ -15,7 +15,7 @@ namespace Enemy
         public GameObject CreateEnemy(BaseEnemy enemy)
         {
             GameObject instance = Instantiate(enemyPrefab);
-            enemyPrefab.GetComponent<SetEnemyUI>().enemy = enemy;
+            enemyPrefab.GetComponent<SetEnemyUI>().enemy = Instantiate(enemy);
             return instance;
         }
     }

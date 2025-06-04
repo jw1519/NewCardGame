@@ -22,7 +22,7 @@ public class CombatPanel : BasePanel
             }
             else
             {
-                Sprite sprite = character.GetComponent<BaseEnemy>().enemySprite;
+                Sprite sprite = character.GetComponent<SetEnemyUI>().enemy.enemySprite;
                 combatImage.sprite = sprite;
             }
             combatImagePrefab.name = character.name;
@@ -42,7 +42,7 @@ public class CombatPanel : BasePanel
         {
             if (child.name == character.name)
             {
-                Destroy(child);
+                Destroy(child.gameObject);
                 combatIcons.Remove(character);
             }
         }

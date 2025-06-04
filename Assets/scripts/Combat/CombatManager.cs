@@ -58,12 +58,14 @@ public class CombatManager : MonoBehaviour
     }
     public void EnemyTurn(GameObject enemy)
     {
-        combatPanel.UpdateCombatOrder();
-        endTurnButton.GetComponentInChildren<TextMeshProUGUI>().text = "Enemy Turn";
-        endTurnButton.enabled = false;
-
-        enemy.GetComponent<EnemyCombat>().StartTurn();
-        combatPanel.UpdateCombatOrder();
+        if (enemy.GetComponent<SetEnemyUI>().enemy.isAlive != false)
+        {
+            combatPanel.UpdateCombatOrder();
+            endTurnButton.GetComponentInChildren<TextMeshProUGUI>().text = "Enemy Turn";
+            endTurnButton.enabled = false;
+            enemy.GetComponent<EnemyCombat>().StartTurn();
+            combatPanel.UpdateCombatOrder();
+        }
     }
     public void RemoveFromCombat(GameObject character)
     {

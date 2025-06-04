@@ -42,6 +42,7 @@ namespace Enemy
             if (!enemy.isAlive)
             {
                 DisableUI();
+                CombatManager.instance.RemoveFromCombat(gameObject);
             }
         }
         public void UpdateDefenceUI()
