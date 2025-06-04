@@ -7,10 +7,19 @@ namespace Enemy
         public static EnemyFactory instance;
         public GameObject enemyPrefab;
 
+        public BaseEnemy enemy;
+        public Transform enemyParent;
+
         private void Awake()
         {
             if (instance == null)
                 instance = this;
+        }
+        private void Start()
+        {
+            GameObject gameObject = CreateEnemy(enemy);
+            gameObject.transform.SetParent(enemyParent);
+
         }
         public GameObject CreateEnemy(BaseEnemy enemy)
         {
