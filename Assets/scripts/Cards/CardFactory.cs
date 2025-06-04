@@ -15,7 +15,7 @@ namespace Card
         public GameObject CreateCard(BaseCard card, Vector3 position, Quaternion rotation)
         {
             GameObject instance = Instantiate(cardPrefab, position, rotation);
-            instance.GetComponent<SetCardUI>().card = card;
+            instance.GetComponent<SetCardUI>().card = Instantiate(card);
             return instance;
         }
     }

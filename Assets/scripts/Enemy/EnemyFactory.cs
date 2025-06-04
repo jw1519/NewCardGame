@@ -14,17 +14,17 @@ namespace Enemy
         {
             if (instance == null)
                 instance = this;
-        }
-        private void Start()
-        {
+
             GameObject gameObject = CreateEnemy(enemy);
             gameObject.transform.SetParent(enemyParent);
-
+            gameObject.transform.position = enemyParent.position;
+            CombatManager.instance.AddToCombat(gameObject);
         }
+
         public GameObject CreateEnemy(BaseEnemy enemy)
         {
-            GameObject instance = Instantiate(enemyPrefab);
             enemyPrefab.GetComponent<SetEnemyUI>().enemy = Instantiate(enemy);
+            GameObject instance = Instantiate(enemyPrefab);
             return instance;
         }
     }
