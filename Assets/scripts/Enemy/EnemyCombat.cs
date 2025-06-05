@@ -16,11 +16,8 @@ namespace Enemy
         {
             enemyUI = GetComponent<SetEnemyUI>();
             enemy = enemyUI.enemy;
-        }
-        private void Start()
-        {
-            SelectNextAction();
             CombatManager.instance.AddToCombat(gameObject);
+            SelectNextAction();
         }
         public void StartTurn()
         {

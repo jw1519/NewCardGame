@@ -61,8 +61,7 @@ namespace Character
             }
             else
             {
-                //character dies
-                //check if all characters are dead
+                health = 0;
             }
         }
     }

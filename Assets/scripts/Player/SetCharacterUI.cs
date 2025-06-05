@@ -9,6 +9,7 @@ namespace Character
         [Header("Character")]
         public BaseCharacter character;
         public Image spriteObject;
+        public GameObject statsPanel;
 
         [Header("Health")]
         public TextMeshProUGUI healthText;
@@ -44,6 +45,12 @@ namespace Character
             if (healthSlider.maxValue != character.maxHealth )
             {
                 healthSlider.maxValue = character.maxHealth;
+            }
+            if (character.health <=0)
+            {
+                BasePanel panel = UIManager.instance.panelList.Find(panels => panels.name == "GameOverPanel");
+                panel.OpenPanel();
+                statsPanel.SetActive(false);
             }
         }
         public void UpdateEnergyUI()

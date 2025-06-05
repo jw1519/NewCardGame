@@ -18,7 +18,6 @@ namespace Enemy
             GameObject gameObject = CreateEnemy(enemy);
             gameObject.transform.SetParent(enemyParent);
             gameObject.transform.position = enemyParent.position;
-            CombatManager.instance.AddToCombat(gameObject);
         }
 
         public GameObject CreateEnemy(BaseEnemy enemy)

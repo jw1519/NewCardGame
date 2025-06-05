@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class GameOverPanel : BasePanel
 {
-    private void Start()
-    {
-        ClosePanel();
-    }
     public void PlayerStatsDisplay()
     {
 
