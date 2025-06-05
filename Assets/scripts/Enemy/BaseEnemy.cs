@@ -17,10 +17,12 @@ namespace Enemy
         [Header("Stats")]
         public string enemyName;
         public int health;
-        public int damage;
         public int maxHealth;
+        public int damage;
         public int defence;
         public int defenceAmount;
+
+        public int goldOnDefeat;
 
          public bool isAlive => health > 0;
 

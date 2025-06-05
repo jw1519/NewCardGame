@@ -15,6 +15,8 @@ namespace Character
         public int energy;
         public int maxEnergy;
         public CharcterType type;
+        public int gold;
+        public int totalGoldCollected;
         public bool isAlive => health > 0;
 
         public enum CharcterType
