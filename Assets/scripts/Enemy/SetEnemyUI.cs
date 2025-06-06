@@ -43,6 +43,9 @@ namespace Enemy
             {
                 DisableUI();
                 CombatManager.instance.RemoveFromCombat(gameObject);
+                GameManager.instance.CheckCombatStatus();
+                GameObject gameWonPanel = UIManager.instance.panelList.Find(panel => panel.name == "GameWonPanel").gameObject;
+                gameWonPanel.GetComponent<GameWonPanel>().goldEarned += enemy.goldOnDefeat;
             }
         }
         public void UpdateDefenceUI()

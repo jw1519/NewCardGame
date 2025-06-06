@@ -4,3 +4,6 @@ start with 5 cards have a max of 7
 if cards exceed 7 cards will have to be discarded
 
 enemies could be chaned together. all take damage. all heal the same
+
+issues
+card in use card area dont get removed when end turn is pressed

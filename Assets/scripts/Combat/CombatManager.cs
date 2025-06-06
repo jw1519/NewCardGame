@@ -81,4 +81,15 @@ public class CombatManager : MonoBehaviour
         combatOrder.Remove(character);
         combatPanel.RemoveFromCombat(character);
     }
+    public bool EnemiesAlive()
+    {
+        foreach (GameObject gameObject in combatOrder)
+        {
+            if (gameObject.GetComponent<SetEnemyUI>() != null)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

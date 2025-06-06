@@ -1,17 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+using TMPro;
 public class GameWonPanel : BasePanel
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        ClosePanel();
-    }
-    public void UpdatePanel()
-    {
+    public int goldEarned;
+    public TextMeshProUGUI goldEarnedText;
 
+    public void UpdateStats()
+    {
+        goldEarnedText.text = "Gold Earned " + goldEarned.ToString();
     }
 
 }

@@ -11,7 +11,6 @@ namespace Enemy
         BaseEnemy enemy;
         SetEnemyUI enemyUI;
 
-
         private void Awake()
         {
             enemyUI = GetComponent<SetEnemyUI>();
