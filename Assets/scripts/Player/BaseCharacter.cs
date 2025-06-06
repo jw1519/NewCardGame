@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Character
 {
-    public abstract class BaseCharacter : MonoBehaviour, ITakeDamage, IHeal
+    public abstract class BaseCharacter : MonoBehaviour, ITakeDamage, IHeal, IUseEnergy
     {
         [Header("Character Sprite")]
         public Sprite characterSprite;
@@ -64,6 +64,14 @@ namespace Character
             else
             {
                 health = 0;
+            }
+        }
+
+        public void UseEnergy(int amount)
+        {
+            if (energy - amount >= 0)
+            {
+                energy -= amount;
             }
         }
     }

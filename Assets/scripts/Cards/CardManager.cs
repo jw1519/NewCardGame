@@ -72,7 +72,6 @@ namespace Card
             {
                 Transform child = hand.transform.GetChild(i);
                 child.SetParent(discardedCardParent, false);
-                child.gameObject.SetActive(false);
             }
             //discard any cards left in lists
             cardsInHand.Clear();

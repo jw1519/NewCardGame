@@ -10,9 +10,11 @@ namespace Card
         private void Awake()
         {
             description = "the card defends for " + defenceAmount.ToString();
+            player = FindFirstObjectByType<BaseCharacter>();
         }
         public override void Use(GameObject target)
         {
+            base.Use(target);
             BaseCharacter character = target.GetComponent<SetCharacterUI>().character;
             EventQueue.EnqueueEvent(new PlayerDefenceEvent(character, defenceAmount));
         }

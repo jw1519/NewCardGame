@@ -1,4 +1,5 @@
 using Card;
+using Character;
 using Enemy;
 using System.Collections;
 using System.Collections.Generic;
@@ -48,9 +49,17 @@ public class CombatManager : MonoBehaviour
             currentCombatIndex = (currentCombatIndex + 1) % combatOrder.Count; // moves to the next in the list and wraps around
 
         }
+        else
+        {
+            Debug.Log("current combat index is null");
+        }
     }
     public void PlayerTurn(GameObject player)
     {
+        BaseCharacter character = player.GetComponent<BaseCharacter>();
+        character.energy = character.maxEnergy;
+        player.GetComponent<SetCharacterUI>().UpdateEnergyUI();
+
         endTurnButton.GetComponentInChildren<TextMeshProUGUI>().text = "End Turn";
         endTurnButton.enabled = true;
 

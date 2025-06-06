@@ -1,3 +1,4 @@
+using Character;
 using UnityEngine;
 
 namespace Card
@@ -9,6 +10,8 @@ namespace Card
         public int cardEnergy;
         public string description;
 
+        [HideInInspector] public BaseCharacter player;
+
         public enum CardType
         {
             Attack,
@@ -18,7 +21,8 @@ namespace Card
         }
         public virtual void Use(GameObject target)
         {
-            Debug.Log("use card");
+            player.UseEnergy(cardEnergy);
+            player.gameObject.GetComponent<SetCharacterUI>().UpdateEnergyUI();
         }
     }
 }
