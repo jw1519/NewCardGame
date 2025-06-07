@@ -11,7 +11,6 @@ public class CombatManager : MonoBehaviour
 {
     public static CombatManager instance;
     public Button endTurnButton;
-    CombatPanel combatPanel;
 
     public List<GameObject> combatOrder;
     int currentCombatIndex = 0;
@@ -22,7 +21,6 @@ public class CombatManager : MonoBehaviour
         {
             instance = this;
         }
-        combatPanel = FindAnyObjectByType<CombatPanel>();
     }
 
     public void AddToCombat(GameObject character)
@@ -69,17 +67,14 @@ public class CombatManager : MonoBehaviour
     {
         if (enemy.GetComponent<SetEnemyUI>().enemy.isAlive != false)
         {
-            combatPanel.UpdateCombatOrder();
             endTurnButton.GetComponentInChildren<TextMeshProUGUI>().text = "Enemy Turn";
             endTurnButton.enabled = false;
             enemy.GetComponent<EnemyCombat>().StartTurn();
-            combatPanel.UpdateCombatOrder();
         }
     }
     public void RemoveFromCombat(GameObject character)
     {
         combatOrder.Remove(character);
-        combatPanel.RemoveFromCombat(character);
     }
     public bool EnemiesAlive()
     {
