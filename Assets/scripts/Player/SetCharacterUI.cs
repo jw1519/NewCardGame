@@ -23,6 +23,9 @@ namespace Character
         public TextMeshProUGUI defenceText;
         public GameObject defenceIcon;
 
+        [Header("Gold")]
+        public TextMeshProUGUI goldText;
+
 
 
         private void Awake()
@@ -69,6 +72,10 @@ namespace Character
                 defenceIcon.SetActive(true);
             }
             defenceText.text = character.defence.ToString();
+        }
+        public void UpdateGoldUI()
+        {
+            goldText.text = character.gold.ToString();
         }
 
     }
