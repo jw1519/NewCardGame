@@ -14,10 +14,6 @@ namespace Enemy
         {
             if (instance == null)
                 instance = this;
-
-            GameObject gameObject = CreateEnemy(enemy);
-            gameObject.transform.SetParent(enemyParent);
-            gameObject.transform.position = enemyParent.position;
         }
 
         public GameObject CreateEnemy(BaseEnemy enemy)

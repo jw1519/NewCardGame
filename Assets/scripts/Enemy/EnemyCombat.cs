@@ -54,7 +54,7 @@ namespace Enemy
         {
             EnemyAction action = GetRandomEnumValue<EnemyAction>();
             enemy.action = action;
-            enemyUI.UpdateActionUI(action);
+            enemyUI.UpdateActionUI();
 
         }
         public EnemyAction GetRandomEnumValue<Action>()

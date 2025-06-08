@@ -56,9 +56,9 @@ namespace Enemy
             }
             defenceText.text = enemy.defence.ToString();
         }
-        public void UpdateActionUI(EnemyAction action)
+        public void UpdateActionUI()
         {
-            switch (action)
+            switch (enemy.action)
             {
                 case EnemyAction.Attack:
                     actionSprite.sprite = enemy.attackSprite;

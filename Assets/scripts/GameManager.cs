@@ -1,11 +1,18 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Card;
+using Enemy;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public Button endTurnButton;
+
+    [Header("enemy")]
+    public List<BaseEnemy> enemyList;
+    public Transform enemyParent;
+    int maxEnemyAmount = 3;
 
     private void Start()
     {
@@ -13,7 +20,7 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
-        CardManager.instance.DrawCards();
+        NewRound();
     }
     public void EndPlayerTurn()
     {
@@ -26,6 +33,36 @@ public class GameManager : MonoBehaviour
         if (combatActive == false)
         {
             UIManager.instance.panelList.Find(panel => panel.name == "GameWonPanel").OpenPanel();
+        }
+    }
+    public void NewRound()
+    {
+        EndRound();
+        int enemyAmount = Random.Range(1, maxEnemyAmount);
+        for (int i = 0; i < enemyAmount; i++)
+        {
+            GameObject instance = EnemyFactory.instance.CreateEnemy(RandomEnemy());
+            instance.transform.SetParent(enemyParent);
+        }
+        CardManager.instance.DrawCards();
+    }
+    public void EndRound()
+    {
+        foreach (Transform transform in enemyParent)
+        {
+            Destroy(transform.gameObject);
+        }
+    }
+    public BaseEnemy RandomEnemy()
+    {
+        if (enemyList.Count > 1)
+        {
+            int random = Random.Range(0,enemyList.Count);
+            return enemyList[random];
+        }
+        else
+        {
+            return enemyList[0];
         }
     }
 }
