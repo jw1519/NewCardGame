@@ -340,9 +340,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 979024297}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: NewRound
+      - m_Target: {fileID: 1274644031}
+        m_TargetAssemblyTypeName: GameWonPanel, Assembly-CSharp
+        m_MethodName: NextRound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
