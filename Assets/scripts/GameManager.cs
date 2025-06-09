@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public Button endTurnButton;
+    public int round;
 
     [Header("enemy")]
     public List<BaseEnemy> enemyList;
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+        round = 0;
         NewRound();
     }
     public void EndPlayerTurn()
@@ -37,6 +39,9 @@ public class GameManager : MonoBehaviour
     }
     public void NewRound()
     {
+        round++;
+        GameObject panel = UIManager.instance.panelList.Find(panel => panel.name == "PlayerStatsPanel").gameObject;
+        panel.GetComponent<PlayerStatsPanel>().UpdateRoundUI(round);
         EndRound();
         int enemyAmount = Random.Range(1, maxEnemyAmount);
         for (int i = 0; i < enemyAmount; i++)

@@ -23,20 +23,21 @@ namespace Character
         public TextMeshProUGUI defenceText;
         public GameObject defenceIcon;
 
-        [Header("Gold")]
-        public TextMeshProUGUI goldText;
+        PlayerStatsPanel playerStatsPanel;
 
-
-
-        private void Awake()
+        private void Start()
         {
-            healthText.text = character.health.ToString() + "/" + character.maxHealth.ToString();
-            EnergyText.text = character.energy.ToString() + "/" + character.maxEnergy.ToString();
             healthSlider.maxValue = character.maxHealth;
             energySlider.maxValue = character.maxEnergy;
 
             healthSlider.value = character.health;
             energySlider.value = character.energy;
+
+            UpdateEnergyUI();
+            UpdateHealthUI();
+
+            playerStatsPanel = UIManager.instance.panelList.Find(panel => panel.name == "PlayerStatsPanel").gameObject.GetComponent<PlayerStatsPanel>();
+            UpdateGoldUI();
 
             spriteObject.sprite = character.characterSprite;
         }
@@ -45,6 +46,8 @@ namespace Character
         {
             healthText.text = character.health.ToString() + "/" + character.maxHealth.ToString();
             healthSlider.value = character.health;
+            GameObject panelStats = UIManager.instance.panelList.Find(panels => panels.name == "PlayerStatsPanel").gameObject;
+            panelStats.GetComponent<PlayerStatsPanel>().UpdatePlayerHealthUI(character.health, character.maxHealth);
             if (healthSlider.maxValue != character.maxHealth )
             {
                 healthSlider.maxValue = character.maxHealth;
@@ -52,6 +55,7 @@ namespace Character
             if (character.health <=0)
             {
                 BasePanel panel = UIManager.instance.panelList.Find(panels => panels.name == "GameOverPanel");
+                panel.gameObject.GetComponent<GameOverPanel>().PlayerStatsDisplay(character);
                 panel.OpenPanel();
                 statsPanel.SetActive(false);
             }
@@ -75,8 +79,7 @@ namespace Character
         }
         public void UpdateGoldUI()
         {
-            goldText.text = character.gold.ToString();
+            playerStatsPanel.UpdateGoldUI(character.gold);
         }
-
     }
 }

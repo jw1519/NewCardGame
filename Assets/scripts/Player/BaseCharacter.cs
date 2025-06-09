@@ -12,19 +12,16 @@ namespace Character
         public int health;
         public int maxHealth;
         public int defence;
+
+        [Header("Energy")]
         public int energy;
         public int maxEnergy;
-        public CharcterType type;
+
+        [Header("Gold")]
         public int gold;
         public int totalGoldCollected;
         public bool isAlive => health > 0;
 
-        public enum CharcterType
-        {
-            Melee,
-            Ranged,
-            Magic
-        }
         public virtual void Start()
         {
             CombatManager.instance.AddToCombat(gameObject);
