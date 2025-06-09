@@ -72,9 +72,9 @@ public class CombatManager : MonoBehaviour
             enemy.GetComponent<EnemyCombat>().StartTurn();
         }
     }
-    public void RemoveFromCombat(GameObject character)
+    public void RemoveFromCombat(GameObject enemy)
     {
-        combatOrder.Remove(character);
+        combatOrder.Remove(enemy);
     }
     public bool EnemiesAlive()
     {

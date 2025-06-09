@@ -16,6 +16,8 @@ public class GameWonPanel : BasePanel
     }
     public void NextRound()
     {
+        FindFirstObjectByType<BaseCharacter>().gold += goldEarned;
+        FindFirstObjectByType<BaseCharacter>().totalGoldCollected += goldEarned;
         ClosePanel();
         GameManager.instance.NewRound();
     }

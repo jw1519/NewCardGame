@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Card;
 using Enemy;
+using Character;
 using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
@@ -15,6 +16,8 @@ public class GameManager : MonoBehaviour
     public Transform enemyParent;
     int maxEnemyAmount = 3;
 
+    SetCharacterUI player;
+
     private void Start()
     {
         if (instance == null)
@@ -22,6 +25,7 @@ public class GameManager : MonoBehaviour
             instance = this;
         }
         round = 0;
+        player = FindFirstObjectByType<SetCharacterUI>();
         NewRound();
     }
     public void EndPlayerTurn()
@@ -40,6 +44,8 @@ public class GameManager : MonoBehaviour
     public void NewRound()
     {
         round++;
+        player.character.energy = player.character.maxEnergy;
+        player.UpdateEnergyUI();
         GameObject panel = UIManager.instance.panelList.Find(panel => panel.name == "PlayerStatsPanel").gameObject;
         panel.GetComponent<PlayerStatsPanel>().UpdateRoundUI(round);
         EndRound();

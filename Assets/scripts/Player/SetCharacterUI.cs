@@ -9,7 +9,6 @@ namespace Character
         [Header("Character")]
         public BaseCharacter character;
         public Image spriteObject;
-        public GameObject statsPanel;
 
         [Header("Health")]
         public TextMeshProUGUI healthText;
@@ -57,7 +56,6 @@ namespace Character
                 BasePanel panel = UIManager.instance.panelList.Find(panels => panels.name == "GameOverPanel");
                 panel.gameObject.GetComponent<GameOverPanel>().PlayerStatsDisplay(character);
                 panel.OpenPanel();
-                statsPanel.SetActive(false);
             }
         }
         public void UpdateEnergyUI()

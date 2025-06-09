@@ -1969,7 +1969,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 567812479}
   spriteObject: {fileID: 275173589}
-  statsPanel: {fileID: 1376540906}
   healthText: {fileID: 3620521156563462371}
   healthSlider: {fileID: 3620521156563462372}
   EnergyText: {fileID: 1696702247}
@@ -2272,8 +2271,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1280.2351, y: 0}
+  m_AnchoredPosition: {x: 0, y: -59.627}
+  m_SizeDelta: {x: 1280.2351, y: -119.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &624867194
 MonoBehaviour:
@@ -2394,8 +2393,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1280.2351, y: 0}
+  m_AnchoredPosition: {x: 0, y: -59.626007}
+  m_SizeDelta: {x: 1280.2351, y: -119.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &639379984
 MonoBehaviour:
@@ -3059,7 +3058,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -516.71893, y: -8.5}
+  m_AnchoredPosition: {x: -516.71893, y: -8.5000305}
   m_SizeDelta: {x: 1033.4379, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &906161820

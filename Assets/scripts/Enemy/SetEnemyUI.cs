@@ -41,11 +41,7 @@ namespace Enemy
             }
             if (!enemy.isAlive)
             {
-                DisableUI();
-                CombatManager.instance.RemoveFromCombat(gameObject);
-                GameManager.instance.CheckCombatStatus();
-                GameObject gameWonPanel = UIManager.instance.panelList.Find(panel => panel.name == "GameWonPanel").gameObject;
-                gameWonPanel.GetComponent<GameWonPanel>().goldEarned += enemy.goldOnDefeat;
+                EnemyDied();
             }
         }
         public void UpdateDefenceUI()
@@ -88,6 +84,14 @@ namespace Enemy
             }
             spriteObject.GetComponent<Animator>().SetBool("isAlive", false);
             GetComponent<Button>().enabled = false;
+        }
+        public void EnemyDied()
+        {
+            DisableUI();
+            CombatManager.instance.RemoveFromCombat(gameObject);
+            GameManager.instance.CheckCombatStatus();
+            GameObject gameWonPanel = UIManager.instance.panelList.Find(panel => panel.name == "GameWonPanel").gameObject;
+            gameWonPanel.GetComponent<GameWonPanel>().goldEarned += enemy.goldOnDefeat;
         }
     }
 }
