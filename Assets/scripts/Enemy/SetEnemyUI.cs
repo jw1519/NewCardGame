@@ -68,7 +68,6 @@ namespace Enemy
 
                 case EnemyAction.Ability:
                     actionSprite.sprite = enemy.abilitySprite;
-                    //actionText.text = enemy.healAmount.ToString();
                     return;
             }
         }

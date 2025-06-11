@@ -21,6 +21,7 @@ namespace Enemy
         public int damage;
         public int defence;
         public int defenceAmount;
+        public int abilityAmount;
 
         public int goldOnDefeat;
 
@@ -68,9 +69,11 @@ namespace Enemy
             else
             {
                 health = 0;
-                //character dies
-                //check if all enemies are dead
             }
+        }
+        public virtual void UseAbility(GameObject target)
+        {
+            Debug.Log("Use Ability here");
         }
     }
 }

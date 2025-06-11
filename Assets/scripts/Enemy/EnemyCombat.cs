@@ -45,7 +45,11 @@ namespace Enemy
         {
             List<GameObject> targets = CombatManager.instance.combatOrder.FindAll(u => u.GetComponent<SetCharacterUI>() != null && u.GetComponent<SetCharacterUI>().character.isAlive); // find all potential characters to attack
 
-            if (targets.Count == 0) return null;
+            if (targets.Count == 0)
+            {
+                Debug.Log("target is null");
+                return null;
+            }
 
             return targets[UnityEngine.Random.Range(0, targets.Count)];
 
@@ -54,6 +58,7 @@ namespace Enemy
         {
             EnemyAction action = GetRandomEnumValue<EnemyAction>();
             enemy.action = action;
+            Debug.Log(action);
             enemyUI.UpdateActionUI();
 
         }
