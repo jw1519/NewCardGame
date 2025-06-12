@@ -31,6 +31,12 @@ namespace Enemy
             SetEnemySprite(enemy.enemySprite);
             spriteObject.GetComponent<Animator>().runtimeAnimatorController = enemy.controller;
         }
+        private void OnEnable()
+        {
+            enemyHealthChange += UpdateHealthUI;
+            enemydied += DisableUI;
+            enemydied += EnemyDied;
+        }
         public void UpdateHealthUI()
         {
             healthText.text = enemy.health.ToString() + "/" + enemy.maxHealth.ToString();
@@ -86,9 +92,7 @@ namespace Enemy
         }
         public void EnemyDied()
         {
-            DisableUI();
             CombatManager.instance.RemoveFromCombat(gameObject);
-            GameManager.instance.CheckCombatStatus();
             GameObject gameWonPanel = UIManager.instance.panelList.Find(panel => panel.name == "GameWonPanel").gameObject;
             gameWonPanel.GetComponent<GameWonPanel>().goldEarned += enemy.goldOnDefeat;
         }

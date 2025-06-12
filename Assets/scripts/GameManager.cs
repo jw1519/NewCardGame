@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
         round = 0;
         player = FindFirstObjectByType<SetCharacterUI>();
         NewRound();
+
+        BaseEnemy.enemydied += CheckCombatStatus;
     }
     public void EndPlayerTurn()
     {

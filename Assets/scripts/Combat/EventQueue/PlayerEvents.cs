@@ -18,11 +18,13 @@ namespace Character
     {
         public BaseCharacter Target;
         public int Defence;
+        public SetCharacterUI CharacterUI;
 
-        public PlayerDefenceEvent(BaseCharacter target, int defence)
+        public PlayerDefenceEvent(BaseCharacter target, int defence, SetCharacterUI characterUI)
         {
             Target = target;
             Defence = defence;
+            CharacterUI = characterUI;  
         }
     }
     public class PlayerHealEvent : GameEvent

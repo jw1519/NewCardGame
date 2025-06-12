@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 
 namespace Character
 {
     public abstract class BaseCharacter : MonoBehaviour, ITakeDamage, IHeal, IUseEnergy
     {
+        public static event Action playerHealthChanged;
+
         [Header("Character Sprite")]
         public Sprite characterSprite;
 
@@ -36,6 +39,7 @@ namespace Character
             {
                 health = maxHealth;
             }
+            playerHealthChanged?.Invoke();
         }
 
         public void TakeDamage(int damageTaken)
@@ -62,6 +66,7 @@ namespace Character
             {
                 health = 0;
             }
+            playerHealthChanged?.Invoke();
         }
 
         public void UseEnergy(int amount)

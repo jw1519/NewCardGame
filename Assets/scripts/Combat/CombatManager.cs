@@ -22,7 +22,6 @@ public class CombatManager : MonoBehaviour
             instance = this;
         }
     }
-
     public void AddToCombat(GameObject character)
     {
         combatOrder.Add(character);
@@ -74,7 +73,7 @@ public class CombatManager : MonoBehaviour
     }
     public void RemoveFromCombat(GameObject enemy)
     {
-        combatOrder.Remove(enemy);
+        combatOrder.Remove(enemy.gameObject);
     }
     public bool EnemiesAlive()
     {

@@ -1,3 +1,4 @@
+using System;
 using UnityEditor.Animations;
 using UnityEngine;
 
@@ -5,6 +6,9 @@ namespace Enemy
 {
     public abstract class BaseEnemy : ScriptableObject, ITakeDamage, IHeal
     {
+        public static event Action enemyHealthChange;
+        public static event Action enemydied;
+
         public Sprite enemySprite;
         public AnimatorController controller;
 
@@ -44,6 +48,7 @@ namespace Enemy
             {
                 health = maxHealth;
             }
+            enemyHealthChange?.Invoke();
         }
 
         public void TakeDamage(int damageTaken)
@@ -69,7 +74,9 @@ namespace Enemy
             else
             {
                 health = 0;
+                enemydied?.Invoke();
             }
+            enemyHealthChange?.Invoke();
         }
         public virtual void UseAbility(GameObject target)
         {

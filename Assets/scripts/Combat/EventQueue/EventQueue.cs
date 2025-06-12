@@ -44,14 +44,12 @@ public class EventQueue : MonoBehaviour
         if (gameEvent is PlayerAttackEvent playerAttack)
         {
             ApplyDamage(playerAttack.Target, playerAttack.Damage);
-            playerAttack.EnemyUI.UpdateHealthUI();
-            playerAttack.EnemyUI.UpdateDefenceUI();
             yield return new WaitForSeconds(1); //do animation here
         }
         else if (gameEvent is PlayerDefenceEvent playerDefence)
         {
             playerDefence.Target.defence = playerDefence.Target.defence + playerDefence.Defence;
-            playerDefence.Target.gameObject.GetComponent<SetCharacterUI>().UpdateDefenceUI();
+            playerDefence.CharacterUI.UpdateDefenceUI();
             yield return new WaitForSeconds(1); //do animation here
         }
         else if (gameEvent is PlayerHealEvent playerHeal)
@@ -62,8 +60,6 @@ public class EventQueue : MonoBehaviour
         else if (gameEvent is EnemyAttackEvent enemyAttack)
         {
             ApplyDamage(enemyAttack.Target, enemyAttack.Damage);
-            enemyAttack.Target.gameObject.GetComponent<SetCharacterUI>().UpdateHealthUI();
-            enemyAttack.Target.gameObject.GetComponent<SetCharacterUI>().UpdateDefenceUI();
             yield return new WaitForSeconds(1); //do animation here
         }
         else if (gameEvent is EnemyDefenceEvent enemyDefence)

@@ -40,6 +40,10 @@ namespace Character
 
             spriteObject.sprite = character.characterSprite;
         }
+        private void OnEnable()
+        {
+            BaseCharacter.playerHealthChanged += UpdateHealthUI;
+        }
 
         public void UpdateHealthUI()
         {
