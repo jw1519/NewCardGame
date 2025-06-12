@@ -34,8 +34,13 @@ namespace Enemy
         private void OnEnable()
         {
             enemyHealthChange += UpdateHealthUI;
-            enemydied += DisableUI;
             enemydied += EnemyDied;
+        }
+        private void OnDestroy()
+        {
+            enemyHealthChange -= UpdateHealthUI;
+            enemydied -= DisableUI;
+            enemydied -= EnemyDied;
         }
         public void UpdateHealthUI()
         {
@@ -92,9 +97,13 @@ namespace Enemy
         }
         public void EnemyDied()
         {
-            CombatManager.instance.RemoveFromCombat(gameObject);
-            GameObject gameWonPanel = UIManager.instance.panelList.Find(panel => panel.name == "GameWonPanel").gameObject;
-            gameWonPanel.GetComponent<GameWonPanel>().goldEarned += enemy.goldOnDefeat;
+            if (enemy.isAlive == false)
+            {
+                DisableUI();
+                CombatManager.instance.RemoveFromCombat(gameObject);
+                GameObject gameWonPanel = UIManager.instance.panelList.Find(panel => panel.name == "GameWonPanel").gameObject;
+                gameWonPanel.GetComponent<GameWonPanel>().goldEarned += enemy.goldOnDefeat;
+            }
         }
     }
 }

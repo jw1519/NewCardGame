@@ -54,6 +54,8 @@ public class CombatManager : MonoBehaviour
     public void PlayerTurn(GameObject player)
     {
         BaseCharacter character = player.GetComponent<BaseCharacter>();
+        character.defence = 0;
+        player.GetComponent<SetCharacterUI>().UpdateDefenceUI();
         character.energy = character.maxEnergy;
         player.GetComponent<SetCharacterUI>().UpdateEnergyUI();
 
@@ -74,6 +76,12 @@ public class CombatManager : MonoBehaviour
     public void RemoveFromCombat(GameObject enemy)
     {
         combatOrder.Remove(enemy.gameObject);
+        //check combat status
+        bool isenemyAlive = EnemiesAlive();
+        if (isenemyAlive == false)
+        {
+            UIManager.instance.panelList.Find(panel => panel.name == "GameWonPanel").OpenPanel();
+        }
     }
     public bool EnemiesAlive()
     {

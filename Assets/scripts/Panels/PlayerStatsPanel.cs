@@ -8,6 +8,10 @@ namespace Character
         public TextMeshProUGUI healthText;
         public TextMeshProUGUI goldText;
         public TextMeshProUGUI roundText;
+        private void OnEnable()
+        {
+            GameManager.updateRounds += UpdateRoundUI;
+        }
 
         public void UpdatePlayerHealthUI(int health, int maxHealth)
         {

@@ -54,6 +54,7 @@ namespace Card
                 foreach (GameObject card in cardsInDiscard)
                 {
                     cardsInDeck.Add(card);
+                    card.transform.SetParent(deckCardParent, false);
                 }
                 cardsInDiscard.Clear();
                 DrawCards();

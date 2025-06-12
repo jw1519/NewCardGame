@@ -73,10 +73,6 @@ namespace Character
         }
         public void UpdateDefenceUI()
         {
-            if (character.defence > 0)
-            {
-                defenceIcon.SetActive(true);
-            }
             defenceText.text = character.defence.ToString();
         }
         public void UpdateGoldUI()

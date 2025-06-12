@@ -48,7 +48,7 @@ public class EventQueue : MonoBehaviour
         }
         else if (gameEvent is PlayerDefenceEvent playerDefence)
         {
-            playerDefence.Target.defence = playerDefence.Target.defence + playerDefence.Defence;
+            playerDefence.Target.defence += playerDefence.Defence;
             playerDefence.CharacterUI.UpdateDefenceUI();
             yield return new WaitForSeconds(1); //do animation here
         }
