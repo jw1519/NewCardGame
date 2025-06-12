@@ -8,6 +8,7 @@ namespace Enemy
     {
         public static event Action enemyHealthChange;
         public static event Action enemydied;
+        public static event Action<int> enemydiedGold;
 
         public Sprite enemySprite;
         public AnimatorController controller;
@@ -75,6 +76,7 @@ namespace Enemy
             {
                 health = 0;
                 enemydied?.Invoke();
+                enemydiedGold?.Invoke(goldOnDefeat);
             }
             enemyHealthChange?.Invoke();
         }

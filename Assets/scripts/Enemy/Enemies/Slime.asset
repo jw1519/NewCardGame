@@ -20,7 +20,9 @@ MonoBehaviour:
   abilitySprite: {fileID: 21300000, guid: 0ad037c82e017d7429742ed757e5dafa, type: 3}
   enemyName: Slime
   health: 10
-  damage: 3
   maxHealth: 10
+  damage: 3
   defence: 0
   defenceAmount: 2
+  abilityAmount: 3
+  goldOnDefeat: 10

@@ -1,10 +1,19 @@
 using Character;
+using Enemy;
 using TMPro;
 public class GameWonPanel : BasePanel
 {
     public int goldEarned;
     public TextMeshProUGUI goldEarnedText;
 
+    BaseCharacter player;
+
+    private void Awake()
+    {
+        player = FindObjectOfType<BaseCharacter>();
+        BaseEnemy.enemydiedGold += UpdateGold;
+        ClosePanel();
+    }
     private void OnEnable()
     {
         UpdateStats();
@@ -12,12 +21,17 @@ public class GameWonPanel : BasePanel
     public void UpdateStats()
     {
         goldEarnedText.text = "Gold Earned " + goldEarned.ToString();
-        FindObjectOfType<BaseCharacter>().gold += goldEarned;
+        player.gold += goldEarned;
+        player.totalGoldCollected += goldEarned;
+        player.gameObject.GetComponent<SetCharacterUI>().UpdateGoldUI();
+    }
+    public void UpdateGold(int goldAmount)
+    {
+        goldEarned += goldAmount;
     }
     public void NextRound()
     {
-        FindFirstObjectByType<BaseCharacter>().gold += goldEarned;
-        FindFirstObjectByType<BaseCharacter>().totalGoldCollected += goldEarned;
+        goldEarned = 0;
         ClosePanel();
         GameManager.instance.NewRound();
     }

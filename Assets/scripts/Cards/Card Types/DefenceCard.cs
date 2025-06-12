@@ -16,7 +16,7 @@ namespace Card
         {
             base.Use(target);
             BaseCharacter character = target.GetComponent<SetCharacterUI>().character;
-            EventQueue.EnqueueEvent(new PlayerDefenceEvent(character, defenceAmount));
+            EventQueue.EnqueueEvent(new PlayerDefenceEvent(character, defenceAmount, target.GetComponent<SetCharacterUI>()));
         }
     }
 }
