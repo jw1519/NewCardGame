@@ -71,14 +71,16 @@ namespace Enemy
             if (health - damageTaken > 0)
             {
                 health = health - damageTaken;
+                enemyHealthChange?.Invoke();
             }
             else
             {
                 health = 0;
-                enemydied?.Invoke();
                 enemydiedGold?.Invoke(goldOnDefeat);
+                enemydied?.Invoke();
+                
             }
-            enemyHealthChange?.Invoke();
+            
         }
         public virtual void UseAbility(GameObject target)
         {

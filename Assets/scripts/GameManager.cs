@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public Button endTurnButton;
-    int round;
+    public int round;
     public static event Action<int> updateRounds;
 
     [Header("enemy")]
@@ -28,7 +28,6 @@ public class GameManager : MonoBehaviour
         }
         round = 0;
         player = FindFirstObjectByType<SetCharacterUI>();
-        updateRounds?.Invoke(round);
         NewRound();
     }
     public void EndPlayerTurn()
@@ -39,6 +38,7 @@ public class GameManager : MonoBehaviour
     public void NewRound()
     {
         round++;
+        updateRounds?.Invoke(round);
         player.character.energy = player.character.maxEnergy;
         player.UpdateEnergyUI();
         EndRound();
@@ -48,7 +48,8 @@ public class GameManager : MonoBehaviour
             GameObject instance = EnemyFactory.instance.CreateEnemy(RandomEnemy());
             instance.transform.SetParent(enemyParent);
         }
-        CardManager.instance.DrawCards();
+        CombatManager.instance.currentCombatIndex = 0;
+        StartCoroutine(CombatManager.instance.StartCombat());
     }
     public void EndRound()
     {

@@ -27,11 +27,13 @@ namespace Enemy
                 case EnemyAction.Attack:
                     GameObject Target = FindTarget();
                     EventQueue.EnqueueEvent(new EnemyAttackEvent(Target.GetComponent<SetCharacterUI>().character, enemy.damage, enemyUI));
+                    Debug.Log("Attack");
                     break;
 
                 case EnemyAction.Defend:
                     EventQueue.EnqueueEvent(new EnemyDefenceEvent(enemy, enemy.defenceAmount, enemyUI));
                     enemyUI.UpdateDefenceUI();
+                    Debug.Log("Defend");
                     break;
 
                 case EnemyAction.Ability:
@@ -58,7 +60,6 @@ namespace Enemy
         {
             EnemyAction action = GetRandomEnumValue<EnemyAction>();
             enemy.action = action;
-            Debug.Log(action);
             enemyUI.UpdateActionUI();
 
         }

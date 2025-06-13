@@ -13,7 +13,7 @@ public class CombatManager : MonoBehaviour
     public Button endTurnButton;
 
     public List<GameObject> combatOrder;
-    int currentCombatIndex = 0;
+    public int currentCombatIndex = 0;
 
     private void Awake()
     {
