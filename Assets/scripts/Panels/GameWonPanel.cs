@@ -18,6 +18,10 @@ public class GameWonPanel : BasePanel
     {
         UpdateStats();
     }
+    private void OnDisable()
+    {
+        goldEarned = 0;
+    }
     public void UpdateStats()
     {
         goldEarnedText.text = "Gold Earned " + goldEarned.ToString();
@@ -29,11 +33,4 @@ public class GameWonPanel : BasePanel
     {
         goldEarned += goldAmount;
     }
-    public void NextRound()
-    {
-        goldEarned = 0;
-        ClosePanel();
-        GameManager.instance.NewRound();
-    }
-
 }

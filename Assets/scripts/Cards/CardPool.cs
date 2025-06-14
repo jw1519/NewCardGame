@@ -29,8 +29,7 @@ namespace Card
             GameObject gameObject;
             foreach (BaseCard card in cardSO)
             {
-                gameObject = Instantiate(cardToPool);
-                gameObject.GetComponent<SetCardUI>().card = Instantiate(card);
+                gameObject = CardFactory.instance.CreateCard(card);
                 gameObject.transform.SetParent(cardParent);
                 pooledCards.Add(gameObject);
             }
