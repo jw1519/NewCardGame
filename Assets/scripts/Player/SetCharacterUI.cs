@@ -43,6 +43,7 @@ namespace Character
         private void OnEnable()
         {
             BaseCharacter.playerHealthChanged += UpdateHealthUI;
+            BaseCharacter.playerDefenceChanged += UpdateDefenceUI;
         }
 
         public void UpdateHealthUI()

@@ -6,6 +6,7 @@ namespace Character
     public abstract class BaseCharacter : MonoBehaviour, ITakeDamage, IHeal, IUseEnergy
     {
         public static event Action playerHealthChanged;
+        public static event Action playerDefenceChanged;
 
         [Header("Character Sprite")]
         public Sprite characterSprite;
@@ -57,6 +58,7 @@ namespace Character
                     damageTaken -= defence;
                     defence = 0;
                 }
+                playerDefenceChanged?.Invoke();
             }
             if (health - damageTaken > 0)
             {

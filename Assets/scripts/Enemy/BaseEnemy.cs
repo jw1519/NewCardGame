@@ -7,6 +7,7 @@ namespace Enemy
     public abstract class BaseEnemy : ScriptableObject, ITakeDamage, IHeal
     {
         public static event Action enemyHealthChange;
+        public static event Action enemyDefenceChange;
         public static event Action enemydied;
         public static event Action<int> enemydiedGold;
 
@@ -67,6 +68,7 @@ namespace Enemy
                     damageTaken = damageTaken - defence;
                     defence = 0;
                 }
+                enemyDefenceChange?.Invoke();
             }
             if (health - damageTaken > 0)
             {

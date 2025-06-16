@@ -35,12 +35,14 @@ namespace Enemy
         {
             enemyHealthChange += UpdateHealthUI;
             enemydied += EnemyDied;
+            enemyDefenceChange += UpdateDefenceUI;
         }
         private void OnDestroy()
         {
             enemyHealthChange -= UpdateHealthUI;
             enemydied -= DisableUI;
             enemydied -= EnemyDied;
+            enemyDefenceChange -= UpdateDefenceUI;
         }
         public void UpdateHealthUI()
         {
