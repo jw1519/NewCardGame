@@ -5,14 +5,15 @@ using UnityEngine;
 public class CardPack : MonoBehaviour
 {
     public int packCost;
+    public int amountCardscontained;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void Buy()
     {
-        ShopManager.instance.Buy(packCost);
+        bool canBuy = ShopManager.instance.CanBuy(packCost);
+        if (canBuy)
+        {
+            ShopManager.instance.OpenCardPack();
+            Destroy(gameObject);
+        }
     }
 }

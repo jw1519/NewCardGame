@@ -9,6 +9,9 @@ public class ShopManager : MonoBehaviour
     public static ShopManager instance;
     BaseCharacter character;
 
+    public int maxCardPackAmount;
+    public int maxItemAmount;
+
     public List<BaseCard> items;
     public List<CardPack> cardPacks;
 
@@ -23,10 +26,9 @@ public class ShopManager : MonoBehaviour
     }
     public void SetUpShop()
     {
-        foreach (BaseCard card in items)
+        for (int i = 0; i <= maxCardPackAmount; i++ )
         {
-            GameObject instance = CardFactory.instance.CreateCard(card);
-            instance.transform.SetParent(itemParent, false);
+            
         }
     }
     public void ClearShop()
@@ -35,17 +37,24 @@ public class ShopManager : MonoBehaviour
         {
             Destroy(child);
         }
+        foreach (Transform child in cardPackParent)
+        {
+            Destroy(cardPackParent);
+        }
     }
 
-    public void Buy(int cost)
+    public bool CanBuy(int cost)
     {
         if (character.gold >= cost)
         {
+            return true;
+        }
+        Debug.Log("not enough gold");
+        return false;
+    }
 
-        }
-        else
-        {
-            Debug.Log("not enough gold");
-        }
+    public void OpenCardPack()
+    {
+
     }
 }
