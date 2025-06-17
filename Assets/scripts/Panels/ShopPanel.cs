@@ -5,36 +5,23 @@ using Card;
 
 public class ShopPanel : BasePanel
 {
-    public List<BaseCard> cards;
     public int AmountOfCards;
-    public Transform cardParent;
+
 
     private void OnEnable()
     {
-        SetUpShop();
+        ShopManager.instance.SetUpShop();
     }
     private void OnDisable()
     {
-        ClearShop();
+        ShopManager.instance.ClearShop();
         GameManager.instance.NewRound();
     }
     public void Reroll()
     {
-        ClearShop();
+        ShopManager.instance.ClearShop();
+        ShopManager.instance.SetUpShop();
     }
-    public void SetUpShop()
-    {
-        foreach (BaseCard card in cards)
-        {
-            GameObject instance = CardFactory.instance.CreateCard(card);
-            instance.transform.SetParent(cardParent, false);
-        }
-    }
-    public void ClearShop()
-    {
-        foreach (Transform child in cardParent)
-        {
-            Destroy(child);
-        }
-    }
+
+
 }
