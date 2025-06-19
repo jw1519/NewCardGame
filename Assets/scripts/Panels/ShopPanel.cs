@@ -1,8 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Card;
-
 public class ShopPanel : BasePanel
 {
     public int AmountOfCards;

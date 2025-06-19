@@ -1,17 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace Card
 {
     public class CardPackFactory : MonoBehaviour
     {
+        public static CardPackFactory instance;
         public GameObject cardPackGO;
-        public List<CardPack> cardPacks;
-
-        public void CreateCardPack()
+        private void Awake()
         {
+            if (instance == null)
+            {
+                instance = this;
+            }
+        }
 
+        public GameObject CreateCardPack(CardPack.CardPackType type)
+        {
+            GameObject instance = Instantiate(cardPackGO);
+            CardPack cardPack = instance.GetComponent<CardPack>();
+            cardPack.cardPackType = type;
+            instance.GetComponentInChildren<TextMeshProUGUI>().text = cardPack.packCost.ToString() + "g";
+            return instance;
         }
     }
 }
