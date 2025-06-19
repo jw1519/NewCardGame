@@ -37,6 +37,11 @@ public class ShopManager : MonoBehaviour
             instance.transform.SetParent(cardPackParent, false);
         }
     }
+    public CardPackType GetRandomEnumValue<Action>()
+    {
+        Array enumvalues = Enum.GetValues(typeof(CardPackType)); // gets all posable values for the enum
+        return (CardPackType)enumvalues.GetValue(UnityEngine.Random.Range(0, enumvalues.Length)); //randomly selcts on of the actions from the enum and returns it
+    }
     public void ClearShop()
     {
         foreach (Transform child in itemParent)
@@ -48,7 +53,17 @@ public class ShopManager : MonoBehaviour
             Destroy(child.gameObject);
         }
     }
-
+    public void OpenCardPack(int amountOfCards)
+    {
+        for (int i = 0; i <= amountOfCards; i++)
+        {
+            int random = UnityEngine.Random.Range(0, cards.Count);
+            GameObject instance = CardFactory.instance.CreateCard(cards[random]);
+            instance.GetComponent<Hover>().enabled = false;
+            instance.transform.SetParent(cardParent, false);
+        }
+        cardParent.gameObject.SetActive(true);
+    }
     public bool CanBuy(int cost)
     {
         if (character.gold >= cost)
@@ -58,22 +73,5 @@ public class ShopManager : MonoBehaviour
         }
         Debug.Log("not enough gold");
         return false;
-    }
-
-    public void OpenCardPack(int amountOfCards)
-    {
-        for (int i = 0; i <= amountOfCards; i++)
-        {
-            int random = UnityEngine.Random.Range(0, cards.Count);
-            GameObject instance = CardFactory.instance.CreateCard(cards[random]);
-            instance.transform.SetParent(cardParent, false);
-        }
-        cardParent.gameObject.SetActive(true);
-        
-    }
-    public CardPackType GetRandomEnumValue<Action>()
-    {
-        Array enumvalues = Enum.GetValues(typeof(CardPackType)); // gets all posable values for the enum
-        return (CardPackType)enumvalues.GetValue(UnityEngine.Random.Range(0, enumvalues.Length)); //randomly selcts on of the actions from the enum and returns it
     }
 }
