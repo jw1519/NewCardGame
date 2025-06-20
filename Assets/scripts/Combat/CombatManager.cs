@@ -15,12 +15,18 @@ public class CombatManager : MonoBehaviour
     public List<GameObject> combatOrder;
     public int currentCombatIndex = 0;
 
+    BasePanel gameWonPanel;
+
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
         }
+    }
+    private void Start()
+    {
+        gameWonPanel = UIManager.instance.panelList.Find(panel => panel.name == "GameWonPanel");
     }
     public void AddToCombat(GameObject character)
     {
@@ -80,7 +86,7 @@ public class CombatManager : MonoBehaviour
         bool isenemyAlive = EnemiesAlive();
         if (isenemyAlive == false)
         {
-            UIManager.instance.panelList.Find(panel => panel.name == "GameWonPanel").OpenPanel();
+            gameWonPanel.OpenPanel();
         }
     }
     public bool EnemiesAlive()

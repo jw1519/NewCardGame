@@ -12,7 +12,6 @@ public class GameWonPanel : BasePanel
     {
         player = FindObjectOfType<BaseCharacter>();
         BaseEnemy.enemydiedGold += UpdateGold;
-        ClosePanel();
     }
     private void OnEnable()
     {
