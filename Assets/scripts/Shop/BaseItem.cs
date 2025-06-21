@@ -1,18 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
+using Character;
+using TMPro;
 using UnityEngine;
 
-public class BaseItem : MonoBehaviour
+namespace Item
 {
-    // Start is called before the first frame update
-    void Start()
+    public abstract class BaseItem : MonoBehaviour
     {
-        
-    }
+        public Sprite itemSprite;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        [Header("Cost")]
+        public int itemCost;
+        public TextMeshProUGUI costText;
+
+        public void Buy()
+        {
+            bool canBuy = ShopManager.instance.CanBuy(itemCost);
+            if (canBuy)
+            {
+                costText.enabled = false;
+                UIManager.instance.panelList.Find(panel => panel.name == "PlayerStatsPanel").gameObject.GetComponent<PlayerStatsPanel>().AddItem(this);
+            }
+        }
     }
 }

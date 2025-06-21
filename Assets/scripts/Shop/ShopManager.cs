@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Card;
 using Character;
+using Item;
 using static Card.CardPack;
 using System;
 
@@ -9,6 +10,7 @@ public class ShopManager : MonoBehaviour
 {
     public static ShopManager instance;
     BaseCharacter character;
+
     [Header("Amounts")]
     public int maxCardPackAmount;
     public int maxItemAmount;
@@ -31,10 +33,14 @@ public class ShopManager : MonoBehaviour
     }
     public void SetUpShop()
     {
-        for (int i = 0; i <= maxCardPackAmount; i++ )
+        for (int i = 0; i < maxCardPackAmount; i++ )
         {
             GameObject instance = CardPackFactory.instance.CreateCardPack(GetRandomEnumValue<CardPackType>());
             instance.transform.SetParent(cardPackParent, false);
+        }
+        for (int i = 0;i < maxItemAmount; i++ )
+        {
+
         }
     }
     public CardPackType GetRandomEnumValue<Action>()
@@ -69,6 +75,7 @@ public class ShopManager : MonoBehaviour
         if (character.gold >= cost)
         {
             character.gold -= cost;
+            character.gameObject.GetComponent<SetCharacterUI>().UpdateGoldUI();
             return true;
         }
         Debug.Log("not enough gold");

@@ -1,5 +1,6 @@
-
+using Item;
 using TMPro;
+using UnityEngine;
 
 namespace Character
 {
@@ -8,6 +9,8 @@ namespace Character
         public TextMeshProUGUI healthText;
         public TextMeshProUGUI goldText;
         public TextMeshProUGUI roundText;
+
+        public Transform itemContainer;
         private void OnEnable()
         {
             GameManager.updateRounds += UpdateRoundUI;
@@ -24,6 +27,11 @@ namespace Character
         public void UpdateRoundUI(int round)
         {
             roundText.text = "Round " + round.ToString();
+        }
+
+        public void AddItem(BaseItem item)
+        {
+            item.transform.SetParent(itemContainer);
         }
     }
 }
