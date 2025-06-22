@@ -1,25 +1,25 @@
-using Item;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemFactory : MonoBehaviour
+namespace Item
 {
-    public static ItemFactory instance;
-    public GameObject itemPrefab;
-
-    private void Awake()
+    public class ItemFactory : MonoBehaviour
     {
-        if (instance == null)
-            instance = this;
+        public static ItemFactory instance;
+        public GameObject itemPrefab;
 
-        itemPrefab.SetActive(false);
-    }
-    public GameObject CreateItem(BaseItem item)
-    {
-        GameObject instance = Instantiate(itemPrefab);
-        instance.GetComponent<SetItemUI>().item = item;
-        instance.SetActive(true);
-        return instance;
+        private void Awake()
+        {
+            if (instance == null)
+                instance = this;
+
+            itemPrefab.SetActive(false);
+        }
+        public GameObject CreateItem(BaseItem item)
+        {
+            GameObject instance = Instantiate(itemPrefab);
+            instance.GetComponent<SetItemUI>().item = item;
+            instance.SetActive(true);
+            return instance;
+        }
     }
 }

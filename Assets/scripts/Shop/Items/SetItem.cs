@@ -1,13 +1,15 @@
+using Character;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 namespace Item
 {
     public class SetItemUI : MonoBehaviour
     {
         public BaseItem item;
-        
+        public TextMeshProUGUI costText;
+
 
         private void OnEnable()
         {
@@ -15,12 +17,24 @@ namespace Item
             {
                 GetComponent<Image>().sprite = item.itemSprite;
             }
-            item.costText = GetComponentInChildren<TextMeshProUGUI>();
+            costText = GetComponentInChildren<TextMeshProUGUI>();
+            UpdateCostUI();
+        }
+        
+
+        public void Buy()
+        {
+            bool canBuy = ShopManager.instance.CanBuy(item.itemCost);
+            if (canBuy)
+            {
+                costText.enabled = false;
+                UIManager.instance.panelList.Find(panel => panel.name == "PlayerStatsPanel").gameObject.GetComponent<PlayerStatsPanel>().AddItem(gameObject);
+            }
         }
 
         public void UpdateCostUI()
         {
-            item.costText.text = item.itemName + " " + item.itemCost.ToString() + "g";
+            costText.text = item.itemName + " " + item.itemCost.ToString() + "g";
         }
 
     }

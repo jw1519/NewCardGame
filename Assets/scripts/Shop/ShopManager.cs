@@ -38,11 +38,11 @@ public class ShopManager : MonoBehaviour
             GameObject instance = CardPackFactory.instance.CreateCardPack(GetRandomEnumValue<CardPackType>());
             instance.transform.SetParent(cardPackParent, false);
         }
-        //for (int i = 0;i < maxItemAmount; i++ )
-        //{
-        //    GameObject instance = ItemFactory.instance.CreateItem(items[UnityEngine.Random.Range(0, items.Count)]);
-        //    instance.transform.SetParent(itemParent, false);
-        //}
+        for (int i = 0; i < maxItemAmount; i++)
+        {
+            GameObject instance = ItemFactory.instance.CreateItem(items[UnityEngine.Random.Range(0, items.Count)]);
+            instance.transform.SetParent(itemParent, false);
+        }
     }
     public CardPackType GetRandomEnumValue<Action>()
     {

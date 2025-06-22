@@ -1,4 +1,4 @@
-using Item;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -9,6 +9,9 @@ namespace Character
         public TextMeshProUGUI healthText;
         public TextMeshProUGUI goldText;
         public TextMeshProUGUI roundText;
+
+        public int maxItemAmount;
+        public List<GameObject> items;
 
         public Transform itemContainer;
         private void OnEnable()
@@ -29,9 +32,14 @@ namespace Character
             roundText.text = "Round " + round.ToString();
         }
 
-        public void AddItem(BaseItem item)
+        public void AddItem(GameObject item)
         {
-            item.transform.SetParent(itemContainer);
+            if (items.Count < maxItemAmount)
+            {
+                items.Add(item);
+                item.transform.SetParent(itemContainer);
+            }
+            
         }
     }
 }

@@ -1,25 +1,18 @@
 using Character;
-using TMPro;
 using UnityEngine;
 
 namespace Item
 {
-    public abstract class BaseItem : MonoBehaviour
+    public abstract class BaseItem : ScriptableObject
     {
         public Sprite itemSprite;
         public string itemName;
-        [Header("Cost")]
         public int itemCost;
-        public TextMeshProUGUI costText;
+        public BaseCharacter character;
 
-        public void Buy()
+        private void Awake()
         {
-            bool canBuy = ShopManager.instance.CanBuy(itemCost);
-            if (canBuy)
-            {
-                costText.enabled = false;
-                UIManager.instance.panelList.Find(panel => panel.name == "PlayerStatsPanel").gameObject.GetComponent<PlayerStatsPanel>().AddItem(this);
-            }
+            character = FindAnyObjectByType<BaseCharacter>();
         }
     }
 }
