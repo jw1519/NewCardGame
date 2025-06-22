@@ -18,7 +18,7 @@ namespace Item
                 GetComponent<Image>().sprite = item.itemSprite;
             }
             costText = GetComponentInChildren<TextMeshProUGUI>();
-            UpdateCostUI();
+            UpdateUI();
         }
         
 
@@ -32,7 +32,7 @@ namespace Item
             }
         }
 
-        public void UpdateCostUI()
+        public void UpdateUI()
         {
             costText.text = item.itemName + " " + item.itemCost.ToString() + "g";
         }

@@ -59,10 +59,6 @@ public class ShopPanel : BasePanel
         else
         {
             healthRestoreText.transform.parent.gameObject.SetActive(false);
-        }
-
-        
+        }   
     }
-
-
 }
