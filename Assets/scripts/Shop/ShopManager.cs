@@ -72,6 +72,14 @@ public class ShopManager : MonoBehaviour
         }
         cardParent.gameObject.SetActive(true);
     }
+    public void CardSelected()
+    {
+        foreach (Transform child in cardParent)
+        {
+            Destroy(child.gameObject);
+        }
+        cardParent.gameObject.SetActive(false);
+    }
     public bool CanBuy(int cost)
     {
         if (character.gold >= cost)

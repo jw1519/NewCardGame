@@ -12,6 +12,7 @@ namespace Card
         public void OnSelect()
         {
             CardManager.instance.AddCard(gameObject);
+            ShopManager.instance.CardSelected();
             Destroy(gameObject.GetComponent<CardSelect>());
         }
     }
