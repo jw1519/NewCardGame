@@ -83,5 +83,10 @@ namespace Card
             card.transform.SetParent(discardedCardParent, false);
             cardsInHand.Remove(card);
         }
+        public void AddCard(GameObject card)
+        {
+            cardsInDeck.Add(card);
+            card.transform.SetParent(deckCardParent);
+        }
     }
 }

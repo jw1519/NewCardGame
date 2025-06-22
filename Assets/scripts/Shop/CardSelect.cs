@@ -1,12 +1,18 @@
-using Card;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class CardSelect : MonoBehaviour
+namespace Card
 {
-    public void OnSelect()
+    public class CardSelect : MonoBehaviour
     {
-        CardManager.instance.cardsInDeck.Add(gameObject);
+        private void OnEnable()
+        {
+            GetComponent<Button>().onClick.AddListener(OnSelect); 
+        }
+        public void OnSelect()
+        {
+            CardManager.instance.AddCard(gameObject);
+            Destroy(gameObject.GetComponent<CardSelect>());
+        }
     }
 }

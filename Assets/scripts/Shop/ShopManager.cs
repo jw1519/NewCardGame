@@ -40,7 +40,8 @@ public class ShopManager : MonoBehaviour
         }
         for (int i = 0;i < maxItemAmount; i++ )
         {
-
+            GameObject instance = ItemFactory.instance.CreateItem(items[UnityEngine.Random.Range(0, items.Count)]);
+            instance.transform.SetParent(itemParent, false);
         }
     }
     public CardPackType GetRandomEnumValue<Action>()
@@ -67,6 +68,7 @@ public class ShopManager : MonoBehaviour
             GameObject instance = CardFactory.instance.CreateCard(cards[random]);
             instance.GetComponent<Hover>().enabled = false;
             instance.transform.SetParent(cardParent, false);
+            instance.AddComponent<CardSelect>();
         }
         cardParent.gameObject.SetActive(true);
     }

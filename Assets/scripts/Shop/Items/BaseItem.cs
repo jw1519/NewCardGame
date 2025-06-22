@@ -7,7 +7,7 @@ namespace Item
     public abstract class BaseItem : MonoBehaviour
     {
         public Sprite itemSprite;
-
+        public string itemName;
         [Header("Cost")]
         public int itemCost;
         public TextMeshProUGUI costText;
