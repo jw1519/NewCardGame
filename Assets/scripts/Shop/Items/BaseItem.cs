@@ -15,7 +15,7 @@ namespace Item
         {
             character = FindAnyObjectByType<BaseCharacter>();
         }
-        public void Use()
+        public virtual void Use()
         {
             if (isBought)
             {

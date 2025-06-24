@@ -32,6 +32,14 @@ namespace Item
                 item.isBought = true;
             }
         }
+        public void Use()
+        {
+            if (item.isBought)
+            {
+                item.Use();
+                Destroy(gameObject);
+            }   
+        }
 
         public void UpdateUI()
         {
