@@ -46,6 +46,7 @@ public class ShopPanel : BasePanel
         {
             character.health = character.maxHealth;
             character.gameObject.GetComponent<SetCharacterUI>().UpdateHealthUI();
+            healthRestoreText.transform.parent.gameObject.SetActive(false);
         }
     }
     public void UpdateHealthRestoreUI()

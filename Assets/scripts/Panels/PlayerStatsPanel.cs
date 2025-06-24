@@ -11,7 +11,6 @@ namespace Character
         public TextMeshProUGUI roundText;
 
         public int maxItemAmount;
-        public List<GameObject> items;
 
         public Transform itemContainer;
         private void OnEnable()
@@ -34,9 +33,8 @@ namespace Character
 
         public void AddItem(GameObject item)
         {
-            if (items.Count < maxItemAmount)
+            if (itemContainer.childCount < maxItemAmount)
             {
-                items.Add(item);
                 item.transform.SetParent(itemContainer);
             }
             

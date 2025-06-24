@@ -1393,7 +1393,6 @@ MonoBehaviour:
   items:
   - {fileID: 11400000, guid: 751ffd5fc92734d418ab7ab2bfbc97a2, type: 2}
   - {fileID: 11400000, guid: fda24573cc8247443968edb7619b3d70, type: 2}
-  cardPacks: []
   cards:
   - {fileID: 11400000, guid: 0f36b209e06d40540aa651fca13fac7c, type: 2}
   - {fileID: 11400000, guid: 95799eb3a1b5c704c8f5498fad2ece7e, type: 2}
@@ -3268,7 +3267,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 359.525, y: 0}
+  m_SizeDelta: {x: 540.5717, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &888118509
 MonoBehaviour:
@@ -3290,10 +3289,10 @@ MonoBehaviour:
   m_ChildAlignment: 3
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 100, y: 100}
-  m_Spacing: {x: 20, y: 0}
-  m_Constraint: 0
-  m_ConstraintCount: 2
+  m_CellSize: {x: 160, y: 140}
+  m_Spacing: {x: -50, y: 0}
+  m_Constraint: 2
+  m_ConstraintCount: 1
 --- !u!1 &906161818
 GameObject:
   m_ObjectHideFlags: 0
@@ -6948,9 +6947,8 @@ MonoBehaviour:
   healthText: {fileID: 1119895236}
   goldText: {fileID: 391969871}
   roundText: {fileID: 1953523162}
-  maxItemAmount: 0
-  items: []
-  itemContainer: {fileID: 0}
+  maxItemAmount: 3
+  itemContainer: {fileID: 888118508}
 --- !u!1 &1889375579
 GameObject:
   m_ObjectHideFlags: 0
