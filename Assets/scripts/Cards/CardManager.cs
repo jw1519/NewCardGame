@@ -50,15 +50,19 @@ namespace Card
             }
             else
             {
-                // put cards from discard pile into deck if deck is empty or doesnt have enough cards
-                foreach (GameObject card in cardsInDiscard)
-                {
-                    cardsInDeck.Add(card);
-                    card.transform.SetParent(deckCardParent, false);
-                }
-                cardsInDiscard.Clear();
+                EmptyDiscardPile();
                 DrawCards();
             }
+        }
+        public void EmptyDiscardPile()
+        {
+            // put cards from discard pile into deck if deck is empty or doesnt have enough cards
+            foreach (GameObject card in cardsInDiscard)
+            {
+                cardsInDeck.Add(card);
+                card.transform.SetParent(deckCardParent, false);
+            }
+            cardsInDiscard.Clear();
         }
         //discard any unused cards when turn ends
         public void DiscardAllCards()

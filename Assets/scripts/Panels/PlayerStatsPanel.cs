@@ -39,5 +39,9 @@ namespace Character
             }
             
         }
+        public void Pause()
+        {
+            UIManager.instance.panelList.Find(panel => panel.name == "PausePanel").OpenPanel();
+        }
     }
 }

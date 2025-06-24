@@ -25,10 +25,11 @@ namespace Item
         public void Buy()
         {
             bool canBuy = ShopManager.instance.CanBuy(item.itemCost);
-            if (canBuy)
+            if (canBuy && !item.isBought)
             {
                 costText.enabled = false;
                 UIManager.instance.panelList.Find(panel => panel.name == "PlayerStatsPanel").gameObject.GetComponent<PlayerStatsPanel>().AddItem(gameObject);
+                item.isBought = true;
             }
         }
 

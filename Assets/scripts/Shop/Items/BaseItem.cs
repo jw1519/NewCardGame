@@ -8,11 +8,19 @@ namespace Item
         public Sprite itemSprite;
         public string itemName;
         public int itemCost;
+        public bool isBought;
         public BaseCharacter character;
 
         private void Awake()
         {
             character = FindAnyObjectByType<BaseCharacter>();
+        }
+        public void Use()
+        {
+            if (isBought)
+            {
+                Debug.Log("Use");
+            }
         }
     }
 }

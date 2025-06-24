@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     {
         round++;
         updateRounds?.Invoke(round);
+        CardManager.instance.EmptyDiscardPile();
         player.character.energy = player.character.maxEnergy;
         player.UpdateEnergyUI();
         EndRound();
