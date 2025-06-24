@@ -17,7 +17,6 @@ public class ShopManager : MonoBehaviour
 
     [Header("Lists")]
     public List<BaseItem> items;
-    public List<CardPack> cardPacks;
     public List<BaseCard> cards;
 
     [Header("Parent Transforms")]

@@ -1392,6 +1392,7 @@ MonoBehaviour:
   maxItemAmount: 3
   items:
   - {fileID: 11400000, guid: 751ffd5fc92734d418ab7ab2bfbc97a2, type: 2}
+  - {fileID: 11400000, guid: fda24573cc8247443968edb7619b3d70, type: 2}
   cardPacks: []
   cards:
   - {fileID: 11400000, guid: 0f36b209e06d40540aa651fca13fac7c, type: 2}
