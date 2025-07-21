@@ -86,6 +86,7 @@ namespace Card
         {
             card.transform.SetParent(discardedCardParent, false);
             cardsInHand.Remove(card);
+            cardsInDiscard.Add(card);
         }
         public void AddCard(GameObject card)
         {

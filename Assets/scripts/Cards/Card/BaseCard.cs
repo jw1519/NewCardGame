@@ -1,5 +1,4 @@
 using Character;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Card
@@ -24,7 +23,6 @@ namespace Card
         {
             player.UseEnergy(cardEnergy);
             player.gameObject.GetComponent<SetCharacterUI>().UpdateEnergyUI();
-            //CardManager.instance.DiscardCard()
         }
     }
 }

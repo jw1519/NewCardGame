@@ -32,7 +32,6 @@ namespace Card
                 {
                     Debug.Log("not enough energy");
                 }
-
             }
         }
     }
