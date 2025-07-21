@@ -100,4 +100,11 @@ public class CombatManager : MonoBehaviour
         }
         return false;
     }
+    public void ClearCombat()
+    {
+        foreach(GameObject gameObject in combatOrder)
+        {
+            combatOrder.Remove(gameObject);
+        }
+    }
 }

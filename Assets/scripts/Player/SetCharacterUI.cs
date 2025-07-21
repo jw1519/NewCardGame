@@ -29,16 +29,20 @@ namespace Character
             healthSlider.maxValue = character.maxHealth;
             energySlider.maxValue = character.maxEnergy;
 
-            healthSlider.value = character.health;
-            energySlider.value = character.energy;
+            playerStatsPanel = UIManager.instance.panelList.Find(panel => panel.name == "PlayerStatsPanel").gameObject.GetComponent<PlayerStatsPanel>();
+            
+            spriteObject.sprite = character.characterSprite;
+            NewRun();
+        }
+        public void NewRun()
+        {
+            character.health = character.maxHealth;
+            character.energy = character.maxEnergy;
 
             UpdateEnergyUI();
             UpdateHealthUI();
-
-            playerStatsPanel = UIManager.instance.panelList.Find(panel => panel.name == "PlayerStatsPanel").gameObject.GetComponent<PlayerStatsPanel>();
             UpdateGoldUI();
-
-            spriteObject.sprite = character.characterSprite;
+            CombatManager.instance.AddToCombat(gameObject);
         }
         private void OnEnable()
         {

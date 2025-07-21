@@ -27,13 +27,18 @@ public class GameOverPanel : BasePanel
     }
     public void NewRun()
     {
-        GameManager.instance.NewRound();
+        roundsWon = 0;
+        totalGoldEarned = 0;
+        GameManager.instance.NewRun();
         ClosePanel();
     }
 
     public void UpdateHighScore()
     {
         if (roundsWon > highScore)
+        {
             highScore = roundsWon;
+            PlayerPrefs.SetInt("hightScore", highScore );
+        }
     }
 }

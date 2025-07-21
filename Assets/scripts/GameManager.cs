@@ -71,4 +71,11 @@ public class GameManager : MonoBehaviour
             return enemyList[0];
         }
     }
+    public void NewRun()
+    {
+        round = 0;
+        CombatManager.instance.ClearCombat();
+        player.NewRun();
+        NewRound();
+    }
 }
