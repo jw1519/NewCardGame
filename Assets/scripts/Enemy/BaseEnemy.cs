@@ -4,7 +4,8 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public abstract class BaseEnemy : ScriptableObject, ITakeDamage, IHeal
+    [CreateAssetMenu(fileName = "New Enemy", menuName = "Enemy/BasicEnemy")]
+    public class BaseEnemy : ScriptableObject, ITakeDamage, IHeal
     {
         public static event Action enemyHealthChange;
         public static event Action enemyDefenceChange;
@@ -60,19 +61,19 @@ namespace Enemy
             {
                 if (defence >= damageTaken)
                 {
-                    defence = defence - damageTaken;
+                    defence -= damageTaken;
                     damageTaken = 0;
                 }
                 else
                 {
-                    damageTaken = damageTaken - defence;
+                    damageTaken -= defence;
                     defence = 0;
                 }
                 enemyDefenceChange?.Invoke();
             }
             if (health - damageTaken > 0)
             {
-                health = health - damageTaken;
+                health -= damageTaken;
                 enemyHealthChange?.Invoke();
             }
             else
@@ -87,6 +88,7 @@ namespace Enemy
         public virtual void UseAbility(GameObject target)
         {
             Debug.Log("Use Ability here");
+            Heal(abilityAmount);
         }
     }
 }
