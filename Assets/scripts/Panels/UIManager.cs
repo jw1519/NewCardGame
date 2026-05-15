@@ -19,4 +19,15 @@ public class UIManager : MonoBehaviour
             panelList.Add(panel);
         }
     }
+    public BasePanel GetPanel(string panelName)
+    {
+        foreach (BasePanel panel in panelList)
+        {
+            if (panel.name == panelName)
+            {
+                return panel;
+            }
+        }
+        return null;
+    }
 }
