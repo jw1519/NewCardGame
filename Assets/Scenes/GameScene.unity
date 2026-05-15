@@ -5818,6 +5818,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1463012041}
+  - component: {fileID: 1463012042}
   m_Layer: 0
   m_Name: manager
   m_TagString: Untagged
@@ -5847,6 +5848,24 @@ Transform:
   - {fileID: 381407199}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1463012042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463012040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f07f85dc959d8b84eabb45b5f367a571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AssetManager
+  assets:
+  - {fileID: 979024295}
+  - {fileID: 652769022}
+  - {fileID: 1226917730}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1470562241
 GameObject:
   m_ObjectHideFlags: 0

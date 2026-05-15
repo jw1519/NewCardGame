@@ -19,8 +19,8 @@ MonoBehaviour:
   defenceSprite: {fileID: 21300000, guid: c07d8f2ef21dc634395f674f8766dcf6, type: 3}
   abilitySprite: {fileID: 21300000, guid: 0ad037c82e017d7429742ed757e5dafa, type: 3}
   enemyName: Goblin
-  health: 50
-  maxHealth: 50
+  health: 30
+  maxHealth: 30
   damage: 5
   defence: 5
   defenceAmount: 0
