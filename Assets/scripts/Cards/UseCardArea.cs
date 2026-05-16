@@ -12,7 +12,7 @@ namespace Card
         private void Awake()
         {
             cardHand = FindAnyObjectByType<CardHand>();
-            player = FindFirstObjectByType<BaseCharacter>();
+            player = FindAnyObjectByType<BaseCharacter>();
         }
         public virtual void OnDrop(PointerEventData eventData)
         {

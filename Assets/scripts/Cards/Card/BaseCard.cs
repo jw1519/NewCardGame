@@ -21,8 +21,11 @@ namespace Card
         }
         public virtual void Use(GameObject target)
         {
-            player.UseEnergy(cardEnergy);
-            player.gameObject.GetComponent<SetCharacterUI>().UpdateEnergyUI();
+            if (player.GetComponent<DragAndDrop>().isDragging == false)
+            {
+                player.UseEnergy(cardEnergy);
+                player.gameObject.GetComponent<SetCharacterUI>().UpdateEnergyUI();
+            }
         }
     }
 }
