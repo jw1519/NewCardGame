@@ -12,7 +12,7 @@ namespace Card
         private void Awake()
         {
             description = "the card attacks for " +  damage.ToString();
-            player = FindFirstObjectByType<BaseCharacter>();
+            player = FindAnyObjectByType<BaseCharacter>();
         }
         public override void Use(GameObject target)
         {

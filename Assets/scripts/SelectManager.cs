@@ -17,10 +17,11 @@ namespace Card
         }
         public void SelectCard(GameObject card)
         {
-            if (cardSelected == null)
+            if (cardSelected != null)
             {
-                cardSelected = card.GetComponent<SetCardUI>();
+                cardSelected.GetComponent<UseCard>().DeselectCard();
             }
+            cardSelected = card.GetComponent<SetCardUI>();
         }
         public void SelectPlayer(GameObject character)
         {
