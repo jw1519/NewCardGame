@@ -1,23 +1,29 @@
 using Card;
 using Character;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class UseCard : MonoBehaviour
 {
     BaseCard card;
     BaseCharacter player;
     public Vector3 pos;
-    Transform parent;
+    public Transform parent;
+    SelectManager selectManager;
     bool isSelected = false;
     private void Start()
     {
         card = GetComponent<SetCardUI>().card;
         player = FindAnyObjectByType<BaseCharacter>();
+        selectManager = AssetManager.Instance.GetAsset("SelectManager").GetComponent<SelectManager>();
     }
     private void OnEnable()
     {
-        parent = transform.GetComponentInParent<Transform>();
+        parent = transform.parent;
+        pos = transform.localPosition;
+    }
+    private void OnDisable()
+    {
+        parent = null;
     }
 
     public void SelectCard()
@@ -28,17 +34,17 @@ public class UseCard : MonoBehaviour
             DeselectCard();
             return;
         }
-        if (SelectManager.instance.cardSelected != null)
+        if (selectManager.cardSelected != null)
         {
             DeselectCard();
             return;
         }
         if (player.energy - card.cardEnergy >= 0)
         {
-            SelectManager.instance.SelectCard(gameObject);
-            pos = transform.position;
-            transform.position = new Vector3(pos.x, pos.y + 100f, pos.z);
-            transform.SetParent(transform.root);
+            selectManager.SelectCard(gameObject);
+            pos = transform.localPosition;
+            transform.localPosition = new Vector3(pos.x, pos.y + 100f, pos.z);
+            transform.SetParent(transform.parent.root);
             isSelected = true;
         }
         else
@@ -50,9 +56,9 @@ public class UseCard : MonoBehaviour
     {
         if (card.isInHand == false) return;
         if (!isSelected) return;
-        SelectManager.instance.cardSelected = null;
+        selectManager.cardSelected = null;
         isSelected = false;
-        transform.position = pos;
+        transform.localPosition = pos;
         transform.SetParent(parent);
     }
 }

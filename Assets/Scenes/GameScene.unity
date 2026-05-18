@@ -1489,7 +1489,7 @@ GameObject:
   - component: {fileID: 352383691}
   - component: {fileID: 352383690}
   m_Layer: 5
-  m_Name: MainCanvas
+  m_Name: CombatCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5750,6 +5750,12 @@ MonoBehaviour:
   - {fileID: 979024295}
   - {fileID: 652769022}
   - {fileID: 1226917730}
+  - {fileID: 995124774}
+  - {fileID: 1960227012}
+  - {fileID: 679945520}
+  - {fileID: 1647420024}
+  - {fileID: 1554387484}
+  - {fileID: 2123414018}
 --- !u!1 &1470562241
 GameObject:
   m_ObjectHideFlags: 0
@@ -8218,7 +8224,7 @@ GameObject:
   - component: {fileID: 1960227013}
   - component: {fileID: 1960227014}
   m_Layer: 0
-  m_Name: CardSelectManager
+  m_Name: SelectManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8621,7 +8627,7 @@ GameObject:
   - component: {fileID: 2084912503}
   - component: {fileID: 2084912502}
   m_Layer: 5
-  m_Name: Map
+  m_Name: MapCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8783,7 +8789,7 @@ GameObject:
   - component: {fileID: 2123414021}
   - component: {fileID: 2123414022}
   m_Layer: 5
-  m_Name: HandView
+  m_Name: CardHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

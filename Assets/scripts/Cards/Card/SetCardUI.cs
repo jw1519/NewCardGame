@@ -15,6 +15,8 @@ namespace Card
             cardTypeText.text = card.cardType.ToString();
             energyText.text = card.cardEnergy.ToString();
             descriptionText.text = card.description;
+
+            name = card.name + "UI";
         }
         public void UpdateDescriptionText()
         {
