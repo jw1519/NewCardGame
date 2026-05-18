@@ -28,7 +28,7 @@ public class ShopPanel : BasePanel
     private void OnDisable()
     {
         ShopManager.instance.ClearShop();
-        GameManager.instance.NewRound();
+        AssetManager.Instance.GetAsset("GameManager").GetComponent<GameManager>().NewRound();
     }
     public void Reroll()
     {

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -13,6 +12,7 @@ namespace Character
         public int maxItemAmount;
 
         public Transform itemContainer;
+        public TextMeshProUGUI itemAmountText;
         private void OnEnable()
         {
             GameManager.updateRounds += UpdateRoundUI;
@@ -35,13 +35,21 @@ namespace Character
         {
             if (itemContainer.childCount < maxItemAmount)
             {
+                itemAmountText.text = (itemContainer.childCount + 1).ToString() + "/" + maxItemAmount.ToString();
                 item.transform.SetParent(itemContainer);
             }
-            
+        }
+        public void RemoveItem(GameObject item)
+        {
+            if (itemContainer.childCount > 0)
+            {
+                itemAmountText.text = (itemContainer.childCount - 1).ToString() + "/" + maxItemAmount.ToString();
+                item.transform.SetParent(null);
+            }
         }
         public void Pause()
         {
-            UIManager.instance.panelList.Find(panel => panel.name == "PausePanel").OpenPanel();
+            AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PausePanel").OpenPanel();
         }
     }
 }

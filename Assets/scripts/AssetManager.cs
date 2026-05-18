@@ -14,7 +14,6 @@ public class AssetManager : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
     }
     public GameObject GetAsset(string assetName)
     {

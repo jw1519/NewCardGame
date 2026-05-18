@@ -28,9 +28,7 @@ namespace Character
         {
             healthSlider.maxValue = character.maxHealth;
             energySlider.maxValue = character.maxEnergy;
-
-            playerStatsPanel = UIManager.instance.panelList.Find(panel => panel.name == "PlayerStatsPanel").gameObject.GetComponent<PlayerStatsPanel>();
-            
+            playerStatsPanel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PlayerStatsPanel").GetComponent<PlayerStatsPanel>();
             spriteObject.sprite = character.characterSprite;
             NewRun();
         }

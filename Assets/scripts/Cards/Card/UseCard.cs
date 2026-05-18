@@ -14,6 +14,9 @@ public class UseCard : MonoBehaviour
     {
         card = GetComponent<SetCardUI>().card;
         player = FindAnyObjectByType<BaseCharacter>();
+    }
+    private void OnEnable()
+    {
         parent = transform.GetComponentInParent<Transform>();
     }
 

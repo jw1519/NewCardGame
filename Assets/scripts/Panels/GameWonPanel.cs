@@ -1,6 +1,7 @@
 using Character;
 using Enemy;
 using TMPro;
+using UnityEngine;
 public class GameWonPanel : BasePanel
 {
     public int goldEarned;
@@ -10,7 +11,7 @@ public class GameWonPanel : BasePanel
 
     private void Awake()
     {
-        player = FindObjectOfType<BaseCharacter>();
+        player = FindAnyObjectByType<BaseCharacter>();
         BaseEnemy.enemydiedGold += UpdateGold;
     }
     private void OnEnable()

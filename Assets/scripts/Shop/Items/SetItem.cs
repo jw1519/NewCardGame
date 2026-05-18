@@ -2,7 +2,6 @@ using Character;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
 namespace Item
 {
     public class SetItemUI : MonoBehaviour
@@ -13,6 +12,7 @@ namespace Item
 
         private void OnEnable()
         {
+            item = Instantiate(item);
             if (item.itemSprite != null)
             {
                 GetComponent<Image>().sprite = item.itemSprite;
@@ -24,12 +24,15 @@ namespace Item
 
         public void Buy()
         {
+            if (item.isBought) return;
             bool canBuy = ShopManager.instance.CanBuy(item.itemCost);
             if (canBuy && !item.isBought)
             {
                 costText.enabled = false;
-                UIManager.instance.panelList.Find(panel => panel.name == "PlayerStatsPanel").gameObject.GetComponent<PlayerStatsPanel>().AddItem(gameObject);
+                AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PlayerStatsPanel").GetComponent<PlayerStatsPanel>().AddItem(gameObject);
                 item.isBought = true;
+                GetComponent<Button>().onClick.RemoveAllListeners();
+                GetComponent<Button>().onClick.AddListener(Use);
             }
         }
         public void Use()
@@ -37,8 +40,9 @@ namespace Item
             if (item.isBought)
             {
                 item.Use();
+                GetComponentInParent<PlayerStatsPanel>().RemoveItem(gameObject);
                 Destroy(gameObject);
-            }   
+            }
         }
 
         public void UpdateUI()

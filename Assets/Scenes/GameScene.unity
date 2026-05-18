@@ -5044,7 +5044,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1263425993
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5099,20 +5099,20 @@ MonoBehaviour:
       TangentIn:
         x: -0
         y: -0
-        z: -42.151203
+        z: -37.73664
       TangentOut:
         x: 0
         y: 0
-        z: 42.151203
+        z: 37.73664
       Rotation:
         value:
-          x: 0.5515114
-          y: -0.44253272
-          z: 0.44253287
-          w: -0.5515113
+          x: 0.56779385
+          y: -0.4214381
+          z: 0.42143825
+          w: -0.5677938
     - Position:
-        x: 411.5
-        y: 91.32434
+        x: 361.2
+        y: 109.27
         z: 0
       TangentIn:
         x: 0
@@ -5129,23 +5129,23 @@ MonoBehaviour:
           z: 0.4984305
           w: -0.5015649
     - Position:
-        x: 848.4
+        x: 734.07
         y: 0
         z: 0
       TangentIn:
         x: -0
         y: -0
-        z: -44.634266
+        z: -38.85511
       TangentOut:
         x: 0
         y: 0
-        z: 44.634266
+        z: 38.85511
       Rotation:
         value:
-          x: -0.44592428
-          y: 0.54877263
-          z: -0.5487727
-          w: 0.44592434
+          x: 0.42390332
+          y: -0.5659559
+          z: 0.56595594
+          w: -0.42390317
     m_MetaData:
     - Mode: 0
       Tension: 0.5
@@ -7887,6 +7887,7 @@ MonoBehaviour:
   roundText: {fileID: 1953523162}
   maxItemAmount: 3
   itemContainer: {fileID: 888118508}
+  itemAmountText: {fileID: 218680416}
 --- !u!1 &1889375579
 GameObject:
   m_ObjectHideFlags: 0

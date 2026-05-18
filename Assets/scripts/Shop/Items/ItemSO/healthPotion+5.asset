@@ -15,5 +15,6 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 55e303aaa71d01b42a9f3437851aef8a, type: 3}
   itemName: Health Potion  +5
   itemCost: 10
+  isBought: 0
   character: {fileID: 0}
   healAmount: 5
