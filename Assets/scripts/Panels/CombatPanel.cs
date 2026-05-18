@@ -13,7 +13,7 @@ public class CombatPanel : BasePanel
     void Start()
     {
          combatImage = combatImagePrefab.GetComponentInChildren<Image>();
-        foreach (GameObject character in CombatManager.instance.combatOrder)
+        foreach (GameObject character in AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>().combatOrder)
         {
             if (character.GetComponent<SetCharacterUI>() != null)
             {

@@ -10,12 +10,14 @@ namespace Enemy
     {
         BaseEnemy enemy;
         SetEnemyUI enemyUI;
+        CombatManager combatManager;
 
         private void Awake()
         {
             enemyUI = GetComponent<SetEnemyUI>();
             enemy = enemyUI.enemy;
-            CombatManager.instance.AddToCombat(gameObject);
+            combatManager = AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>();
+            combatManager.AddToCombat(gameObject);
             SelectNextAction();
         }
         public void StartTurn()
@@ -40,12 +42,12 @@ namespace Enemy
                     Debug.Log("Ability used");
                     break;
             }
-            StartCoroutine(CombatManager.instance.StartCombat());
+            StartCoroutine(combatManager.StartCombat());
             SelectNextAction();
         }
         public GameObject FindTarget()
         {
-            List<GameObject> targets = CombatManager.instance.combatOrder.FindAll(u => u.GetComponent<SetCharacterUI>() != null && u.GetComponent<SetCharacterUI>().character.isAlive); // find all potential characters to attack
+            List<GameObject> targets = combatManager.combatOrder.FindAll(u => u.GetComponent<SetCharacterUI>() != null && u.GetComponent<SetCharacterUI>().character.isAlive); // find all potential characters to attack
 
             if (targets.Count == 0)
             {

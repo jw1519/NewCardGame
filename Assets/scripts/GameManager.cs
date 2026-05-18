@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     int maxEnemyAmount = 3;
 
     SetCharacterUI player;
+    CombatManager combatManager;
 
     private void Start()
     {
@@ -27,13 +28,15 @@ public class GameManager : MonoBehaviour
             instance = this;
         }
         round = 0;
-        player = FindFirstObjectByType<SetCharacterUI>();
+        player = FindAnyObjectByType<SetCharacterUI>();
+        combatManager = AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>();
         NewRound();
     }
     public void EndPlayerTurn()
     {
         CardManager.instance.DiscardAllCards();
-        StartCoroutine(CombatManager.instance.StartCombat());
+
+        StartCoroutine(combatManager.StartCombat());
     }
     public void NewRound()
     {
@@ -49,8 +52,8 @@ public class GameManager : MonoBehaviour
             GameObject instance = EnemyFactory.instance.CreateEnemy(RandomEnemy());
             instance.transform.SetParent(enemyParent);
         }
-        CombatManager.instance.currentCombatIndex = 0;
-        StartCoroutine(CombatManager.instance.StartCombat());
+        combatManager.currentCombatIndex = 0;
+        StartCoroutine(combatManager.StartCombat());
     }
     public void EndRound()
     {
@@ -74,7 +77,7 @@ public class GameManager : MonoBehaviour
     public void NewRun()
     {
         round = 0;
-        CombatManager.instance.ClearCombat();
+        combatManager.ClearCombat();
         player.NewRun();
         NewRound();
     }

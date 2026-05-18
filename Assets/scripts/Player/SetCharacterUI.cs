@@ -42,7 +42,7 @@ namespace Character
             UpdateEnergyUI();
             UpdateHealthUI();
             UpdateGoldUI();
-            CombatManager.instance.AddToCombat(gameObject);
+            AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>().AddToCombat(gameObject);
         }
         private void OnEnable()
         {

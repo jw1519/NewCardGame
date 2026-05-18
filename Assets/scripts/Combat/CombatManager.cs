@@ -9,7 +9,6 @@ using UnityEngine.UI;
 
 public class CombatManager : MonoBehaviour
 {
-    public static CombatManager instance;
     public Button endTurnButton;
 
     public List<GameObject> combatOrder;
@@ -17,13 +16,6 @@ public class CombatManager : MonoBehaviour
 
     BasePanel gameWonPanel;
 
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-    }
     private void Start()
     {
         gameWonPanel = UIManager.instance.GetPanel("GameWonPanel");

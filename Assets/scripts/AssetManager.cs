@@ -16,4 +16,16 @@ public class AssetManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
+    public GameObject GetAsset(string assetName)
+    {
+        foreach (GameObject asset in assets)
+        {
+            if (asset.name == assetName)
+            {
+                return asset;
+            }
+        }
+        Debug.LogWarning($"Asset with name {assetName} not found.");
+        return null;
+    }
 }

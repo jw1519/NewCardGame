@@ -102,7 +102,7 @@ namespace Enemy
             if (enemy.isAlive == false)
             {
                 DisableUI();
-                CombatManager.instance.RemoveFromCombat(gameObject);
+                AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>().RemoveFromCombat(gameObject);
                 GameObject gameWonPanel = UIManager.instance.panelList.Find(panel => panel.name == "GameWonPanel").gameObject;
                 gameWonPanel.GetComponent<GameWonPanel>().goldEarned += enemy.goldOnDefeat;
             }
