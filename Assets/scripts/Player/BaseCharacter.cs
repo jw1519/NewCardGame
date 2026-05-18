@@ -26,10 +26,6 @@ namespace Character
         public int totalGoldCollected;
         public bool isAlive => health > 0;
 
-        public virtual void Start()
-        {
-            CombatManager.instance.AddToCombat(gameObject);
-        }
         public void Heal(int healAmount)
         {
             if (health + healAmount <= maxHealth)

@@ -26,7 +26,7 @@ public class CombatManager : MonoBehaviour
     }
     private void Start()
     {
-        gameWonPanel = UIManager.instance.panelList.Find(panel => panel.name == "GameWonPanel");
+        gameWonPanel = UIManager.instance.GetPanel("GameWonPanel");
     }
     public void AddToCombat(GameObject character)
     {
