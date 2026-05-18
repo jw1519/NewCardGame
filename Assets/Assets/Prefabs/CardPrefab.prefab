@@ -500,7 +500,6 @@ GameObject:
   - component: {fileID: 2863463434489568202}
   - component: {fileID: 8302297860915125844}
   - component: {fileID: 909865027881991033}
-  - component: {fileID: -2580715045223809620}
   - component: {fileID: -730460728353805694}
   - component: {fileID: 4202885626328479560}
   - component: {fileID: 2906724464887803628}
@@ -559,20 +558,6 @@ MonoBehaviour:
   cardTypeText: {fileID: 3844757707747297821}
   descriptionText: {fileID: 353717530457404440}
   energyText: {fileID: 5860715741360572898}
---- !u!114 &-2580715045223809620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6792751333631855732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b30e2c97bcad9742b24601847e17426, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentAfterDrag: {fileID: 0}
-  isDragging: 0
 --- !u!225 &-730460728353805694
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -653,3 +638,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cbd35acc6899124c8c23fded88bbf52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UseCard
+  pos: {x: 0, y: 0, z: 0}

@@ -5,7 +5,6 @@ using UnityEngine.UIElements;
 
 public class UseCard : MonoBehaviour
 {
-    DragAndDrop dragAndDrop;
     BaseCard card;
     BaseCharacter player;
     public Vector3 pos;
@@ -13,7 +12,6 @@ public class UseCard : MonoBehaviour
     bool isSelected = false;
     private void Start()
     {
-        dragAndDrop = GetComponent<DragAndDrop>();
         card = GetComponent<SetCardUI>().card;
         player = FindAnyObjectByType<BaseCharacter>();
         parent = transform.GetComponentInParent<Transform>();
@@ -21,6 +19,7 @@ public class UseCard : MonoBehaviour
 
     public void SelectCard()
     {
+        if (card.isInHand == false) return;
         if (isSelected)
         {
             DeselectCard();
@@ -31,24 +30,22 @@ public class UseCard : MonoBehaviour
             DeselectCard();
             return;
         }
-        if (dragAndDrop.isDragging != true)
+        if (player.energy - card.cardEnergy >= 0)
         {
-            if (player.energy - card.cardEnergy >= 0)
-            {
-                SelectManager.instance.SelectCard(gameObject);
-                pos = transform.position;
-                transform.position = new Vector3(pos.x, pos.y + 100f, pos.z);
-                transform.SetParent(transform.root);
-                isSelected = true;
-            }
-            else
-            {
-                Debug.Log("not enough energy");
-            }
+            SelectManager.instance.SelectCard(gameObject);
+            pos = transform.position;
+            transform.position = new Vector3(pos.x, pos.y + 100f, pos.z);
+            transform.SetParent(transform.root);
+            isSelected = true;
+        }
+        else
+        {
+            Debug.Log("not enough energy");
         }
     }
     public void DeselectCard()
     {
+        if (card.isInHand == false) return;
         if (!isSelected) return;
         SelectManager.instance.cardSelected = null;
         isSelected = false;

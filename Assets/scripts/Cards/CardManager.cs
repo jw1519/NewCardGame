@@ -26,7 +26,7 @@ namespace Card
             {
                 instance = this;
             }
-            hand = FindFirstObjectByType<CardHand>();
+            hand = FindAnyObjectByType<CardHand>();
         }
         public void DrawCards()
         {
@@ -38,13 +38,12 @@ namespace Card
                     GameObject RandomCard = CardPool.instance.GetPooledCard();
                     if (RandomCard != null)
                     {
+                        RandomCard.GetComponent<SetCardUI>().card.isInHand = true;
                         RandomCard.gameObject.SetActive(true);
                         RandomCard.transform.SetParent(hand.transform, false);
                         cardsInHand.Add(RandomCard);
                         StartCoroutine(hand.AddCard(RandomCard));
                         cardsInDeck.Remove(RandomCard);
-                        RandomCard.GetComponent<Hover>().enabled = true;
-                        RandomCard.GetComponent<DragAndDrop>().enabled = true;
                     }
                 }
             }
@@ -70,6 +69,7 @@ namespace Card
             // add all cards in hand to discard list
             foreach (GameObject card in cardsInHand)
             {
+                card.GetComponent<SetCardUI>().card.isInHand = false;
                 cardsInDiscard.Add(card);
             }
             // discard all cards in hand

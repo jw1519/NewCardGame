@@ -9,6 +9,7 @@ namespace Card
         public CardType cardType;
         public int cardEnergy;
         public string description;
+        public bool isInHand = false; //Check if card is in hand to prevent using it from discard pile or deck
 
         [HideInInspector] public BaseCharacter player;
 
@@ -23,6 +24,7 @@ namespace Card
         {
             player.UseEnergy(cardEnergy);
             player.gameObject.GetComponent<SetCharacterUI>().UpdateEnergyUI();
+            isInHand = false;
         }
     }
 }
