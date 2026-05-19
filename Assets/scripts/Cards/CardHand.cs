@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Splines;
 
-public class CardHand : MonoBehaviour, IDropHandler
+public class CardHand : MonoBehaviour
 {
     public List<GameObject> cards = new();
     public SplineContainer splineContainer;
@@ -37,9 +37,4 @@ public class CardHand : MonoBehaviour, IDropHandler
         }
         yield return new WaitForSeconds(duration);
     }
-    public void OnDrop(PointerEventData eventData)
-    {
-        StartCoroutine(UpdateCardPositions(0.15f));
-    }
-
 }
