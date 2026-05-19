@@ -81,6 +81,7 @@ namespace Enemy
 
                 case EnemyAction.Ability:
                     actionSprite.sprite = enemy.abilitySprite;
+                    actionText.text = "";
                     return;
             }
         }
@@ -104,7 +105,8 @@ namespace Enemy
                 DisableUI();
                 AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>().RemoveFromCombat(gameObject);
                 GameObject gameWonPanel = UIManager.instance.panelList.Find(panel => panel.name == "GameWonPanel").gameObject;
-                gameWonPanel.GetComponent<GameWonPanel>().goldEarned += enemy.goldOnDefeat;
+                gameWonPanel.GetComponent<GameWonPanel>().UpdateGold(enemy.goldOnDefeat);
+                gameWonPanel.GetComponent<GameWonPanel>().UpdateStats();
             }
         }
     }

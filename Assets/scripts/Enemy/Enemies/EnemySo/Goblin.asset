@@ -22,7 +22,7 @@ MonoBehaviour:
   health: 30
   maxHealth: 30
   damage: 5
-  defence: 5
-  defenceAmount: 0
+  defence: 0
+  defenceAmount: 5
   abilityAmount: 3
   goldOnDefeat: 20

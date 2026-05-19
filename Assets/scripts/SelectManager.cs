@@ -22,6 +22,7 @@ namespace Card
             if (cardSelected != null)
             {
                 cardSelected.GetComponent<UseCard>().DeselectCard();
+                //StartCoroutine(cardHand.UpdateCardPositions(0));
             }
             cardSelected = card.GetComponent<SetCardUI>();
         }

@@ -11,7 +11,7 @@ namespace Card
 
         private void Awake()
         {
-            player = FindFirstObjectByType<BaseCharacter>();
+            player = FindAnyObjectByType<BaseCharacter>();
         }
     }
 }

@@ -13,8 +13,8 @@ namespace Card
         private void Start()
         {
             cardTypeText.text = card.cardType.ToString();
-            energyText.text = card.cardEnergy.ToString();
-            descriptionText.text = card.description;
+            UpdateEnergyText();
+            UpdateDescriptionText();
 
             name = card.name + "UI";
         }
