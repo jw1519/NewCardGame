@@ -25,6 +25,7 @@ public class GameWonPanel : BasePanel
     public void UpdateStats()
     {
         goldEarnedText.text = "Gold Earned " + goldEarned.ToString();
+        if (player == null) return;
         player.gold += goldEarned;
         player.totalGoldCollected += goldEarned;
         player.gameObject.GetComponent<SetCharacterUI>().UpdateGoldUI();
