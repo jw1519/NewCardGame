@@ -9,12 +9,14 @@ public class UseCard : MonoBehaviour
     public Vector3 pos;
     public Transform parent;
     SelectManager selectManager;
+    CardHand cardHand;
     bool isSelected = false;
     private void Start()
     {
         card = GetComponent<SetCardUI>().card;
         player = FindAnyObjectByType<BaseCharacter>();
         selectManager = AssetManager.Instance.GetAsset("SelectManager").GetComponent<SelectManager>();
+        cardHand = AssetManager.Instance.GetAsset("CardHand").GetComponent<CardHand>();
     }
     private void OnEnable()
     {
@@ -58,7 +60,7 @@ public class UseCard : MonoBehaviour
         if (!isSelected) return;
         selectManager.cardSelected = null;
         isSelected = false;
-        transform.localPosition = pos;
         transform.SetParent(parent);
+        cardHand.StartCoroutine(cardHand.UpdateCardPositions(0));
     }
 }
