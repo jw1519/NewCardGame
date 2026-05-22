@@ -7,7 +7,6 @@ public class ShopPanel : BasePanel
 {
     public int AmountOfCards;
     BaseCharacter character;
-    GameObject combatCanvas;
     [Header("Reroll")]
     public int rerollCost;
     public TextMeshProUGUI rerollText;
@@ -21,13 +20,11 @@ public class ShopPanel : BasePanel
     private void Awake()
     {
         character = FindAnyObjectByType<BaseCharacter>();
-        combatCanvas = AssetManager.Instance.GetAsset("CombatCanvas");
     }
 
     private void OnEnable()
     {
         rerollText.text = "Reroll " + rerollCost.ToString() + "g";
-        combatCanvas.SetActive(false);
         if (character.gold >= rerollCost)
         {
             reRollButton.interactable = true;
@@ -43,7 +40,6 @@ public class ShopPanel : BasePanel
     {
         ShopManager.instance.ClearShop();
         AssetManager.Instance.GetAsset("GameManager").GetComponent<GameManager>().NewRound();
-        combatCanvas.SetActive(true);
     }
     public void Reroll()
     {

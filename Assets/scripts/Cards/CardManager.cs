@@ -33,7 +33,19 @@ namespace Card
             DiscardAllCards();
             if (cardsInDeck.Count >= startingCardsInHand)
             {
-                for (int i = 0; i < startingCardsInHand; i++)
+                DrawCard(startingCardsInHand);
+            }
+            else
+            {
+                EmptyDiscardPile();
+                DrawCards();
+            }
+        }
+        public void DrawCard(int amount)
+        {
+            if (cardsInDeck.Count > 0)
+            {
+                for (int i = 0; i < amount; i++)
                 {
                     GameObject RandomCard = CardPool.instance.GetPooledCard();
                     if (RandomCard != null)
@@ -46,11 +58,12 @@ namespace Card
                         cardsInDeck.Remove(RandomCard);
                     }
                 }
+
             }
             else
             {
                 EmptyDiscardPile();
-                DrawCards();
+                DrawCard(amount);
             }
         }
         public void EmptyDiscardPile()
