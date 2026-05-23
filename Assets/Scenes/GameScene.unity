@@ -2817,8 +2817,8 @@ MonoBehaviour:
   health: 10
   maxHealth: 10
   defence: 0
-  energy: 3
-  maxEnergy: 3
+  energy: 4
+  maxEnergy: 4
   gold: 0
   totalGoldCollected: 0
 --- !u!114 &567812480
@@ -3696,18 +3696,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0f36b209e06d40540aa651fca13fac7c, type: 2}
   - {fileID: 11400000, guid: 0f36b209e06d40540aa651fca13fac7c, type: 2}
   - {fileID: 11400000, guid: 0f36b209e06d40540aa651fca13fac7c, type: 2}
+  - {fileID: 11400000, guid: 5a6d1c80cd595da459464ebb7e88852c, type: 2}
   - {fileID: 11400000, guid: 0f36b209e06d40540aa651fca13fac7c, type: 2}
-  - {fileID: 11400000, guid: 0f36b209e06d40540aa651fca13fac7c, type: 2}
   - {fileID: 11400000, guid: 95799eb3a1b5c704c8f5498fad2ece7e, type: 2}
   - {fileID: 11400000, guid: 95799eb3a1b5c704c8f5498fad2ece7e, type: 2}
   - {fileID: 11400000, guid: 95799eb3a1b5c704c8f5498fad2ece7e, type: 2}
-  - {fileID: 11400000, guid: 95799eb3a1b5c704c8f5498fad2ece7e, type: 2}
+  - {fileID: 11400000, guid: 5a6d1c80cd595da459464ebb7e88852c, type: 2}
   - {fileID: 11400000, guid: 95799eb3a1b5c704c8f5498fad2ece7e, type: 2}
   - {fileID: 11400000, guid: e30b3f93467184a4f9259233989b1b10, type: 2}
   - {fileID: 11400000, guid: e30b3f93467184a4f9259233989b1b10, type: 2}
   - {fileID: 11400000, guid: e30b3f93467184a4f9259233989b1b10, type: 2}
   - {fileID: 11400000, guid: e30b3f93467184a4f9259233989b1b10, type: 2}
   - {fileID: 11400000, guid: e30b3f93467184a4f9259233989b1b10, type: 2}
+  - {fileID: 11400000, guid: 5a6d1c80cd595da459464ebb7e88852c, type: 2}
+  - {fileID: 11400000, guid: 5a6d1c80cd595da459464ebb7e88852c, type: 2}
   cardToPool: {fileID: 6792751333631855732, guid: 7a54b87609f36f0439e7024b6b97bfe0, type: 3}
   cardParent: {fileID: 1098776580}
 --- !u!1 &716923926
@@ -6028,7 +6030,7 @@ MonoBehaviour:
   - {fileID: 1647420024}
   - {fileID: 1554387484}
   - {fileID: 2123414018}
-  - {fileID: 0}
+  - {fileID: 567812476}
 --- !u!1 &1482111230
 GameObject:
   m_ObjectHideFlags: 0

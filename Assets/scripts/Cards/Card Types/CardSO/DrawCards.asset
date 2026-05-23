@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: DrawCards
   m_EditorClassIdentifier: Assembly-CSharp::Card.DrawCards
   cardSprite: {fileID: 0}
-  cardType: 0
-  cardEnergy: 0
-  description: 
+  cardType: 3
+  cardEnergy: 1
+  description: Draw two cards
   isInHand: 0
   player: {fileID: 0}
+  cardsToDraw: 2

@@ -1,5 +1,5 @@
-using Unity.VisualScripting;
 using UnityEngine;
+using Character;
 
 namespace Card
 {
@@ -8,9 +8,10 @@ namespace Card
     {
         CardManager cardManager;
         public int cardsToDraw;
-        public void Start()
+        public void Awake()
         {
             cardManager = AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>();
+            player = AssetManager.Instance.GetAsset("Player").GetComponent<BaseCharacter>();
         }
         public override void Use(GameObject target)
         {
