@@ -20,7 +20,6 @@ public class UIManager : MonoBehaviour
     }
     public BasePanel GetPanel(string panelName)
     {
-        Debug.Log("Getting panel: " + panelName);
         foreach (BasePanel panel in panelList)
         {
             if (panel.name == panelName)
