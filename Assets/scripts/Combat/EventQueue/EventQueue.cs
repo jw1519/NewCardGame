@@ -44,28 +44,33 @@ public class EventQueue : MonoBehaviour
         if (gameEvent is PlayerAttackEvent playerAttack)
         {
             ApplyDamage(playerAttack.Target, playerAttack.Damage);
+            ChangeAnimation(playerAttack.Target, "Attack");
             yield return new WaitForSeconds(1); //do animation here
         }
         else if (gameEvent is PlayerDefenceEvent playerDefence)
         {
             playerDefence.Target.defence += playerDefence.Defence;
             playerDefence.CharacterUI.UpdateDefenceUI();
+            ChangeAnimation(playerDefence.Target, "Defend");
             yield return new WaitForSeconds(1); //do animation here
         }
         else if (gameEvent is PlayerHealEvent playerHeal)
         {
             ApplyHeal(playerHeal.Target, playerHeal.HealAmount);
+            ChangeAnimation(playerHeal.Target, "Ability");
             yield return new WaitForSeconds(1); //do animation here
         }
         else if (gameEvent is EnemyAttackEvent enemyAttack)
         {
             ApplyDamage(enemyAttack.Target, enemyAttack.Damage);
+            ChangeAnimation(enemyAttack.Target, "Attack");
             yield return new WaitForSeconds(1); //do animation here
         }
         else if (gameEvent is EnemyDefenceEvent enemyDefence)
         {
             enemyDefence.Target.defence = enemyDefence.Target.defenceAmount;
             enemyDefence.EnemyUI.UpdateDefenceUI();
+            ChangeAnimation(enemyDefence.Target, "Defend");
             yield return new WaitForSeconds(1);
         }
     }
@@ -76,5 +81,9 @@ public class EventQueue : MonoBehaviour
     public static void ApplyHeal(IHeal target, int healAmount)
     {
         target.Heal(healAmount);
+    }
+    public static void ChangeAnimation(IChangeAnimation target, string animationName)
+    {
+        target.ChangeAnimation(animationName);
     }
 }

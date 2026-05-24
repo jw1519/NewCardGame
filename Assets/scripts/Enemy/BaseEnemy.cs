@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Enemy
 {
     [CreateAssetMenu(fileName = "New Enemy", menuName = "Enemy/BasicEnemy")]
-    public class BaseEnemy : ScriptableObject, ITakeDamage, IHeal
+    public class BaseEnemy : ScriptableObject, ITakeDamage, IHeal, IChangeAnimation
     {
         public static event Action enemyHealthChange;
         public static event Action enemyDefenceChange;
@@ -14,6 +14,7 @@ namespace Enemy
 
         public Sprite enemySprite;
         public AnimatorController controller;
+        public Animator animator;
 
         [Header("actions")]
         public EnemyAction action;
@@ -81,6 +82,32 @@ namespace Enemy
         {
             Debug.Log("Use Ability here");
             Heal(abilityAmount);
+        }
+        public void ChangeAnimation(string animationName)
+        {
+            if (animator == null)
+                animator = controller.animator;
+
+            switch (animationName)
+            {
+                case "Idle":
+                    animator.SetTrigger("Idle");
+                    break;
+                case "TakeDamage":
+                    animator.SetTrigger("TakeDamage");
+                    break;
+                case "Die":
+                    animator.SetTrigger("Die");
+                    break;
+                case "Attack":
+                    animator.SetTrigger("Attack");
+                case "Defend":
+                    animator.SetTrigger("Defend");
+                    break;
+                case "Ability":
+                    animator.SetTrigger("Ability");
+                    break;
+            }
         }
     }
     public enum EnemyAction
