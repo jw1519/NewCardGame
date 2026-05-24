@@ -33,14 +33,6 @@ namespace Enemy
         public int goldOnDefeat;
 
          public bool isAlive => health > 0;
-
-        public enum EnemyAction
-        {
-            Attack,
-            Defend,
-            Heal,
-            Ability,
-        }
         public void Heal(int healAmount)
         {
             if (health + healAmount <= maxHealth)
@@ -90,5 +82,13 @@ namespace Enemy
             Debug.Log("Use Ability here");
             Heal(abilityAmount);
         }
+    }
+    public enum EnemyAction
+    {
+        Attack,
+        Defend,
+        Heal,
+        Ability,
+        None
     }
 }
