@@ -5,5 +5,10 @@ if cards exceed 7 cards will have to be discarded
 
 enemies could be chaned together. all take damage. all heal the same
 
+
+things to do:
+Make items usable in combat
+clear hand after battle is won
+
 issues
-card in use card area dont get removed when end turn is pressed
+Items can be bought when items is full

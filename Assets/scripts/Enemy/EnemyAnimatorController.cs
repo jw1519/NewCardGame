@@ -24,6 +24,7 @@ public class AnimatorController : MonoBehaviour
                 break;
             case "Attack":
                 animator.SetTrigger("Attack");
+                break;
             case "Defend":
                 animator.SetTrigger("Defend");
                 break;

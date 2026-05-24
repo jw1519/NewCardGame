@@ -21,15 +21,17 @@ namespace Enemy
         [Header("Actions")]
         public Image actionSprite;
         public TextMeshProUGUI actionText;
-
-        private void Awake()
+        private void Start()
         {
             healthText.text = enemy.health.ToString() + "/" + enemy.maxHealth.ToString();
             healthSlider.maxValue = enemy.maxHealth;
             healthSlider.value = enemy.health;
 
             SetEnemySprite(enemy.enemySprite);
-            spriteObject.GetComponent<Animator>().runtimeAnimatorController = enemy.controller;
+
+            spriteObject.GetComponent<Animator>().runtimeAnimatorController = enemy.animatorController;
+            enemy.animator = spriteObject.GetComponent<Animator>();
+            enemy.ChangeAnimation("Idle");
         }
         private void OnEnable()
         {

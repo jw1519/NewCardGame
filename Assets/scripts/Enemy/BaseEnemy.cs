@@ -1,5 +1,4 @@
 using System;
-using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Enemy
@@ -13,7 +12,7 @@ namespace Enemy
         public static event Action<int> enemydiedGold;
 
         public Sprite enemySprite;
-        public AnimatorController controller;
+        public RuntimeAnimatorController animatorController;
         public Animator animator;
 
         [Header("actions")]
@@ -85,8 +84,6 @@ namespace Enemy
         }
         public void ChangeAnimation(string animationName)
         {
-            if (animator == null)
-                animator = controller.animator;
 
             switch (animationName)
             {
@@ -101,6 +98,7 @@ namespace Enemy
                     break;
                 case "Attack":
                     animator.SetTrigger("Attack");
+                    break;
                 case "Defend":
                     animator.SetTrigger("Defend");
                     break;
