@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Goblin
   m_EditorClassIdentifier: 
   enemySprite: {fileID: -7385789195546760866, guid: c1cdd26cc09ad224884556bc4d8296ae, type: 3}
-  controller: {fileID: 9100000, guid: 585252e333619ae4cad058e2aee23869, type: 2}
+  animatorController: {fileID: 9100000, guid: 585252e333619ae4cad058e2aee23869, type: 2}
+  animator: {fileID: 0}
   action: 0
   attackSprite: {fileID: 21300000, guid: 300675427539b7842a89d514aaa349cd, type: 3}
   defenceSprite: {fileID: 21300000, guid: c07d8f2ef21dc634395f674f8766dcf6, type: 3}
