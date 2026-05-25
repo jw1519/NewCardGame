@@ -94,10 +94,10 @@ namespace Enemy
                     animator.SetTrigger("TakeDamage");
                     break;
                 case "Die":
-                    animator.SetTrigger("Die");
+                    animator.SetBool("isAlive", false);
                     break;
                 case "Attack":
-                    animator.SetTrigger("Attack");
+                    animator.SetTrigger("attack");
                     break;
                 case "Defend":
                     animator.SetTrigger("Defend");

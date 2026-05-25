@@ -97,7 +97,7 @@ namespace Enemy
             {
                 child.gameObject.SetActive(false);
             }
-            spriteObject.GetComponent<Animator>().SetBool("isAlive", false);
+            enemy.ChangeAnimation("Die");
             GetComponent<Button>().enabled = false;
         }
         public void EnemyDied()

@@ -399,7 +399,6 @@ GameObject:
   - component: {fileID: 2294589486840333165}
   - component: {fileID: 1745845016436176191}
   - component: {fileID: 4228962146929576762}
-  - component: {fileID: -4119061343407265950}
   m_Layer: 5
   m_Name: EnemyPrefab
   m_TagString: Untagged
@@ -527,19 +526,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &-4119061343407265950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8511036128161293653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 499a4cbdb77b4904b8e69a618a300c47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Enemy.EnemyAnimatorController
-  animator: {fileID: 0}
 --- !u!1001 &49646008681877285
 PrefabInstance:
   m_ObjectHideFlags: 0
