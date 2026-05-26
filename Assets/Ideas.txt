@@ -6,11 +6,17 @@ start with 5 cards have a max of 7
 if cards exceed 7 cards will have to be discarded
 
 enemies could be chaned together. all take damage. all heal the same
-enemiy can chain players together
+enemis can chain players together
 dot attack
+
+draw cards do something else instead of just adding to hand eg card draw plays immidietly
+make card sprites different for different types of cards eg attack, defense, utility
 
 
 things to do:
+add more cards
+add map
+
 
 
 issues:
