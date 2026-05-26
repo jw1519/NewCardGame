@@ -25,7 +25,7 @@ namespace Item
         public void Buy()
         {
             if (item.isBought) return;
-            bool canBuy = ShopManager.instance.CanBuy(item.itemCost);
+            bool canBuy = ShopManager.instance.ItemCanBeBought(item.itemCost);
             if (canBuy && !item.isBought)
             {
                 costText.enabled = false;

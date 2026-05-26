@@ -83,15 +83,6 @@ public class ShopManager : MonoBehaviour
     PlayerStatsPanel playerStatsPanel;
     public bool CanBuy(int cost)
     {
-        if (playerStatsPanel == null)
-        {
-            playerStatsPanel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PlayerStatsPanel").GetComponent<PlayerStatsPanel>();
-        }
-        if (playerStatsPanel.maxItemAmount == playerStatsPanel.itemContainer.childCount)
-        {
-            Debug.Log("cant buy item, inventory full");
-            return false;
-        }
         if (character.gold >= cost)
         {
             character.gold -= cost;
@@ -99,6 +90,22 @@ public class ShopManager : MonoBehaviour
             return true;
         }
         Debug.Log("not enough gold");
+        return false;
+    }
+    public bool ItemCanBeBought(int cost)
+    {
+        if (playerStatsPanel == null)
+        {
+            playerStatsPanel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PlayerStatsPanel").GetComponent<PlayerStatsPanel>();
+        }
+        if (playerStatsPanel.maxItemAmount == playerStatsPanel.itemContainer.childCount)
+        {
+            return false;
+        }
+        if (CanBuy(cost))
+        {
+            return true;
+        }
         return false;
     }
 }

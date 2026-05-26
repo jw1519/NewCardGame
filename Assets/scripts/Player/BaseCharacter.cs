@@ -7,6 +7,7 @@ namespace Character
     {
         public static event Action playerHealthChanged;
         public static event Action playerDefenceChanged;
+        public static event Action playerEnergyChanged;
 
         [Header("Character Sprite")]
         public Sprite characterSprite;
@@ -76,6 +77,17 @@ namespace Character
             if (energy - amount >= 0)
             {
                 energy -= amount;
+            }
+        }
+        public void GainEnergy(int amount)
+        {
+            if (energy + amount <= maxEnergy)
+            {
+                energy += amount;
+            }
+            else
+            {
+                energy = maxEnergy;
             }
         }
     }

@@ -46,6 +46,7 @@ namespace Character
         {
             BaseCharacter.playerHealthChanged += UpdateHealthUI;
             BaseCharacter.playerDefenceChanged += UpdateDefenceUI;
+            BaseCharacter.playerEnergyChanged += UpdateEnergyUI;
         }
 
         public void UpdateHealthUI()
