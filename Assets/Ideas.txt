@@ -1,3 +1,5 @@
+Ideas for the game:
+
 have a combat order on the side 
 add cards to increase speed/ change combat order
 start with 5 cards have a max of 7
@@ -7,8 +9,10 @@ enemies could be chaned together. all take damage. all heal the same
 
 
 things to do:
-Make items usable in combat
-clear hand after battle is won
 
-issues
-Items can be bought when items is full
+
+issues:
+sometimes the enemies action sprites dont appear and they do not do an action on that turn
+Goblin enemies animations currently dont work
+
+
