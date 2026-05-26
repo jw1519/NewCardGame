@@ -13,6 +13,11 @@ namespace Character
 
         public Transform itemContainer;
         public TextMeshProUGUI itemAmountText;
+        public void Start()
+        {
+            maxItemAmount = AssetManager.Instance.GetAsset("Player").GetComponent<BaseCharacter>().maxItemAmount;
+            itemAmountText.text = "0/" + maxItemAmount.ToString();
+        }
         private void OnEnable()
         {
             GameManager.updateRounds += UpdateRoundUI;

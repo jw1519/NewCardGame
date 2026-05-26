@@ -2821,6 +2821,7 @@ MonoBehaviour:
   maxEnergy: 4
   gold: 0
   totalGoldCollected: 0
+  maxItemAmount: 4
 --- !u!114 &567812480
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ namespace Character
         public int health;
         public int maxHealth;
         public int defence;
+        public bool isAlive => health > 0;
 
         [Header("Energy")]
         public int energy;
@@ -24,7 +25,10 @@ namespace Character
         [Header("Gold")]
         public int gold;
         public int totalGoldCollected;
-        public bool isAlive => health > 0;
+
+        [Header("Items")]
+        public int maxItemAmount;
+
 
         public void Heal(int healAmount)
         {
