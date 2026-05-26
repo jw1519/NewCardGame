@@ -79,8 +79,19 @@ public class ShopManager : MonoBehaviour
         }
         cardParent.gameObject.SetActive(false);
     }
+
+    PlayerStatsPanel playerStatsPanel;
     public bool CanBuy(int cost)
     {
+        if (playerStatsPanel == null)
+        {
+            playerStatsPanel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PlayerStatsPanel").GetComponent<PlayerStatsPanel>();
+        }
+        if (playerStatsPanel.maxItemAmount == playerStatsPanel.itemContainer.childCount)
+        {
+            Debug.Log("cant buy item, inventory full");
+            return false;
+        }
         if (character.gold >= cost)
         {
             character.gold -= cost;

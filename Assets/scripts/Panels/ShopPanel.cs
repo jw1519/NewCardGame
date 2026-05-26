@@ -25,6 +25,17 @@ public class ShopPanel : BasePanel
     private void OnEnable()
     {
         rerollText.text = "Reroll " + rerollCost.ToString() + "g";
+        UpdateShopUI();
+        UpdateHealthRestoreUI();
+        ShopManager.instance.SetUpShop();
+    }
+    private void OnDisable()
+    {
+        ShopManager.instance.ClearShop();
+        AssetManager.Instance.GetAsset("GameManager").GetComponent<GameManager>().NewRound();
+    }
+    public void UpdateShopUI()
+    {
         if (character.gold >= rerollCost)
         {
             reRollButton.interactable = true;
@@ -33,13 +44,6 @@ public class ShopPanel : BasePanel
         {
             reRollButton.interactable = false;
         }
-        UpdateHealthRestoreUI();
-        ShopManager.instance.SetUpShop();
-    }
-    private void OnDisable()
-    {
-        ShopManager.instance.ClearShop();
-        AssetManager.Instance.GetAsset("GameManager").GetComponent<GameManager>().NewRound();
     }
     public void Reroll()
     {
