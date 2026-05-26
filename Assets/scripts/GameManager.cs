@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     }
     public void EndPlayerTurn()
     {
-        CardManager.instance.DiscardAllCards();
+        //CardManager.instance.DiscardAllCards();
 
         StartCoroutine(combatManager.StartCombat());
     }
@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
         player.character.energy = player.character.maxEnergy;
         player.UpdateEnergyUI();
         EndRound();
+        CardManager.instance.NewRound();
         int enemyAmount = UnityEngine.Random.Range(1, maxEnemyAmount);
         for (int i = 0; i < enemyAmount; i++)
         {

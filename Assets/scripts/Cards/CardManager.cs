@@ -28,9 +28,9 @@ namespace Card
             }
             hand = FindAnyObjectByType<CardHand>();
         }
-        public void DrawCards()
+        public void NewRound()
         {
-            DiscardAllCards();
+            EmptyDiscardPile();
             if (cardsInDeck.Count >= startingCardsInHand)
             {
                 DrawCard(startingCardsInHand);
@@ -38,9 +38,22 @@ namespace Card
             else
             {
                 EmptyDiscardPile();
-                DrawCards();
+                NewRound();
             }
         }
+        //public void DrawCards()
+        //{
+        //    DiscardAllCards();
+        //    if (cardsInDeck.Count >= startingCardsInHand)
+        //    {
+        //        DrawCard(startingCardsInHand);
+        //    }
+        //    else
+        //    {
+        //        EmptyDiscardPile();
+        //        DrawCards();
+        //    }
+        //}
         public void DrawCard(int amount)
         {
             if (cardsInDeck.Count > 0)

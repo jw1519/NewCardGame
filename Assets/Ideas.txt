@@ -18,6 +18,7 @@ make card sprites different for different types of cards eg attack, defense, uti
 things to do:
 add more cards
 add map
+when selecting a card give a choice to use or discard
 
 
 

@@ -13,6 +13,7 @@ public class CombatManager : MonoBehaviour
 
     public List<GameObject> combatOrder;
     public int currentCombatIndex = 0;
+    public int cardsDrawn = 2;
 
     BasePanel gameWonPanel;
 
@@ -60,7 +61,7 @@ public class CombatManager : MonoBehaviour
         endTurnButton.GetComponentInChildren<TextMeshProUGUI>().text = "End Turn";
         endTurnButton.enabled = true;
 
-        CardManager.instance.DrawCards();
+        CardManager.instance.DrawCard(cardsDrawn);
     }
     public void EnemyTurn(GameObject enemy)
     {
