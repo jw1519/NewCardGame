@@ -88,7 +88,7 @@ namespace Enemy
             switch (animationName)
             {
                 case "Idle":
-                    animator.SetTrigger("Idle");
+                    animator.CrossFade("Idle", 0.1f);
                     break;
                 case "TakeDamage":
                     animator.SetTrigger("TakeDamage");
