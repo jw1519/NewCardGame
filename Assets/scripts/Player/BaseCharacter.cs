@@ -89,6 +89,7 @@ namespace Character
             {
                 energy = maxEnergy;
             }
+            playerEnergyChanged?.Invoke();
         }
     }
 }

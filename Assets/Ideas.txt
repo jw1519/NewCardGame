@@ -5,8 +5,10 @@ add cards to increase speed/ change combat order
 start with 5 cards have a max of 7
 if cards exceed 7 cards will have to be discarded
 
-enemies could be chaned together. all take damage. all heal the same
-enemis can chain players together
+have 5 cards to start with and pick up two each turn. if you have more than 7 cards you have to discard down to 7
+
+enemies could be chained together. all take damage. all heal the same
+enemies can chain players together
 dot attack
 
 draw cards do something else instead of just adding to hand eg card draw plays immidietly
@@ -22,5 +24,6 @@ add map
 issues:
 sometimes the enemies action sprites dont appear and they do not do an action on that turn
 Goblin enemies animations currently dont work
+AOE attack attacks the enemy selected twice
 
 
