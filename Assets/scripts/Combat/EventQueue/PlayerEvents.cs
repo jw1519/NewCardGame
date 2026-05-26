@@ -1,4 +1,6 @@
 using Enemy;
+using System.Collections.Generic;
+using UnityEngine;
 namespace Character
 {
     public class PlayerAttackEvent : GameEvent
@@ -36,6 +38,27 @@ namespace Character
         {
             Target = target;
             HealAmount = healAmount;
+        }
+    }
+    public class PlayerAOEAttackEvent : GameEvent
+    {
+        public int Damage;
+        public List<BaseEnemy> Targets;
+        public PlayerAOEAttackEvent(int damage)
+        {
+            Damage = damage;
+            CombatManager manager = AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>();
+            Targets = new List<BaseEnemy>();
+            foreach (GameObject enemy in manager.combatOrder)
+            {
+                if (enemy != null)
+                {
+                    if (enemy.GetComponent<SetEnemyUI>() != null)
+                    {
+                        Targets.Add(enemy.GetComponent<SetEnemyUI>().enemy);
+                    } 
+                }
+            }
         }
     }
 }

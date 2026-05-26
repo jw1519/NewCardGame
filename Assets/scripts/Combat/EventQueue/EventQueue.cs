@@ -45,33 +45,36 @@ public class EventQueue : MonoBehaviour
         if (gameEvent is PlayerAttackEvent playerAttack)
         {
             ApplyDamage(playerAttack.Target, playerAttack.Damage);
-            //ChangeAnimation(playerAttack.Target.GetComponent<IChangeAnimation>(), "Attack");
             yield return new WaitForSeconds(1); //do animation here
         }
         else if (gameEvent is PlayerDefenceEvent playerDefence)
         {
             playerDefence.Target.defence += playerDefence.Defence;
             playerDefence.CharacterUI.UpdateDefenceUI();
-            //ChangeAnimation(playerDefence.Target.GetComponent<IChangeAnimation>(), "Defend");
             yield return new WaitForSeconds(1); //do animation here
         }
         else if (gameEvent is PlayerHealEvent playerHeal)
         {
             ApplyHeal(playerHeal.Target, playerHeal.HealAmount);
-            //ChangeAnimation(playerHeal.Target.GetComponent<IChangeAnimation>(), "Ability");
+            yield return new WaitForSeconds(1); //do animation here
+        }
+        else if (gameEvent is PlayerAOEAttackEvent playerAOEAttack)
+        {
+            foreach (BaseEnemy enemy in playerAOEAttack.Targets)
+            {
+                ApplyDamage(enemy, playerAOEAttack.Damage);
+            }
             yield return new WaitForSeconds(1); //do animation here
         }
         else if (gameEvent is EnemyAttackEvent enemyAttack)
         {
             ApplyDamage(enemyAttack.Target, enemyAttack.Damage);
-            //ChangeAnimation(enemyAttack.Target.GetComponent<IChangeAnimation>(), "Attack");
             yield return new WaitForSeconds(1); //do animation here
         }
         else if (gameEvent is EnemyDefenceEvent enemyDefence)
         {
             enemyDefence.Target.defence = enemyDefence.Target.defenceAmount;
             enemyDefence.EnemyUI.UpdateDefenceUI();
-            //ChangeAnimation(enemyDefence.Target.GetComponent<IChangeAnimation>(), "Defend");
             yield return new WaitForSeconds(1);
         }
     }
@@ -82,10 +85,5 @@ public class EventQueue : MonoBehaviour
     public static void ApplyHeal(IHeal target, int healAmount)
     {
         target.Heal(healAmount);
-    }
-    public static void ChangeAnimation(IChangeAnimation target, string animationName)
-    {
-        if (target == null) return;
-        target.ChangeAnimation(animationName);
     }
 }

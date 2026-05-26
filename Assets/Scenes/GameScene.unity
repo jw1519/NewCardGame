@@ -3709,7 +3709,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e30b3f93467184a4f9259233989b1b10, type: 2}
   - {fileID: 11400000, guid: e30b3f93467184a4f9259233989b1b10, type: 2}
   - {fileID: 11400000, guid: 5a6d1c80cd595da459464ebb7e88852c, type: 2}
-  - {fileID: 11400000, guid: 5a6d1c80cd595da459464ebb7e88852c, type: 2}
+  - {fileID: 11400000, guid: 8500291f446882c4786a257ea10167d7, type: 2}
+  - {fileID: 11400000, guid: 8500291f446882c4786a257ea10167d7, type: 2}
   cardToPool: {fileID: 6792751333631855732, guid: 7a54b87609f36f0439e7024b6b97bfe0, type: 3}
   cardParent: {fileID: 1098776580}
 --- !u!1 &716923926

@@ -7,6 +7,9 @@ if cards exceed 7 cards will have to be discarded
 
 enemies could be chaned together. all take damage. all heal the same
 
+aoe attacks
+dot attacks
+
 
 things to do:
 

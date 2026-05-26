@@ -5,11 +5,11 @@ using Enemy;
 
 namespace Card
 {
-    [CreateAssetMenu(fileName = "New Card", menuName = "Cards/Attack Card")]
+    [CreateAssetMenu(fileName = "New Card", menuName = "Cards/Attack/Basic Card")]
     public class AttackCard : BaseCard
     {
         public int damage;
-        private void Awake()
+        public virtual void Awake()
         {
             description = "the card attacks for " +  damage.ToString();
             player = AssetManager.Instance.GetAsset("Player").GetComponent<BaseCharacter>();
