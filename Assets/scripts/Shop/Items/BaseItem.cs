@@ -11,9 +11,9 @@ namespace Item
         public bool isBought;
         public BaseCharacter character;
 
-        private void Awake()
+        public void Start()
         {
-            character = FindAnyObjectByType<BaseCharacter>();
+            character = Assetmanager.Instance.GetAsset("Player").GetComponent<BaseCharacter>();
         }
         public virtual void Use()
         {
