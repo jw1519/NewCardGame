@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980d7b3c70f581b46a903758297ed3c9, type: 3}
   m_Name: Goblin
   m_EditorClassIdentifier: 
-  enemySprite: {fileID: -7385789195546760866, guid: c1cdd26cc09ad224884556bc4d8296ae, type: 3}
+  enemySprite: {fileID: 4723107735738678597, guid: 1018b0ba13578bf459bd254ae1a2be99, type: 3}
   animatorController: {fileID: 9100000, guid: 585252e333619ae4cad058e2aee23869, type: 2}
   animator: {fileID: 0}
   action: 0

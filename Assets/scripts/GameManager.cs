@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
         foreach (Transform transform in enemyParent)
         {
             Destroy(transform.gameObject);
+            CardManager.instance.DiscardAllCards();
         }
     }
     public BaseEnemy RandomEnemy()
