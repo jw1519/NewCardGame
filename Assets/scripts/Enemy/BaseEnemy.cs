@@ -91,7 +91,7 @@ namespace Enemy
                     animator.CrossFade("Idle", 0.1f);
                     break;
                 case "TakeDamage":
-                    animator.SetTrigger("TakeDamage");
+                    animator.CrossFade("TakeDamage", 0.1f);
                     break;
                 case "Die":
                     animator.SetBool("isAlive", false);
