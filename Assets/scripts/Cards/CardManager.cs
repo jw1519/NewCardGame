@@ -56,10 +56,20 @@ namespace Card
         //}
         public void DrawCard(int amount)
         {
+            if (cardsInHand.Count >= maxCardsInHand)
+            {
+                Debug.Log("hand is full");
+                return;
+            }
             if (cardsInDeck.Count > 0)
             {
                 for (int i = 0; i < amount; i++)
                 {
+                    if (cardsInHand.Count == maxCardsInHand)
+                    {
+                        Debug.Log("hand is full");
+                        return;
+                    }
                     GameObject RandomCard = CardPool.instance.GetPooledCard();
                     if (RandomCard != null)
                     {

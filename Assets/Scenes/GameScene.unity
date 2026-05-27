@@ -3528,6 +3528,7 @@ MonoBehaviour:
   endTurnButton: {fileID: 470624381}
   combatOrder: []
   currentCombatIndex: 0
+  cardsDrawn: 2
 --- !u!1 &675925140
 GameObject:
   m_ObjectHideFlags: 0
@@ -4587,7 +4588,7 @@ MonoBehaviour:
   discardedCardParent: {fileID: 2105656239}
   deckCardParent: {fileID: 1098776580}
   startingCardsInHand: 5
-  maxCardsInHand: 7
+  maxCardsInHand: 8
 --- !u!1 &1009156237
 GameObject:
   m_ObjectHideFlags: 0
@@ -5295,49 +5296,49 @@ MonoBehaviour:
         y: 0
         z: 0
       TangentIn:
-        x: -0
-        y: -0
-        z: -37.73664
+        x: 0
+        y: 0
+        z: 0
       TangentOut:
         x: 0
         y: 0
-        z: 37.73664
+        z: 0
       Rotation:
         value:
           x: 0.56779385
-          y: -0.4214381
-          z: 0.42143825
-          w: -0.5677938
+          y: -0.4214382
+          z: 0.4214382
+          w: -0.5677939
     - Position:
-        x: 361.2
+        x: 395.6
         y: 109.27
         z: 0
       TangentIn:
         x: 0
         y: 0
-        z: -264.89
+        z: -251.8
       TangentOut:
         x: 0
         y: 0
-        z: 264.89
+        z: 251.8
       Rotation:
         value:
-          x: 0.5015661
-          y: -0.49842876
-          z: 0.4984305
-          w: -0.5015649
+          x: 0.50156677
+          y: -0.49842894
+          z: 0.4984296
+          w: -0.50156486
     - Position:
-        x: 734.07
+        x: 801.4
         y: 0
         z: 0
       TangentIn:
-        x: -0
-        y: -0
-        z: -38.85511
+        x: 0
+        y: 0
+        z: 0
       TangentOut:
         x: 0
         y: 0
-        z: 38.85511
+        z: 0
       Rotation:
         value:
           x: 0.42390332
@@ -5345,11 +5346,11 @@ MonoBehaviour:
           z: 0.56595594
           w: -0.42390317
     m_MetaData:
-    - Mode: 0
+    - Mode: 1
       Tension: 0.5
     - Mode: 2
       Tension: 0.5
-    - Mode: 0
+    - Mode: 1
       Tension: 0.5
     m_Closed: 0
     m_IntData:
