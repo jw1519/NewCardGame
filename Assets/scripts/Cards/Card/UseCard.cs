@@ -10,6 +10,7 @@ public class UseCard : MonoBehaviour
     public Transform parent;
     SelectManager selectManager;
     CardHand cardHand;
+    public GameObject discardButton;
     bool isSelected = false;
     private void Start()
     {
@@ -26,6 +27,7 @@ public class UseCard : MonoBehaviour
     private void OnDisable()
     {
         parent = null;
+        discardButton.SetActive(false);
     }
 
     public void SelectCard()
@@ -53,6 +55,14 @@ public class UseCard : MonoBehaviour
         {
             Debug.Log("not enough energy");
         }
+        if (discardButton.activeSelf == false)
+        {
+            discardButton.SetActive(true);
+        }
+        else
+        {
+            discardButton.SetActive(false);
+        }
     }
     public void DeselectCard()
     {
@@ -61,6 +71,16 @@ public class UseCard : MonoBehaviour
         selectManager.cardSelected = null;
         isSelected = false;
         transform.SetParent(parent);
+        discardButton.SetActive(false);
+        discardButton.transform.SetParent(transform);
         cardHand.StartCoroutine(cardHand.UpdateCardPositions(0));
+    }
+    public void DiscardCard()
+    {
+        if (card.isInHand == false) return;
+        DeselectCard();
+        cardHand.cards.Remove(gameObject);
+        cardHand.StartCoroutine(cardHand.UpdateCardPositions(0.15f));
+        AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>().DiscardCard(gameObject);
     }
 }
