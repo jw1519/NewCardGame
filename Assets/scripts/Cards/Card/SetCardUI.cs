@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Card
 {
@@ -17,6 +18,11 @@ namespace Card
             UpdateDescriptionText();
 
             name = card.name + "UI";
+
+            if (card.cardSprite != null)
+            {
+                GetComponentInChildren<Image>().sprite = card.cardSprite;
+            }
         }
         public void UpdateDescriptionText()
         {

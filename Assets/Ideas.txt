@@ -12,13 +12,11 @@ enemies can chain players together
 dot attack
 
 draw cards do something else instead of just adding to hand eg card draw plays immidietly
-make card sprites different for different types of cards eg attack, defense, utility
 
 
 things to do:
 add more cards
 add map
-when selecting a card give a choice to use or discard
 
 
 
