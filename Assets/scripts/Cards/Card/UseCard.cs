@@ -80,6 +80,7 @@ public class UseCard : MonoBehaviour
         if (card.isInHand == false) return;
         DeselectCard();
         cardHand.cards.Remove(gameObject);
+        card.isInHand = false;
         cardHand.StartCoroutine(cardHand.UpdateCardPositions(0.15f));
         AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>().DiscardCard(gameObject);
     }

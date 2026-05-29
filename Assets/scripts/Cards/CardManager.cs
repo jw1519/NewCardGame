@@ -1,3 +1,5 @@
+using Character;
+using Enemy;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -87,6 +89,45 @@ namespace Card
             {
                 EmptyDiscardPile();
                 DrawCard(amount);
+            }
+        }
+        public void DrawAndPlayCard()
+        {
+            if (cardsInDeck.Count > 0)
+            {
+                GameObject RandomCard = CardPool.instance.GetPooledCard();
+                if (RandomCard != null)
+                {
+                    RandomCard.transform.SetParent(discardedCardParent.transform, false);
+                    cardsInDeck.Remove(RandomCard);
+                    cardsInDiscard.Add(RandomCard);
+                    
+                    BaseCard card = RandomCard.GetComponent<SetCardUI>().card;
+
+                    CombatManager combatManager = AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>();
+                    switch (card.cardType)
+                    {
+                        case BaseCard.CardType.Attack:
+                            card.Use(combatManager.combatOrder.Find(p => p.GetComponent<SetEnemyUI>() != null));
+                            break;
+                        case BaseCard.CardType.Defence:
+                            card.Use(combatManager.combatOrder.Find(p => p.GetComponent<BaseCharacter>() != null));
+                            break;
+                        case BaseCard.CardType.Heal:
+                            card.Use(combatManager.combatOrder.Find(p => p.GetComponent<BaseCharacter>() != null));
+                            break;
+                        case BaseCard.CardType.Ability:
+                            card.Use(combatManager.combatOrder.Find(p => p.GetComponent<BaseCharacter>() != null));
+                            break;
+                    }
+
+                    Debug.Log("Played card: " + card.name);
+                }
+            }
+            else
+            {
+                EmptyDiscardPile();
+                DrawAndPlayCard();
             }
         }
         public void EmptyDiscardPile()

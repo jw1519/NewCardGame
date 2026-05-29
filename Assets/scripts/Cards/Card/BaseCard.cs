@@ -12,7 +12,10 @@ namespace Card
         public bool isInHand = false; //Check if card is in hand to prevent using it from discard pile or deck
 
         [HideInInspector] public BaseCharacter player;
-
+        public virtual void Awake()
+        {
+            player = AssetManager.Instance.GetAsset("Player").GetComponent<BaseCharacter>();
+        }
         public enum CardType
         {
             Attack,

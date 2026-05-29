@@ -2,8 +2,8 @@ using UnityEngine;
 
 namespace Card
 {
-    [CreateAssetMenu(fileName = "New Card", menuName = "Cards/Ability Card/Draw Cards")]
-    public class DrawCards : BaseCard
+    [CreateAssetMenu(fileName = "New Card", menuName = "Cards/Ability Card/Play Random Card")]
+    public class PlayRandomCard : BaseCard
     {
         CardManager cardManager;
         public int cardsToDraw;
@@ -15,7 +15,7 @@ namespace Card
         public override void Use(GameObject target)
         {
             base.Use(target);
-            cardManager.DrawCard(cardsToDraw);
+            cardManager.DrawAndPlayCard();
         }
     }
 }
