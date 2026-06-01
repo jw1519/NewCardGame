@@ -11,7 +11,6 @@ enemies could be chained together. all take damage. all heal the same
 enemies can chain players together
 dot attack
 
-draw cards do something else instead of just adding to hand eg card draw plays immidietly
 
 
 things to do:
@@ -23,6 +22,5 @@ add map
 issues:
 sometimes the enemies action sprites dont appear and they do not do an action on that turn
 Goblin enemies animations currently dont work
-AOE attack attacks the enemy selected twice
 
 
