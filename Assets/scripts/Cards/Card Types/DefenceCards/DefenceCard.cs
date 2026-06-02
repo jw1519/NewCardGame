@@ -7,11 +7,7 @@ namespace Card
     public class DefenceCard : BaseCard
     {
         public int defenceAmount;
-        private void Awake()
-        {
-            description = "the card defends for " + defenceAmount.ToString();
-            player = FindAnyObjectByType<BaseCharacter>();
-        }
+
         public override void Use(GameObject target)
         {
             base.Use(target);

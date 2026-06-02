@@ -9,11 +9,6 @@ namespace Card
     public class AttackCard : BaseCard
     {
         public int damage;
-        public virtual void Awake()
-        {
-            description = "the card attacks for " +  damage.ToString();
-            player = AssetManager.Instance.GetAsset("Player").GetComponent<BaseCharacter>();
-        }
         public override void Use(GameObject target)
         {
             base.Use(target);

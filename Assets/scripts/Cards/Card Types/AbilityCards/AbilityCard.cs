@@ -8,10 +8,5 @@ namespace Card
     public class AbilityCard : BaseCard
     {
         public int abilityPower;
-
-        private void Awake()
-        {
-            player = FindAnyObjectByType<BaseCharacter>();
-        }
     }
 }

@@ -22,6 +22,8 @@ namespace Card
         public int startingCardsInHand;
         public int maxCardsInHand;
 
+        BaseCharacter player;
+
         private void Awake()
         {
             if (instance == null)
@@ -29,6 +31,10 @@ namespace Card
                 instance = this;
             }
             hand = FindAnyObjectByType<CardHand>();
+        }
+        public void Start()
+        {
+            player = AssetManager.Instance.GetAsset("Player").GetComponent<BaseCharacter>();
         }
         public void NewRound()
         {
@@ -91,6 +97,7 @@ namespace Card
                 DrawCard(amount);
             }
         }
+        
         public void DrawAndPlayCard()
         {
             if (cardsInDeck.Count > 0)
@@ -120,8 +127,7 @@ namespace Card
                             card.Use(combatManager.combatOrder.Find(p => p.GetComponent<BaseCharacter>() != null));
                             break;
                     }
-
-                    Debug.Log("Played card: " + card.name);
+                    player.GainEnergy(card.cardEnergy);
                 }
             }
             else
