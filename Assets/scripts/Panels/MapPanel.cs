@@ -6,7 +6,6 @@ public class MapPanel : BasePanel
     public GameObject roomPrefab;
 
     public int mapSize = 5; // Size of the map (5x5)
-    public float roomSpacing = 1.5f; // Spacing between rooms
     public float roomSize = 1f; // Size of each room
 
     BaseRoom[,] grid;
@@ -18,48 +17,47 @@ public class MapPanel : BasePanel
 
     public void CreateMap()
     {
-        for (int  i = 0; i < mapSize; i++)
+        for (int  x = 0; x < mapSize; x++)
         {
-            for (int j = 0; j < mapSize; j++)
+            for (int y = 0; y < mapSize; y++)
             {
-                GameObject room = Instantiate(roomPrefab, new Vector3( i * roomSize - 5 * roomSpacing, j * roomSize - 5 * roomSpacing, 0), Quaternion.identity);
+                GameObject room = Instantiate(roomPrefab, new Vector3(x * roomSize -200, y * roomSize - 200, 0), Quaternion.identity);
                 room.transform.localScale = Vector3.one * roomSize;
                 room.transform.SetParent(roomContainer, false);
 
-                grid[i, j] = room.GetComponent<BaseRoom>();
+                grid[x, y] = room.GetComponent<BaseRoom>();
 
                 int roomTypeRoll = Random.Range(0, 100);
 
                 switch (roomTypeRoll)
                 {
                     case int n when (n < 60):
-                        grid[i, j].InIt(i, j, RoomType.Normal);
+                        grid[x, y].InIt(x, y, RoomType.Normal);
                         break;
                     case int n when (n < 80):
-                        grid[i, j].InIt(i, j, RoomType.Boss);
+                        grid[x, y].InIt(x, y, RoomType.Boss);
                         break;
                     case int n when (n < 90):
-                        grid[i, j].InIt(i, j, RoomType.Shop);
+                        grid[x, y].InIt(x, y, RoomType.Shop);
                         break;
                     case int n when (n < 95):
-                        grid[i, j].InIt(i, j, RoomType.Treasure);
+                        grid[x, y].InIt(x, y, RoomType.Treasure);
                         break;
                     default:
-                        grid[i, j].InIt(i, j, RoomType.Secret);
+                        grid[x, y].InIt(x, y, RoomType.Secret);
                         break;
                 }
 
-                if (i == 0 && j == 0)
+                if (x == 0 && y == 0)
                 {
-                    grid[i, j].InIt(i, j, RoomType.Start);
+                    grid[x, y].InIt(x, y, RoomType.Start);
                     room.GetComponent<BaseRoom>().RevealRoom(); // Reveal the starting room
                 }
-                else if (i == mapSize - 1 && j == mapSize - 1)
+                else if (x == mapSize - 1 && y == mapSize - 1)
                 {
-                    grid[i, j].InIt(i, j, RoomType.End);
+                    grid[x, y].InIt(x, y, RoomType.End);
                 }
-                room.GetComponent<BaseRoom>().SetUI();
-
+                grid[x, y].SetUI();
             }
         }
     }

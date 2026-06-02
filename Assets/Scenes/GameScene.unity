@@ -616,10 +616,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1869890444}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &168700421
 GameObject:
@@ -6608,7 +6608,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1574144736
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6646,7 +6646,6 @@ MonoBehaviour:
   roomContainer: {fileID: 165228186}
   roomPrefab: {fileID: 5532612470889736156, guid: 548b6b04b40861e409ff5589a7e01c7b, type: 3}
   mapSize: 5
-  roomSpacing: 10
   roomSize: 100
 --- !u!1 &1603539105
 GameObject:
