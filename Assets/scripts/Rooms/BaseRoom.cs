@@ -7,10 +7,11 @@ public class BaseRoom : MonoBehaviour
     public RoomType roomType;
     public Sprite roomImage;
     Image image;
+    Button button;
     public TextMeshProUGUI text;
+    [HideInInspector] public MapPanel mapPanel; // Reference to the MapPanel to reveal adjacent rooms when this room is cleared
 
     public bool isCleared;
-    public float roomChance; // Chance for this room to spawn, used in RoomManager when generating rooms
     public bool isRevealed; // Whether the room has been revealed on the map
 
     public int x, y; // Grid coordinates for the room, used in MapPanel when generating the map
@@ -20,9 +21,8 @@ public class BaseRoom : MonoBehaviour
         isRevealed = false;
         image = GetComponent<Image>();
         text.text = roomType.ToString();
-        GetComponent<Button>().onClick.AddListener(EnterRoom);
-        if (roomType != RoomType.Start)
-            GetComponent<Button>().interactable = false; // Disable interaction until the room is revealed
+        button = GetComponent<Button>();
+        button.onClick.AddListener(EnterRoom);
     }
     public void SetUI()
     {
@@ -39,17 +39,23 @@ public class BaseRoom : MonoBehaviour
     {
         isRevealed = true;
         image.sprite = roomImage;
+        button.interactable = true; // Enable interaction with the room
     }
     public void ClearRoom()
     {
         isCleared = true;
         GetComponent<Button>().interactable = false; // Disable interaction with the room
+        mapPanel.RevealAdjacentRooms(x, y);
         // reveal rooms around this one
     }
     public virtual void EnterRoom()
     {
         switch (roomType)
         {
+            case RoomType.Start:
+                Debug.Log("Entered Start Room");
+                ClearRoom();
+                break;
             case RoomType.Normal:
                 Debug.Log("Entered Normal Room");
                 break;

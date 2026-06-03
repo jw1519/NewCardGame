@@ -21,9 +21,10 @@ public class MapPanel : BasePanel
         {
             for (int y = 0; y < mapSize; y++)
             {
-                GameObject room = Instantiate(roomPrefab, new Vector3(x * roomSize -200, y * roomSize - 200, 0), Quaternion.identity);
+                GameObject room = Instantiate(roomPrefab, new Vector3(x * roomSize - roomSize * 2, y * roomSize - roomSize * 2, 0), Quaternion.identity);
                 room.transform.localScale = Vector3.one * roomSize;
                 room.transform.SetParent(roomContainer, false);
+                room.GetComponent<BaseRoom>().mapPanel = this; // Set reference to MapPanel in each room
 
                 grid[x, y] = room.GetComponent<BaseRoom>();
 
@@ -60,5 +61,13 @@ public class MapPanel : BasePanel
                 grid[x, y].SetUI();
             }
         }
+    }
+    public void RevealAdjacentRooms(int x, int y)
+    {
+        // Reveal adjacent rooms (up, down, left, right)
+        if (x > 0) grid[x - 1, y].RevealRoom();
+        if (x < mapSize - 1) grid[x + 1, y].RevealRoom();
+        if (y > 0) grid[x, y - 1].RevealRoom();
+        if (y < mapSize - 1) grid[x, y + 1].RevealRoom();
     }
 }

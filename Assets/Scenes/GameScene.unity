@@ -3940,7 +3940,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -6646,7 +6646,7 @@ MonoBehaviour:
   roomContainer: {fileID: 165228186}
   roomPrefab: {fileID: 5532612470889736156, guid: 548b6b04b40861e409ff5589a7e01c7b, type: 3}
   mapSize: 5
-  roomSize: 100
+  roomSize: 150
 --- !u!1 &1603539105
 GameObject:
   m_ObjectHideFlags: 0
