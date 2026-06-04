@@ -9,7 +9,7 @@ public class BaseRoom : MonoBehaviour
     Image image;
     Button button;
     public TextMeshProUGUI text;
-    [HideInInspector] public MapPanel mapPanel; // Reference to the MapPanel to reveal adjacent rooms when this room is cleared
+    [HideInInspector] public MapPanel mapPanel;
 
     public bool isCleared;
     public bool isRevealed; // Whether the room has been revealed on the map
@@ -58,18 +58,24 @@ public class BaseRoom : MonoBehaviour
                 break;
             case RoomType.Normal:
                 Debug.Log("Entered Normal Room");
+                mapPanel.ClosePanel();
                 break;
             case RoomType.Boss:
                 Debug.Log("Entered Boss Room");
+                mapPanel.ClosePanel();
                 break;
             case RoomType.Shop:
                 Debug.Log("Entered Shop Room");
+                mapPanel.ClosePanel();
+                AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("ShopPanel").OpenPanel();
                 break;
             case RoomType.Treasure:
                 Debug.Log("Entered Treasure Room");
+                mapPanel.ClosePanel();
                 break;
             case RoomType.Secret:
                 Debug.Log("Entered Secret Room");
+                mapPanel.ClosePanel();
                 break;
             case RoomType.End:
                 Debug.Log("Entered End Room");

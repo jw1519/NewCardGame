@@ -1,7 +1,10 @@
+using System;
 using UnityEngine;
 
 public class MapPanel : BasePanel
 {
+    public static event Action<int, int> roomCleared; // Event to notify when a room is cleared, passing the room's grid coordinates
+
     public Transform roomContainer;
     public GameObject roomPrefab;
 
@@ -12,7 +15,12 @@ public class MapPanel : BasePanel
     public void Start()
     {
         grid = new BaseRoom[mapSize, mapSize];
+        roomCleared += ClearRoom; // Subscribe to the roomCleared event
         CreateMap();
+    }
+    private void OnDestroy()
+    {
+        roomCleared -= ClearRoom;
     }
 
     public void CreateMap()
@@ -28,7 +36,7 @@ public class MapPanel : BasePanel
 
                 grid[x, y] = room.GetComponent<BaseRoom>();
 
-                int roomTypeRoll = Random.Range(0, 100);
+                int roomTypeRoll = UnityEngine.Random.Range(0, 100);
 
                 switch (roomTypeRoll)
                 {
@@ -69,5 +77,10 @@ public class MapPanel : BasePanel
         if (x < mapSize - 1) grid[x + 1, y].RevealRoom();
         if (y > 0) grid[x, y - 1].RevealRoom();
         if (y < mapSize - 1) grid[x, y + 1].RevealRoom();
+    }
+    public void ClearRoom(int x, int y)
+    {
+        grid[x, y].ClearRoom();
+        OpenPanel();
     }
 }

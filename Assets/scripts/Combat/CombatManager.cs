@@ -19,7 +19,7 @@ public class CombatManager : MonoBehaviour
 
     private void Start()
     {
-        gameWonPanel = UIManager.instance.GetPanel("GameWonPanel");
+        gameWonPanel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("GameWonPanel");
     }
     public void AddToCombat(GameObject character)
     {

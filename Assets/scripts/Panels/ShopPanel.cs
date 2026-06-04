@@ -33,6 +33,7 @@ public class ShopPanel : BasePanel
     {
         ShopManager.instance.ClearShop();
         AssetManager.Instance.GetAsset("GameManager").GetComponent<GameManager>().NewRound();
+        //AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("MapPanel").OpenPanel();
     }
     public void UpdateShopUI()
     {

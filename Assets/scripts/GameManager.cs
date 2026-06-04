@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     SetCharacterUI player;
     CombatManager combatManager;
+    MapPanel mapPanel;
 
     private void Start()
     {
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
         round = 0;
         player = FindAnyObjectByType<SetCharacterUI>();
         combatManager = AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>();
+        mapPanel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("MapPanel").GetComponent<MapPanel>();
         NewRound();
     }
     public void EndPlayerTurn()
