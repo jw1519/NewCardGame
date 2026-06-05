@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 public class BaseRoom : MonoBehaviour
 {
@@ -8,8 +9,8 @@ public class BaseRoom : MonoBehaviour
     public Sprite roomImage;
     Image image;
     Button button;
-    public TextMeshProUGUI text;
     [HideInInspector] public MapPanel mapPanel;
+    public List<Sprite> roomSprites; // List of sprites for different room types, set in the inspector
 
     public bool isCleared;
     public bool isRevealed; // Whether the room has been revealed on the map
@@ -20,14 +21,36 @@ public class BaseRoom : MonoBehaviour
         isCleared = false;
         isRevealed = false;
         image = GetComponent<Image>();
-        text.text = roomType.ToString();
         button = GetComponent<Button>();
         button.onClick.AddListener(EnterRoom);
     }
     public void SetUI()
     {
-        text.text = roomType.ToString();
         gameObject.name = roomType.ToString() + " Room (" + x + "," + y + ")";
+        switch (roomType)
+        {
+            case RoomType.Start:
+                roomImage = roomSprites[0];
+                break;
+            case RoomType.Normal:
+                roomImage = roomSprites[1];
+                break;
+            case RoomType.Boss:
+                roomImage = roomSprites[2];
+                break;
+            case RoomType.Shop:
+                roomImage = roomSprites[3];
+                break;
+            case RoomType.Treasure:
+                roomImage = roomSprites[4];
+                break;
+            case RoomType.Secret:
+                roomImage = roomSprites[5];
+                break;
+            case RoomType.End:
+                roomImage = roomSprites[6];
+                break;
+        }
     }
     public void InIt(int  x, int y, RoomType roomType)
     {
