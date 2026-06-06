@@ -35,11 +35,12 @@ public class ShopPanel : BasePanel
     {
         ShopManager.instance.ClearShop();
         AssetManager.Instance.GetAsset("GameManager").GetComponent<GameManager>().NewRound();
-        //AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("MapPanel").OpenPanel();
+        AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("MapPanel").OpenPanel();
         currentRoom.ClearRoom();
     }
     public void SetCurrentRoom(BaseRoom room)
     {
+        Debug.Log(room.gameObject.name);
         currentRoom = room;
     }
     public void UpdateShopUI()

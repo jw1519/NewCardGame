@@ -92,6 +92,7 @@ public class BaseRoom : MonoBehaviour
                 Debug.Log("Entered Shop Room");
                 mapPanel.ClosePanel();
                 AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("ShopPanel").OpenPanel();
+                AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("ShopPanel").GetComponent<ShopPanel>().SetCurrentRoom(this);
                 break;
             case RoomType.Treasure:
                 Debug.Log("Entered Treasure Room");
