@@ -13,6 +13,8 @@ public class MapPanel : BasePanel
     public int mapSize = 5; // Size of the map (5x5)
     public float roomSize = 1f; // Size of each room
 
+    public List<Sprite> roomSprites; // List of sprites for different room types, set in the inspector
+
     BaseRoom[,] grid;
     public void Start()
     {
@@ -44,34 +46,40 @@ public class MapPanel : BasePanel
                 {
                     case int n when (n < 60):
                         grid[x, y].InIt(x, y, RoomType.Normal);
+                        grid[x, y].SetSprite(roomSprites[0]);
                         break;
                     case int n when (n < 80):
                         grid[x, y].InIt(x, y, RoomType.Boss);
+                        grid[x, y].SetSprite(roomSprites[1]);
                         break;
                     case int n when (n < 90):
                         grid[x, y].InIt(x, y, RoomType.Shop);
+                        grid[x, y].SetSprite(roomSprites[2]);
                         break;
                     case int n when (n < 95):
                         grid[x, y].InIt(x, y, RoomType.Treasure);
+                        grid[x, y].SetSprite(roomSprites[3]);
                         break;
                     default:
                         grid[x, y].InIt(x, y, RoomType.Secret);
+                        grid[x, y].SetSprite(roomSprites[4]);
                         break;
                 }
 
-                if (x == 0 && y == 0)
+                if (y == 0)
                 {
-                    grid[x, y].InIt(x, y, RoomType.Start);
                     room.GetComponent<BaseRoom>().RevealRoom(); // Reveal the starting room
                 }
                 else if (x == mapSize - 1 && y == mapSize - 1)
                 {
+
                     grid[x, y].InIt(x, y, RoomType.End);
+                    grid[x, y].SetSprite(roomSprites[5]);
                 }
-                grid[x, y].SetUI();
             }
         }
     }
+
     public void RevealAdjacentRooms(int x, int y)
     {
         // Reveal adjacent rooms (up, down, left, right)
