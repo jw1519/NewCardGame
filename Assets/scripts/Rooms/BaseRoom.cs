@@ -60,6 +60,7 @@ public class BaseRoom : MonoBehaviour
     }
     public void RevealRoom()
     {
+        if (isRevealed) return; // If the room is already revealed, do nothing
         isRevealed = true;
         image.sprite = roomImage;
         button.interactable = true; // Enable interaction with the room

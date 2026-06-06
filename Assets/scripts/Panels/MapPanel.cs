@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MapPanel : BasePanel
@@ -7,6 +8,7 @@ public class MapPanel : BasePanel
 
     public Transform roomContainer;
     public GameObject roomPrefab;
+    public List<BaseRoom> rooms; // List to hold references to all rooms, set in the inspector
 
     public int mapSize = 5; // Size of the map (5x5)
     public float roomSize = 1f; // Size of each room
