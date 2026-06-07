@@ -6,7 +6,6 @@ using System.Collections.Generic;
 public class BaseRoom : MonoBehaviour
 {
     public RoomType roomType;
-    Sprite roomImage;
     public Image image;
     Button button;
     [HideInInspector] public MapPanel mapPanel;
@@ -54,28 +53,35 @@ public class BaseRoom : MonoBehaviour
         {
             case RoomType.Normal:
                 Debug.Log("Entered Normal Room");
+                GameManager.instance.NewRound();
+                GameManager.instance.SetRoom(this);
                 mapPanel.ClosePanel();
                 break;
             case RoomType.Boss:
                 Debug.Log("Entered Boss Room");
+                GameManager.instance.NewRound();
+                GameManager.instance.SetRoom(this);
                 mapPanel.ClosePanel();
                 break;
             case RoomType.Shop:
                 Debug.Log("Entered Shop Room");
                 mapPanel.ClosePanel();
                 AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("ShopPanel").OpenPanel();
-                AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("ShopPanel").GetComponent<ShopPanel>().SetCurrentRoom(this);
+                GameManager.instance.SetRoom(this);
                 break;
             case RoomType.Treasure:
                 Debug.Log("Entered Treasure Room");
+                GameManager.instance.SetRoom(this);
                 mapPanel.ClosePanel();
                 break;
             case RoomType.Secret:
                 Debug.Log("Entered Secret Room");
+                GameManager.instance.SetRoom(this);
                 mapPanel.ClosePanel();
                 break;
             case RoomType.End:
                 Debug.Log("Entered End Room");
+                GameManager.instance.SetRoom(this);
                 break;
         }
     }

@@ -21,6 +21,7 @@ public class GameWonPanel : BasePanel
     private void OnDisable()
     {
         goldEarned = 0;
+        GameManager.instance.RoomCleared();
     }
     public void UpdateStats()
     {

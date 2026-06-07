@@ -17,6 +17,7 @@ public class CombatManager : MonoBehaviour
 
     BasePanel gameWonPanel;
 
+
     private void Start()
     {
         gameWonPanel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("GameWonPanel");

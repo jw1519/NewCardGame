@@ -17,7 +17,6 @@ public class ShopPanel : BasePanel
     public TextMeshProUGUI healthRestoreText;
     public Button restoreHealthButton;
 
-    BaseRoom currentRoom;
 
     private void Awake()
     {
@@ -36,12 +35,7 @@ public class ShopPanel : BasePanel
         ShopManager.instance.ClearShop();
         AssetManager.Instance.GetAsset("GameManager").GetComponent<GameManager>().NewRound();
         AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("MapPanel").OpenPanel();
-        currentRoom.ClearRoom();
-    }
-    public void SetCurrentRoom(BaseRoom room)
-    {
-        Debug.Log(room.gameObject.name);
-        currentRoom = room;
+        GameManager.instance.RoomCleared();
     }
     public void UpdateShopUI()
     {

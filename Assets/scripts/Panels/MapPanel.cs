@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class MapPanel : BasePanel
 {
-    public static event Action<int, int> roomCleared; // Event to notify when a room is cleared, passing the room's grid coordinates
+    
 
     public Transform roomContainer;
     public GameObject roomPrefab;
     public List<BaseRoom> rooms; // List to hold references to all rooms, set in the inspector
 
-    public int mapSize = 5; // Size of the map (5x5)
+    public int mapWidth = 5; // Size of the map (5x5)
+    public int mapHeight = 5; // Height of the map (5x5)
     public float roomSize = 1f; // Size of each room
 
     public List<Sprite> roomSprites; // List of sprites for different room types, set in the inspector
@@ -18,22 +19,22 @@ public class MapPanel : BasePanel
     BaseRoom[,] grid;
     public void Start()
     {
-        grid = new BaseRoom[mapSize, mapSize];
-        roomCleared += ClearRoom; // Subscribe to the roomCleared event
+        grid = new BaseRoom[mapWidth, mapHeight];
+        Events.roomCleared += ClearRoom; // Subscribe to the roomCleared event
         CreateMap();
     }
     private void OnDestroy()
     {
-        roomCleared -= ClearRoom;
+        Events.roomCleared -= ClearRoom;
     }
 
     public void CreateMap()
     {
-        for (int  x = 0; x < mapSize; x++)
+        for (int  x = 0; x < mapWidth; x++)
         {
-            for (int y = 0; y < mapSize; y++)
+            for (int y = 0; y < mapHeight; y++)
             {
-                GameObject room = Instantiate(roomPrefab, new Vector3(x * roomSize - roomSize * 2, y * roomSize - roomSize * 2, 0), Quaternion.identity);
+                GameObject room = Instantiate(roomPrefab, new Vector3(x * roomSize - roomSize * 2, y * roomSize - roomSize * 3, 0), Quaternion.identity);
                 room.transform.localScale = Vector3.one * roomSize;
                 room.transform.SetParent(roomContainer, false);
                 room.GetComponent<BaseRoom>().mapPanel = this; // Set reference to MapPanel in each room
@@ -70,7 +71,7 @@ public class MapPanel : BasePanel
                 {
                     room.GetComponent<BaseRoom>().RevealRoom(); // Reveal the starting room
                 }
-                else if (x == mapSize - 1 && y == mapSize - 1)
+                else if (x == mapWidth - 1 && y == mapWidth - 1)
                 {
 
                     grid[x, y].InIt(x, y, RoomType.End);
@@ -84,9 +85,9 @@ public class MapPanel : BasePanel
     {
         // Reveal adjacent rooms (up, down, left, right)
         if (x > 0) grid[x - 1, y].RevealRoom();
-        if (x < mapSize - 1) grid[x + 1, y].RevealRoom();
+        if (x < mapWidth - 1) grid[x + 1, y].RevealRoom();
         if (y > 0) grid[x, y - 1].RevealRoom();
-        if (y < mapSize - 1) grid[x, y + 1].RevealRoom();
+        if (y < mapWidth - 1) grid[x, y + 1].RevealRoom();
     }
     public void ClearRoom(int x, int y)
     {

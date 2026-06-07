@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     SetCharacterUI player;
     CombatManager combatManager;
-    MapPanel mapPanel;
+    BaseRoom currentRoom;
 
     private void Start()
     {
@@ -31,13 +31,25 @@ public class GameManager : MonoBehaviour
         round = 0;
         player = FindAnyObjectByType<SetCharacterUI>();
         combatManager = AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>();
-        mapPanel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("MapPanel").GetComponent<MapPanel>();
-        NewRound();
+        //NewRound();
+    }
+    public void SetRoom(BaseRoom room)
+    {
+        if (room != null)
+        {
+            currentRoom = room;
+        }
+        else
+        {
+            currentRoom = null;
+        }
+    }
+    public void RoomCleared()
+    {
+        Events.OnRoomCleared(currentRoom.x, currentRoom.y);
     }
     public void EndPlayerTurn()
     {
-        //CardManager.instance.DiscardAllCards();
-
         StartCoroutine(combatManager.StartCombat());
     }
     public void NewRound()
