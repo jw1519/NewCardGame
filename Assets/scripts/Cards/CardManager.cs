@@ -49,19 +49,6 @@ namespace Card
                 NewRound();
             }
         }
-        //public void DrawCards()
-        //{
-        //    DiscardAllCards();
-        //    if (cardsInDeck.Count >= startingCardsInHand)
-        //    {
-        //        DrawCard(startingCardsInHand);
-        //    }
-        //    else
-        //    {
-        //        EmptyDiscardPile();
-        //        DrawCards();
-        //    }
-        //}
         public void DrawCard(int amount)
         {
             if (cardsInHand.Count >= maxCardsInHand)
@@ -112,6 +99,7 @@ namespace Card
                     BaseCard card = RandomCard.GetComponent<SetCardUI>().card;
 
                     CombatManager combatManager = AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>();
+                    player.GainEnergy(card.cardEnergy);
                     switch (card.cardType)
                     {
                         case BaseCard.CardType.Attack:
@@ -127,7 +115,6 @@ namespace Card
                             card.Use(combatManager.combatOrder.Find(p => p.GetComponent<BaseCharacter>() != null));
                             break;
                     }
-                    player.GainEnergy(card.cardEnergy);
                 }
             }
             else
