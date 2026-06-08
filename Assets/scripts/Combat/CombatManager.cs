@@ -87,6 +87,11 @@ public class CombatManager : MonoBehaviour
     {
         foreach (GameObject gameObject in combatOrder)
         {
+            if (gameObject == null)
+            {
+                combatOrder.Remove(gameObject);
+                continue;
+            }
             if (gameObject.GetComponent<SetEnemyUI>() != null)
             {
                 return true;

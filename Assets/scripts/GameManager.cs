@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
     public static event Action<int> updateRounds;
 
     [Header("enemy")]
-    public List<BaseEnemy> enemyList;
+    public List<BaseEnemy> normalEnemies;
+    public List<BaseEnemy> eliteEnemies;
     public Transform enemyParent;
     int maxEnemyAmount = 3;
 
@@ -31,7 +32,6 @@ public class GameManager : MonoBehaviour
         round = 0;
         player = FindAnyObjectByType<SetCharacterUI>();
         combatManager = AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>();
-        //NewRound();
     }
     public void SetRoom(BaseRoom room)
     {
@@ -80,14 +80,14 @@ public class GameManager : MonoBehaviour
     }
     public BaseEnemy RandomEnemy()
     {
-        if (enemyList.Count > 1)
+        if (normalEnemies.Count > 1)
         {
-            int random = UnityEngine.Random.Range(0,enemyList.Count);
-            return enemyList[random];
+            int random = UnityEngine.Random.Range(0,normalEnemies.Count);
+            return normalEnemies[random];
         }
         else
         {
-            return enemyList[0];
+            return normalEnemies[0];
         }
     }
     public void NewRun()

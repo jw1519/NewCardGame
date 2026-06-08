@@ -33,7 +33,6 @@ public class ShopPanel : BasePanel
     private void OnDisable()
     {
         ShopManager.instance.ClearShop();
-        AssetManager.Instance.GetAsset("GameManager").GetComponent<GameManager>().NewRound();
         AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("MapPanel").OpenPanel();
         GameManager.instance.RoomCleared();
     }

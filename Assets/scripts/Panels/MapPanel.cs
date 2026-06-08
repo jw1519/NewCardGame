@@ -27,6 +27,15 @@ public class MapPanel : BasePanel
     {
         Events.roomCleared -= ClearRoom;
     }
+    public void CreateNewMap()
+    {
+        foreach (Transform child in roomContainer)
+        {
+            Destroy(child.gameObject);
+        }
+        grid = new BaseRoom[mapWidth, mapHeight];
+        CreateMap();
+    }
 
     public void CreateMap()
     {
@@ -87,7 +96,7 @@ public class MapPanel : BasePanel
         if (x > 0) grid[x - 1, y].RevealRoom();
         if (x < mapWidth - 1) grid[x + 1, y].RevealRoom();
         if (y > 0) grid[x, y - 1].RevealRoom();
-        if (y < mapWidth - 1) grid[x, y + 1].RevealRoom();
+        if (y < mapHeight - 1) grid[x, y + 1].RevealRoom();
     }
     public void ClearRoom(int x, int y)
     {
