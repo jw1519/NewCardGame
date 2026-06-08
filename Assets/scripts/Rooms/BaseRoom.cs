@@ -54,14 +54,14 @@ public class BaseRoom : MonoBehaviour
             case RoomType.Normal:
                 Debug.Log("Entered Normal Room");
                 GameManager.instance.NewRound();
-                GameManager.instance.SetRoom(this);
                 mapPanel.ClosePanel();
+                GameManager.instance.SetRoom(this);
                 break;
             case RoomType.Boss:
                 Debug.Log("Entered Boss Room");
                 GameManager.instance.NewRound();
-                GameManager.instance.SetRoom(this);
                 mapPanel.ClosePanel();
+                GameManager.instance.SetRoom(this);
                 break;
             case RoomType.Shop:
                 Debug.Log("Entered Shop Room");

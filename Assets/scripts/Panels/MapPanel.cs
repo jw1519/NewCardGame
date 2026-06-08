@@ -1,14 +1,12 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MapPanel : BasePanel
 {
-    
-
     public Transform roomContainer;
     public GameObject roomPrefab;
-    public List<BaseRoom> rooms; // List to hold references to all rooms, set in the inspector
 
     public int mapWidth = 5; // Size of the map (5x5)
     public int mapHeight = 5; // Height of the map (5x5)
@@ -17,15 +15,47 @@ public class MapPanel : BasePanel
     public List<Sprite> roomSprites; // List of sprites for different room types, set in the inspector
 
     BaseRoom[,] grid;
+
+    bool isPanelOpen = true;
+    [HideInInspector] public bool canClosePanel = false;
     public void Start()
     {
         grid = new BaseRoom[mapWidth, mapHeight];
+        canClosePanel = false;
         Events.roomCleared += ClearRoom; // Subscribe to the roomCleared event
         CreateMap();
     }
     private void OnDestroy()
     {
         Events.roomCleared -= ClearRoom;
+    }
+    public override void OpenPanel()
+    {
+        if (isPanelOpen == false)
+        {
+            base.OpenPanel();
+            isPanelOpen = true;
+            foreach (Transform child in roomContainer)
+            {
+                if (child != null && child.GetComponent<BaseRoom>().isRevealed)
+                {
+                    if (child.GetComponent<BaseRoom>().isCleared == false && canClosePanel == false)
+                        child.GetComponent<Button>().interactable = true; // Enable interaction with all rooms
+                }
+            }
+        }
+        else if (canClosePanel == true)
+        {
+            ClosePanel();
+            isPanelOpen = false;
+            foreach (Transform child in roomContainer)
+            {
+                if (child != null)
+                {
+                    child.gameObject.GetComponent<Button>().interactable = false; // Disable interaction with all rooms
+                }
+            }
+        }
     }
     public void CreateNewMap()
     {

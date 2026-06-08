@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     SetCharacterUI player;
     CombatManager combatManager;
     BaseRoom currentRoom;
+    MapPanel mapPanel;
 
     private void Start()
     {
@@ -32,12 +33,14 @@ public class GameManager : MonoBehaviour
         round = 0;
         player = FindAnyObjectByType<SetCharacterUI>();
         combatManager = AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>();
+        mapPanel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("MapPanel").GetComponent<MapPanel>();
     }
     public void SetRoom(BaseRoom room)
     {
         if (room != null)
         {
             currentRoom = room;
+            mapPanel.canClosePanel = true;
         }
         else
         {
@@ -47,6 +50,7 @@ public class GameManager : MonoBehaviour
     public void RoomCleared()
     {
         Events.OnRoomCleared(currentRoom.x, currentRoom.y);
+        mapPanel.canClosePanel = false;
     }
     public void EndPlayerTurn()
     {
