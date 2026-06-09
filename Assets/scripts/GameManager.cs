@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
     {
         Events.OnRoomCleared(currentRoom.x, currentRoom.y);
         mapPanel.canClosePanel = false;
+        mapPanel.OpenPanel();
     }
     public void EndPlayerTurn()
     {

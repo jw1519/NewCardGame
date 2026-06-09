@@ -78,8 +78,9 @@ public class BaseRoom : MonoBehaviour
             case RoomType.Treasure:
                 Debug.Log("Entered Treasure Room");
                 GameManager.instance.SetRoom(this);
-                GameManager.instance.RoomCleared();
-                //mapPanel.ClosePanel();
+                AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("TreasurePanel").OpenPanel();
+                //GameManager.instance.RoomCleared();
+                mapPanel.ClosePanel();
                 break;
             case RoomType.Secret:
                 Debug.Log("Entered Secret Room");
