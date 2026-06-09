@@ -40,6 +40,12 @@ public class BaseRoom : MonoBehaviour
         image.gameObject.SetActive(true); // Show the room's image
         button.interactable = true; // Enable interaction with the room
     }
+    public void HideRoom()
+    {
+        isRevealed = false;
+        image.gameObject.SetActive(false); // Hide the room's image
+        button.interactable = false; // Disable interaction with the room
+    }
     public void ClearRoom()
     {
         isCleared = true;

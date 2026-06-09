@@ -61,9 +61,9 @@ public class MapPanel : BasePanel
     {
         foreach (Transform child in roomContainer)
         {
-            Destroy(child.gameObject);
+            child.GetComponent<BaseRoom>().HideRoom();
         }
-        grid = new BaseRoom[mapWidth, mapHeight];
+        //grid = new BaseRoom[mapWidth, mapHeight];
         CreateMap();
     }
 
@@ -73,13 +73,15 @@ public class MapPanel : BasePanel
         {
             for (int y = 0; y < mapHeight; y++)
             {
-                GameObject room = Instantiate(roomPrefab, new Vector3(x * roomSize - roomSize * 2, y * roomSize - roomSize * 3, 0), Quaternion.identity);
-                room.transform.localScale = Vector3.one * roomSize;
-                room.transform.SetParent(roomContainer, false);
-                room.GetComponent<BaseRoom>().mapPanel = this; // Set reference to MapPanel in each room
+                if (grid [x, y]  == null)
+                {
+                    GameObject room = Instantiate(roomPrefab, new Vector3(x * roomSize - roomSize * 2, y * roomSize - roomSize * 3, 0), Quaternion.identity);
+                    room.transform.localScale = Vector3.one * roomSize;
+                    room.transform.SetParent(roomContainer, false);
+                    room.GetComponent<BaseRoom>().mapPanel = this; // Set reference to MapPanel in each room
 
-                grid[x, y] = room.GetComponent<BaseRoom>();
-
+                    grid[x, y] = room.GetComponent<BaseRoom>();
+                }
                 int roomTypeRoll = UnityEngine.Random.Range(0, 100);
 
                 switch (roomTypeRoll)
@@ -108,7 +110,7 @@ public class MapPanel : BasePanel
 
                 if (y == 0)
                 {
-                    room.GetComponent<BaseRoom>().RevealRoom(); // Reveal the starting room
+                    grid[x, y].RevealRoom();
                 }
                 else if (x == mapWidth - 1 && y == mapWidth - 1)
                 {
