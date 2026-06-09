@@ -51,7 +51,6 @@ public class BaseRoom : MonoBehaviour
         isCleared = true;
         GetComponent<Button>().interactable = false; // Disable interaction with the room
         mapPanel.RevealAdjacentRooms(x, y);
-        // reveal rooms around this one
     }
     public virtual void EnterRoom()
     {

@@ -22,6 +22,7 @@ public class GameWonPanel : BasePanel
     {
         goldEarned = 0;
         GameManager.instance.RoomCleared();
+        GameManager.instance.EndRound();
         AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("MapPanel").OpenPanel();
     }
     public void UpdateStats()
