@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class TreasurePanel : BasePanel
 {
-    public List<BaseItem> treasures;
+    public List<Relic> treasures;
 
     public GameObject panel;
     public Image treasureImage;
-    BaseItem currentTreasure;
+    Relic currentTreasure;
 
     public void OpenChest()
     {

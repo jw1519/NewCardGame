@@ -5,9 +5,10 @@ namespace Item
     [CreateAssetMenu(fileName = "New Relic", menuName = "Items/Relic")]
     public class Relic : BaseItem
     {
-
+        public RelicType relicType;
+        public int abilityValue;
     }
-    enum RelicType
+    public enum RelicType
     {
         None,
         HealthBoost,
