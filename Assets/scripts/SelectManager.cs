@@ -21,10 +21,18 @@ namespace Card
         {
             if (cardSelected != null)
             {
-                cardSelected.GetComponent<UseCard>().DeselectCard();
-                StartCoroutine(cardHand.UpdateCardPositions(0));
+                DeselectCard();
             }
             cardSelected = card.GetComponent<SetCardUI>();
+        }
+        public void DeselectCard()
+        {
+            if (cardSelected != null)
+            {
+                cardSelected.GetComponent<UseCard>().DeselectCard();
+                cardSelected = null;
+                StartCoroutine(cardHand.UpdateCardPositions(0));
+            }
         }
         public void UseCard(GameObject target)
         {
