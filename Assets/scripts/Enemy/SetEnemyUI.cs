@@ -87,6 +87,22 @@ namespace Enemy
                     return;
             }
         }
+        public void UpdateStatusEffects()
+        {
+            if (enemy.isBurning)
+            {
+                //update burn UI here
+                enemy.burnDuration--;
+                Debug.Log("Burn Duration: " + enemy.burnDuration);
+            }
+            else
+            {
+                //remove burn UI here
+                enemy.burnDuration = 0;
+                enemy.burnDamage = 0;
+                Debug.Log("Burn finished");
+            }
+        }
         public void SetEnemySprite(Sprite sprite)
         {
             spriteObject.sprite = sprite;

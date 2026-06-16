@@ -32,7 +32,13 @@ namespace Enemy
 
         public int goldOnDefeat;
 
-         public bool isAlive => health > 0;
+        public bool isAlive => health > 0;
+
+        [Header("Status Effects")]
+        public bool isBurning => burnDuration > 0;
+        public int burnDamage;
+        public int burnDuration;
+
         public void Heal(int healAmount)
         {
             if (health + healAmount <= maxHealth)
@@ -76,6 +82,11 @@ namespace Enemy
                 
             }
             
+        }
+        public void ApplyBurn(int burnDamage, int burnDuration)
+        {
+            this.burnDamage = burnDamage;
+            this.burnDuration = burnDuration;
         }
         public virtual void UseAbility(GameObject target)
         {
