@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4773e5705b32c84fabf8ccfbdba4497, type: 3}
   m_Name: BurnCard
   m_EditorClassIdentifier: Assembly-CSharp::Card.FireAttackCard
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: 21300000, guid: 606d22313a4561b4f9c670419392c1a2, type: 3}
   cardType: 0
   cardEnergy: 3
   description: Burns an Enemy for 3 turns
