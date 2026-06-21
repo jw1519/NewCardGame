@@ -3,7 +3,13 @@ guid: be8c04c2af0d9fd4d8b658d75c16abfe
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - enemySprite: {fileID: 21300000, guid: 30a64e91fb6af3d4eb4d7c8280e3aca8, type: 3}
+  - animatorController: {fileID: 9100000, guid: 585252e333619ae4cad058e2aee23869, type: 2}
+  - animator: {instanceID: 0}
+  - attackSprite: {fileID: 21300000, guid: 300675427539b7842a89d514aaa349cd, type: 3}
+  - defenceSprite: {fileID: 21300000, guid: c07d8f2ef21dc634395f674f8766dcf6, type: 3}
+  - abilitySprite: {fileID: 21300000, guid: 0ad037c82e017d7429742ed757e5dafa, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

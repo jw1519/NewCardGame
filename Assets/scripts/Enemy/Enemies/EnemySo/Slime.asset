@@ -27,3 +27,5 @@ MonoBehaviour:
   defenceAmount: 2
   abilityAmount: 3
   goldOnDefeat: 10
+  burnDamage: 0
+  burnDuration: 0

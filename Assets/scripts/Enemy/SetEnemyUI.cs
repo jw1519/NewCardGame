@@ -27,11 +27,8 @@ namespace Enemy
             healthSlider.maxValue = enemy.maxHealth;
             healthSlider.value = enemy.health;
 
-            SetEnemySprite(enemy.enemySprite);
-
             spriteObject.GetComponent<Animator>().runtimeAnimatorController = enemy.animatorController;
             enemy.animator = spriteObject.GetComponent<Animator>();
-            enemy.ChangeAnimation("Idle");
         }
         private void OnEnable()
         {
@@ -102,10 +99,6 @@ namespace Enemy
                 enemy.burnDamage = 0;
                 Debug.Log("Burn finished");
             }
-        }
-        public void SetEnemySprite(Sprite sprite)
-        {
-            spriteObject.sprite = sprite;
         }
         public void DisableUI()
         {

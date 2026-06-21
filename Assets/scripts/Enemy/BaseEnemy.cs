@@ -95,14 +95,13 @@ namespace Enemy
         }
         public void ChangeAnimation(string animationName)
         {
-
             switch (animationName)
             {
                 case "Idle":
                     animator.CrossFade("Idle", 0.1f);
                     break;
                 case "TakeDamage":
-                    animator.CrossFade("TakeDamage", 0.1f);
+                    animator.SetTrigger("TakeDamage");
                     break;
                 case "Die":
                     animator.SetBool("isAlive", false);
