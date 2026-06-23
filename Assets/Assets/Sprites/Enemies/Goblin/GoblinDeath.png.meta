@@ -168,15 +168,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Death_0
+      name: Death_03
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 150
-        height: 150
+        y: 45
+        width: 125
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -190,15 +190,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_1
+      name: Death_02
       rect:
         serializedVersion: 2
         x: 150
-        y: 0
-        width: 150
-        height: 150
+        y: 45
+        width: 125
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -212,15 +212,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_2
+      name: Death_01
       rect:
         serializedVersion: 2
         x: 300
-        y: 0
-        width: 150
-        height: 150
+        y: 45
+        width: 125
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -234,15 +234,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_3
+      name: Death_00
       rect:
         serializedVersion: 2
         x: 450
-        y: 0
-        width: 150
-        height: 150
+        y: 45
+        width: 125
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -269,10 +269,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Death_0: 6991849013916550155
-      Death_1: -276728812324164698
-      Death_2: 3156895337291164288
-      Death_3: 1400002288684528572
+      Death_00: 1400002288684528572
+      Death_01: 3156895337291164288
+      Death_02: -276728812324164698
+      Death_03: 6991849013916550155
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

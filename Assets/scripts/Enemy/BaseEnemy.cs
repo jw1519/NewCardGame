@@ -73,6 +73,7 @@ namespace Enemy
             {
                 health -= damageTaken;
                 enemyHealthChange?.Invoke();
+                ChangeAnimation("TakeDamage");
             }
             else
             {
@@ -101,7 +102,7 @@ namespace Enemy
                     animator.CrossFade("Idle", 0.1f);
                     break;
                 case "TakeDamage":
-                    animator.SetTrigger("TakeDamage");
+                    animator.SetTrigger("takeDamage");
                     break;
                 case "Die":
                     animator.SetBool("isAlive", false);
