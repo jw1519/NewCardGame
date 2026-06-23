@@ -42,40 +42,41 @@ public class EventQueue : MonoBehaviour
     }
     private static IEnumerator HandleEvent(GameEvent gameEvent)
     {
-        if (gameEvent is PlayerAttackEvent playerAttack)
+        switch (gameEvent)
         {
-            ApplyDamage(playerAttack.Target, playerAttack.Damage);
-            yield return new WaitForSeconds(1); //do animation here
-        }
-        else if (gameEvent is PlayerDefenceEvent playerDefence)
-        {
-            playerDefence.Target.defence += playerDefence.Defence;
-            playerDefence.CharacterUI.UpdateDefenceUI();
-            yield return new WaitForSeconds(1); //do animation here
-        }
-        else if (gameEvent is PlayerHealEvent playerHeal)
-        {
-            ApplyHeal(playerHeal.Target, playerHeal.HealAmount);
-            yield return new WaitForSeconds(1); //do animation here
-        }
-        else if (gameEvent is PlayerAOEAttackEvent playerAOEAttack)
-        {
-            foreach (BaseEnemy enemy in playerAOEAttack.Targets)
-            {
-                ApplyDamage(enemy, playerAOEAttack.Damage);
-            }
-            yield return new WaitForSeconds(1); //do animation here
-        }
-        else if (gameEvent is EnemyAttackEvent enemyAttack)
-        {
-            ApplyDamage(enemyAttack.Target, enemyAttack.Damage);
-            yield return new WaitForSeconds(1); //do animation here
-        }
-        else if (gameEvent is EnemyDefenceEvent enemyDefence)
-        {
-            enemyDefence.Target.defence = enemyDefence.Target.defenceAmount;
-            enemyDefence.EnemyUI.UpdateDefenceUI();
-            yield return new WaitForSeconds(1);
+            case PlayerAttackEvent playerAttack:
+                ApplyDamage(playerAttack.Target, playerAttack.Damage);
+                yield return new WaitForSeconds(1); //do animation here
+                break;
+            case PlayerDefenceEvent playerDefence:
+                playerDefence.Target.defence += playerDefence.Defence;
+                playerDefence.CharacterUI.UpdateDefenceUI();
+                yield return new WaitForSeconds(1); //do animation here
+                break;
+            case PlayerHealEvent playerHeal:
+                ApplyHeal(playerHeal.Target, playerHeal.HealAmount);
+                yield return new WaitForSeconds(1); //do animation here
+                break;
+            case PlayerAOEAttackEvent playerAOEAttack:
+                foreach (BaseEnemy enemy in playerAOEAttack.Targets)
+                {
+                    ApplyDamage(enemy, playerAOEAttack.Damage);
+                }
+                yield return new WaitForSeconds(1); //do animation here
+                break;
+            case EnemyAttackEvent enemyAttack:
+                ApplyDamage(enemyAttack.Target, enemyAttack.Damage);
+                yield return new WaitForSeconds(1); //do animation here
+                break;
+            case EnemyDefenceEvent enemyDefence:
+                enemyDefence.Target.defence = enemyDefence.Target.defenceAmount;
+                enemyDefence.EnemyUI.UpdateDefenceUI();
+                yield return new WaitForSeconds(1);
+                break;
+            case EnemyAbilityEvent enemyAbility:
+                enemyAbility.Target.UseAbility(enemyAbility.EnemyUI.gameObject);
+                yield return new WaitForSeconds(1); //do animation here
+                break;
         }
     }
     public static void ApplyDamage(ITakeDamage target, int damage)

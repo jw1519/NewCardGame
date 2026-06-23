@@ -8,6 +8,7 @@ namespace Enemy
         public override void UseAbility(GameObject target)
         {
             Heal(abilityAmount);
+            Debug.Log("Slime healed for " + abilityAmount);
         }
     }
 }

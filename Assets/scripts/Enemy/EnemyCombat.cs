@@ -45,6 +45,7 @@ namespace Enemy
                     break;
 
                 case EnemyAction.Ability:
+                    EventQueue.EnqueueEvent(new EnemyAbilityEvent(enemy, enemy.abilityAmount, enemyUI));
                     Debug.Log("Ability used");
                     break;
             }

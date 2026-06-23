@@ -92,7 +92,6 @@ namespace Enemy
         public virtual void UseAbility(GameObject target)
         {
             Debug.Log("Use Ability here");
-            Heal(abilityAmount);
         }
         public void ChangeAnimation(string animationName)
         {

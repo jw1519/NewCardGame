@@ -1,9 +1,5 @@
 Ideas for the game:
 
-have a combat order on the side 
-add cards to increase speed/ change combat order
-start with 5 cards have a max of 7
-if cards exceed 7 cards will have to be discarded
 
 have 5 cards to start with and pick up two each turn. if you have more than 7 cards you have to discard down to 7
 
@@ -15,12 +11,13 @@ dot attack
 
 things to do:
 add more cards
-add map
+add relics with when you have a certain amount of the same type of relic get a bonus
+have a limited amount of relics in inventory and have to choose which ones to keep
+
 
 
 
 issues:
 sometimes the enemies action sprites dont appear and they do not do an action on that turn
-Goblin enemies animations currently dont work
 
 

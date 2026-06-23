@@ -27,4 +27,16 @@ namespace Enemy
             EnemyUI = enemyUI;
         }
     }
+    public class EnemyAbilityEvent : GameEvent
+    {
+        public BaseEnemy Target;
+        public int AbilityAmount;
+        public SetEnemyUI EnemyUI;
+        public EnemyAbilityEvent(BaseEnemy target, int abilityAmount, SetEnemyUI enemyUI)
+        {
+            Target = target;
+            AbilityAmount = abilityAmount;
+            EnemyUI = enemyUI;
+        }
+    }
 }
