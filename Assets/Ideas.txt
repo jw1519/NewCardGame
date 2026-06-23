@@ -14,6 +14,12 @@ add more cards
 add relics with when you have a certain amount of the same type of relic get a bonus
 have a limited amount of relics in inventory and have to choose which ones to keep
 
+relics
+health - more max health, heal at end of combat, add 2 cards that heal for 0 energy into deck
+damage- attack cards do more damage, add 2 attack cards to deck, have strength at the start of combat (attack cards do + 3 attack)
+defence - add 2 defence cards, defence cards do + 2 more defence, 
+Gold - recieve +10 gold from enemies, shop prices are 20% lower, give player 50 gold
+
 
 
 
