@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using System;
 using UnityEngine;
 
@@ -26,6 +27,8 @@ namespace Enemy
         public int health;
         public int maxHealth;
         public int damage;
+        public int maxDamage;
+        public int minDamage;
         public int defence;
         public int defenceAmount;
         public int abilityAmount;
@@ -80,7 +83,6 @@ namespace Enemy
                 health = 0;
                 enemydiedGold?.Invoke(goldOnDefeat);
                 enemydied?.Invoke();
-                
             }
             
         }

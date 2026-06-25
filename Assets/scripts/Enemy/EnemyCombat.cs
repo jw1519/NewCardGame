@@ -25,6 +25,8 @@ namespace Enemy
             {
                 enemy.TakeDamage(enemy.burnDamage);
                 enemyUI.UpdateStatusEffects();
+                if (enemy.isAlive == false) return;
+
                 Debug.Log("Burn");
             }
             enemy.defence = 0;
