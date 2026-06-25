@@ -9,6 +9,7 @@ namespace Enemy
     {
         public static event Action enemyHealthChange;
         public static event Action enemyDefenceChange;
+        public static event Action<string> addEffectToEnemy;
         public static event Action enemydied;
         public static event Action<int> enemydiedGold;
 
@@ -90,6 +91,7 @@ namespace Enemy
         {
             this.burnDamage = burnDamage;
             this.burnDuration = burnDuration;
+            addEffectToEnemy?.Invoke("burn");
         }
         public virtual void UseAbility(GameObject target)
         {

@@ -21,6 +21,9 @@ namespace Enemy
         [Header("Actions")]
         public Image actionSprite;
         public TextMeshProUGUI actionText;
+
+        [Header("Effects")]
+        public GameObject burnSprite;
         private void Start()
         {
             healthText.text = enemy.health.ToString() + "/" + enemy.maxHealth.ToString();
@@ -35,6 +38,7 @@ namespace Enemy
             enemyHealthChange += UpdateHealthUI;
             enemydied += EnemyDied;
             enemyDefenceChange += UpdateDefenceUI;
+            addEffectToEnemy += EnableStatusEffect;
         }
         private void OnDestroy()
         {
@@ -42,6 +46,7 @@ namespace Enemy
             enemydied -= DisableUI;
             enemydied -= EnemyDied;
             enemyDefenceChange -= UpdateDefenceUI;
+            addEffectToEnemy -= EnableStatusEffect;
         }
         public void UpdateHealthUI()
         {
@@ -84,12 +89,27 @@ namespace Enemy
                     return;
             }
         }
+        public void EnableStatusEffect(string effectname)
+        {
+            switch (effectname)
+            {
+                case "burn":
+                    if (enemy.isBurning != true) return;
+                    burnSprite.SetActive(true);
+                    burnSprite.GetComponentInChildren<TextMeshProUGUI>().text = enemy.burnDuration.ToString();
+                    return;
+                        
+
+            }
+        }
         public void UpdateStatusEffects()
         {
             if (enemy.isBurning)
             {
                 //update burn UI here
+                burnSprite.SetActive(true);
                 enemy.burnDuration--;
+                burnSprite.GetComponentInChildren<TextMeshProUGUI>().text = enemy.burnDuration.ToString();
                 Debug.Log("Burn Duration: " + enemy.burnDuration);
             }
             else
@@ -97,6 +117,7 @@ namespace Enemy
                 //remove burn UI here
                 enemy.burnDuration = 0;
                 enemy.burnDamage = 0;
+                burnSprite.SetActive(false);
                 Debug.Log("Burn finished");
             }
         }
