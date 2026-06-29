@@ -20,7 +20,6 @@ namespace Card
         {
             Attack,
             Defence,
-            Heal,
             Ability
         }
         public virtual void Use(GameObject target)

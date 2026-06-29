@@ -1,16 +1,13 @@
 using UnityEngine;
 
-public class DamageRelic : MonoBehaviour
+namespace Item
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [CreateAssetMenu(fileName = "New Relic", menuName = "Items/Relics/Damage")]
+    public class DamageRelic : Relic
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override void Equip()
+        {
+            
+        }
     }
 }
