@@ -1,3 +1,4 @@
+using Character;
 using UnityEngine;
 
 namespace Card
@@ -8,7 +9,7 @@ namespace Card
         public override void Use(GameObject target)
         {
             base.Use(target);
-            player.Heal(abilityPower);
+            EventQueue.EnqueueEvent(new PlayerHealEvent(player, abilityPower));
         }
     }
 }

@@ -35,8 +35,7 @@ namespace Enemy
             {
                 case EnemyAction.Attack:
                     GameObject Target = FindTarget();
-                    enemy.ChangeAnimation("Attack");
-                    EventQueue.EnqueueEvent(new EnemyAttackEvent(Target.GetComponent<SetCharacterUI>().character, enemy.damage, enemyUI));
+                    EventQueue.EnqueueEvent(new EnemyAttackEvent(Target.GetComponent<SetCharacterUI>().character, enemy, enemy.damage, enemyUI));
                     Debug.Log("Attack");
                     break;
 

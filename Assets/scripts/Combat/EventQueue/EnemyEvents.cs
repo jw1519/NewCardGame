@@ -4,12 +4,14 @@ namespace Enemy
     public class EnemyAttackEvent : GameEvent
     {
         public BaseCharacter Target;
+        public BaseEnemy Enemy;
         public int Damage;
         public SetEnemyUI EnemyUI;
 
-        public EnemyAttackEvent(BaseCharacter target, int damage, SetEnemyUI enemyUI)
+        public EnemyAttackEvent(BaseCharacter target, BaseEnemy enemy, int damage, SetEnemyUI enemyUI)
         {
             Target = target;
+            Enemy = enemy;
             Damage = damage;
             EnemyUI = enemyUI;
         }

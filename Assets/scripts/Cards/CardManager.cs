@@ -109,9 +109,6 @@ namespace Card
                         case BaseCard.CardType.Defence:
                             card.Use(combatManager.combatOrder.Find(p => p.GetComponent<BaseCharacter>() != null));
                             break;
-                        case BaseCard.CardType.Heal:
-                            card.Use(combatManager.combatOrder.Find(p => p.GetComponent<BaseCharacter>() != null));
-                            break;
                         case BaseCard.CardType.Ability:
                             card.Use(combatManager.combatOrder.Find(p => p.GetComponent<BaseCharacter>() != null));
                             break;
