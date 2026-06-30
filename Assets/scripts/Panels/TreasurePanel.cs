@@ -30,6 +30,7 @@ public class TreasurePanel : BasePanel
     {
         // Add the treasure to the player's inventory
         ////InventoryManager.instance.AddItem(treasures[randomIndex]);
+        currentTreasure.Equip();
         panel.gameObject.SetActive(false);
         ClosePanel();
         GameManager.instance.RoomCleared();
