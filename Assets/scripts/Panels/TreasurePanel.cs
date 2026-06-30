@@ -2,6 +2,7 @@ using UnityEngine;
 using Item;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using TMPro;
 
 public class TreasurePanel : BasePanel
 {
@@ -10,6 +11,8 @@ public class TreasurePanel : BasePanel
     public GameObject panel;
     public Image treasureImage;
     Relic currentTreasure;
+
+    public TextMeshProUGUI treasureDescrition;
 
     public void OpenChest()
     {
@@ -25,6 +28,7 @@ public class TreasurePanel : BasePanel
             currentTreasure = treasures[randomIndex];
         }
         panel.SetActive(true);
+        treasureDescrition.text = currentTreasure.description;
     }
     public void TakeTreasure()
     {

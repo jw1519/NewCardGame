@@ -11,13 +11,17 @@ namespace Item
         public BaseCard healthCard;
         public int healAmount;
         public Abilty abilty;
-        List<GameObject> healthCards;
+        public List<GameObject> healthCards;
 
         public override void Equip()
         {
             switch (abilty)
             {
                 case Abilty.AddCard:
+                    if (healthCards[0] == null)
+                    {
+                        healthCards.Clear();
+                    }
                     if (healthCards.Count < 2)
                     {
                         GameObject instance = CardFactory.instance.CreateCard(healthCard);

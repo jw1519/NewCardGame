@@ -20,6 +20,7 @@ MonoBehaviour:
   relicType: 0
   relicAbility: 1
   abilityValue: 0
+  description: adds 2 heal cards to your deck
   healthCard: {fileID: 11400000, guid: 2fae6f5db0967ba4f91703e5ec7aed82, type: 2}
   healAmount: 3
   abilty: 0

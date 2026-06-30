@@ -9,6 +9,8 @@ namespace Item
         public RelicAbility relicAbility;
         public int abilityValue;
 
+        public string description;
+
         public virtual void Equip() { }
         public virtual void UnEquip() { }
     }
