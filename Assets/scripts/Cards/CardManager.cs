@@ -52,6 +52,11 @@ namespace Card
         public void DrawCard(int amount)
         {
             AssetManager.Instance.GetAsset("SelectManager").GetComponent<SelectManager>().DeselectCard();
+            if (cardsInDeck.Count < amount)
+            {
+                EmptyDiscardPile();
+                DrawCard(amount);
+            }
             if (cardsInHand.Count >= maxCardsInHand)
             {
                 Debug.Log("hand is full");
