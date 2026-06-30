@@ -1,5 +1,8 @@
+using NUnit.Framework;
 using TMPro;
 using UnityEngine;
+using Item;
+using System.Collections.Generic;
 
 namespace Character
 {
@@ -17,11 +20,19 @@ namespace Character
         [Header("Relics")]
         public int maxRelicAmount;
         public Transform relicContainer;
+        public GameObject relicPrefab;
 
         public void Start()
         {
             maxItemAmount = AssetManager.Instance.GetAsset("Player").GetComponent<BaseCharacter>().maxItemAmount;
             itemAmountText.text = "0/" + maxItemAmount.ToString();
+
+            for (int i = 0; i < maxRelicAmount; i++)
+            {
+                GameObject instance = Instantiate(relicPrefab);
+                instance.transform.SetParent(relicContainer, false);
+                instance.SetActive(false);
+            }
         }
         private void OnEnable()
         {
@@ -57,18 +68,25 @@ namespace Character
                 item.transform.SetParent(null);
             }
         }
-        public void AddRelic(GameObject item)
+        public void AddRelic(Relic item)
         {
-            if (relicContainer.childCount < maxRelicAmount)
+            foreach (Transform transform in relicContainer.transform)
             {
-                item.transform.SetParent(relicContainer);
+                if (!transform.gameObject.activeSelf)
+                {
+                    transform.GetComponent<RelicUI>().SetRelic(item);
+                    return;
+                }
             }
         }
-        public void RemoveRelic(GameObject item)
+        public void RemoveRelic(Relic item)
         {
-            if (itemContainer.childCount > 0)
+            foreach(Transform transform in relicContainer.transform)
             {
-                item.transform.SetParent(null);
+                if (transform.gameObject.activeSelf && transform.GetComponent<RelicUI>().relic == item)
+                {
+                    transform.GetComponent<RelicUI>().RemoveRelic();
+                }
             }
         }
         public void Pause()

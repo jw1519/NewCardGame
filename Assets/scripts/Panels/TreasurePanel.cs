@@ -3,6 +3,7 @@ using Item;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
+using Character;
 
 public class TreasurePanel : BasePanel
 {
@@ -44,7 +45,7 @@ public class TreasurePanel : BasePanel
     {
         // Add the treasure to the player's inventory
         ////InventoryManager.instance.AddItem(treasures[randomIndex]);
-        currentTreasure.Equip();
+        AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PlayerStatsPanel").GetComponent<PlayerStatsPanel>().AddRelic(currentTreasure);
         panel.gameObject.SetActive(false);
         ClosePanel();
         GameManager.instance.RoomCleared();
