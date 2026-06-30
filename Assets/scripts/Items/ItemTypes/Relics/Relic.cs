@@ -6,7 +6,6 @@ namespace Item
     public class Relic : BaseItem
     {
         public RelicType relicType;
-        public RelicAbility relicAbility;
         public int abilityValue;
 
         public string description;
@@ -20,13 +19,5 @@ namespace Item
         Damage,
         Defense,
         Gold,
-    }
-    public enum RelicAbility
-    {
-        IncreaseMaxHealth,
-        AddHealCards,
-
-
-
     }
 }

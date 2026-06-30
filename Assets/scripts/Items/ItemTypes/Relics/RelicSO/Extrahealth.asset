@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a23ca946905db4469e10bfcc27eff17, type: 3}
+  m_Name: Extrahealth
+  m_EditorClassIdentifier: Assembly-CSharp::Item.HealthRelic
+  itemSprite: {fileID: 21300000, guid: 169f7892d989c1c479b899cb7d34f10c, type: 3}
+  itemName: 
+  itemCost: 0
+  isBought: 0
+  character: {fileID: 0}
+  relicType: 0
+  relicAbility: 0
+  abilityValue: 5
+  description: Adds 5 max health
+  healthCard: {fileID: 0}
+  healAmount: 0
+  abilty: 1
+  healthCards: []

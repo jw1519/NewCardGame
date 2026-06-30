@@ -1,5 +1,5 @@
 using Card;
-using NUnit.Framework;
+using Character;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,6 +35,13 @@ namespace Item
                         AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>().AddCard(healthCards[0]);
                     AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>().AddCard(healthCards[1]);
                     break;
+
+                case Abilty.ExtraHealth:
+                    GameObject player = AssetManager.Instance.GetAsset("Player");
+                    player.GetComponent<BaseCharacter>().maxHealth += abilityValue;
+                    player.GetComponent<BaseCharacter>().health += abilityValue;
+                    player.GetComponent<SetCharacterUI>().UpdateHealthUI();
+                    break;
             }
         }
         public override void UnEquip()
@@ -50,6 +57,7 @@ namespace Item
         public enum Abilty
         {
             AddCard,
+            ExtraHealth,
 
         }
     }

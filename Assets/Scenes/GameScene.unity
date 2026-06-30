@@ -2992,6 +2992,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TreasurePanel
   treasures:
   - {fileID: 11400000, guid: ea9e0d00952b6774d89737b0467f71bb, type: 2}
+  - {fileID: 11400000, guid: 3fe7e64120cd8ba429d086bf667ebd3b, type: 2}
   instantiatedTreasures: []
   panel: {fileID: 6868258884861431427}
   treasureImage: {fileID: 53624806}
