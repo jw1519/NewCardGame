@@ -1,4 +1,6 @@
 using Card;
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Item
@@ -9,14 +11,31 @@ namespace Item
         public BaseCard healthCard;
         public int healAmount;
         public Abilty abilty;
+        List<GameObject> healthCards;
+
         public override void Equip()
         {
             switch (abilty)
             {
                 case Abilty.AddCard:
-                    GameObject instance = CardFactory.instance.CreateCard(healthCard);
-                    AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>().AddCard(instance);
-                    AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>().AddCard(instance);
+                    if (healthCards.Count < 2)
+                    {
+                        GameObject instance = CardFactory.instance.CreateCard(healthCard);
+                        healthCards.Add(instance);
+                        healthCards.Add(Instantiate(instance));
+                    }
+                        AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>().AddCard(healthCards[0]);
+                    AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>().AddCard(healthCards[1]);
+                    break;
+            }
+        }
+        public override void UnEquip()
+        {
+           switch (abilty)
+            {
+                case Abilty.AddCard:
+                    AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>().RemoveCard(healthCards[0]);
+                    AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>().RemoveCard(healthCards[1]);
                     break;
             }
         }

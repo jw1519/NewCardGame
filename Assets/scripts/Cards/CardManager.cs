@@ -161,5 +161,10 @@ namespace Card
             cardsInDeck.Add(card);
             card.transform.SetParent(deckCardParent);
         }
+        public void RemoveCard(GameObject card)
+        {
+            cardsInDeck.Remove(card);
+            card.transform.SetParent(null, false);
+        }
     }
 }

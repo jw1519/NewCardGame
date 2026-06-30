@@ -48,10 +48,15 @@ namespace Card
                     Debug.Log("Select Character");
                     return;
                 }
+                
+                if (cardSelected != null)
+                {
+                    cardHand.cards.Remove(cardSelected.gameObject);
+                    cardManager.DiscardCard(cardSelected.gameObject);
+                }
                 cardSelected.card.Use(target);
-                cardHand.cards.Remove(cardSelected.gameObject);
                 StartCoroutine(cardHand.UpdateCardPositions(0.15f));
-                cardManager.DiscardCard(cardSelected.gameObject);
+                
                 cardSelected = null;
             }
         }

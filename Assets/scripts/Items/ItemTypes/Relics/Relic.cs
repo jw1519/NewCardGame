@@ -9,10 +9,8 @@ namespace Item
         public RelicAbility relicAbility;
         public int abilityValue;
 
-        public virtual void Equip()
-        {
-
-        }
+        public virtual void Equip() { }
+        public virtual void UnEquip() { }
     }
     public enum RelicType
     {

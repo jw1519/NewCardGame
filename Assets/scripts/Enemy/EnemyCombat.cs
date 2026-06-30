@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using Character;
 using System.Collections.Generic;
+using Card;
 
 namespace Enemy
 {
@@ -25,7 +26,11 @@ namespace Enemy
             {
                 enemy.TakeDamage(enemy.burnDamage);
                 enemyUI.UpdateStatusEffects();
-                if (enemy.isAlive == false) return;
+                if (enemy.isAlive == false)
+                {
+                    StartCoroutine(combatManager.StartCombat());
+                    return;
+                }
 
                 Debug.Log("Burn");
             }
