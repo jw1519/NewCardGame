@@ -1,3 +1,4 @@
+using Character;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -9,8 +10,11 @@ namespace Item
     {
         public Relic relic;
         public Image itemImage;
+        [HideInInspector] public PlayerStatsPanel statsPanel;
         public TextMeshProUGUI descriptionText;
         public Transform descriptionPanel;
+        public GameObject discardButton;
+        bool showButton = false;
 
         public void SetRelic(Relic item)
         {
@@ -23,8 +27,22 @@ namespace Item
         public void RemoveRelic()
         {
             relic.UnEquip();
-            gameObject.SetActive(true);
+            gameObject.SetActive(false);
+            statsPanel.RemoveRelic(relic);
             relic = null;
+        }
+        public void displayDiscardButton()
+        {
+            if (showButton)
+            {
+                discardButton.SetActive(false);
+                showButton = false;
+            }
+            else
+            {
+                discardButton.SetActive(true);
+                showButton = true;
+            }
         }
 
         public void OnPointerEnter(PointerEventData eventData)

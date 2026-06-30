@@ -9987,7 +9987,6 @@ MonoBehaviour:
   maxRelicAmount: 5
   relicContainer: {fileID: 898815265}
   relicPrefab: {fileID: 7921349036998602526, guid: a01d999664c92fc41b5b78ef51e6d0ba, type: 3}
-  relics: []
 --- !u!1 &1869890443
 GameObject:
   m_ObjectHideFlags: 0

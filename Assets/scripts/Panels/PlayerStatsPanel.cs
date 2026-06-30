@@ -30,6 +30,7 @@ namespace Character
             for (int i = 0; i < maxRelicAmount; i++)
             {
                 GameObject instance = Instantiate(relicPrefab);
+                instance.GetComponent<RelicUI>().statsPanel = this;
                 instance.transform.SetParent(relicContainer, false);
                 instance.SetActive(false);
             }
@@ -81,13 +82,7 @@ namespace Character
         }
         public void RemoveRelic(Relic item)
         {
-            foreach(Transform transform in relicContainer.transform)
-            {
-                if (transform.gameObject.activeSelf && transform.GetComponent<RelicUI>().relic == item)
-                {
-                    transform.GetComponent<RelicUI>().RemoveRelic();
-                }
-            }
+            //remove relic abilities
         }
         public void Pause()
         {
