@@ -10,6 +10,7 @@ namespace Character
         public TextMeshProUGUI roundText;
 
         public int maxItemAmount;
+        public int maxRelicAmount;
 
         public Transform itemContainer;
         public TextMeshProUGUI itemAmountText;

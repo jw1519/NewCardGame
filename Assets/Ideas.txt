@@ -20,7 +20,8 @@ damage- attack cards do more damage, add 2 attack cards to deck, have strength a
 defence - add 2 defence cards, defence cards do + 2 more defence, 
 Gold - recieve +10 gold from enemies, shop prices are 20% lower, give player 50 gold
 
-
+rare relic
+relic that addes an extra slot for a relic and can be used for a bonus towards any set
 
 
 issues:
