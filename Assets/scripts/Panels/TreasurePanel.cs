@@ -8,24 +8,34 @@ public class TreasurePanel : BasePanel
 {
     public List<Relic> treasures;
 
+    public List<Relic> instantiatedTreasures;
+
     public GameObject panel;
     public Image treasureImage;
     Relic currentTreasure;
 
     public TextMeshProUGUI treasureDescrition;
 
+    private void Start()
+    {
+        for (int i = 0; i < treasures.Count; i++)
+        {
+            instantiatedTreasures.Add(Instantiate(treasures[i]));
+        }
+    }
+
     public void OpenChest()
     {
-        if (treasures.Count == 0)
+        if (instantiatedTreasures.Count == 0)
         {
             TakeTreasure();
             return;
         }
-        int randomIndex = Random.Range(0, treasures.Count);
+        int randomIndex = Random.Range(0, instantiatedTreasures.Count);
         if (treasures[randomIndex] != null)
         {
-            treasureImage.sprite = treasures[randomIndex].itemSprite;
-            currentTreasure = treasures[randomIndex];
+            treasureImage.sprite = instantiatedTreasures[randomIndex].itemSprite;
+            currentTreasure = instantiatedTreasures[randomIndex];
         }
         panel.SetActive(true);
         treasureDescrition.text = currentTreasure.description;

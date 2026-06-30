@@ -18,13 +18,17 @@ namespace Item
             switch (abilty)
             {
                 case Abilty.AddCard:
-                    if (healthCards[0] == null)
+                    if (healthCards.Count == 0)
+                    {
+                        healthCards.Clear();
+                    }
+                    else if (healthCards[0]  == null)
                     {
                         healthCards.Clear();
                     }
                     if (healthCards.Count < 2)
                     {
-                        GameObject instance = CardFactory.instance.CreateCard(healthCard);
+                        GameObject instance = CardFactory.instance.CreateCard(Instantiate(healthCard));
                         healthCards.Add(instance);
                         healthCards.Add(Instantiate(instance));
                     }
