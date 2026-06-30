@@ -9,11 +9,15 @@ namespace Character
         public TextMeshProUGUI goldText;
         public TextMeshProUGUI roundText;
 
+        [Header("Items")]
         public int maxItemAmount;
-        public int maxRelicAmount;
-
         public Transform itemContainer;
         public TextMeshProUGUI itemAmountText;
+
+        [Header("Relics")]
+        public int maxRelicAmount;
+        public Transform relicContainer;
+
         public void Start()
         {
             maxItemAmount = AssetManager.Instance.GetAsset("Player").GetComponent<BaseCharacter>().maxItemAmount;
@@ -50,6 +54,20 @@ namespace Character
             if (itemContainer.childCount > 0)
             {
                 itemAmountText.text = (itemContainer.childCount - 1).ToString() + "/" + maxItemAmount.ToString();
+                item.transform.SetParent(null);
+            }
+        }
+        public void AddRelic(GameObject item)
+        {
+            if (relicContainer.childCount < maxRelicAmount)
+            {
+                item.transform.SetParent(relicContainer);
+            }
+        }
+        public void RemoveRelic(GameObject item)
+        {
+            if (itemContainer.childCount > 0)
+            {
                 item.transform.SetParent(null);
             }
         }
