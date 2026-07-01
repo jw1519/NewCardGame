@@ -32,7 +32,7 @@ namespace Item
                         healthCards.Add(instance);
                         healthCards.Add(Instantiate(instance));
                     }
-                        AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>().AddCard(healthCards[0]);
+                    AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>().AddCard(healthCards[0]);
                     AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>().AddCard(healthCards[1]);
                     break;
 
@@ -51,6 +51,12 @@ namespace Item
                 case Abilty.AddCard:
                     AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>().RemoveCard(healthCards[0]);
                     AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>().RemoveCard(healthCards[1]);
+                    break;
+                case Abilty.ExtraHealth:
+                    GameObject player = AssetManager.Instance.GetAsset("Player");
+                    player.GetComponent<BaseCharacter>().maxHealth -= abilityValue;
+                    player.GetComponent<BaseCharacter>().health -= abilityValue;
+                    player.GetComponent<SetCharacterUI>().UpdateHealthUI();
                     break;
             }
         }
