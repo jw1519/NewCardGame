@@ -44,10 +44,23 @@ public class TreasurePanel : BasePanel
     public void TakeTreasure()
     {
         // Add the treasure to the player's inventory
-        ////InventoryManager.instance.AddItem(treasures[randomIndex]);
-        AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PlayerStatsPanel").GetComponent<PlayerStatsPanel>().AddRelic(currentTreasure);
-        panel.gameObject.SetActive(false);
-        ClosePanel();
+
+        PlayerStatsPanel panel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PlayerStatsPanel").GetComponent<PlayerStatsPanel>();
+
+        if (panel != null && panel.CanAddRelic())
+        {
+            panel.AddRelic(currentTreasure);
+            ClosePanel();
+        }
+        else
+        {
+            Debug.Log("Cannot add more relics. Inventory is full.");
+        }
+    }
+    public override void ClosePanel()
+    {
+        base.ClosePanel();
         GameManager.instance.RoomCleared();
+        panel.SetActive(false);
     }
 }

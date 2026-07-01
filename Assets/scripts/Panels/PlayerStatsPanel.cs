@@ -88,5 +88,16 @@ namespace Character
         {
             AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PausePanel").OpenPanel();
         }
+        public bool CanAddRelic()
+        {
+            foreach (Transform transform in relicContainer.transform)
+            {
+                if (!transform.gameObject.activeSelf)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

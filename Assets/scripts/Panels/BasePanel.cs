@@ -10,7 +10,7 @@ public abstract class BasePanel : MonoBehaviour
     {
         gameObject.SetActive(true);
     }
-    public void ClosePanel()
+    public virtual void ClosePanel()
     {
         gameObject.SetActive(false);
     }
