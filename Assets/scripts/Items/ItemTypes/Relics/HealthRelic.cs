@@ -17,25 +17,6 @@ namespace Item
         {
             switch (abilty)
             {
-                case Abilty.AddCard:
-                    if (healthCards.Count == 0)
-                    {
-                        healthCards.Clear();
-                    }
-                    else if (healthCards[0]  == null)
-                    {
-                        healthCards.Clear();
-                    }
-                    if (healthCards.Count < 2)
-                    {
-                        GameObject instance = CardFactory.instance.CreateCard(Instantiate(healthCard));
-                        healthCards.Add(instance);
-                        healthCards.Add(Instantiate(instance));
-                    }
-                    AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>().AddCard(healthCards[0]);
-                    AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>().AddCard(healthCards[1]);
-                    break;
-
                 case Abilty.ExtraHealth:
                     GameObject player = AssetManager.Instance.GetAsset("Player");
                     player.GetComponent<BaseCharacter>().maxHealth += abilityValue;
@@ -48,10 +29,6 @@ namespace Item
         {
            switch (abilty)
             {
-                case Abilty.AddCard:
-                    AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>().RemoveCard(healthCards[0]);
-                    AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>().RemoveCard(healthCards[1]);
-                    break;
                 case Abilty.ExtraHealth:
                     GameObject player = AssetManager.Instance.GetAsset("Player");
                     player.GetComponent<BaseCharacter>().maxHealth -= abilityValue;
@@ -62,7 +39,6 @@ namespace Item
         }
         public enum Abilty
         {
-            AddCard,
             ExtraHealth,
 
         }

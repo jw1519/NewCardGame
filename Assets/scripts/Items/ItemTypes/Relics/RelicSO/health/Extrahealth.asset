@@ -18,10 +18,9 @@ MonoBehaviour:
   isBought: 0
   character: {fileID: 0}
   relicType: 0
-  relicAbility: 0
   abilityValue: 5
   description: Adds 5 max health
   healthCard: {fileID: 0}
   healAmount: 0
-  abilty: 1
+  abilty: 0
   healthCards: []

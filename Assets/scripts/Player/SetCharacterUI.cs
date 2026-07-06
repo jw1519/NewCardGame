@@ -52,13 +52,11 @@ namespace Character
         public void UpdateHealthUI()
         {
             healthText.text = character.health.ToString() + "/" + character.maxHealth.ToString();
-            healthSlider.value = character.health;
             GameObject panelStats = UIManager.instance.panelList.Find(panels => panels.name == "PlayerStatsPanel").gameObject;
             panelStats.GetComponent<PlayerStatsPanel>().UpdatePlayerHealthUI(character.health, character.maxHealth);
-            if (healthSlider.maxValue != character.maxHealth )
-            {
-                healthSlider.maxValue = character.maxHealth;
-            }
+
+            healthSlider.maxValue = character.maxHealth;
+            healthSlider.value = character.health;
             if (character.health <=0)
             {
                 BasePanel panel = UIManager.instance.panelList.Find(panels => panels.name == "GameOverPanel");
