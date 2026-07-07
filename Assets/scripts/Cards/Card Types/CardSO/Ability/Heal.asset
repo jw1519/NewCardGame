@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00349fd680a4af49bb3b97bf9d021d4, type: 3}
   m_Name: Heal
   m_EditorClassIdentifier: Assembly-CSharp::Card.HealCard
+  cardName: Heal
   cardSprite: {fileID: 0}
   cardType: 2
   cardEnergy: 0

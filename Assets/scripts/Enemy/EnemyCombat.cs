@@ -31,9 +31,8 @@ namespace Enemy
                     StartCoroutine(combatManager.StartCombat());
                     return;
                 }
-
-                Debug.Log("Burn");
             }
+            enemyUI.UpdateStatusEffects();
             enemy.defence = 0;
             enemyUI.UpdateDefenceUI();
             switch (enemy.action)

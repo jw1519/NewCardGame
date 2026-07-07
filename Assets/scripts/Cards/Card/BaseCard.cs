@@ -5,6 +5,7 @@ namespace Card
 {
     public abstract class BaseCard : ScriptableObject
     {
+        public string cardName;
         public Sprite cardSprite;
         public CardType cardType;
         public int cardEnergy;

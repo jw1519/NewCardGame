@@ -85,9 +85,7 @@ namespace Enemy
 
                 case EnemyAction.Ability:
                     actionSprite.sprite = enemy.abilitySprite;
-                    actionText.text = enemy.abilityAmount.ToString();
                     actionText.text = "";
-                    Debug.Log(enemy.action);
                     return;
             }
         }
@@ -100,8 +98,6 @@ namespace Enemy
                     burnSprite.SetActive(true);
                     burnSprite.GetComponentInChildren<TextMeshProUGUI>().text = enemy.burnDuration.ToString();
                     return;
-                        
-
             }
         }
         public void UpdateStatusEffects()

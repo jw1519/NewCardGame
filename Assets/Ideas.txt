@@ -1,10 +1,8 @@
 Ideas for the game:
 
 
-have 5 cards to start with and pick up two each turn. if you have more than 7 cards you have to discard down to 7
-
 enemies could be chained together. all take damage. all heal the same
-enemies can chain players together
+
 dot attack
 
 
@@ -25,6 +23,5 @@ relic that addes an extra slot for a relic and can be used for a bonus towards a
 
 
 issues:
-sometimes the enemies action sprites dont appear and they do not do an action on that turn
 
 

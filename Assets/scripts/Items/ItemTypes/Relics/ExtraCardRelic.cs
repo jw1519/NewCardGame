@@ -11,6 +11,11 @@ namespace Item
         public int cardAmount;
         List<GameObject> cards = new List<GameObject>();
 
+        private void Awake()
+        {
+            description = "Adds " + cardAmount + " extra " + extraCard.cardName + " cards to your deck that " + extraCard.description;
+        }
+
         public override void Equip()
         {
             if (cards.Count == 0 || cards[0] == null)

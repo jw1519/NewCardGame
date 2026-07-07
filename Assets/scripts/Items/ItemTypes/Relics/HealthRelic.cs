@@ -1,6 +1,4 @@
-using Card;
 using Character;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Item
@@ -8,10 +6,8 @@ namespace Item
     [CreateAssetMenu(fileName = "New Relic", menuName = "Items/Relics/Health")]
     public class HealthRelic : Relic
     {
-        public BaseCard healthCard;
         public int healAmount;
         public Abilty abilty;
-        public List<GameObject> healthCards;
 
         public override void Equip()
         {
