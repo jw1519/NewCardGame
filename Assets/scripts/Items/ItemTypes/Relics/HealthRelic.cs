@@ -14,10 +14,9 @@ namespace Item
             switch (abilty)
             {
                 case Abilty.ExtraHealth:
-                    GameObject player = AssetManager.Instance.GetAsset("Player");
-                    player.GetComponent<BaseCharacter>().maxHealth += abilityValue;
-                    player.GetComponent<BaseCharacter>().health += abilityValue;
-                    player.GetComponent<SetCharacterUI>().UpdateHealthUI();
+                    character.maxHealth += abilityValue;
+                    character.health += abilityValue;
+                    character.gameObject.GetComponent<SetCharacterUI>().UpdateHealthUI();
                     break;
             }
         }
@@ -26,17 +25,15 @@ namespace Item
            switch (abilty)
             {
                 case Abilty.ExtraHealth:
-                    GameObject player = AssetManager.Instance.GetAsset("Player");
-                    player.GetComponent<BaseCharacter>().maxHealth -= abilityValue;
-                    player.GetComponent<BaseCharacter>().health -= abilityValue;
-                    player.GetComponent<SetCharacterUI>().UpdateHealthUI();
+                    character.maxHealth -= abilityValue;
+                    character.health -= abilityValue;
+                    character.gameObject.GetComponent<SetCharacterUI>().UpdateHealthUI();
                     break;
             }
         }
         public enum Abilty
         {
             ExtraHealth,
-
         }
     }
 }

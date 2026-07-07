@@ -102,7 +102,7 @@ namespace Enemy
         }
         public void UpdateStatusEffects()
         {
-            if (enemy.isBurning)
+            if (enemy.isBurning && enemy.burnDuration-- != 0)
             {
                 //update burn UI here
                 burnSprite.SetActive(true);
@@ -116,7 +116,6 @@ namespace Enemy
                 enemy.burnDuration = 0;
                 enemy.burnDamage = 0;
                 burnSprite.SetActive(false);
-                Debug.Log("Burn finished");
             }
         }
         public void DisableUI()

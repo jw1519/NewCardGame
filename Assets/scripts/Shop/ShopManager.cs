@@ -64,7 +64,7 @@ public class ShopManager : MonoBehaviour
         for (int i = 0; i <= amountOfCards; i++)
         {
             int random = UnityEngine.Random.Range(0, cards.Count);
-            GameObject instance = CardFactory.instance.CreateCard(cards[random]);
+            GameObject instance = AssetManager.Instance.GetAsset("CardFactory").GetComponent<CardFactory>().CreateCard(cards[random]);
             instance.GetComponent<Hover>().enabled = false;
             instance.transform.SetParent(cardParent, false);
             instance.AddComponent<CardSelect>();

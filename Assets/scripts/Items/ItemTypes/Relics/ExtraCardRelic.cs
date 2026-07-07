@@ -11,8 +11,9 @@ namespace Item
         public int cardAmount;
         List<GameObject> cards = new List<GameObject>();
 
-        private void Awake()
+        public override void Awake()
         {
+            base.Awake();
             description = "Adds " + cardAmount + " extra " + extraCard.cardName + " cards to your deck that " + extraCard.description;
         }
 
@@ -23,7 +24,8 @@ namespace Item
                 cards.Clear();
                 for (int i = 0; i < cardAmount; i++)
                 {
-                    GameObject instance = CardFactory.instance.CreateCard(Instantiate(extraCard));
+                    CardPool.instance.AddCardToPool(extraCard);
+                    GameObject instance = AssetManager.Instance.GetAsset("CardFactory").GetComponent<CardFactory>().CreateCard(extraCard);
                     cards.Add(instance);
                 }
             }
@@ -36,7 +38,8 @@ namespace Item
         {
             for (int i = 0; i < cardAmount; i++)
             {
-                AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>().RemoveCard(cards[i]);
+                CardPool.instance.RemoveCardFromPool(extraCard);
+                //AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>().RemoveCard(cards[i]);
             }
         }
     }

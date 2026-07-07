@@ -25,7 +25,6 @@ namespace Enemy
             if (enemy != null && enemy.isBurning)
             {
                 enemy.TakeDamage(enemy.burnDamage);
-                enemyUI.UpdateStatusEffects();
                 if (enemy.isAlive == false)
                 {
                     StartCoroutine(combatManager.StartCombat());

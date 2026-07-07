@@ -101,9 +101,19 @@ public class CombatManager : MonoBehaviour
     }
     public void ClearCombat()
     {
-        foreach(GameObject gameObject in combatOrder)
+        foreach (GameObject gameObject in combatOrder)
         {
-            combatOrder.Remove(gameObject);
+            if (gameObject == null)
+            {
+                combatOrder.Remove(gameObject);
+                continue;
+            }
+            if (gameObject.GetComponent<SetEnemyUI>() != null)
+            {
+                Destroy(gameObject);
+            }
         }
+
+        combatOrder.Clear();
     }
 }

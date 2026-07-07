@@ -8,6 +8,7 @@ namespace Character
     {
         [Header("Character")]
         public BaseCharacter character;
+        BaseCharacter baseCharacter;
         public Image spriteObject;
 
         [Header("Health")]
@@ -26,14 +27,18 @@ namespace Character
 
         private void Start()
         {
-            healthSlider.maxValue = character.maxHealth;
-            energySlider.maxValue = character.maxEnergy;
+            baseCharacter = character;
+
             playerStatsPanel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PlayerStatsPanel").GetComponent<PlayerStatsPanel>();
             spriteObject.sprite = character.characterSprite;
             NewRun();
         }
         public void NewRun()
         {
+            character = baseCharacter;
+
+            healthSlider.maxValue = character.maxHealth;
+            energySlider.maxValue = character.maxEnergy;
             character.health = character.maxHealth;
             character.energy = character.maxEnergy;
 

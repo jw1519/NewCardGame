@@ -100,6 +100,7 @@ public class GameManager : MonoBehaviour
         round = 0;
         combatManager.ClearCombat();
         player.NewRun();
-        NewRound();
+        mapPanel.CreateNewMap();
+        mapPanel.OpenPanel();
     }
 }

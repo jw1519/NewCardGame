@@ -71,7 +71,7 @@ namespace Card
                         Debug.Log("hand is full");
                         return;
                     }
-                    GameObject RandomCard = CardPool.instance.GetPooledCard();
+                    GameObject RandomCard = AssetManager.Instance.GetAsset("CardPool").GetComponent<CardPool>().GetPooledCard();
                     if (RandomCard != null)
                     {
                         RandomCard.GetComponent<SetCardUI>().card.isInHand = true;
@@ -131,6 +131,9 @@ namespace Card
             // put cards from discard pile into deck if deck is empty or doesnt have enough cards
             foreach (GameObject card in cardsInDiscard)
             {
+                if (card == null) 
+                    cardsInDiscard.Remove(card);
+
                 cardsInDeck.Add(card);
                 card.transform.SetParent(deckCardParent, false);
             }
@@ -170,6 +173,17 @@ namespace Card
         {
             cardsInDeck.Remove(card);
             card.transform.SetParent(null, false);
+        }
+        public GameObject GetCard(BaseCard.CardType cardType)
+        {
+            foreach (GameObject card in cardsInDeck)
+            {
+                if (card.GetComponent<SetCardUI>().card.cardType == cardType)
+                {
+                    return card;
+                }
+            }
+            return null;
         }
     }
 }
