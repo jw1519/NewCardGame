@@ -85,7 +85,9 @@ namespace Enemy
 
                 case EnemyAction.Ability:
                     actionSprite.sprite = enemy.abilitySprite;
+                    actionText.text = enemy.abilityAmount.ToString();
                     actionText.text = "";
+                    Debug.Log(enemy.action);
                     return;
             }
         }

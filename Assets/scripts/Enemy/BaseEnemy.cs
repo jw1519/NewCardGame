@@ -114,10 +114,10 @@ namespace Enemy
                     animator.SetTrigger("attack");
                     break;
                 case "Defend":
-                    animator.SetTrigger("Defend");
+                    animator.SetTrigger("defend");
                     break;
                 case "Ability":
-                    animator.SetTrigger("Ability");
+                    animator.SetTrigger("ability");
                     break;
             }
         }
@@ -126,8 +126,6 @@ namespace Enemy
     {
         Attack,
         Defend,
-        Heal,
         Ability,
-        None
     }
 }

@@ -57,28 +57,23 @@ public class BaseRoom : MonoBehaviour
         switch (roomType)
         {
             case RoomType.Normal:
-                Debug.Log("Entered Normal Room");
                 GameManager.instance.NewRound();
                 mapPanel.ClosePanel();
                 GameManager.instance.SetRoom(this);
                 break;
             case RoomType.Boss:
-                Debug.Log("Entered Boss Room");
                 GameManager.instance.NewRound();
                 mapPanel.ClosePanel();
                 GameManager.instance.SetRoom(this);
                 break;
             case RoomType.Shop:
-                Debug.Log("Entered Shop Room");
                 mapPanel.ClosePanel();
                 AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("ShopPanel").OpenPanel();
                 GameManager.instance.SetRoom(this);
                 break;
             case RoomType.Treasure:
-                Debug.Log("Entered Treasure Room");
                 GameManager.instance.SetRoom(this);
                 AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("TreasurePanel").OpenPanel();
-                //GameManager.instance.RoomCleared();
                 mapPanel.ClosePanel();
                 break;
             case RoomType.Secret:
