@@ -20,9 +20,12 @@ MonoBehaviour:
   defenceSprite: {fileID: 21300000, guid: c07d8f2ef21dc634395f674f8766dcf6, type: 3}
   abilitySprite: {fileID: 21300000, guid: 0ad037c82e017d7429742ed757e5dafa, type: 3}
   enemyName: Slime
+  enemyType: 0
   health: 10
   maxHealth: 10
   damage: 3
+  maxDamage: 5
+  minDamage: 1
   defence: 0
   defenceAmount: 2
   abilityAmount: 3

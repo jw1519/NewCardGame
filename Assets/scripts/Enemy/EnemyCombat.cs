@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 using Character;
 using System.Collections.Generic;
-using Card;
 
 namespace Enemy
 {

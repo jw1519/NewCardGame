@@ -75,6 +75,7 @@ namespace Enemy
             {
                 case EnemyAction.Attack:
                     actionSprite.sprite = enemy.attackSprite;
+                    enemy.damage = Random.Range(enemy.minDamage, enemy.maxDamage);
                     actionText.text = enemy.damage.ToString();
                     return;
 
