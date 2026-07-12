@@ -26,12 +26,12 @@ namespace Enemy
         [Header("Stats")]
         public string enemyName;
         public EnemyType enemyType;
-        public int health;
+        [HideInInspector] public int health;
         public int maxHealth;
-         public int damage;
+        [HideInInspector] public int damage;
         public int maxDamage;
         public int minDamage;
-        public int defence;
+        [HideInInspector] public int defence;
         public int defenceAmount;
         public int abilityAmount;
 

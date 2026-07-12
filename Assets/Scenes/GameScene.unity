@@ -4965,6 +4965,7 @@ MonoBehaviour:
   normalEnemies:
   - {fileID: 11400000, guid: b21cb89c2c41ccb47bee46fdb1652b6f, type: 2}
   - {fileID: 11400000, guid: 948cf0e6ddc079541b744aca06efb982, type: 2}
+  - {fileID: 11400000, guid: c3ea55c7bed440446bce4427ce6182dd, type: 2}
   eliteEnemies: []
   enemyParent: {fileID: 393091522}
 --- !u!1 &984351638
