@@ -4,7 +4,7 @@ using Card;
 namespace Enemy
 {
     [CreateAssetMenu(fileName = "New Enemy", menuName = "Enemy/Goblin Theif")]
-    public class Goblin : BaseEnemy
+    public class Theif : BaseEnemy
     {
         public override void UseAbility(GameObject target)
         {
