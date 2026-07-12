@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Card
@@ -7,6 +8,12 @@ namespace Card
         public int packCost;
         public int amountCardsContained;
         public CardPackType cardPackType;
+        Animator animator;
+
+        private void Awake()
+        {
+            animator = GetComponent<Animator>();
+        }
 
         public enum CardPackType
         {
@@ -20,9 +27,15 @@ namespace Card
             bool canBuy = ShopManager.instance.CanBuy(packCost);
             if (canBuy)
             {
+                OpenPackAnimation();
                 ShopManager.instance.OpenCardPack(amountCardsContained);
                 Destroy(gameObject);
             }
+        }
+        public IEnumerator OpenPackAnimation()
+        {
+            animator.SetTrigger("Open");
+            yield return new WaitForSeconds(2f);
         }
     }
 }
