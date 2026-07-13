@@ -21,6 +21,12 @@ Gold - recieve +10 gold from enemies, shop prices are 20% lower, give player 50 
 rare relic
 relic that addes an extra slot for a relic and can be used for a bonus towards any set
 
+card ideas:
+
+ability:
+makes all attack card cause burn damage for 2 turns
+makes
+
 
 issues:
 

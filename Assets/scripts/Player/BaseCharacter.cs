@@ -8,6 +8,7 @@ namespace Character
         public static event Action playerHealthChanged;
         public static event Action playerDefenceChanged;
         public static event Action playerEnergyChanged;
+        public static event Action<string> AddEffectToPlayer;
 
         [Header("Character Sprite")]
         public Sprite characterSprite;
@@ -30,6 +31,11 @@ namespace Character
         [Header("Items")]
         public int maxItemAmount;
 
+        [Header("Status Effects")]
+        public bool isBurning => burnDuration > 0;
+        public int burnDamage;
+        public int burnDuration;
+
 
         public void Heal(int healAmount)
         {
@@ -43,7 +49,6 @@ namespace Character
             }
             playerHealthChanged?.Invoke();
         }
-
         public void TakeDamage(int damageTaken)
         {
             //check for defences
@@ -71,7 +76,6 @@ namespace Character
             }
             playerHealthChanged?.Invoke();
         }
-
         public void UseEnergy(int amount)
         {
             if (energy - amount >= 0)
@@ -90,6 +94,12 @@ namespace Character
                 energy = maxEnergy;
             }
             playerEnergyChanged?.Invoke();
+        }
+        public void ApplyBurn(int burnDamage, int burnDuration)
+        {
+            this.burnDamage = burnDamage;
+            this.burnDuration = burnDuration;
+            AddEffectToPlayer?.Invoke("burn");
         }
     }
 }

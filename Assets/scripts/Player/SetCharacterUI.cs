@@ -23,6 +23,9 @@ namespace Character
         public TextMeshProUGUI defenceText;
         public GameObject defenceIcon;
 
+        [Header("Effects")]
+        public GameObject burnIcon;
+
         PlayerStatsPanel playerStatsPanel;
 
         private void Start()
@@ -32,6 +35,12 @@ namespace Character
             playerStatsPanel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PlayerStatsPanel").GetComponent<PlayerStatsPanel>();
             spriteObject.sprite = character.characterSprite;
             NewRun();
+        }
+        private void OnEnable()
+        {
+            BaseCharacter.playerHealthChanged += UpdateHealthUI;
+            BaseCharacter.playerDefenceChanged += UpdateDefenceUI;
+            BaseCharacter.playerEnergyChanged += UpdateEnergyUI;
         }
         public void NewRun()
         {
@@ -47,13 +56,6 @@ namespace Character
             UpdateGoldUI();
             AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>().AddToCombat(gameObject);
         }
-        private void OnEnable()
-        {
-            BaseCharacter.playerHealthChanged += UpdateHealthUI;
-            BaseCharacter.playerDefenceChanged += UpdateDefenceUI;
-            BaseCharacter.playerEnergyChanged += UpdateEnergyUI;
-        }
-
         public void UpdateHealthUI()
         {
             healthText.text = character.health.ToString() + "/" + character.maxHealth.ToString();
@@ -62,7 +64,7 @@ namespace Character
 
             healthSlider.maxValue = character.maxHealth;
             healthSlider.value = character.health;
-            if (character.health <=0)
+            if (character.health <= 0)
             {
                 BasePanel panel = UIManager.instance.panelList.Find(panels => panels.name == "GameOverPanel");
                 panel.gameObject.GetComponent<GameOverPanel>().PlayerStatsDisplay(character);
@@ -73,7 +75,7 @@ namespace Character
         {
             EnergyText.text = character.energy.ToString() + "/" + character.maxEnergy.ToString();
             energySlider.value = character.energy;
-            if (energySlider.maxValue != character.maxEnergy )
+            if (energySlider.maxValue != character.maxEnergy)
             {
                 energySlider.maxValue = character.maxEnergy;
             }
@@ -85,6 +87,18 @@ namespace Character
         public void UpdateGoldUI()
         {
             playerStatsPanel.UpdateGoldUI(character.gold);
+        }
+        public void UpdateStatusEffectUI(string effectName, int duration)
+        {
+            switch (effectName)
+            {
+                case "burn":
+                    
+                    break;
+                default:
+                    Debug.LogWarning("Unknown status effect: " + effectName);
+                    break;
+            }
         }
     }
 }
