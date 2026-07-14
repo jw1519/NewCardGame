@@ -120,5 +120,13 @@ namespace Character
                 if (!character.isBurning) burnIcon.SetActive(false);
             }
         }
+        public void RemoveStatusEffects()
+        {
+            if (character.isBurning)
+            {
+                burnIcon.SetActive(false);
+                character.RemoveStatusEffect("burn");
+            }
+        }
     }
 }

@@ -110,5 +110,19 @@ namespace Character
                     break;
             }
         }
+        public void RemoveStatusEffect(string effectName)
+        {
+            switch (effectName)
+            {
+                case "burn":
+                    burnDamage = 0;
+                    burnDuration = 0;
+                    Debug.Log("Removing burn effect from player.");
+                    break;
+                default:
+                    Debug.LogWarning("Status effect not recognized: " + effectName);
+                    break;
+            }
+        }
     }
 }
