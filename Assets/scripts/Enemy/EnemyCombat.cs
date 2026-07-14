@@ -21,6 +21,7 @@ namespace Enemy
         }
         public void StartTurn()
         {
+            enemyUI.UpdateStatusEffects();
             if (enemy != null && enemy.isBurning)
             {
                 enemy.TakeDamage(enemy.burnDamage);
@@ -30,7 +31,6 @@ namespace Enemy
                     return;
                 }
             }
-            enemyUI.UpdateStatusEffects();
             enemy.defence = 0;
             enemyUI.UpdateDefenceUI();
             switch (enemy.action)

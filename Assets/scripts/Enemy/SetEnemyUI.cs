@@ -107,16 +107,13 @@ namespace Enemy
             {
                 //update burn UI here
                 burnSprite.SetActive(true);
-                enemy.burnDuration--;
                 burnSprite.GetComponentInChildren<TextMeshProUGUI>().text = enemy.burnDuration.ToString();
-                Debug.Log("Burn Duration: " + enemy.burnDuration);
-            }
-            else
-            {
-                //remove burn UI here
-                enemy.burnDuration = 0;
-                enemy.burnDamage = 0;
-                burnSprite.SetActive(false);
+                if (!enemy.isBurning)
+                {
+                    enemy.burnDuration = 0;
+                    enemy.burnDamage = 0;
+                    burnSprite.SetActive(false);
+                }
             }
         }
         public void DisableUI()
