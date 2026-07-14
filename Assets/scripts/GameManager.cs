@@ -10,8 +10,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public Button endTurnButton;
-    public int round;
-    public static event Action<int> updateRounds;
+    public int roomsCleared;
+    public static event Action<int> updateRoomsCleared;
 
     [Header("enemy")]
     public List<BaseEnemy> normalEnemies;
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
-        round = 0;
+        roomsCleared = 0;
         player = FindAnyObjectByType<SetCharacterUI>();
         combatManager = AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>();
         mapPanel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("MapPanel").GetComponent<MapPanel>();
@@ -51,6 +51,8 @@ public class GameManager : MonoBehaviour
     {
         Events.OnRoomCleared(currentRoom.x, currentRoom.y);
         mapPanel.canClosePanel = false;
+        roomsCleared++;
+        updateRoomsCleared?.Invoke(roomsCleared);
         mapPanel.OpenPanel();
     }
     public void EndPlayerTurn()
@@ -59,8 +61,6 @@ public class GameManager : MonoBehaviour
     }
     public void NewRound()
     {
-        round++;
-        updateRounds?.Invoke(round);
         CardManager.instance.EmptyDiscardPile();
         player.character.energy = player.character.maxEnergy;
         player.UpdateEnergyUI();
@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
     }
     public void NewRun()
     {
-        round = 0;
+        roomsCleared = 0;
         combatManager.ClearCombat();
         player.NewRun();
         mapPanel.CreateNewMap();

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOverPanel : BasePanel
 {
-    public int roundsWon;
+    public int roomsCleared;
     public int totalGoldEarned;
 
     public TextMeshProUGUI roundText;
@@ -19,16 +19,16 @@ public class GameOverPanel : BasePanel
     }
     public void PlayerStatsDisplay(BaseCharacter player)
     {
-        roundsWon = GameManager.instance.round--;
-        roundText.text = "Rounds Won " + roundsWon.ToString();
+        roomsCleared = GameManager.instance.roomsCleared--;
+        roundText.text = "Rooms cleared " + roomsCleared.ToString();
         goldEarnedText.text = "Total Gold Earned " + player.totalGoldCollected.ToString();
         UpdateHighScore();
 
-        highScoreText.text = "Most Rounds Won " + highScore.ToString();
+        highScoreText.text = "Most rooms cleared " + highScore.ToString();
     }
     public void NewRun()
     {
-        roundsWon = 0;
+        roomsCleared = 0;
         totalGoldEarned = 0;
         GameManager.instance.NewRun();
         ClosePanel();
@@ -36,9 +36,9 @@ public class GameOverPanel : BasePanel
 
     public void UpdateHighScore()
     {
-        if (roundsWon > highScore)
+        if (roomsCleared > highScore)
         {
-            highScore = roundsWon;
+            highScore = roomsCleared;
             PlayerPrefs.SetInt("hightScore", highScore );
         }
     }

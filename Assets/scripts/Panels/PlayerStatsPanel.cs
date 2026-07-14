@@ -10,7 +10,7 @@ namespace Character
     {
         public TextMeshProUGUI healthText;
         public TextMeshProUGUI goldText;
-        public TextMeshProUGUI roundText;
+        public TextMeshProUGUI roomsClearedText;
 
         [Header("Items")]
         public int maxItemAmount;
@@ -26,6 +26,7 @@ namespace Character
         {
             maxItemAmount = AssetManager.Instance.GetAsset("Player").GetComponent<BaseCharacter>().maxItemAmount;
             itemAmountText.text = "0/" + maxItemAmount.ToString();
+            UpdateRoundUI(0);
 
             for (int i = 0; i < maxRelicAmount; i++)
             {
@@ -37,7 +38,7 @@ namespace Character
         }
         private void OnEnable()
         {
-            GameManager.updateRounds += UpdateRoundUI;
+            GameManager.updateRoomsCleared += UpdateRoundUI;
         }
 
         public void UpdatePlayerHealthUI(int health, int maxHealth)
@@ -48,9 +49,9 @@ namespace Character
         {
             goldText.text = goldAmount.ToString() + "g";
         }
-        public void UpdateRoundUI(int round)
+        public void UpdateRoundUI(int rooms)
         {
-            roundText.text = "Round " + round.ToString();
+            roomsClearedText.text = "Rooms Cleared " + rooms.ToString();
         }
 
         public void AddItem(GameObject item)
