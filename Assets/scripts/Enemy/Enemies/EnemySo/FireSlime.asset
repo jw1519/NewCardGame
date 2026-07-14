@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FireSlime
   m_EditorClassIdentifier: Assembly-CSharp::Enemy.BaseEnemy
   enemySprite: {fileID: 0}
-  animatorController: {fileID: 0}
+  animatorController: {fileID: 9100000, guid: 88b9d288d41f94549942fb3bc954fb50, type: 2}
   animator: {fileID: 0}
   action: 0
   attackSprite: {fileID: 21300000, guid: 300675427539b7842a89d514aaa349cd, type: 3}
@@ -28,8 +28,8 @@ MonoBehaviour:
   maxDamage: 5
   minDamage: 1
   defence: 0
-  defenceAmount: 0
-  abilityName: Burn
+  defenceAmount: 3
+  abilityName: burn
   abilityAmount: 3
   goldOnDefeat: 0
   burnDamage: 0

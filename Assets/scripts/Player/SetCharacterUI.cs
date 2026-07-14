@@ -25,12 +25,14 @@ namespace Character
 
         [Header("Effects")]
         public GameObject burnIcon;
+        TextMeshProUGUI burnIconText;
 
         PlayerStatsPanel playerStatsPanel;
 
         private void Start()
         {
             baseCharacter = character;
+            burnIconText = burnIcon.GetComponentInChildren<TextMeshProUGUI>();
 
             playerStatsPanel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PlayerStatsPanel").GetComponent<PlayerStatsPanel>();
             spriteObject.sprite = character.characterSprite;
@@ -101,21 +103,16 @@ namespace Character
                     break;
             }
         }
-        public void UpdateStatusEffectUI(string effectName, int duration)
+        public void UpdateStatusEffectUI()
         {
-            switch (effectName)
+            if (character.isBurning && character.burnDuration-- !<= 0)
             {
-                case "burn":
-                    if (character.isBurning && character.burnDuration-- !<= 0)
-                    {
-                        burnIcon.SetActive(true);
-                        burnIcon.GetComponentInChildren<TextMeshProUGUI>().text = duration.ToString();
-                    }
-                    else burnIcon.SetActive(false);
-                    break;
-                default:
-                    Debug.LogWarning("Unknown status effect: " + effectName);
-                    break;
+                burnIcon.SetActive(true);
+                burnIcon.GetComponentInChildren<TextMeshProUGUI>().text = character.burnDuration.ToString();
+            }
+            else
+            {
+                burnIcon.SetActive(false);
             }
         }
     }

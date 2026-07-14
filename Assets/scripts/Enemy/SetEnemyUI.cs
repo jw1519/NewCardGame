@@ -26,6 +26,7 @@ namespace Enemy
         public GameObject burnSprite;
         private void Start()
         {
+            enemy.health = enemy.maxHealth;
             healthText.text = enemy.health.ToString() + "/" + enemy.maxHealth.ToString();
             healthSlider.maxValue = enemy.maxHealth;
             healthSlider.value = enemy.health;
