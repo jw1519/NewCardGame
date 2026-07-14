@@ -36,6 +36,7 @@ namespace Enemy
         public int defenceAmount;
         public string abilityName;
         public int abilityAmount;
+        public int abilityDuration;
 
         public int goldOnDefeat;
 
@@ -88,7 +89,6 @@ namespace Enemy
                 enemydiedGold?.Invoke(goldOnDefeat);
                 enemydied?.Invoke();
             }
-            
         }
         public void ApplyBurn(int burnDamage, int burnDuration)
         {

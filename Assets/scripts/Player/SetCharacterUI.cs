@@ -43,6 +43,14 @@ namespace Character
             BaseCharacter.playerHealthChanged += UpdateHealthUI;
             BaseCharacter.playerDefenceChanged += UpdateDefenceUI;
             BaseCharacter.playerEnergyChanged += UpdateEnergyUI;
+            BaseCharacter.AddEffectToPlayer += EnableStatusEffect;
+        }
+        public void OnDisable()
+        {
+            BaseCharacter.playerHealthChanged -= UpdateHealthUI;
+            BaseCharacter.playerDefenceChanged -= UpdateDefenceUI;
+            BaseCharacter.playerEnergyChanged -= UpdateEnergyUI;
+            BaseCharacter.AddEffectToPlayer -= EnableStatusEffect;
         }
         public void NewRun()
         {
@@ -90,13 +98,13 @@ namespace Character
         {
             playerStatsPanel.UpdateGoldUI(character.gold);
         }
-        public void EnableStatusEffect(string effectName, int duration)
+        public void EnableStatusEffect(string effectName)
         {
             switch (effectName)
             {
                 case "burn":
                     burnIcon.SetActive(true);
-                    burnIcon.GetComponentInChildren<TextMeshProUGUI>().text = duration.ToString();
+                    burnIcon.GetComponentInChildren<TextMeshProUGUI>().text = character.burnDuration.ToString();
                     break;
                 default:
                     Debug.LogWarning("Unknown status effect: " + effectName);
@@ -109,10 +117,7 @@ namespace Character
             {
                 burnIcon.SetActive(true);
                 burnIcon.GetComponentInChildren<TextMeshProUGUI>().text = character.burnDuration.ToString();
-            }
-            else
-            {
-                burnIcon.SetActive(false);
+                if (!character.isBurning) burnIcon.SetActive(false);
             }
         }
     }

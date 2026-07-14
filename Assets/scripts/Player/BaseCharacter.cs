@@ -95,11 +95,20 @@ namespace Character
             }
             playerEnergyChanged?.Invoke();
         }
-        public void ApplyBurn(int burnDamage, int burnDuration)
+        public void ApplyStatusEffect(int effectDamage, string effectName, int duration)
         {
-            this.burnDamage = burnDamage;
-            this.burnDuration = burnDuration;
-            AddEffectToPlayer?.Invoke("burn");
+            switch (effectName)
+            {
+                case "burn":
+                    burnDamage = effectDamage;
+                    burnDuration = duration;
+                    Debug.Log("Applying burn effect to player: Damage = " + burnDamage + ", Duration = " + burnDuration);
+                    AddEffectToPlayer?.Invoke("burn");
+                    break;
+                default:
+                    Debug.LogWarning("Status effect not recognized: " + effectName);
+                    break;
+            }
         }
     }
 }

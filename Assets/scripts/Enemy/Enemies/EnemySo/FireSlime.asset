@@ -31,6 +31,7 @@ MonoBehaviour:
   defenceAmount: 3
   abilityName: burn
   abilityAmount: 3
-  goldOnDefeat: 0
+  abilityDuration: 3
+  goldOnDefeat: 10
   burnDamage: 0
   burnDuration: 0

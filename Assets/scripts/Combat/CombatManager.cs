@@ -55,6 +55,15 @@ public class CombatManager : MonoBehaviour
     {
         BaseCharacter character = player.GetComponent<BaseCharacter>();
         SetCharacterUI characterUI = player.GetComponent<SetCharacterUI>();
+
+        if (character.isBurning)
+        {
+            character.TakeDamage(character.burnDamage);
+            if (character.isAlive == false)
+            {
+                return;
+            }
+        }
         character.defence = 0;
         characterUI.UpdateDefenceUI();
         character.energy = character.maxEnergy;

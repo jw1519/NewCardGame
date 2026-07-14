@@ -1,6 +1,7 @@
 using Character;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverPanel : BasePanel
 {
@@ -40,5 +41,10 @@ public class GameOverPanel : BasePanel
             highScore = roundsWon;
             PlayerPrefs.SetInt("hightScore", highScore );
         }
+    }
+    public void MainMenu()
+    {
+        ClosePanel();
+        SceneManager.LoadScene("Menu");
     }
 }

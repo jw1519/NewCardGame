@@ -79,7 +79,7 @@ public class EventQueue : MonoBehaviour
                 yield return new WaitForSeconds(1); //do animation here
                 break;
             case EnemyAddStatusEffectEvent enemyStatusEffect:
-                enemyStatusEffect.CharacterUI.EnableStatusEffect(enemyStatusEffect.EffectName, enemyStatusEffect.CharacterUI.character.burnDuration);
+                enemyStatusEffect.Target.ApplyStatusEffect(enemyStatusEffect.EffectDamage, enemyStatusEffect.EffectName, enemyStatusEffect.EffectDuration);
                 yield return new WaitForSeconds(1); //do animation here
                 break;
         }

@@ -57,7 +57,7 @@ namespace Enemy
                     else if (enemy.abilityTargetType == AbilityTargetType.Player)
                     {
                         GameObject abilityTarget = FindTarget();
-                        EventQueue.EnqueueEvent(new EnemyAddStatusEffectEvent(abilityTarget.GetComponent<SetCharacterUI>().character, enemy.abilityName, abilityTarget.GetComponent<SetCharacterUI>()));
+                        EventQueue.EnqueueEvent(new EnemyAddStatusEffectEvent(enemy.abilityDuration, enemy.abilityName, enemy.abilityAmount, abilityTarget.GetComponent<SetCharacterUI>().character));
                         Debug.Log("Ability used");
                         break;
                     }
