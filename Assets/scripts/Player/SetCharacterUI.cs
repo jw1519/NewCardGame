@@ -88,12 +88,30 @@ namespace Character
         {
             playerStatsPanel.UpdateGoldUI(character.gold);
         }
+        public void EnableStatusEffect(string effectName, int duration)
+        {
+            switch (effectName)
+            {
+                case "burn":
+                    burnIcon.SetActive(true);
+                    burnIcon.GetComponentInChildren<TextMeshProUGUI>().text = duration.ToString();
+                    break;
+                default:
+                    Debug.LogWarning("Unknown status effect: " + effectName);
+                    break;
+            }
+        }
         public void UpdateStatusEffectUI(string effectName, int duration)
         {
             switch (effectName)
             {
                 case "burn":
-                    
+                    if (character.isBurning && character.burnDuration-- !<= 0)
+                    {
+                        burnIcon.SetActive(true);
+                        burnIcon.GetComponentInChildren<TextMeshProUGUI>().text = duration.ToString();
+                    }
+                    else burnIcon.SetActive(false);
                     break;
                 default:
                     Debug.LogWarning("Unknown status effect: " + effectName);

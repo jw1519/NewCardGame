@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 980d7b3c70f581b46a903758297ed3c9, type: 3}
+  m_Name: FireSlime
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy.BaseEnemy
+  enemySprite: {fileID: 0}
+  animatorController: {fileID: 0}
+  animator: {fileID: 0}
+  action: 0
+  attackSprite: {fileID: 21300000, guid: 300675427539b7842a89d514aaa349cd, type: 3}
+  defenceSprite: {fileID: 21300000, guid: c07d8f2ef21dc634395f674f8766dcf6, type: 3}
+  abilitySprite: {fileID: 21300000, guid: 0ad037c82e017d7429742ed757e5dafa, type: 3}
+  enemyName: 
+  enemyType: 0
+  abilityTargetType: 1
+  health: 0
+  maxHealth: 10
+  damage: 0
+  maxDamage: 5
+  minDamage: 1
+  defence: 0
+  defenceAmount: 0
+  abilityName: Burn
+  abilityAmount: 3
+  goldOnDefeat: 0
+  burnDamage: 0
+  burnDuration: 0

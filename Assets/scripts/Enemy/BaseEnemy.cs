@@ -26,6 +26,7 @@ namespace Enemy
         [Header("Stats")]
         public string enemyName;
         public EnemyType enemyType;
+        public AbilityTargetType abilityTargetType;
         [HideInInspector] public int health;
         public int maxHealth;
         [HideInInspector] public int damage;
@@ -33,6 +34,7 @@ namespace Enemy
         public int minDamage;
         [HideInInspector] public int defence;
         public int defenceAmount;
+        public string abilityName;
         public int abilityAmount;
 
         public int goldOnDefeat;
@@ -133,5 +135,10 @@ namespace Enemy
     {
         Basic,
         Boss,
+    }
+    public enum AbilityTargetType
+    {
+        Self,
+        Player,
     }
 }

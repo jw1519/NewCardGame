@@ -74,8 +74,12 @@ public class EventQueue : MonoBehaviour
                 enemyDefence.EnemyUI.UpdateDefenceUI();
                 yield return new WaitForSeconds(1);
                 break;
-            case EnemyAbilityEvent enemyAbility:
+            case EnemyAbilityEventEnemy enemyAbility:
                 enemyAbility.Target.UseAbility(enemyAbility.EnemyUI.gameObject);
+                yield return new WaitForSeconds(1); //do animation here
+                break;
+            case EnemyAddStatusEffectEvent enemyStatusEffect:
+                enemyStatusEffect.CharacterUI.EnableStatusEffect(enemyStatusEffect.EffectName, enemyStatusEffect.Target.burnDuration);
                 yield return new WaitForSeconds(1); //do animation here
                 break;
         }

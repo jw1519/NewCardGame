@@ -48,8 +48,20 @@ namespace Enemy
                     break;
 
                 case EnemyAction.Ability:
-                    EventQueue.EnqueueEvent(new EnemyAbilityEvent(enemy, enemy.abilityAmount, enemyUI));
-                    Debug.Log("Ability used");
+                    if (enemy.abilityTargetType == AbilityTargetType.Self)
+                    {
+                        EventQueue.EnqueueEvent(new EnemyAbilityEventEnemy(enemy, enemy.abilityAmount, enemyUI));
+                        Debug.Log("Ability used");
+                        break;
+                    }
+                    else if (enemy.abilityTargetType == AbilityTargetType.Player)
+                    {
+                        GameObject abilityTarget = FindTarget();
+                        EventQueue.EnqueueEvent(new EnemyAddStatusEffectEvent(abilityTarget.GetComponent<SetCharacterUI>().character, enemy.abilityName, abilityTarget.GetComponent<SetCharacterUI>()));
+                        Debug.Log("Ability used");
+                        break;
+                    }
+
                     break;
             }
             StartCoroutine(combatManager.StartCombat());

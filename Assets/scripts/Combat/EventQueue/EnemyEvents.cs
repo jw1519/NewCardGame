@@ -29,16 +29,29 @@ namespace Enemy
             EnemyUI = enemyUI;
         }
     }
-    public class EnemyAbilityEvent : GameEvent
+    public class EnemyAbilityEventEnemy : GameEvent
     {
         public BaseEnemy Target;
         public int AbilityAmount;
         public SetEnemyUI EnemyUI;
-        public EnemyAbilityEvent(BaseEnemy target, int abilityAmount, SetEnemyUI enemyUI)
+        public EnemyAbilityEventEnemy(BaseEnemy target, int abilityAmount, SetEnemyUI enemyUI)
         {
             Target = target;
             AbilityAmount = abilityAmount;
             EnemyUI = enemyUI;
+        }
+    }
+    public class EnemyAddStatusEffectEvent : GameEvent
+    {
+        public BaseCharacter Target;
+        public string EffectName;
+        public SetCharacterUI CharacterUI;
+
+        public EnemyAddStatusEffectEvent(BaseCharacter target, string effectName, SetCharacterUI characterUI)
+        {
+            Target = target;
+            EffectName = effectName;
+            CharacterUI = characterUI;
         }
     }
 }
