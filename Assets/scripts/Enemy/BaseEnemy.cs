@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Enemy
@@ -10,6 +11,7 @@ namespace Enemy
         public static event Action enemyHealthChange;
         public static event Action enemyDefenceChange;
         public static event Action<string> addEffectToEnemy;
+        public static event Action<string> RemoveEffectToEnemy;
         public static event Action enemydied;
         public static event Action<int> enemydiedGold;
 
@@ -37,6 +39,7 @@ namespace Enemy
         public string abilityName;
         public int abilityAmount;
         public int abilityDuration;
+        public StatusEffectData abilityEffect;
 
         public int goldOnDefeat;
 
@@ -46,6 +49,7 @@ namespace Enemy
         public bool isBurning => burnDuration > 0;
         public int burnDamage;
         public int burnDuration;
+        public List<StatusEffectData> activeEffects = new List<StatusEffectData>();
 
         public void Heal(int healAmount)
         {
@@ -89,12 +93,6 @@ namespace Enemy
                 enemydiedGold?.Invoke(goldOnDefeat);
                 enemydied?.Invoke();
             }
-        }
-        public void ApplyBurn(int burnDamage, int burnDuration)
-        {
-            this.burnDamage = burnDamage;
-            this.burnDuration = burnDuration;
-            addEffectToEnemy?.Invoke("burn");
         }
         public virtual void UseAbility(GameObject target)
         {
@@ -146,19 +144,25 @@ namespace Enemy
                 TakeDamage(burnDamage);
                 burnDuration--;
                 Debug.Log("Burn effect applied to enemy: Damage = " + burnDamage + ", Remaining Duration = " + burnDuration);
+                if (burnDuration <= 0)
+                {
+                    RemoveEffect("burn");
+                }
             }
         }
-        public void RemoveEffect(StatusEffectData data)
+        public void RemoveEffect(string name)
         {
-            switch (data.effectName)
+            if (name == null) return;
+            switch (name)
             {
                 case "burn":
                     burnDamage = 0;
                     burnDuration = 0;
                     Debug.Log("Removing burn effect from enemy.");
+                    RemoveEffectToEnemy?.Invoke("burn");
                     break;
                 default:
-                    Debug.LogWarning("Status effect not recognized: " + data.effectName);
+                    Debug.LogWarning("Status effect not recognized: " + name);
                     break;
             }
         }

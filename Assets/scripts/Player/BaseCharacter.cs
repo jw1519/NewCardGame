@@ -1,4 +1,6 @@
+using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Character
@@ -9,6 +11,7 @@ namespace Character
         public static event Action playerDefenceChanged;
         public static event Action playerEnergyChanged;
         public static event Action<string> AddEffectToPlayer;
+        public static event Action<string> RemoveEffectToPlayer;
 
         [Header("Character Sprite")]
         public Sprite characterSprite;
@@ -35,6 +38,8 @@ namespace Character
         public bool isBurning => burnDuration > 0;
         public int burnDamage;
         public int burnDuration;
+
+        public List<StatusEffectData> activeEffects = new List<StatusEffectData>();
 
 
         public virtual void Start()
@@ -102,47 +107,11 @@ namespace Character
             }
             playerEnergyChanged?.Invoke();
         }
-        public void ApplyStatusEffect(int effectDamage, string effectName, int duration)
-        {
-            switch (effectName)
-            {
-                case "burn":
-                    burnDamage = effectDamage;
-                    burnDuration = duration;
-                    Debug.Log("Applying burn effect to player: Damage = " + burnDamage + ", Duration = " + burnDuration);
-                    AddEffectToPlayer?.Invoke("burn");
-                    break;
-                default:
-                    Debug.LogWarning("Status effect not recognized: " + effectName);
-                    break;
-            }
-        }
-        public void RemoveStatusEffect(string effectName)
-        {
-            switch (effectName)
-            {
-                case "burn":
-                    burnDamage = 0;
-                    burnDuration = 0;
-                    Debug.Log("Removing burn effect from player.");
-                    break;
-                default:
-                    Debug.LogWarning("Status effect not recognized: " + effectName);
-                    break;
-            }
-        }
         public void ApplyEffect(StatusEffectData data)
         {
-            switch (data.effectName)
-            {
-                case "burn":
-                    burnDamage = data.DOTAmount;
-                    burnDuration = data.duration;
-                    break;
-                default:
-                    Debug.LogWarning("Status effect not recognized: " + data.effectName);
-                    break;
-            }
+            if (data == null) return;
+            activeEffects.Add(data);
+            AddEffectToPlayer?.Invoke(data.effectName);
         }
         public void UpdateEffect()
         {
@@ -150,22 +119,17 @@ namespace Character
             {
                 TakeDamage(burnDamage);
                 burnDuration--;
-                Debug.Log("Burn effect applied to player: Damage = " + burnDamage + ", Remaining Duration = " + burnDuration);
+                Debug.Log("Burn effect applied to enemy: Damage = " + burnDamage + ", Remaining Duration = " + burnDuration);
+                if (burnDuration <= 0)
+                {
+                    RemoveEffect("burn");
+                }
             }
         }
-        public void RemoveEffect(StatusEffectData data)
+        public void RemoveEffect(string name)
         {
-            switch (data.effectName)
-            {
-                case "burn":
-                    burnDamage = 0;
-                    burnDuration = 0;
-                    Debug.Log("Removing burn effect from player.");
-                    break;
-                default:
-                    Debug.LogWarning("Status effect not recognized: " + data.effectName);
-                    break;
-            }
+            activeEffects.Remove(activeEffects.Find(j => j.effectName == name));
+            RemoveEffectToPlayer?.Invoke(name);
         }
     }
 }

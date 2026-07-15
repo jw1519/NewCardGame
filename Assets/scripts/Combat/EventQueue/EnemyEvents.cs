@@ -44,16 +44,12 @@ namespace Enemy
     public class EnemyAddStatusEffectEvent : GameEvent
     {
         public BaseCharacter Target;
-        public int EffectDuration;
-        public string EffectName;
-        public int EffectDamage;
+        public StatusEffectData statusEffect;
 
-        public EnemyAddStatusEffectEvent(int effectDurtion, string effectName, int effectDamage, BaseCharacter target)
+        public EnemyAddStatusEffectEvent(BaseCharacter target, StatusEffectData effectData)
         {
-            EffectDuration = effectDurtion;
-            EffectName = effectName;
-            EffectDamage = effectDamage;
             Target = target;
+            statusEffect = effectData;
         }
     }
 }

@@ -1,3 +1,5 @@
+using Character;
+using Enemy;
 using UnityEngine;
 
 namespace Card
@@ -19,11 +21,24 @@ namespace Card
 
         public override void Use(GameObject target)
         {
-            var effectable = target.GetComponent<IEffectable>();
+            IEffectable effectable;
+            if (target.GetComponent<SetCharacterUI>() != null)
+            {
+                effectable = target.GetComponent<SetCharacterUI>().character;
+            }
+            else if (target.GetComponent<SetEnemyUI>() != null)
+            {
+                effectable = target.GetComponent<SetEnemyUI>().enemy;
+            }
+            else
+            {
+                Debug.LogWarning("Target does not have a valid SetCharacterUI or SetEnemyUI component.");
+                return;
+            }
             if (effectable != null)
             {
                 base.Use(target);
-                effectable.ApplyEffect(effectData);
+                effectable.ApplyEffect(Instantiate(effectData));
             }
             else
             {

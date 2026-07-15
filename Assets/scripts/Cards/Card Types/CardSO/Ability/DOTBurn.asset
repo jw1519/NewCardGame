@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4d9b2d55588ff24fb6f0aded8620283, type: 3}
   m_Name: DOTBurn
   m_EditorClassIdentifier: Assembly-CSharp::Card.DOTCard
-  cardName: 
-  cardSprite: {fileID: 0}
-  cardType: 0
-  cardEnergy: 0
-  description: 
+  cardName: burn
+  cardSprite: {fileID: 21300000, guid: 4737458a873698843a310c4d17bfefb4, type: 3}
+  cardType: 2
+  cardEnergy: 2
+  description: bur
   isInHand: 0
   player: {fileID: 0}
-  effectData: {fileID: 0}
+  effectData: {fileID: 11400000, guid: c140013c4532aad458d4ffd4ec0851cb, type: 2}

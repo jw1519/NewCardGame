@@ -21,18 +21,14 @@ namespace Enemy
         }
         public void StartTurn()
         {
-            enemyUI.UpdateStatusEffects();
-            if (enemy != null && enemy.isBurning)
-            {
-                enemy.TakeDamage(enemy.burnDamage);
-                if (enemy.isAlive == false)
-                {
-                    StartCoroutine(combatManager.StartCombat());
-                    return;
-                }
-            }
             enemy.defence = 0;
             enemyUI.UpdateDefenceUI();
+            enemyUI.UpdateStatusEffects();
+            if (enemy.isAlive == false)
+            {
+                StartCoroutine(combatManager.StartCombat());
+                return;
+            }
             switch (enemy.action)
             {
                 case EnemyAction.Attack:
@@ -57,7 +53,7 @@ namespace Enemy
                     else if (enemy.abilityTargetType == AbilityTargetType.Player)
                     {
                         GameObject abilityTarget = FindTarget();
-                        EventQueue.EnqueueEvent(new EnemyAddStatusEffectEvent(enemy.abilityDuration, enemy.abilityName, enemy.abilityAmount, abilityTarget.GetComponent<SetCharacterUI>().character));
+                        EventQueue.EnqueueEvent(new EnemyAddStatusEffectEvent(abilityTarget.GetComponent<SetCharacterUI>().character, enemy.abilityEffect));
                         Debug.Log("Ability used");
                         break;
                     }

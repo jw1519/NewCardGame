@@ -40,6 +40,7 @@ namespace Enemy
             enemydied += EnemyDied;
             enemyDefenceChange += UpdateDefenceUI;
             addEffectToEnemy += EnableStatusEffect;
+            RemoveEffectToEnemy += RemoveStatusEffects;
         }
         private void OnDestroy()
         {
@@ -48,6 +49,7 @@ namespace Enemy
             enemydied -= EnemyDied;
             enemyDefenceChange -= UpdateDefenceUI;
             addEffectToEnemy -= EnableStatusEffect;
+            RemoveEffectToEnemy -= RemoveStatusEffects;
         }
         public void UpdateHealthUI()
         {
@@ -104,17 +106,24 @@ namespace Enemy
         }
         public void UpdateStatusEffects()
         {
-            if (enemy.isBurning && enemy.burnDuration-- != 0)
+            if (enemy.isBurning)
             {
                 //update burn UI here
                 burnSprite.SetActive(true);
                 burnSprite.GetComponentInChildren<TextMeshProUGUI>().text = enemy.burnDuration.ToString();
                 if (!enemy.isBurning)
                 {
-                    enemy.burnDuration = 0;
-                    enemy.burnDamage = 0;
-                    burnSprite.SetActive(false);
+                    RemoveStatusEffects("burn");
                 }
+            }
+        }
+        public void RemoveStatusEffects(string effectname)
+        {
+            switch (effectname)
+            {
+                case "burn":
+                    burnSprite.SetActive(false);
+                    return;
             }
         }
         public void DisableUI()

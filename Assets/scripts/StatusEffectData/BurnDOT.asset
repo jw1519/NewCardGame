@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 647a674fa953fb346af27b83f73af46f, type: 3}
   m_Name: BurnDOT
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffectData
-  effectName: Burn
+  effectName: burn
   DOTAmount: 3
   duration: 3
   effectIcon: {fileID: 2140456416657962044, guid: d94138f65126b984481452ca609ac7a1, type: 3}

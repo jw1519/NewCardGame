@@ -44,6 +44,7 @@ namespace Character
             BaseCharacter.playerDefenceChanged += UpdateDefenceUI;
             BaseCharacter.playerEnergyChanged += UpdateEnergyUI;
             BaseCharacter.AddEffectToPlayer += EnableStatusEffect;
+            BaseCharacter.RemoveEffectToPlayer += RemoveStatusEffects;
         }
         public void OnDisable()
         {
@@ -51,6 +52,7 @@ namespace Character
             BaseCharacter.playerDefenceChanged -= UpdateDefenceUI;
             BaseCharacter.playerEnergyChanged -= UpdateEnergyUI;
             BaseCharacter.AddEffectToPlayer -= EnableStatusEffect;
+            BaseCharacter.RemoveEffectToPlayer -= RemoveStatusEffects;
         }
         public void NewRun()
         {
@@ -120,12 +122,20 @@ namespace Character
                 if (!character.isBurning) burnIcon.SetActive(false);
             }
         }
-        public void RemoveStatusEffects()
+        public void RemoveStatusEffects(string effectName)
         {
+            switch (effectName)
+            {
+                case "burn":
+                    burnIcon.SetActive(false);
+                    break;
+                default:
+                    Debug.LogWarning("Unknown status effect: " + effectName);
+                    break;
+            }
             if (character.isBurning)
             {
                 burnIcon.SetActive(false);
-                character.RemoveStatusEffect("burn");
             }
         }
     }
