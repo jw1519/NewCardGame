@@ -10,7 +10,7 @@ namespace Character
         public static event Action playerHealthChanged;
         public static event Action playerDefenceChanged;
         public static event Action playerEnergyChanged;
-        public static event Action<string> AddEffectToPlayer;
+        public static event Action<StatusEffectData> AddEffectToPlayer;
         public static event Action<string> RemoveEffectToPlayer;
 
         [Header("Character Sprite")]
@@ -35,9 +35,7 @@ namespace Character
         public int maxItemAmount;
 
         [Header("Status Effects")]
-        public bool isBurning => burnDuration > 0;
-        public int burnDamage;
-        public int burnDuration;
+        public bool isBurning;
 
         public List<StatusEffectData> activeEffects = new List<StatusEffectData>();
 
@@ -111,16 +109,18 @@ namespace Character
         {
             if (data == null) return;
             activeEffects.Add(data);
-            AddEffectToPlayer?.Invoke(data.effectName);
+            isBurning = data.effectName == "burn";
+            AddEffectToPlayer?.Invoke(data);
         }
         public void UpdateEffect()
         {
-            if (isBurning)
+            if (GetEffect("burn") != null)
             {
-                TakeDamage(burnDamage);
-                burnDuration--;
-                Debug.Log("Burn effect applied to enemy: Damage = " + burnDamage + ", Remaining Duration = " + burnDuration);
-                if (burnDuration <= 0)
+                StatusEffectData burnEffect = GetEffect("burn");
+                TakeDamage(burnEffect.DOTAmount);
+                burnEffect.duration--;
+                Debug.Log("Burn effect applied to enemy: Damage = " + burnEffect.DOTAmount + ", Remaining Duration = " + burnEffect.duration);
+                if (burnEffect.duration <= 0)
                 {
                     RemoveEffect("burn");
                 }
@@ -128,8 +128,13 @@ namespace Character
         }
         public void RemoveEffect(string name)
         {
-            activeEffects.Remove(activeEffects.Find(j => j.effectName == name));
+            StatusEffectData effectToRemove = GetEffect(name);
+            activeEffects.Remove(effectToRemove);
             RemoveEffectToPlayer?.Invoke(name);
+        }
+        public StatusEffectData GetEffect(string name)
+        {
+            return activeEffects.Find(j => j.effectName == name);
         }
     }
 }

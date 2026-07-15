@@ -100,25 +100,25 @@ namespace Character
         {
             playerStatsPanel.UpdateGoldUI(character.gold);
         }
-        public void EnableStatusEffect(string effectName)
+        public void EnableStatusEffect(StatusEffectData data)
         {
-            switch (effectName)
+            switch (data.effectName)
             {
                 case "burn":
                     burnIcon.SetActive(true);
-                    burnIcon.GetComponentInChildren<TextMeshProUGUI>().text = character.burnDuration.ToString();
+                    burnIcon.GetComponentInChildren<TextMeshProUGUI>().text = data.duration.ToString();
                     break;
                 default:
-                    Debug.LogWarning("Unknown status effect: " + effectName);
+                    Debug.LogWarning("Unknown status effect: " + data.effectName);
                     break;
             }
         }
         public void UpdateStatusEffectUI()
         {
-            if (character.isBurning && character.burnDuration-- !<= 0)
+            if (character.GetEffect("burn") != null)
             {
-                burnIcon.SetActive(true);
-                burnIcon.GetComponentInChildren<TextMeshProUGUI>().text = character.burnDuration.ToString();
+                StatusEffectData burnEffect = character.GetEffect("burn");
+                burnIcon.GetComponentInChildren<TextMeshProUGUI>().text = burnEffect.duration.ToString();
                 if (!character.isBurning) burnIcon.SetActive(false);
             }
         }

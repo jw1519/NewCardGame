@@ -55,19 +55,10 @@ public class CombatManager : MonoBehaviour
     {
         BaseCharacter character = player.GetComponent<BaseCharacter>();
         SetCharacterUI characterUI = player.GetComponent<SetCharacterUI>();
-        character.UpdateEffect();
-        characterUI.UpdateStatusEffectUI();
-
-        if (character.isBurning)
-        {
-            character.TakeDamage(character.burnDamage);
-            if (character.isAlive == false)
-            {
-                return;
-            }
-        }
         character.defence = 0;
         characterUI.UpdateDefenceUI();
+        character.UpdateEffect();
+        characterUI.UpdateStatusEffectUI();
         character.energy = character.maxEnergy;
         characterUI.UpdateEnergyUI();
         //characterUI.UpdateStatusEffectUI();
@@ -80,7 +71,6 @@ public class CombatManager : MonoBehaviour
     public void EnemyTurn(GameObject enemy)
     {
         BaseEnemy character = enemy.GetComponent<SetEnemyUI>().enemy;
-        character.UpdateEffect();
         if (character.isAlive != false)
         {
             endTurnButton.GetComponentInChildren<TextMeshProUGUI>().text = "Enemy Turn";

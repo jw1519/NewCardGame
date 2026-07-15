@@ -32,6 +32,8 @@ MonoBehaviour:
   abilityName: burn
   abilityAmount: 3
   abilityDuration: 3
+  abilityEffect: {fileID: 11400000, guid: c140013c4532aad458d4ffd4ec0851cb, type: 2}
   goldOnDefeat: 10
   burnDamage: 0
   burnDuration: 0
+  activeEffects: []

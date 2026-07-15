@@ -23,6 +23,7 @@ namespace Enemy
         {
             enemy.defence = 0;
             enemyUI.UpdateDefenceUI();
+            enemy.UpdateEffect();
             enemyUI.UpdateStatusEffects();
             if (enemy.isAlive == false)
             {
