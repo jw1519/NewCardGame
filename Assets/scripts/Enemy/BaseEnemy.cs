@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Enemy
 {
     [CreateAssetMenu(fileName = "New Enemy", menuName = "Enemy/BasicEnemy")]
-    public class BaseEnemy : ScriptableObject, ITakeDamage, IHeal, IChangeAnimation
+    public class BaseEnemy : ScriptableObject, ITakeDamage, IHeal, IChangeAnimation, IEffectable
     {
         public static event Action enemyHealthChange;
         public static event Action enemyDefenceChange;
@@ -121,6 +121,44 @@ namespace Enemy
                     break;
                 case "Ability":
                     animator.SetTrigger("ability");
+                    break;
+            }
+        }
+
+        public void ApplyEffect(StatusEffectData data)
+        { 
+            switch (data.effectName)
+            {
+                case "burn":
+                    burnDamage = data.DOTAmount;
+                    burnDuration = data.duration;
+                    addEffectToEnemy?.Invoke("burn");
+                    break;
+                default:
+                    Debug.LogWarning("Status effect not recognized: " + data.effectName);
+                    break;
+            }
+        }
+        public void UpdateEffect()
+        {
+            if (isBurning)
+            {
+                TakeDamage(burnDamage);
+                burnDuration--;
+                Debug.Log("Burn effect applied to enemy: Damage = " + burnDamage + ", Remaining Duration = " + burnDuration);
+            }
+        }
+        public void RemoveEffect(StatusEffectData data)
+        {
+            switch (data.effectName)
+            {
+                case "burn":
+                    burnDamage = 0;
+                    burnDuration = 0;
+                    Debug.Log("Removing burn effect from enemy.");
+                    break;
+                default:
+                    Debug.LogWarning("Status effect not recognized: " + data.effectName);
                     break;
             }
         }

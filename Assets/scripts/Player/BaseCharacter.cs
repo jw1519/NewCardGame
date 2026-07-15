@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Character
 {
-    public abstract class BaseCharacter : MonoBehaviour, ITakeDamage, IHeal, IUseEnergy
+    public abstract class BaseCharacter : MonoBehaviour, ITakeDamage, IHeal, IUseEnergy, IEffectable
     {
         public static event Action playerHealthChanged;
         public static event Action playerDefenceChanged;
@@ -35,6 +35,13 @@ namespace Character
         public bool isBurning => burnDuration > 0;
         public int burnDamage;
         public int burnDuration;
+
+
+        public virtual void Start()
+        {
+            health = maxHealth;
+            energy = maxEnergy;
+        }
 
 
         public void Heal(int healAmount)
@@ -121,6 +128,42 @@ namespace Character
                     break;
                 default:
                     Debug.LogWarning("Status effect not recognized: " + effectName);
+                    break;
+            }
+        }
+        public void ApplyEffect(StatusEffectData data)
+        {
+            switch (data.effectName)
+            {
+                case "burn":
+                    burnDamage = data.DOTAmount;
+                    burnDuration = data.duration;
+                    break;
+                default:
+                    Debug.LogWarning("Status effect not recognized: " + data.effectName);
+                    break;
+            }
+        }
+        public void UpdateEffect()
+        {
+            if (isBurning)
+            {
+                TakeDamage(burnDamage);
+                burnDuration--;
+                Debug.Log("Burn effect applied to player: Damage = " + burnDamage + ", Remaining Duration = " + burnDuration);
+            }
+        }
+        public void RemoveEffect(StatusEffectData data)
+        {
+            switch (data.effectName)
+            {
+                case "burn":
+                    burnDamage = 0;
+                    burnDuration = 0;
+                    Debug.Log("Removing burn effect from player.");
+                    break;
+                default:
+                    Debug.LogWarning("Status effect not recognized: " + data.effectName);
                     break;
             }
         }

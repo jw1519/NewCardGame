@@ -6,6 +6,7 @@ namespace Card
     public class StrengthCard : BaseCard
     {
         public int strengthIncrease;
+        public int duration;
 
         public override void Use(GameObject target)
         {

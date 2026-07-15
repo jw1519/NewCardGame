@@ -27,6 +27,8 @@ ability:
 makes all attack card cause burn damage for 2 turns
 makes
 
+every time player takes damage they draw a card
+
 
 issues:
 
