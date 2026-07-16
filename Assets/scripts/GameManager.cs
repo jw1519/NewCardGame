@@ -82,6 +82,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(transform.gameObject);
             CardManager.instance.DiscardAllCards();
+            CardManager.instance.ClearDeadCards();
         }
     }
     public BaseEnemy RandomEnemy()

@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5a6476f618049643b82e5648c1b204c, type: 3}
   m_Name: RandomCard
   m_EditorClassIdentifier: Assembly-CSharp::Card.PlayRandomCard
+  cardName: 
   cardSprite: {fileID: 21300000, guid: 4737458a873698843a310c4d17bfefb4, type: 3}
   cardType: 2
   cardEnergy: 1
   description: Draw and play a card from the deck
   isInHand: 0
+  isSingleUse: 0
   player: {fileID: 0}
   cardsToDraw: 1

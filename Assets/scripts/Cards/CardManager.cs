@@ -14,10 +14,12 @@ namespace Card
         public List<GameObject> cardsInDeck;
         public List<GameObject> cardsInHand;
         public List<GameObject> cardsInDiscard;
+        public List<GameObject> deadCards;
 
         [Header("Card Parents")]
         public Transform discardedCardParent;
         public Transform deckCardParent;
+        public Transform deadCardParent;
 
         public int startingCardsInHand;
         public int maxCardsInHand;
@@ -90,7 +92,7 @@ namespace Card
                 DrawCard(amount);
             }
         }
-        
+
         public void DrawAndPlayCard()
         {
             if (cardsInDeck.Count > 0)
@@ -101,7 +103,7 @@ namespace Card
                     RandomCard.transform.SetParent(discardedCardParent.transform, false);
                     cardsInDeck.Remove(RandomCard);
                     cardsInDiscard.Add(RandomCard);
-                    
+
                     BaseCard card = RandomCard.GetComponent<SetCardUI>().card;
 
                     CombatManager combatManager = AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>();
@@ -131,7 +133,7 @@ namespace Card
             // put cards from discard pile into deck if deck is empty or doesnt have enough cards
             foreach (GameObject card in cardsInDiscard)
             {
-                if (card == null) 
+                if (card == null)
                     cardsInDiscard.Remove(card);
 
                 cardsInDeck.Add(card);
@@ -171,16 +173,22 @@ namespace Card
             cardsInDeck.Add(card);
             card.transform.SetParent(deckCardParent);
         }
-        public GameObject GetCard(BaseCard.CardType cardType)
+        public void AddDeadCard(GameObject card) //one use cards that are removed from the game and not added to discard pile
         {
-            foreach (GameObject card in cardsInDeck)
+            deadCards.Add(card);
+            cardsInHand.Remove(card);
+            card.GetComponent<SetCardUI>().card.isInHand = false;
+            card.transform.SetParent(deadCardParent, false);
+        }
+        public void ClearDeadCards() //clear this at end of combat so they can be added back to the deck for next combat
+        {
+            if (deadCards.Count == 0) return;
+            foreach (GameObject card in deadCards)
             {
-                if (card.GetComponent<SetCardUI>().card.cardType == cardType)
-                {
-                    return card;
-                }
+                cardsInDeck.Add(card);
+                card.transform.SetParent(deckCardParent);
             }
-            return null;
+            deadCards.Clear();
         }
     }
 }

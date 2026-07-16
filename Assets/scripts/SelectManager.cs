@@ -52,7 +52,14 @@ namespace Card
                 if (cardSelected != null)
                 {
                     cardHand.cards.Remove(cardSelected.gameObject);
-                    cardManager.DiscardCard(cardSelected.gameObject);
+                    if (cardSelected.card.isSingleUse)
+                    {
+                        cardManager.AddDeadCard(cardSelected.gameObject);
+                    }
+                    else
+                    {
+                        cardManager.DiscardCard(cardSelected.gameObject);
+                    } 
                 }
                 cardSelected.card.Use(target);
                 StartCoroutine(cardHand.UpdateCardPositions(0.15f));

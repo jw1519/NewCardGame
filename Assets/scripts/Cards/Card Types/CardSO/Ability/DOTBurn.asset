@@ -18,5 +18,6 @@ MonoBehaviour:
   cardEnergy: 2
   description: bur
   isInHand: 0
+  isSingleUse: 0
   player: {fileID: 0}
   effectData: {fileID: 11400000, guid: c140013c4532aad458d4ffd4ec0851cb, type: 2}

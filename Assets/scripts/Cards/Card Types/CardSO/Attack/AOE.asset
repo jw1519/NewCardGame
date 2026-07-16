@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78677927ace768a4db3239e84c244799, type: 3}
   m_Name: AOE
   m_EditorClassIdentifier: Assembly-CSharp::Card.AOEAttackCard
+  cardName: 
   cardSprite: {fileID: 21300000, guid: 606d22313a4561b4f9c670419392c1a2, type: 3}
   cardType: 0
   cardEnergy: 2
   description: the card attacks all enemies for 3
   isInHand: 0
+  isSingleUse: 0
   player: {fileID: 0}
   damage: 3
