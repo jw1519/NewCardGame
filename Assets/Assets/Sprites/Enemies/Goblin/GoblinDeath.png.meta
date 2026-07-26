@@ -171,10 +171,10 @@ TextureImporter:
       name: GoblinDeath_0
       rect:
         serializedVersion: 2
-        x: 205
+        x: 180
         y: 49
-        width: 37
-        height: 23
+        width: 90
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,10 +193,10 @@ TextureImporter:
       name: GoblinDeath_1
       rect:
         serializedVersion: 2
-        x: 355
-        y: 50
-        width: 35
-        height: 38
+        x: 346
+        y: 49
+        width: 90
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,9 +216,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 500
-        y: 65
-        width: 43
-        height: 21
+        y: 49
+        width: 90
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,10 +237,10 @@ TextureImporter:
       name: GoblinDeath_3
       rect:
         serializedVersion: 2
-        x: 41
+        x: 15
         y: 49
-        width: 51
-        height: 15
+        width: 90
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

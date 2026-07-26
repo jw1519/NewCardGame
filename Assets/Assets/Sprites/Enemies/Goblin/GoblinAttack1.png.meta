@@ -185,8 +185,8 @@ TextureImporter:
         serializedVersion: 2
         x: 32
         y: 49
-        width: 87
-        height: 46
+        width: 90
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,8 +207,8 @@ TextureImporter:
         serializedVersion: 2
         x: 181
         y: 49
-        width: 88
-        height: 46
+        width: 90
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,13 +227,13 @@ TextureImporter:
       name: GoblinAttack1_2
       rect:
         serializedVersion: 2
-        x: 359
+        x: 325
         y: 49
-        width: 31
-        height: 35
+        width: 90
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 24, y: 0, z: 27, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -249,13 +249,13 @@ TextureImporter:
       name: GoblinAttack1_3
       rect:
         serializedVersion: 2
-        x: 511
+        x: 478
         y: 49
-        width: 29
-        height: 34
+        width: 90
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 24, y: 0, z: 27, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -271,13 +271,13 @@ TextureImporter:
       name: GoblinAttack1_4
       rect:
         serializedVersion: 2
-        x: 661
+        x: 630
         y: 49
-        width: 29
-        height: 34
+        width: 90
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 24, y: 0, z: 27, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -293,13 +293,13 @@ TextureImporter:
       name: GoblinAttack1_5
       rect:
         serializedVersion: 2
-        x: 811
-        y: 49
-        width: 29
-        height: 34
+        x: 777
+        y: 48
+        width: 90
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 24, y: 0, z: 27, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -315,13 +315,13 @@ TextureImporter:
       name: GoblinAttack1_6
       rect:
         serializedVersion: 2
-        x: 962
+        x: 927
         y: 49
-        width: 28
-        height: 36
+        width: 90
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 24, y: 0, z: 27, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -337,13 +337,13 @@ TextureImporter:
       name: GoblinAttack1_7
       rect:
         serializedVersion: 2
-        x: 1109
+        x: 1082
         y: 49
-        width: 33
-        height: 36
+        width: 90
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 24, y: 0, z: 27, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -369,7 +369,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":1200.0,"y":150.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":1.0,"y":1.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":3,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       GoblinAttack1_0: -998207885
       GoblinAttack1_1: -2065389942

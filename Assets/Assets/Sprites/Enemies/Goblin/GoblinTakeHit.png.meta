@@ -171,10 +171,10 @@ TextureImporter:
       name: GoblinTakeHit_0
       rect:
         serializedVersion: 2
-        x: 57
+        x: 30
         y: 49
-        width: 40
-        height: 37
+        width: 90
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,10 +193,10 @@ TextureImporter:
       name: GoblinTakeHit_2
       rect:
         serializedVersion: 2
-        x: 204
+        x: 180
         y: 49
-        width: 44
-        height: 37
+        width: 90
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,10 +215,10 @@ TextureImporter:
       name: GoblinTakeHit_4
       rect:
         serializedVersion: 2
-        x: 359
+        x: 330
         y: 49
-        width: 33
-        height: 36
+        width: 90
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,10 +237,10 @@ TextureImporter:
       name: GoblinTakeHit_5
       rect:
         serializedVersion: 2
-        x: 509
+        x: 480
         y: 49
-        width: 33
-        height: 36
+        width: 90
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
