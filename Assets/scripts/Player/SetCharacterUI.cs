@@ -25,17 +25,15 @@ namespace Character
 
         [Header("Effects")]
         public GameObject burnIcon;
-        TextMeshProUGUI burnIconText;
 
         PlayerStatsPanel playerStatsPanel;
 
         private void Start()
         {
+            character = Instantiate(character);
             baseCharacter = character;
-            burnIconText = burnIcon.GetComponentInChildren<TextMeshProUGUI>();
 
             playerStatsPanel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PlayerStatsPanel").GetComponent<PlayerStatsPanel>();
-            spriteObject.sprite = character.characterSprite;
             NewRun();
         }
         private void OnEnable()

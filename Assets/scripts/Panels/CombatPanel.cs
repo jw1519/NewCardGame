@@ -17,8 +17,8 @@ public class CombatPanel : BasePanel
         {
             if (character.GetComponent<SetCharacterUI>() != null)
             {
-                Sprite sprite = character.GetComponent<SetCharacterUI>().character.characterSprite;
-                combatImage.sprite = sprite;
+                //Sprite sprite = character.GetComponent<SetCharacterUI>().character.characterSprite;
+                //combatImage.sprite = sprite;
             }
             else
             {

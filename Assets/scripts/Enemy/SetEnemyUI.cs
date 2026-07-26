@@ -33,6 +33,11 @@ namespace Enemy
 
             spriteObject.GetComponent<Animator>().runtimeAnimatorController = enemy.animatorController;
             enemy.animator = spriteObject.GetComponent<Animator>();
+
+            if (enemy.abilityEffect != null)
+            {
+                enemy.abilityEffect = Instantiate(enemy.abilityEffect);
+            }
         }
         private void OnEnable()
         {

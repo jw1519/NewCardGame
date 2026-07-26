@@ -13,10 +13,10 @@ namespace Card
         public bool isInHand = false; //Check if card is in hand to prevent using it from discard pile or deck
         public bool isSingleUse = true; //Check if card is single use to allow is to ge in dead pile
 
-        [HideInInspector] public BaseCharacter player;
+        [HideInInspector] public SetCharacterUI characterUI;
         public virtual void Awake()
         {
-            player = AssetManager.Instance.GetAsset("Player").GetComponent<BaseCharacter>();
+            characterUI = AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>();
         }
         public enum CardType
         {
@@ -26,8 +26,8 @@ namespace Card
         }
         public virtual void Use(GameObject target)
         {
-            player.UseEnergy(cardEnergy);
-            player.gameObject.GetComponent<SetCharacterUI>().UpdateEnergyUI();
+            characterUI.character.UseEnergy(cardEnergy);
+            characterUI.UpdateEnergyUI();
             isInHand = false;
         }
     }

@@ -9,7 +9,7 @@ using System;
 public class ShopManager : MonoBehaviour
 {
     public static ShopManager instance;
-    BaseCharacter character;
+    SetCharacterUI characterUI;
 
     [Header("Amounts")]
     public int maxCardPackAmount;
@@ -28,7 +28,10 @@ public class ShopManager : MonoBehaviour
     {
         if (instance == null)
             instance = this;
-        character = FindAnyObjectByType<BaseCharacter>();   
+    }
+    private void Start()
+    {
+        characterUI = AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>();
     }
     public void SetUpShop()
     {
@@ -83,10 +86,10 @@ public class ShopManager : MonoBehaviour
     PlayerStatsPanel playerStatsPanel;
     public bool CanBuy(int cost)
     {
-        if (character.gold >= cost)
+        if (characterUI.character.gold >= cost)
         {
-            character.gold -= cost;
-            character.gameObject.GetComponent<SetCharacterUI>().UpdateGoldUI();
+            characterUI.character.gold -= cost;
+            characterUI.UpdateGoldUI();
             return true;
         }
         Debug.Log("not enough gold");

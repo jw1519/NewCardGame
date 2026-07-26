@@ -9,11 +9,11 @@ namespace Item
         public string itemName;
         public int itemCost;
         public bool isBought;
-        public BaseCharacter character;
+        public SetCharacterUI characterUI;
 
         public virtual void Awake()
         {
-            character = AssetManager.Instance.GetAsset("Player").GetComponent<BaseCharacter>();
+            characterUI = AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>();
         }
         public virtual void Use()
         {

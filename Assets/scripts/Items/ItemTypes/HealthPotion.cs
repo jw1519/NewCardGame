@@ -18,7 +18,7 @@ namespace Item
         }
         public void Heal()
         {
-            character.Heal(healAmount);
+            characterUI.character.Heal(healAmount);
         }
     }
 }

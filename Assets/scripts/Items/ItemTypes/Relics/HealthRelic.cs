@@ -14,9 +14,9 @@ namespace Item
             switch (abilty)
             {
                 case Abilty.ExtraHealth:
-                    character.maxHealth += abilityValue;
-                    character.health += abilityValue;
-                    character.gameObject.GetComponent<SetCharacterUI>().UpdateHealthUI();
+                    characterUI.character.maxHealth += abilityValue;
+                    characterUI.character.health += abilityValue;
+                    characterUI.UpdateHealthUI();
                     break;
             }
         }
@@ -25,9 +25,9 @@ namespace Item
            switch (abilty)
             {
                 case Abilty.ExtraHealth:
-                    character.maxHealth -= abilityValue;
-                    character.health -= abilityValue;
-                    character.gameObject.GetComponent<SetCharacterUI>().UpdateHealthUI();
+                    characterUI.character.maxHealth -= abilityValue;
+                    characterUI.character.health -= abilityValue;
+                    characterUI.gameObject.GetComponent<SetCharacterUI>().UpdateHealthUI();
                     break;
             }
         }

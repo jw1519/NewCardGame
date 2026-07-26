@@ -24,7 +24,7 @@ namespace Character
 
         public void Start()
         {
-            maxItemAmount = AssetManager.Instance.GetAsset("Player").GetComponent<BaseCharacter>().maxItemAmount;
+            maxItemAmount = AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>().character.maxItemAmount;
             itemAmountText.text = "0/" + maxItemAmount.ToString();
             UpdateRoundUI(0);
 

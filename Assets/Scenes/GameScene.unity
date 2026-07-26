@@ -3371,7 +3371,6 @@ GameObject:
   m_Component:
   - component: {fileID: 567812477}
   - component: {fileID: 567812478}
-  - component: {fileID: 567812479}
   - component: {fileID: 567812481}
   - component: {fileID: 567812480}
   m_Layer: 5
@@ -3413,7 +3412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a57b645b81dea34ca8a780083625e9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 567812479}
+  character: {fileID: 11400000, guid: 90e69de6d57c12f45a1810a9b4f118d3, type: 2}
   spriteObject: {fileID: 275173589}
   healthText: {fileID: 3620521156563462371}
   healthSlider: {fileID: 3620521156563462372}
@@ -3422,30 +3421,6 @@ MonoBehaviour:
   defenceText: {fileID: 9007456340417472134}
   defenceIcon: {fileID: 9007456340417472135}
   burnIcon: {fileID: 4713001201782087693}
---- !u!114 &567812479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 567812476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aebdbee3439420c4c9ffd97c7c8ab6f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterSprite: {fileID: -3318188226485093758, guid: ae72133dacba6ec4eb33ecde48f50e56, type: 3}
-  characterName: 
-  health: 40
-  maxHealth: 40
-  defence: 0
-  energy: 4
-  maxEnergy: 4
-  gold: 0
-  totalGoldCollected: 0
-  maxItemAmount: 4
-  isBurning: 0
-  activeEffects: []
 --- !u!114 &567812480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13038,7 +13013,7 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -13105,7 +13080,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!224 &3400944389859016770
@@ -13309,8 +13284,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: e8dc6212d874c554bb52dbb10cdb237f, type: 3}
-  m_Type: 1
-  m_PreserveAspect: 0
+  m_Type: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1

@@ -15,7 +15,7 @@ public class UseCard : MonoBehaviour
     private void Start()
     {
         card = GetComponent<SetCardUI>().card;
-        player = FindAnyObjectByType<BaseCharacter>();
+        player = AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>().character;
         selectManager = AssetManager.Instance.GetAsset("SelectManager").GetComponent<SelectManager>();
         cardHand = AssetManager.Instance.GetAsset("CardHand").GetComponent<CardHand>();
     }

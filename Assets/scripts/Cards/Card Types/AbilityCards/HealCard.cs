@@ -9,7 +9,7 @@ namespace Card
         public override void Use(GameObject target)
         {
             base.Use(target);
-            EventQueue.EnqueueEvent(new PlayerHealEvent(player, abilityPower));
+            EventQueue.EnqueueEvent(new PlayerHealEvent(characterUI.character, abilityPower));
         }
     }
 }

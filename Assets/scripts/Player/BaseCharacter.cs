@@ -1,11 +1,10 @@
-using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Character
 {
-    public abstract class BaseCharacter : MonoBehaviour, ITakeDamage, IHeal, IUseEnergy, IEffectable
+    public abstract class BaseCharacter : ScriptableObject, ITakeDamage, IHeal, IUseEnergy, IEffectable
     {
         public static event Action playerHealthChanged;
         public static event Action playerDefenceChanged;
@@ -13,8 +12,9 @@ namespace Character
         public static event Action<StatusEffectData> AddEffectToPlayer;
         public static event Action<string> RemoveEffectToPlayer;
 
-        [Header("Character Sprite")]
-        public Sprite characterSprite;
+        [Header("Animation")]
+        public Animator animator;
+        public RuntimeAnimatorController animatorController;
 
         [Header("Stats")]
         public string characterName;
@@ -44,6 +44,7 @@ namespace Character
         {
             health = maxHealth;
             energy = maxEnergy;
+            //animator = GetComponentInChildren<Animator>();
         }
 
 

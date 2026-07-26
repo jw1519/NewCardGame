@@ -10,7 +10,7 @@ namespace Item
         {
             if (isBought)
             {
-                character.GainEnergy(energyAmount);
+                characterUI.character.GainEnergy(energyAmount);
                 Debug.Log("Used energy potion");
             }
         }

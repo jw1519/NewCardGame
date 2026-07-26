@@ -38,34 +38,20 @@ namespace Card
         {
             if (cardSelected != null)
             {
-                if (cardSelected.card.cardType == BaseCard.CardType.Attack && target.GetComponent<SetEnemyUI>() == null)
+                cardHand.cards.Remove(cardSelected.gameObject);
+                if (cardSelected.card.isSingleUse)
                 {
-                    Debug.Log("Select Enemy");
-                    return;
+                    cardManager.AddDeadCard(cardSelected.gameObject);
                 }
-                else if (cardSelected.card.cardType == BaseCard.CardType.Defence && target.GetComponent<SetCharacterUI>() == null)
+                else
                 {
-                    Debug.Log("Select Character");
-                    return;
+                    cardManager.DiscardCard(cardSelected.gameObject);
                 }
-                
-                if (cardSelected != null)
-                {
-                    cardHand.cards.Remove(cardSelected.gameObject);
-                    if (cardSelected.card.isSingleUse)
-                    {
-                        cardManager.AddDeadCard(cardSelected.gameObject);
-                    }
-                    else
-                    {
-                        cardManager.DiscardCard(cardSelected.gameObject);
-                    } 
-                }
-                cardSelected.card.Use(target);
-                StartCoroutine(cardHand.UpdateCardPositions(0.15f));
-                
-                cardSelected = null;
             }
+            cardSelected.card.Use(target);
+            StartCoroutine(cardHand.UpdateCardPositions(0.15f));
+
+            cardSelected = null;
         }
     }
 }

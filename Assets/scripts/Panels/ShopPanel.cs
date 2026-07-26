@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ShopPanel : BasePanel
 {
     public int AmountOfCards;
-    BaseCharacter character;
+    SetCharacterUI characterUI;
     [Header("Reroll")]
     public int rerollCost;
     public TextMeshProUGUI rerollText;
@@ -20,7 +20,7 @@ public class ShopPanel : BasePanel
 
     private void Awake()
     {
-        character = FindAnyObjectByType<BaseCharacter>();
+        characterUI = AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>();
     }
 
     private void OnEnable()
@@ -38,7 +38,7 @@ public class ShopPanel : BasePanel
     }
     public void UpdateShopUI()
     {
-        if (character.gold >= rerollCost)
+        if (characterUI.character.gold >= rerollCost)
         {
             reRollButton.interactable = true;
         }
@@ -61,14 +61,14 @@ public class ShopPanel : BasePanel
         bool canBuy = ShopManager.instance.CanBuy(healthRestorCost);
         if (canBuy)
         {
-            character.health = character.maxHealth;
-            character.gameObject.GetComponent<SetCharacterUI>().UpdateHealthUI();
+            characterUI.character.health = characterUI.character.maxHealth;
+            characterUI.gameObject.GetComponent<SetCharacterUI>().UpdateHealthUI();
             healthRestoreText.transform.parent.gameObject.SetActive(false);
         }
     }
     public void UpdateHealthRestoreUI()
     {
-        healthRestorCost = character.maxHealth - character.health;
+        healthRestorCost = characterUI.character.maxHealth - characterUI.character.health;
         if (healthRestorCost > 0)
         {
             restoreHealthButton.interactable = true;

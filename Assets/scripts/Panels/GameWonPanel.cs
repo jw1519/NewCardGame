@@ -7,11 +7,11 @@ public class GameWonPanel : BasePanel
     public int goldEarned;
     public TextMeshProUGUI goldEarnedText;
 
-    BaseCharacter player;
+    SetCharacterUI characterUI;
 
     private void Awake()
     {
-        player = FindAnyObjectByType<BaseCharacter>();
+        characterUI = AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>();
         BaseEnemy.enemydiedGold += UpdateGold;
     }
     private void OnEnable()
@@ -28,10 +28,10 @@ public class GameWonPanel : BasePanel
     public void UpdateStats()
     {
         goldEarnedText.text = "Gold Earned " + goldEarned.ToString();
-        if (player == null) return;
-        player.gold += goldEarned;
-        player.totalGoldCollected += goldEarned;
-        player.gameObject.GetComponent<SetCharacterUI>().UpdateGoldUI();
+        if (characterUI == null) return;
+        characterUI.character.gold += goldEarned;
+        characterUI.character.totalGoldCollected += goldEarned;
+        characterUI.gameObject.GetComponent<SetCharacterUI>().UpdateGoldUI();
     }
     public void UpdateGold(int goldAmount)
     {

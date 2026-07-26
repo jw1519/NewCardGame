@@ -16,7 +16,10 @@ namespace Card
             {
                 Debug.LogWarning("Effect data is not assigned for " + cardName);
             }
-            description = $"Applies {effectData.effectName} for {effectData.duration} turns, dealing {effectData.DOTAmount} damage per turn.";
+            else
+            {
+                description = $"Applies {effectData.effectName} for {effectData.duration} turns, dealing {effectData.DOTAmount} damage per turn.";
+            }
         }
 
         public override void Use(GameObject target)

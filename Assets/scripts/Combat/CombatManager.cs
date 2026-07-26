@@ -53,15 +53,14 @@ public class CombatManager : MonoBehaviour
     }
     public void PlayerTurn(GameObject player)
     {
-        BaseCharacter character = player.GetComponent<BaseCharacter>();
         SetCharacterUI characterUI = player.GetComponent<SetCharacterUI>();
+        BaseCharacter character = characterUI.character;
         character.defence = 0;
         characterUI.UpdateDefenceUI();
         character.UpdateEffect();
         characterUI.UpdateStatusEffectUI();
         character.energy = character.maxEnergy;
         characterUI.UpdateEnergyUI();
-        //characterUI.UpdateStatusEffectUI();
 
         endTurnButton.GetComponentInChildren<TextMeshProUGUI>().text = "End Turn";
         endTurnButton.enabled = true;
