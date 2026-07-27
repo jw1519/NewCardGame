@@ -33,6 +33,9 @@ namespace Character
             character = Instantiate(character);
             baseCharacter = character;
 
+            character.animator = spriteObject.GetComponent<Animator>();
+            character.animator.runtimeAnimatorController = character.animatorController;
+
             playerStatsPanel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PlayerStatsPanel").GetComponent<PlayerStatsPanel>();
             NewRun();
         }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: character
   m_EditorClassIdentifier: Assembly-CSharp::Character.Archer
   animator: {fileID: 0}
-  animatorController: {fileID: 0}
+  animatorController: {fileID: 9100000, guid: dad08993fd5b9fe428ddc371a1a3a536, type: 2}
   characterName: 
   health: 40
   maxHealth: 40
@@ -23,5 +23,5 @@ MonoBehaviour:
   gold: 0
   totalGoldCollected: 0
   maxItemAmount: 4
-  isBurning: 1
+  isBurning: 0
   activeEffects: []

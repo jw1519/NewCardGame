@@ -44,7 +44,6 @@ namespace Character
         {
             health = maxHealth;
             energy = maxEnergy;
-            //animator = GetComponentInChildren<Animator>();
         }
 
 
@@ -80,10 +79,12 @@ namespace Character
             if (health - damageTaken > 0)
             {
                 health -= damageTaken;
+                animator.SetTrigger("takeDamage");
             }
             else
             {
                 health = 0;
+                animator.SetBool("isAlive", false);
             }
             playerHealthChanged?.Invoke();
         }

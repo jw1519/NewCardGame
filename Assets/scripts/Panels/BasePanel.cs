@@ -1,10 +1,11 @@
 using UnityEngine;
 
-public abstract class BasePanel : MonoBehaviour
+public class BasePanel : MonoBehaviour
 {
     private void Start()
     {
-        UIManager.instance.RegisterPanels(this);
+        if (UIManager.instance != null)
+            UIManager.instance.RegisterPanels(this);
     }
     public virtual void OpenPanel()
     {
