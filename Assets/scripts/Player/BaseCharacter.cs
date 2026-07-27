@@ -35,10 +35,8 @@ namespace Character
         public int maxItemAmount;
 
         [Header("Status Effects")]
-        public bool isBurning;
-
         public List<StatusEffectData> activeEffects = new List<StatusEffectData>();
-
+        public bool isBurning;
 
         public virtual void Start()
         {
@@ -133,6 +131,14 @@ namespace Character
             StatusEffectData effectToRemove = GetEffect(name);
             activeEffects.Remove(effectToRemove);
             RemoveEffectToPlayer?.Invoke(name);
+        }
+        public void RemoveAllEffects()
+        {
+            foreach (StatusEffectData effectToRemove in activeEffects)
+            {
+                RemoveEffectToPlayer?.Invoke(effectToRemove.effectName);
+            }
+            activeEffects.Clear();
         }
         public StatusEffectData GetEffect(string name)
         {

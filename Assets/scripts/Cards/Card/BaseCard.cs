@@ -12,6 +12,7 @@ namespace Card
         public string description;
         public bool isInHand = false; //Check if card is in hand to prevent using it from discard pile or deck
         public bool isSingleUse = true; //Check if card is single use to allow is to ge in dead pile
+        public bool usedOnEnemy;
 
         [HideInInspector] public SetCharacterUI characterUI;
         public virtual void Awake()

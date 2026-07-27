@@ -7,7 +7,6 @@ namespace Card
 {
     public class SelectManager : MonoBehaviour
     {
-        public List<BaseCharacter> characterList;
         [HideInInspector] public SetCardUI cardSelected;
         CardManager cardManager;
         CardHand cardHand;
@@ -38,6 +37,9 @@ namespace Card
         {
             if (cardSelected != null)
             {
+                if (cardSelected.card.usedOnEnemy && target.GetComponent<SetEnemyUI>() == null) return;
+                if (!cardSelected.card.usedOnEnemy && target.GetComponent<SetCharacterUI>() == null) return;
+
                 cardHand.cards.Remove(cardSelected.gameObject);
                 if (cardSelected.card.isSingleUse)
                 {
