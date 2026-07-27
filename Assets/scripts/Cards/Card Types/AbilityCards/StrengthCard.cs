@@ -11,8 +11,6 @@ namespace Card
         public override void Use(GameObject target)
         {
             base.Use(target);
-
-
         }
     }
 }

@@ -36,7 +36,7 @@ namespace Character
 
         [Header("Status Effects")]
         public List<StatusEffectData> activeEffects = new List<StatusEffectData>();
-        public bool isBurning;
+        //public bool isBurning;
 
         public virtual void Start()
         {
@@ -108,9 +108,16 @@ namespace Character
         public void ApplyEffect(StatusEffectData data)
         {
             if (data == null) return;
-            activeEffects.Add(data);
-            isBurning = data.effectName == "burn";
-            AddEffectToPlayer?.Invoke(data);
+            if (activeEffects.Find(p => p.effectName == data.effectName) != null)
+            {
+                StatusEffectData effect = activeEffects.Find(p => p.effectName == data.effectName);
+                effect.duration = data.duration;
+            }
+            else
+            {
+                activeEffects.Add(Instantiate(data));
+                AddEffectToPlayer?.Invoke(data);
+            }
         }
         public void UpdateEffect()
         {
@@ -128,8 +135,7 @@ namespace Character
         }
         public void RemoveEffect(string name)
         {
-            StatusEffectData effectToRemove = GetEffect(name);
-            activeEffects.Remove(effectToRemove);
+            activeEffects.Remove(GetEffect(name));
             RemoveEffectToPlayer?.Invoke(name);
         }
         public void RemoveAllEffects()

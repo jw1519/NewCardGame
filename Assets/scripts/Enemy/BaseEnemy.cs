@@ -11,6 +11,7 @@ namespace Enemy
         public static event Action enemyHealthChange;
         public static event Action enemyDefenceChange;
         public static event Action<string> addEffectToEnemy;
+        public static event Action UpdateEffectToEnemy;
         public static event Action<string> RemoveEffectToEnemy;
         public static event Action enemydied;
         public static event Action<int> enemydiedGold;
@@ -46,9 +47,6 @@ namespace Enemy
         public bool isAlive => health > 0;
 
         [Header("Status Effects")]
-        public bool isBurning => burnDuration > 0;
-        public int burnDamage;
-        public int burnDuration;
         public List<StatusEffectData> activeEffects = new List<StatusEffectData>();
 
         public void Heal(int healAmount)
@@ -124,27 +122,28 @@ namespace Enemy
         }
 
         public void ApplyEffect(StatusEffectData data)
-        { 
-            switch (data.effectName)
+        {
+            if (activeEffects.Find(p => p.effectName == data.effectName) != null)
             {
-                case "burn":
-                    burnDamage = data.DOTAmount;
-                    burnDuration = data.duration;
-                    addEffectToEnemy?.Invoke("burn");
-                    break;
-                default:
-                    Debug.LogWarning("Status effect not recognized: " + data.effectName);
-                    break;
+                StatusEffectData effect = activeEffects.Find(p => p.effectName == data.effectName);
+                effect.duration = data.duration;
+                UpdateEffectToEnemy?.Invoke();
+            }
+            else
+            {
+                activeEffects.Add(Instantiate(data));
+                addEffectToEnemy?.Invoke(data.effectName);
             }
         }
         public void UpdateEffect()
         {
-            if (isBurning)
+            if (GetEffect("burn"))
             {
-                TakeDamage(burnDamage);
-                burnDuration--;
-                Debug.Log("Burn effect applied to enemy: Damage = " + burnDamage + ", Remaining Duration = " + burnDuration);
-                if (burnDuration <= 0)
+                StatusEffectData burn = GetEffect("burn");
+                TakeDamage(burn.DOTAmount);
+                burn.duration--;
+                Debug.Log("Burn effect applied to enemy: Damage = " + burn.DOTAmount + ", Remaining Duration = " + burn.duration);
+                if (burn.duration <= 0)
                 {
                     RemoveEffect("burn");
                 }
@@ -153,18 +152,12 @@ namespace Enemy
         public void RemoveEffect(string name)
         {
             if (name == null) return;
-            switch (name)
-            {
-                case "burn":
-                    burnDamage = 0;
-                    burnDuration = 0;
-                    Debug.Log("Removing burn effect from enemy.");
-                    RemoveEffectToEnemy?.Invoke("burn");
-                    break;
-                default:
-                    Debug.LogWarning("Status effect not recognized: " + name);
-                    break;
-            }
+            activeEffects.Remove(GetEffect(name));
+            RemoveEffectToEnemy?.Invoke(name);
+        }
+        public StatusEffectData GetEffect(string name)
+        {
+            return activeEffects.Find(j => j.effectName == name);
         }
     }
     public enum EnemyAction

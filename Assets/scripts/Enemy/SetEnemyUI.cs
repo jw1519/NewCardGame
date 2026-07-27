@@ -45,6 +45,7 @@ namespace Enemy
             enemydied += EnemyDied;
             enemyDefenceChange += UpdateDefenceUI;
             addEffectToEnemy += EnableStatusEffect;
+            UpdateEffectToEnemy += UpdateStatusEffects;
             RemoveEffectToEnemy += RemoveStatusEffects;
         }
         private void OnDestroy()
@@ -54,6 +55,7 @@ namespace Enemy
             enemydied -= EnemyDied;
             enemyDefenceChange -= UpdateDefenceUI;
             addEffectToEnemy -= EnableStatusEffect;
+            UpdateEffectToEnemy -= UpdateStatusEffects;
             RemoveEffectToEnemy -= RemoveStatusEffects;
         }
         public void UpdateHealthUI()
@@ -103,22 +105,21 @@ namespace Enemy
             switch (effectname)
             {
                 case "burn":
-                    if (enemy.isBurning != true) return;
+                    if (enemy.GetEffect("burn") != true) return;
                     burnSprite.SetActive(true);
-                    burnSprite.GetComponentInChildren<TextMeshProUGUI>().text = enemy.burnDuration.ToString();
+                    burnSprite.GetComponentInChildren<TextMeshProUGUI>().text = enemy.GetEffect("burn").duration.ToString();
                     return;
             }
         }
         public void UpdateStatusEffects()
         {
-            if (enemy.isBurning)
+            foreach (StatusEffectData data in enemy.activeEffects)
             {
-                //update burn UI here
-                burnSprite.SetActive(true);
-                burnSprite.GetComponentInChildren<TextMeshProUGUI>().text = enemy.burnDuration.ToString();
-                if (!enemy.isBurning)
+                if (data == null) return;
+                if (data.effectName == "burn")
                 {
-                    RemoveStatusEffects("burn");
+                    burnSprite.SetActive(true);
+                    burnSprite.GetComponentInChildren<TextMeshProUGUI>().text = enemy.GetEffect("burn").duration.ToString();
                 }
             }
         }

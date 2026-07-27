@@ -19,5 +19,6 @@ MonoBehaviour:
   description: the card attacks all enemies for 3
   isInHand: 0
   isSingleUse: 0
-  player: {fileID: 0}
+  usedOnEnemy: 1
+  characterUI: {fileID: 0}
   damage: 3

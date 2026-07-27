@@ -120,7 +120,7 @@ namespace Character
             {
                 StatusEffectData burnEffect = character.GetEffect("burn");
                 burnIcon.GetComponentInChildren<TextMeshProUGUI>().text = burnEffect.duration.ToString();
-                if (!character.isBurning) burnIcon.SetActive(false);
+                if (!character.GetEffect("burn")) burnIcon.SetActive(false);
             }
         }
         public void RemoveStatusEffects(string effectName)
@@ -134,7 +134,7 @@ namespace Character
                     Debug.LogWarning("Unknown status effect: " + effectName);
                     break;
             }
-            if (character.isBurning)
+            if (character.GetEffect("burn"))
             {
                 burnIcon.SetActive(false);
             }
