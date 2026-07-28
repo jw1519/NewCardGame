@@ -34,15 +34,16 @@ public class MapPanel : BasePanel
         if (isPanelOpen == false)
         {
             base.OpenPanel();
-            isPanelOpen = true;
             foreach (Transform child in roomContainer)
             {
                 if (child != null && child.GetComponent<BaseRoom>().isRevealed)
                 {
+                    Debug.Log(canClosePanel);
                     if (child.GetComponent<BaseRoom>().isCleared == false && canClosePanel == false)
                         child.GetComponent<Button>().interactable = true; // Enable interaction with all rooms
                 }
             }
+            isPanelOpen = true;
         }
         else if (canClosePanel == true)
         {
@@ -68,7 +69,6 @@ public class MapPanel : BasePanel
         {
             child.GetComponent<BaseRoom>().HideRoom();
         }
-        //grid = new BaseRoom[mapWidth, mapHeight];
         CreateMap();
     }
 
@@ -108,8 +108,10 @@ public class MapPanel : BasePanel
                         grid[x, y].SetSprite(roomSprites[3]);
                         break;
                     default:
-                        grid[x, y].InIt(x, y, RoomType.Secret);
-                        grid[x, y].SetSprite(roomSprites[4]);
+                        grid[x, y].InIt(x, y, RoomType.Normal);
+                        grid[x, y].SetSprite(roomSprites[0]);
+                        //grid[x, y].InIt(x, y, RoomType.Secret);
+                        //grid[x, y].SetSprite(roomSprites[4]);
                         break;
                 }
 
@@ -138,6 +140,7 @@ public class MapPanel : BasePanel
     public void ClearRoom(int x, int y)
     {
         grid[x, y].ClearRoom();
+        canClosePanel = false;
         OpenPanel();
     }
 }

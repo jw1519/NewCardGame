@@ -10351,11 +10351,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1045931532}
-  - {fileID: 1428273568}
   - {fileID: 1324529318}
   - {fileID: 1301252308}
   - {fileID: 597061206}
   - {fileID: 182772274}
+  - {fileID: 1428273568}
   m_Father: {fileID: 8928448331935049072}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -12076,7 +12076,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8be15a75c303b5d43a99b6404c97c258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterList: []
   cardSelected: {fileID: 0}
 --- !u!1 &1963042740
 GameObject:
