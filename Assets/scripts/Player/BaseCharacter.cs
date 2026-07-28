@@ -36,14 +36,12 @@ namespace Character
 
         [Header("Status Effects")]
         public List<StatusEffectData> activeEffects = new List<StatusEffectData>();
-        //public bool isBurning;
 
         public virtual void Start()
         {
             health = maxHealth;
             energy = maxEnergy;
         }
-
 
         public void Heal(int healAmount)
         {
@@ -77,12 +75,11 @@ namespace Character
             if (health - damageTaken > 0)
             {
                 health -= damageTaken;
-                animator.SetTrigger("takeDamage");
             }
             else
             {
                 health = 0;
-                animator.SetBool("isAlive", false);
+                ChangeAnimation("die");
             }
             playerHealthChanged?.Invoke();
         }
@@ -149,6 +146,22 @@ namespace Character
         public StatusEffectData GetEffect(string name)
         {
             return activeEffects.Find(j => j.effectName == name);
+        }
+
+        public void ChangeAnimation(string animationName)
+        {
+            switch (animationName)
+            {
+                case "Attack":
+                    animator.SetTrigger("attack");
+                    break;
+                case "takeDamage":
+                    animator.SetTrigger(animationName);
+                    break;
+                case "die":
+                    animator.SetBool("isAlive", false);
+                    break;
+            }
         }
     }
 }

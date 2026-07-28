@@ -5,12 +5,14 @@ namespace Character
 {
     public class PlayerAttackEvent : GameEvent
     {
+        public BaseCharacter Character;
         public BaseEnemy Target;
         public int Damage;
         public SetEnemyUI EnemyUI;
 
-        public PlayerAttackEvent(BaseEnemy target, int damage, SetEnemyUI enemyUI)
+        public PlayerAttackEvent(BaseCharacter character,BaseEnemy target, int damage, SetEnemyUI enemyUI)
         {
+            Character = character;
             Target = target;
             Damage = damage;
             EnemyUI = enemyUI;
@@ -42,11 +44,13 @@ namespace Character
     }
     public class PlayerAOEAttackEvent : GameEvent
     {
+        public BaseCharacter Character;
         public int Damage;
         public List<BaseEnemy> Targets;
-        public PlayerAOEAttackEvent(int damage)
+        public PlayerAOEAttackEvent(BaseCharacter character, int damage)
         {
             Damage = damage;
+            Character = character;
             CombatManager manager = AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>();
             Targets = new List<BaseEnemy>();
             foreach (GameObject enemy in manager.combatOrder)

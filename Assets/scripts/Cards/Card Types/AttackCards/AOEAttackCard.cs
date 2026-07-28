@@ -15,7 +15,7 @@ namespace Card
         public override void Use(GameObject target)
         {
             base.Use(target);
-            EventQueue.EnqueueEvent(new PlayerAOEAttackEvent(damage));
+            EventQueue.EnqueueEvent(new PlayerAOEAttackEvent(characterUI.character, damage));
         }
     }
 }

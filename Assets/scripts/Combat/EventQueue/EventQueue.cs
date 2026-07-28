@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Character;
 using Enemy;
-using Unity.VisualScripting;
 
 public class EventQueue : MonoBehaviour
 {
@@ -46,6 +45,7 @@ public class EventQueue : MonoBehaviour
         {
             case PlayerAttackEvent playerAttack:
                 ApplyDamage(playerAttack.Target, playerAttack.Damage);
+                playerAttack.Character.ChangeAnimation("Attack");
                 yield return new WaitForSeconds(1); //do animation here
                 break;
             case PlayerDefenceEvent playerDefence:
@@ -62,6 +62,7 @@ public class EventQueue : MonoBehaviour
                 {
                     ApplyDamage(enemy, playerAOEAttack.Damage);
                 }
+                playerAOEAttack.Character.ChangeAnimation("Attack");
                 yield return new WaitForSeconds(1); //do animation here
                 break;
             case EnemyAttackEvent enemyAttack:
