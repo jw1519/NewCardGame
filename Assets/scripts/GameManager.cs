@@ -59,19 +59,32 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(combatManager.StartCombat());
     }
-    public void NewRound()
+    public void NewRound(string roomType)
     {
         CardManager.instance.EmptyDiscardPile();
         player.character.energy = player.character.maxEnergy;
         player.UpdateEnergyUI();
         EndRound();
         CardManager.instance.NewRound();
-        int enemyAmount = UnityEngine.Random.Range(1, maxEnemyAmount);
-        for (int i = 0; i < enemyAmount; i++)
+
+        if (roomType == "Normal")
         {
-            GameObject instance = EnemyFactory.instance.CreateEnemy(RandomEnemy());
-            instance.transform.SetParent(enemyParent);
+            int enemyAmount = UnityEngine.Random.Range(1, maxEnemyAmount);
+            for (int i = 0; i < enemyAmount; i++)
+            {
+                GameObject instance = EnemyFactory.instance.CreateEnemy(RandomEnemy());
+                instance.transform.SetParent(enemyParent);
+            }
         }
+        else if (roomType == "Boss")
+        {
+            if (eliteEnemies.Count! > 0) return;
+
+            int i = UnityEngine.Random.Range(0, eliteEnemies.Count - 1);
+            GameObject instance = EnemyFactory.instance.CreateEnemy(eliteEnemies[i]);
+        }
+
+
         combatManager.currentCombatIndex = 0;
         StartCoroutine(combatManager.StartCombat());
     }

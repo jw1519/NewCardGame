@@ -23,8 +23,12 @@ relic that addes an extra slot for a relic and can be used for a bonus towards a
 
 card ideas:
 
-ability:
+attack:
+true damage - ignore shield but does low damage
 
+ability:
+strength for a few turns
+weakness for a few turns
 every time player takes damage they draw a cards
 
 
