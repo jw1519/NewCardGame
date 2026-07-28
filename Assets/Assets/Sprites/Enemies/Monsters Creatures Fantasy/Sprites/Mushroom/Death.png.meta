@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 29ba92ebaa6f6964083271810310d1ca
+guid: 895ce69a98d58464aaaf85c1f9ee9497
 AssetOrigin:
   serializedVersion: 1
   productId: 167949
   packageName: Monsters_Creatures_Fantasy
   packageVersion: 1.0
-  assetPath: Assets/Monsters Creatures Fantasy/Sprites/Skeleton/Death.png
+  assetPath: Assets/Monsters Creatures Fantasy/Sprites/Mushroom/Death.png
   uploadId: 365724
 TextureImporter:
   internalIDToNameTable:
@@ -171,10 +171,10 @@ TextureImporter:
       name: Death_0
       rect:
         serializedVersion: 2
-        x: 42
+        x: 30
         y: 49
-        width: 56
-        height: 13
+        width: 90
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,7 +183,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 818d372142db9904fb5b8c9d8ac3c052
+      spriteID: ff2e89d52e6073042ac9e5d91e47c68b
       internalID: 6991849013916550155
       vertices: []
       indices: 
@@ -193,10 +193,10 @@ TextureImporter:
       name: Death_1
       rect:
         serializedVersion: 2
-        x: 192
+        x: 180
         y: 49
-        width: 54
-        height: 23
+        width: 90
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,7 +205,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b905190fa9e03cb41a2761261fe7f52d
+      spriteID: 4b765dfa60049ff4085b06072372b3a9
       internalID: -276728812324164698
       vertices: []
       indices: 
@@ -215,10 +215,10 @@ TextureImporter:
       name: Death_2
       rect:
         serializedVersion: 2
-        x: 343
+        x: 330
         y: 49
-        width: 51
-        height: 43
+        width: 90
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,7 +227,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91015c19e2d9a0f4ca4403022a884960
+      spriteID: 47758d78fa860ea4cb34815604be4be5
       internalID: 3156895337291164288
       vertices: []
       indices: 
@@ -237,10 +237,10 @@ TextureImporter:
       name: Death_3
       rect:
         serializedVersion: 2
-        x: 495
-        y: 47
-        width: 45
-        height: 53
+        x: 480
+        y: 49
+        width: 87
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,7 +249,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1ba1bf55966dc1479a9836f8411a871
+      spriteID: 33b7545504fb7ff43a6476cab33fb879
       internalID: 1400002288684528572
       vertices: []
       indices: 

@@ -9772,7 +9772,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 229486188}
   - {fileID: 1274644030}
   - {fileID: 624867193}
   - {fileID: 639379983}
@@ -9782,6 +9781,7 @@ RectTransform:
   - {fileID: 116601328589611005}
   - {fileID: 1574144736}
   - {fileID: 1867953896}
+  - {fileID: 229486188}
   - {fileID: 497138256}
   m_Father: {fileID: 2083572739}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
