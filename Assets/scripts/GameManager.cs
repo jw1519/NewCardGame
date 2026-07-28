@@ -64,7 +64,6 @@ public class GameManager : MonoBehaviour
         CardManager.instance.EmptyDiscardPile();
         player.character.energy = player.character.maxEnergy;
         player.UpdateEnergyUI();
-        //player.RemoveStatusEffects();
         EndRound();
         CardManager.instance.NewRound();
         int enemyAmount = UnityEngine.Random.Range(1, maxEnemyAmount);
@@ -104,6 +103,7 @@ public class GameManager : MonoBehaviour
         combatManager.ClearCombat();
         player.NewRun();
         mapPanel.CreateNewMap();
+        mapPanel.canClosePanel = false;
         mapPanel.OpenPanel();
     }
 }

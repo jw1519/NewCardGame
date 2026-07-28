@@ -63,6 +63,7 @@ namespace Character
             energySlider.maxValue = character.maxEnergy;
             character.health = character.maxHealth;
             character.energy = character.maxEnergy;
+            character.animator.SetBool("isAlive", true);
 
             UpdateEnergyUI();
             UpdateHealthUI();

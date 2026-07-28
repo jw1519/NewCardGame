@@ -47,13 +47,18 @@ public class MapPanel : BasePanel
         else if (canClosePanel == true)
         {
             ClosePanel();
-            isPanelOpen = false;
-            foreach (Transform child in roomContainer)
+        }
+    }
+    public override void ClosePanel()
+    {
+        base.ClosePanel();
+        isPanelOpen = false;
+
+        foreach (Transform child in roomContainer)
+        {
+            if (child != null)
             {
-                if (child != null)
-                {
-                    child.gameObject.GetComponent<Button>().interactable = false; // Disable interaction with all rooms
-                }
+                child.gameObject.GetComponent<Button>().interactable = false; // Disable interaction with all rooms
             }
         }
     }
@@ -112,7 +117,7 @@ public class MapPanel : BasePanel
                 {
                     grid[x, y].RevealRoom();
                 }
-                else if (x == mapWidth - 1 && y == mapWidth - 1)
+                else if (y == mapHeight -1)
                 {
 
                     grid[x, y].InIt(x, y, RoomType.End);
