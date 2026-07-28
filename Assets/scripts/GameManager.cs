@@ -113,6 +113,7 @@ public class GameManager : MonoBehaviour
     public void NewRun()
     {
         roomsCleared = 0;
+        updateRoomsCleared?.Invoke(roomsCleared);
         combatManager.ClearCombat();
         player.NewRun();
         mapPanel.CreateNewMap();

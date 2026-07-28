@@ -57,12 +57,15 @@ namespace Character
         }
         public void NewRun()
         {
+            //Reset Stats
             character = baseCharacter;
 
             healthSlider.maxValue = character.maxHealth;
             energySlider.maxValue = character.maxEnergy;
             character.health = character.maxHealth;
             character.energy = character.maxEnergy;
+            character.gold = 0;
+            character.totalGoldCollected = 0;
             character.animator.SetBool("isAlive", true);
 
             UpdateEnergyUI();
@@ -81,7 +84,7 @@ namespace Character
             if (character.health <= 0)
             {
                 BasePanel panel = UIManager.instance.panelList.Find(panels => panels.name == "GameOverPanel");
-                panel.gameObject.GetComponent<GameOverPanel>().PlayerStatsDisplay(character);
+                //panel.gameObject.GetComponent<GameOverPanel>().PlayerStatsDisplay(character);
                 panel.OpenPanel();
             }
         }

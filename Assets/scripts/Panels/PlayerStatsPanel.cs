@@ -26,7 +26,7 @@ namespace Character
         {
             maxItemAmount = AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>().character.maxItemAmount;
             itemAmountText.text = "0/" + maxItemAmount.ToString();
-            UpdateRoundUI(0);
+            UpdateRoomUI(0);
 
             for (int i = 0; i < maxRelicAmount; i++)
             {
@@ -38,7 +38,7 @@ namespace Character
         }
         private void OnEnable()
         {
-            GameManager.updateRoomsCleared += UpdateRoundUI;
+            GameManager.updateRoomsCleared += UpdateRoomUI;
         }
 
         public void UpdatePlayerHealthUI(int health, int maxHealth)
@@ -49,7 +49,7 @@ namespace Character
         {
             goldText.text = goldAmount.ToString() + "g";
         }
-        public void UpdateRoundUI(int rooms)
+        public void UpdateRoomUI(int rooms)
         {
             roomsClearedText.text = "Rooms Cleared " + rooms.ToString();
         }

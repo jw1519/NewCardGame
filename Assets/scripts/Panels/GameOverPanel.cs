@@ -17,6 +17,10 @@ public class GameOverPanel : BasePanel
     {
         highScore = PlayerPrefs.GetInt("HighScore", highScore);
     }
+    private void OnEnable()
+    {
+        PlayerStatsDisplay(AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>().character);
+    }
     public void PlayerStatsDisplay(BaseCharacter player)
     {
         roomsCleared = GameManager.instance.roomsCleared--;
