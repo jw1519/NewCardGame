@@ -38,7 +38,6 @@ public class MapPanel : BasePanel
             {
                 if (child != null && child.GetComponent<BaseRoom>().isRevealed)
                 {
-                    Debug.Log(canClosePanel);
                     if (child.GetComponent<BaseRoom>().isCleared == false && canClosePanel == false)
                         child.GetComponent<Button>().interactable = true; // Enable interaction with all rooms
                 }
@@ -119,9 +118,8 @@ public class MapPanel : BasePanel
                 {
                     grid[x, y].RevealRoom();
                 }
-                else if (y == mapHeight -1)
+                else if (y == mapHeight - 1)
                 {
-
                     grid[x, y].InIt(x, y, RoomType.End);
                     grid[x, y].SetSprite(roomSprites[5]);
                 }
