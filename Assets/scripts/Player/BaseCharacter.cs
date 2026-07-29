@@ -122,6 +122,7 @@ namespace Character
             {
                 StatusEffectData burnEffect = GetEffect("burn");
                 TakeDamage(burnEffect.DOTAmount);
+                ChangeAnimation("TakeDamage");
                 burnEffect.duration--;
                 Debug.Log("Burn effect applied to enemy: Damage = " + burnEffect.DOTAmount + ", Remaining Duration = " + burnEffect.duration);
                 if (burnEffect.duration <= 0)
@@ -152,14 +153,11 @@ namespace Character
         {
             switch (animationName)
             {
-                case "Attack":
-                    animator.SetTrigger("attack");
-                    break;
-                case "takeDamage":
-                    animator.SetTrigger(animationName);
-                    break;
                 case "die":
                     animator.SetBool("isAlive", false);
+                    break;
+                default:
+                    animator.SetTrigger(animationName);
                     break;
             }
         }

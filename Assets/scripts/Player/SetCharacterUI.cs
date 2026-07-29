@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,7 +25,7 @@ namespace Character
         public GameObject defenceIcon;
 
         [Header("Effects")]
-        public GameObject burnIcon;
+        public List<GameObject> effectIcons;
 
         PlayerStatsPanel playerStatsPanel;
 
@@ -105,42 +106,41 @@ namespace Character
         {
             playerStatsPanel.UpdateGoldUI(character.gold);
         }
+        public GameObject GetEffectIcon(string name)
+        {
+            foreach (GameObject icon in effectIcons)
+            {
+                if (icon.name == name)
+                    return icon;
+            }
+            return null;
+        }
         public void EnableStatusEffect(StatusEffectData data)
         {
-            switch (data.effectName)
+            GameObject icon = GetEffectIcon(data.effectName);
+            if (icon != null)
             {
-                case "burn":
-                    burnIcon.SetActive(true);
-                    burnIcon.GetComponentInChildren<TextMeshProUGUI>().text = data.duration.ToString();
-                    break;
-                default:
-                    Debug.LogWarning("Unknown status effect: " + data.effectName);
-                    break;
+                icon.SetActive(true);
+                icon.GetComponentInChildren<TextMeshProUGUI>().text = data.duration.ToString();
             }
+            else
+                Debug.LogWarning("Unknown status effect: " + data.effectName);
         }
         public void UpdateStatusEffectUI()
         {
             if (character.GetEffect("burn") != null)
             {
                 StatusEffectData burnEffect = character.GetEffect("burn");
-                burnIcon.GetComponentInChildren<TextMeshProUGUI>().text = burnEffect.duration.ToString();
-                if (!character.GetEffect("burn")) burnIcon.SetActive(false);
+                GetEffectIcon("burn").GetComponentInChildren<TextMeshProUGUI>().text = burnEffect.duration.ToString();
+                if (!character.GetEffect("burn")) RemoveStatusEffects("burn");
             }
         }
         public void RemoveStatusEffects(string effectName)
         {
-            switch (effectName)
+            GameObject icon = GetEffectIcon(effectName);
+            if (icon != null)
             {
-                case "burn":
-                    burnIcon.SetActive(false);
-                    break;
-                default:
-                    Debug.LogWarning("Unknown status effect: " + effectName);
-                    break;
-            }
-            if (character.GetEffect("burn"))
-            {
-                burnIcon.SetActive(false);
+                icon.SetActive(false);
             }
         }
     }

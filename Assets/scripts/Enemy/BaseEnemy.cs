@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,21 +26,22 @@ namespace Enemy
         public Sprite abilitySprite;
 
         [Header("Stats")]
-        public string enemyName;
+        //public string enemyName;
         public EnemyType enemyType;
-        public AbilityTargetType abilityTargetType;
+        
         [HideInInspector] public int health;
         public int maxHealth;
+
         [HideInInspector] public int damage;
         public int maxDamage;
         public int minDamage;
+
         [HideInInspector] public int defence;
         public int defenceAmount;
-        public string abilityName;
-        public int abilityAmount;
-        public int abilityDuration;
-        public StatusEffectData abilityEffect;
 
+        public AbilityTargetType abilityTargetType;
+        public int abilityAmount;
+        public StatusEffectData abilityEffect;
         public int goldOnDefeat;
 
         public bool isAlive => health > 0;
@@ -100,9 +100,6 @@ namespace Enemy
         {
             switch (animationName)
             {
-                case "Idle":
-                    animator.CrossFade("Idle", 0.1f);
-                    break;
                 case "TakeDamage":
                     animator.SetTrigger("takeDamage");
                     break;
@@ -117,6 +114,9 @@ namespace Enemy
                     break;
                 case "Ability":
                     animator.SetTrigger("ability");
+                    break;
+                default:
+                    animator.SetTrigger(animationName);
                     break;
             }
         }

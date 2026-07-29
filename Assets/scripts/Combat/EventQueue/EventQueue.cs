@@ -68,6 +68,7 @@ public class EventQueue : MonoBehaviour
             case EnemyAttackEvent enemyAttack:
                 ApplyDamage(enemyAttack.Target, enemyAttack.Damage);
                 enemyAttack.Enemy.ChangeAnimation("Attack");
+                enemyAttack.Target.ChangeAnimation("TakeDamage");
                 yield return new WaitForSeconds(1); //do animation here
                 break;
             case EnemyDefenceEvent enemyDefence:

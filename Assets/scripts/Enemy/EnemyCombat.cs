@@ -40,7 +40,6 @@ namespace Enemy
 
                 case EnemyAction.Defend:
                     EventQueue.EnqueueEvent(new EnemyDefenceEvent(enemy, enemy.defenceAmount, enemyUI));
-                    enemyUI.UpdateDefenceUI();
                     Debug.Log("Defend");
                     break;
 

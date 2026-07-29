@@ -18,7 +18,6 @@ namespace Card
         public override void Use(GameObject target)
         {
             base.Use(target);
-            characterUI.character.animator.SetTrigger("attack");
             BaseEnemy enemy = target.GetComponent<SetEnemyUI>().enemy;
             EventQueue.EnqueueEvent(new PlayerAttackEvent(characterUI.character, enemy, damage, target.GetComponent<SetEnemyUI>()));
         }
