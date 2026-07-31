@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Character
 {
-    public abstract class BaseCharacter : ScriptableObject, ITakeDamage, IHeal, IUseEnergy, IEffectable
+    public abstract class BaseCharacter : ScriptableObject, ITakeDamage, IHeal, IUseEnergy, IEffectable, IChangeAnimation
     {
         public static event Action playerHealthChanged;
         public static event Action playerDefenceChanged;

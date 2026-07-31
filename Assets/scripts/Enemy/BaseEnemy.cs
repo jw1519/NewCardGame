@@ -100,20 +100,8 @@ namespace Enemy
         {
             switch (animationName)
             {
-                case "TakeDamage":
-                    animator.SetTrigger("takeDamage");
-                    break;
                 case "Die":
                     animator.SetBool("isAlive", false);
-                    break;
-                case "Attack":
-                    animator.SetTrigger("attack");
-                    break;
-                case "Defend":
-                    animator.SetTrigger("defend");
-                    break;
-                case "Ability":
-                    animator.SetTrigger("ability");
                     break;
                 default:
                     animator.SetTrigger(animationName);
