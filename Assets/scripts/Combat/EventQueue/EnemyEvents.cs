@@ -52,4 +52,14 @@ namespace Enemy
             statusEffect = effectData;
         }
     }
+    public class EnemySummonEvent : GameEvent
+    {
+        public EnemySummon Summoner;
+        public BaseEnemy EnemyToSummon;
+        public EnemySummonEvent(EnemySummon summoner, BaseEnemy enemyToSummon)
+        {
+            Summoner = summoner;
+            EnemyToSummon = enemyToSummon;
+        }
+    }
 }

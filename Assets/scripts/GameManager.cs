@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     CombatManager combatManager;
     BaseRoom currentRoom;
     MapPanel mapPanel;
+    EnemyFactory enemyFactory;
 
     private void Start()
     {
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
         player = FindAnyObjectByType<SetCharacterUI>();
         combatManager = AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>();
         mapPanel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("MapPanel").GetComponent<MapPanel>();
+        enemyFactory = AssetManager.Instance.GetAsset("EnemyFactory").GetComponent<EnemyFactory>();
     }
     public void SetRoom(BaseRoom room)
     {
@@ -72,16 +74,19 @@ public class GameManager : MonoBehaviour
             int enemyAmount = UnityEngine.Random.Range(1, maxEnemyAmount);
             for (int i = 0; i < enemyAmount; i++)
             {
-                GameObject instance = EnemyFactory.instance.CreateEnemy(RandomEnemy());
+                GameObject instance = enemyFactory.CreateEnemy(RandomEnemy());
                 instance.transform.SetParent(enemyParent);
             }
         }
         else if (roomType == "Boss")
         {
-            if (eliteEnemies.Count! > 0) return;
+            if (eliteEnemies.Count < 1) return;
 
-            int i = UnityEngine.Random.Range(0, eliteEnemies.Count - 1);
-            GameObject instance = EnemyFactory.instance.CreateEnemy(eliteEnemies[i]);
+            Debug.Log("Creating Elite Enemy");
+
+            int i = UnityEngine.Random.Range(0, eliteEnemies.Count);
+            GameObject instance = enemyFactory.CreateEnemy(eliteEnemies[i]);
+            instance.transform.SetParent(enemyParent);
         }
 
 

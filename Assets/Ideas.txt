@@ -30,6 +30,7 @@ ability:
 strength for a few turns
 weakness for a few turns
 every time player takes damage they draw a cards
+cleanse status effects
 
 
 issues:

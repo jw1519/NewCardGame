@@ -84,6 +84,13 @@ public class EventQueue : MonoBehaviour
                 enemyStatusEffect.Target.ApplyEffect(enemyStatusEffect.statusEffect);
                 yield return new WaitForSeconds(1); //do animation here
                 break;
+            case EnemySummonEvent enemySummon:
+                Debug.Log("here");
+                GameObject newEnemy = AssetManager.Instance.GetAsset("EnemyFactory").GetComponent<EnemyFactory>().CreateEnemy(enemySummon.EnemyToSummon);
+                newEnemy.GetComponent<SetEnemyUI>().enemy.isSummon = true;
+                enemySummon.Summoner.SummonEnemy(enemySummon.EnemyToSummon);
+                yield return new WaitForSeconds(1); //do animation here
+                break;
         }
     }
     public static void ApplyDamage(ITakeDamage target, int damage)

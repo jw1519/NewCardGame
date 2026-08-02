@@ -45,6 +45,7 @@ namespace Enemy
         public int goldOnDefeat;
 
         public bool isAlive => health > 0;
+        public bool isSummon = false;
 
         [Header("Status Effects")]
         public List<StatusEffectData> activeEffects = new List<StatusEffectData>();

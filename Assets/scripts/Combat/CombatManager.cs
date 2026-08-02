@@ -79,6 +79,22 @@ public class CombatManager : MonoBehaviour
     }
     public void RemoveFromCombat(GameObject enemy)
     {
+        if (enemy.GetComponent<SetEnemyUI>().enemy.isSummon) //if the enemy is a summon, destroy it
+        {
+            Destroy(enemy);
+        }
+        if (enemy.GetComponent<SetEnemyUI>().enemy is EnemySummon)
+        {
+            for (int i = combatOrder.Count - 1; i >= 0; i--)
+            {
+                GameObject obj = combatOrder[i];
+                if (obj != null && obj.GetComponent<SetEnemyUI>() != null && obj.GetComponent<SetEnemyUI>().enemy.isSummon)
+                {
+                    Destroy(obj);
+                    combatOrder.RemoveAt(i);
+                }
+            }
+        }
         combatOrder.Remove(enemy.gameObject);
         //check combat status
         bool isenemyAlive = EnemiesAlive();
@@ -117,7 +133,6 @@ public class CombatManager : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-
         combatOrder.Clear();
     }
 }
