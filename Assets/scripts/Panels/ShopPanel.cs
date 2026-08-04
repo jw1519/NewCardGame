@@ -68,7 +68,7 @@ public class ShopPanel : BasePanel
     }
     public void UpdateHealthRestoreUI()
     {
-        healthRestorCost = characterUI.character.maxHealth - characterUI.character.health;
+        healthRestorCost = (characterUI.character.maxHealth - characterUI.character.health) * 2;
         if (healthRestorCost > 0)
         {
             restoreHealthButton.interactable = true;

@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54cbc118681ced44b89f00e9d27019fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  packCost: 10
+  packCost: 20
   amountCardsContained: 3
   cardPackType: 0
 --- !u!95 &5840026456232832008
