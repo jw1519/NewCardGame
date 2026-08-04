@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
     }
     public void NewRound(string roomType)
     {
+        CardManager.instance.DiscardAllCards();
         CardManager.instance.EmptyDiscardPile();
         player.character.energy = player.character.maxEnergy;
         player.UpdateEnergyUI();
@@ -121,6 +122,8 @@ public class GameManager : MonoBehaviour
         updateRoomsCleared?.Invoke(roomsCleared);
         combatManager.ClearCombat();
         player.NewRun();
+        AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().CloseAllPanels();
+        AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PlayerStatsPanel").GetComponent<PlayerStatsPanel>().OpenPanel();
         mapPanel.CreateNewMap();
         mapPanel.canClosePanel = false;
         mapPanel.OpenPanel();

@@ -27,7 +27,7 @@ namespace Card
             bool canBuy = ShopManager.instance.CanBuy(packCost);
             if (canBuy)
             {
-                OpenPackAnimation();
+                StartCoroutine(OpenPackAnimation());
                 ShopManager.instance.OpenCardPack(amountCardsContained);
                 Destroy(gameObject);
             }

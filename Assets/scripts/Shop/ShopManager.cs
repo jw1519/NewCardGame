@@ -24,6 +24,8 @@ public class ShopManager : MonoBehaviour
     public Transform cardPackParent;
     public Transform cardParent;
 
+    public Transform continueButton;
+
     private void Awake()
     {
         if (instance == null)
@@ -73,6 +75,7 @@ public class ShopManager : MonoBehaviour
             instance.AddComponent<CardSelect>();
         }
         cardParent.gameObject.SetActive(true);
+        continueButton.gameObject.SetActive(true);
     }
     public void CardSelected()
     {
@@ -81,6 +84,7 @@ public class ShopManager : MonoBehaviour
             Destroy(child.gameObject);
         }
         cardParent.gameObject.SetActive(false);
+        continueButton.gameObject.SetActive(false);
     }
 
     PlayerStatsPanel playerStatsPanel;

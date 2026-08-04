@@ -29,4 +29,11 @@ public class UIManager : MonoBehaviour
         }
         return null;
     }
+    public void CloseAllPanels()
+    {
+        foreach (BasePanel panel in panelList)
+        {
+            panel.ClosePanel();
+        }
+    }
 }
