@@ -43,6 +43,7 @@ public class EventQueue : MonoBehaviour
     {
         switch (gameEvent)
         {
+            // Player Events
             case PlayerAttackEvent playerAttack:
                 ApplyDamage(playerAttack.Target, playerAttack.Damage);
                 playerAttack.Character.ChangeAnimation("Attack");
@@ -70,7 +71,7 @@ public class EventQueue : MonoBehaviour
                 yield return new WaitForSeconds(1); //do animation here
                 break;
 
-
+            // Enemy Events
             case EnemyAttackEvent enemyAttack:
                 ApplyDamage(enemyAttack.Target, enemyAttack.Damage);
                 enemyAttack.Enemy.ChangeAnimation("Attack");

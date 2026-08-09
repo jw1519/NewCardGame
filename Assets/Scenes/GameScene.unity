@@ -2172,6 +2172,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c84c8cb46f276a8479dadcad7c3f5e50, type: 2}
   - {fileID: 11400000, guid: 8e059f2072fbb8d438a08ed063e5c1ca, type: 2}
   - {fileID: 11400000, guid: 5a6d1c80cd595da459464ebb7e88852c, type: 2}
+  - {fileID: 11400000, guid: 8bd17ba94b0ee3849bfa5ed8074be2f3, type: 2}
+  - {fileID: 11400000, guid: 8500291f446882c4786a257ea10167d7, type: 2}
   itemParent: {fileID: 264576903}
   cardPackParent: {fileID: 1009156238}
   cardParent: {fileID: 1227740660}

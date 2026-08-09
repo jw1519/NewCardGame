@@ -30,7 +30,11 @@ ability:
 strength for a few turns
 weakness for a few turns
 every time player takes damage they draw a cards
-cleanse status effects
+
+
+have a way to modify cards e.g 
+cleanse card can be used on enemies to remove any buffs
+can permanently upgrade cards in deck to have a bonus effect
 
 
 issues:

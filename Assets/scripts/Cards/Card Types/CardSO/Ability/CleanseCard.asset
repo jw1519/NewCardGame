@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: CleanseCard
   m_EditorClassIdentifier: Assembly-CSharp::Card.CleanseCard
   cardName: 
-  cardSprite: {fileID: 0}
-  cardType: 0
-  cardEnergy: 0
+  cardSprite: {fileID: 21300000, guid: 4737458a873698843a310c4d17bfefb4, type: 3}
+  cardType: 2
+  cardEnergy: 1
   description: 
   isInHand: 0
-  isSingleUse: 1
+  isSingleUse: 0
   usedOnEnemy: 0
   characterUI: {fileID: 0}

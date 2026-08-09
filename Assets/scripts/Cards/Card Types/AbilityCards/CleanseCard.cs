@@ -8,6 +8,7 @@ namespace Card
     {
         public override void Use(GameObject target)
         {
+            base.Use(target);
             EventQueue.EnqueueEvent(new PlayerRemoveAllStatusEffectsEvent(characterUI.character));
         }
     }
