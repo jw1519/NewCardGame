@@ -1,0 +1,14 @@
+using Character;
+using UnityEngine;
+
+namespace Card
+{
+    [CreateAssetMenu(fileName = "New Card", menuName = "Cards/Ability/Cleanse Card")]
+    public class CleanseCard : BaseCard
+    {
+        public override void Use(GameObject target)
+        {
+            EventQueue.EnqueueEvent(new PlayerRemoveAllStatusEffectsEvent(characterUI.character));
+        }
+    }
+}

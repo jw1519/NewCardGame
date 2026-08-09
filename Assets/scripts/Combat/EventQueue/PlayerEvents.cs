@@ -65,5 +65,13 @@ namespace Character
             }
         }
     }
+    public class PlayerRemoveAllStatusEffectsEvent : GameEvent
+    {
+        public BaseCharacter Target;
+        public PlayerRemoveAllStatusEffectsEvent(BaseCharacter target)
+        {
+            Target = target;
+        }
+    }
 }
 

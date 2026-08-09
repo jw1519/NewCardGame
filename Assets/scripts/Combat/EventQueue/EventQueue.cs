@@ -65,6 +65,12 @@ public class EventQueue : MonoBehaviour
                 playerAOEAttack.Character.ChangeAnimation("Attack");
                 yield return new WaitForSeconds(1); //do animation here
                 break;
+            case PlayerRemoveAllStatusEffectsEvent playerRemoveAllStatusEffects:
+                playerRemoveAllStatusEffects.Target.RemoveAllEffects();
+                yield return new WaitForSeconds(1); //do animation here
+                break;
+
+
             case EnemyAttackEvent enemyAttack:
                 ApplyDamage(enemyAttack.Target, enemyAttack.Damage);
                 enemyAttack.Enemy.ChangeAnimation("Attack");
