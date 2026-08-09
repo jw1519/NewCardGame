@@ -117,7 +117,14 @@ namespace Card
                             card.Use(combatManager.combatOrder.Find(p => p.GetComponent<SetCharacterUI>().character != null));
                             break;
                         case BaseCard.CardType.Ability:
-                            card.Use(combatManager.combatOrder.Find(p => p.GetComponent<SetCharacterUI>().character != null));
+                            if (!card.usedOnEnemy)
+                            {
+                                card.Use(combatManager.combatOrder.Find(p => p.GetComponent<SetCharacterUI>().character != null));
+                            }
+                            else
+                            {
+                                card.Use(combatManager.combatOrder.Find(p => p.GetComponent<SetEnemyUI>() != null));
+                            }
                             break;
                     }
                 }
