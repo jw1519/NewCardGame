@@ -22,6 +22,10 @@ namespace Enemy
         {
             enemyList.Add(enemyToSummon);
         }
+        public override void UseAbility(GameObject target)
+        {
+            
+        }
         public void OnEnemyDied()
         {
             // Remove the dead enemy from the list

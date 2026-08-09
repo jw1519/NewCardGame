@@ -46,15 +46,18 @@ namespace Enemy
                 case EnemyAction.Ability:
                     if (enemy.abilityTargetType == AbilityTargetType.Self)
                     {
-                        if (enemy is EnemySummon summoner)
+                        if (enemy is EnemySummon summoner && summoner.enemyList.Count < summoner.maxEnemySummons)
                         {
                             EventQueue.EnqueueEvent(new EnemySummonEvent(summoner, summoner.enemyToSpawn));
                             Debug.Log("Summon");
                             break;
                         }
-                        EventQueue.EnqueueEvent(new EnemyAbilityEventEnemy(enemy, enemy.abilityAmount, enemyUI));
-                        Debug.Log("Ability used");
-                        break;
+                        else
+                        {
+                            EventQueue.EnqueueEvent(new EnemyAbilityEventEnemy(enemy, enemy.abilityAmount, enemyUI));
+                            Debug.Log("Ability used");
+                            break;
+                        }
                     }
                     else if (enemy.abilityTargetType == AbilityTargetType.Player)
                     {
