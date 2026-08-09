@@ -7,7 +7,7 @@ namespace Enemy
     {
         public override void UseAbility(GameObject target)
         {
-            Heal(abilityAmount);
+            EventQueue.EnqueueEvent(new EnemyHealEvent(this, abilityAmount));
             Debug.Log("Slime healed for " + abilityAmount);
         }
     }

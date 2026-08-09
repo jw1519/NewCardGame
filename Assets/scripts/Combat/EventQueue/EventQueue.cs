@@ -76,8 +76,9 @@ public class EventQueue : MonoBehaviour
                 enemyDefence.EnemyUI.UpdateDefenceUI();
                 yield return new WaitForSeconds(1);
                 break;
-            case EnemyAbilityEventEnemy enemyAbility:
-                enemyAbility.Target.UseAbility(enemyAbility.EnemyUI.gameObject);
+            case EnemyHealEvent enemyHeal:
+                enemyHeal.Target.Heal(enemyHeal.HealAmount);
+                enemyHeal.Target.ChangeAnimation("Heal");
                 yield return new WaitForSeconds(1); //do animation here
                 break;
             case EnemyAddStatusEffectEvent enemyStatusEffect:
@@ -85,7 +86,6 @@ public class EventQueue : MonoBehaviour
                 yield return new WaitForSeconds(1); //do animation here
                 break;
             case EnemySummonEvent enemySummon:
-                Debug.Log("here");
                 GameObject newEnemy = AssetManager.Instance.GetAsset("EnemyFactory").GetComponent<EnemyFactory>().CreateEnemy(enemySummon.EnemyToSummon);
                 newEnemy.GetComponent<SetEnemyUI>().enemy.isSummon = true;
                 enemySummon.Summoner.SummonEnemy(enemySummon.EnemyToSummon);

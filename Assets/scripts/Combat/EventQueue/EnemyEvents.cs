@@ -29,18 +29,6 @@ namespace Enemy
             EnemyUI = enemyUI;
         }
     }
-    public class EnemyAbilityEventEnemy : GameEvent
-    {
-        public BaseEnemy Target;
-        public int AbilityAmount;
-        public SetEnemyUI EnemyUI;
-        public EnemyAbilityEventEnemy(BaseEnemy target, int abilityAmount, SetEnemyUI enemyUI)
-        {
-            Target = target;
-            AbilityAmount = abilityAmount;
-            EnemyUI = enemyUI;
-        }
-    }
     public class EnemyAddStatusEffectEvent : GameEvent
     {
         public BaseCharacter Target;
@@ -60,6 +48,16 @@ namespace Enemy
         {
             Summoner = summoner;
             EnemyToSummon = enemyToSummon;
+        }
+    }
+    public class EnemyHealEvent : GameEvent
+    {
+        public BaseEnemy Target;
+        public int HealAmount;
+        public EnemyHealEvent(BaseEnemy target, int healAmount)
+        {
+            Target = target;
+            HealAmount = healAmount;
         }
     }
 }
