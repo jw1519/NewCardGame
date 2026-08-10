@@ -77,8 +77,7 @@ namespace Enemy
             defenceText.text = enemy.defence.ToString();
             if (enemy.defence == 0)
             {
-                if (effectAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "ApplyShield")
-                    EffectAnimation("DefenceBreak");
+                EffectAnimation("DefenceBreak");
             }
         }
         public void UpdateActionUI()
@@ -157,7 +156,17 @@ namespace Enemy
         public void EffectAnimation(string effectName)
         {
             effectAnimator.gameObject.SetActive(true);
-            effectAnimator.SetTrigger(effectName);
+
+            switch (effectName)
+            {
+                case "ApplyDefence":
+                    effectAnimator.SetTrigger("ApplyDefence");
+                    effectAnimator.SetBool("hasDefence", true);
+                    return;
+                case "DefenceBreak":
+                    effectAnimator.SetBool("hasDefence", false);
+                    return;
+            }
         }
     }
 }

@@ -104,8 +104,7 @@ namespace Character
             defenceText.text = character.defence.ToString();
             if (character.defence == 0)
             {
-                if (effectAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "ApplyShield")
-                    EffectAnimation("defenceBreak");
+                EffectAnimation("DefenceBreak");
             }
         }
         public void UpdateGoldUI()
@@ -152,7 +151,16 @@ namespace Character
         public void EffectAnimation(string effectName)
         {
             effectAnimator.gameObject.SetActive(true);
-            effectAnimator.SetTrigger(effectName);
+            switch (effectName)
+            {
+                case "ApplyDefence":
+                    effectAnimator.SetTrigger("ApplyDefence");
+                    effectAnimator.SetBool("hasDefence", true);
+                    return;
+                case "DefenceBreak":
+                    effectAnimator.SetBool("hasDefence", false);
+                    return;
+            }
         }
     }
 }
