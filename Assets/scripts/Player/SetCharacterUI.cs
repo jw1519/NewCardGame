@@ -26,6 +26,7 @@ namespace Character
 
         [Header("Effects")]
         public List<GameObject> effectIcons;
+        public Animator effectAnimator;
 
         PlayerStatsPanel playerStatsPanel;
 
@@ -101,6 +102,11 @@ namespace Character
         public void UpdateDefenceUI()
         {
             defenceText.text = character.defence.ToString();
+            if (character.defence == 0)
+            {
+                if (effectAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "ApplyShield")
+                    EffectAnimation("defenceBreak");
+            }
         }
         public void UpdateGoldUI()
         {
@@ -142,6 +148,11 @@ namespace Character
             {
                 icon.SetActive(false);
             }
+        }
+        public void EffectAnimation(string effectName)
+        {
+            effectAnimator.gameObject.SetActive(true);
+            effectAnimator.SetTrigger(effectName);
         }
     }
 }

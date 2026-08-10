@@ -24,6 +24,7 @@ namespace Enemy
 
         [Header("Effects")]
         public GameObject burnSprite;
+        public Animator effectAnimator;
         private void Start()
         {
             enemy.health = enemy.maxHealth;
@@ -73,11 +74,12 @@ namespace Enemy
         }
         public void UpdateDefenceUI()
         {
-            if (enemy.defence > 0)
-            {
-                defenceIcon.SetActive(true);
-            }
             defenceText.text = enemy.defence.ToString();
+            if (enemy.defence == 0)
+            {
+                if (effectAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "ApplyShield")
+                    EffectAnimation("DefenceBreak");
+            }
         }
         public void UpdateActionUI()
         {
@@ -151,6 +153,11 @@ namespace Enemy
                 gameWonPanel.GetComponent<GameWonPanel>().UpdateGold(enemy.goldOnDefeat);
                 gameWonPanel.GetComponent<GameWonPanel>().UpdateStats();
             }
+        }
+        public void EffectAnimation(string effectName)
+        {
+            effectAnimator.gameObject.SetActive(true);
+            effectAnimator.SetTrigger(effectName);
         }
     }
 }

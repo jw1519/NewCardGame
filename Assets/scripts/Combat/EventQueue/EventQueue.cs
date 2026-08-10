@@ -52,6 +52,7 @@ public class EventQueue : MonoBehaviour
             case PlayerDefenceEvent playerDefence:
                 playerDefence.Target.defence += playerDefence.Defence;
                 playerDefence.CharacterUI.UpdateDefenceUI();
+                playerDefence.CharacterUI.EffectAnimation("ApplyShield");
                 yield return new WaitForSeconds(1); //do animation here
                 break;
             case PlayerHealEvent playerHeal:
@@ -81,6 +82,7 @@ public class EventQueue : MonoBehaviour
             case EnemyDefenceEvent enemyDefence:
                 enemyDefence.Target.defence = enemyDefence.Target.defenceAmount;
                 enemyDefence.EnemyUI.UpdateDefenceUI();
+                enemyDefence.EnemyUI.EffectAnimation("ApplyShield");
                 yield return new WaitForSeconds(1);
                 break;
             case EnemyHealEvent enemyHeal:
