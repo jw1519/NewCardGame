@@ -83,8 +83,8 @@ namespace Enemy
             if (health - damageTaken > 0)
             {
                 health -= damageTaken;
-                enemyHealthChange?.Invoke();
                 ChangeAnimation("TakeDamage");
+                enemyHealthChange?.Invoke();
             }
             else
             {

@@ -75,6 +75,7 @@ namespace Character
             if (health - damageTaken > 0)
             {
                 health -= damageTaken;
+                ChangeAnimation("TakeDamage");
             }
             else
             {
