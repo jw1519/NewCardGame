@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710d1ec26497a524a8b25541a8c418db, type: 3}
+  m_Name: GainEnergy
+  m_EditorClassIdentifier: Assembly-CSharp::Card.AddEnergyCard
+  cardName: Energy
+  cardSprite: {fileID: 0}
+  cardType: 2
+  cardEnergy: 0
+  description: Gain 2 Energy
+  isInHand: 0
+  isSingleUse: 1
+  usedOnEnemy: 0
+  characterUI: {fileID: 0}
+  abilityPower: 2

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df6029ad451241d4f86aca478517d8dc, type: 3}
-  m_Name: ExtraHealthCard
+  m_Name: EnergyCardRelic
   m_EditorClassIdentifier: Assembly-CSharp::Item.ExtraCardRelic
-  itemSprite: {fileID: 21300000, guid: 87ffdc72ebabfe445939a345394ba587, type: 3}
+  itemSprite: {fileID: 21300000, guid: 9b62f06a9b51fe64eba271d2edc93719, type: 3}
   itemName: 
-  itemCost: 75
+  itemCost: 50
   isBought: 0
   characterUI: {fileID: 0}
   relicType: 0
   abilityValue: 0
   description: 
-  extraCard: {fileID: 11400000, guid: 2fae6f5db0967ba4f91703e5ec7aed82, type: 2}
+  extraCard: {fileID: 11400000, guid: b6c981abb67d21c4eba531dbda69853a, type: 2}
   cardAmount: 2

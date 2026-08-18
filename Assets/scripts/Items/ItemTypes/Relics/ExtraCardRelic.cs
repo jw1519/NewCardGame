@@ -24,8 +24,8 @@ namespace Item
                 cards.Clear();
                 for (int i = 0; i < cardAmount; i++)
                 {
-                    CardPool.instance.AddCardToPool(extraCard);
                     GameObject instance = AssetManager.Instance.GetAsset("CardFactory").GetComponent<CardFactory>().CreateCard(extraCard);
+                    CardPool.instance.AddCardToPool(instance.GetComponent<SetCardUI>().card);
                     cards.Add(instance);
                 }
             }

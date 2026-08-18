@@ -3234,6 +3234,7 @@ MonoBehaviour:
   treasures:
   - {fileID: 11400000, guid: 347268d9eae99234fb1b34910ce5984e, type: 2}
   - {fileID: 11400000, guid: 3fe7e64120cd8ba429d086bf667ebd3b, type: 2}
+  - {fileID: 11400000, guid: 00b1b5ce69eeeae40b35493cec8671ba, type: 2}
   instantiatedTreasures: []
   panel: {fileID: 6868258884861431427}
   treasureImage: {fileID: 53624806}

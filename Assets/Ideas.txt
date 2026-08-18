@@ -17,6 +17,7 @@ health - more max health, heal at end of combat, add 2 cards that heal for 0 ene
 damage- attack cards do more damage, add 2 attack cards to deck, have strength at the start of combat (attack cards do + 3 attack)
 defence - add 2 defence cards, defence cards do + 2 more defence, 
 Gold - recieve +10 gold from enemies, shop prices are 20% lower, give player 50 gold
+Energy - start with 1 extra energy, add 2 cards that give +1 energy into deck, have a chance to gain +1 energy at the start of combat
 
 rare relic
 relic that addes an extra slot for a relic and can be used for a bonus towards any set
@@ -32,9 +33,14 @@ weakness for a few turns
 every time player takes damage they draw a cards
 
 
+
 have a way to modify cards e.g 
 cleanse card can be used on enemies to remove any buffs
 can permanently upgrade cards in deck to have a bonus effect
+
+Have Cards that dont go inot the discard pile until used or discarded maualy
+
+add a room to heal e.g campfire or healing fountain
 
 
 issues:
