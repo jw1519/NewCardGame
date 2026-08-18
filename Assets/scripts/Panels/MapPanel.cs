@@ -90,27 +90,25 @@ public class MapPanel : BasePanel
 
                 switch (roomTypeRoll)
                 {
-                    case int n when (n < 60):
+                    case int n when (n < 50):
                         grid[x, y].InIt(x, y, RoomType.Normal);
                         grid[x, y].SetSprite(roomSprites[0]);
                         break;
-                    case int n when (n < 80):
+                    case int n when (n < 70):
                         grid[x, y].InIt(x, y, RoomType.Boss);
                         grid[x, y].SetSprite(roomSprites[1]);
                         break;
-                    case int n when (n < 90):
+                    case int n when (n < 85):
                         grid[x, y].InIt(x, y, RoomType.Shop);
                         grid[x, y].SetSprite(roomSprites[2]);
                         break;
-                    case int n when (n < 95):
+                    case int n when (n < 90):
                         grid[x, y].InIt(x, y, RoomType.Treasure);
                         grid[x, y].SetSprite(roomSprites[3]);
                         break;
                     default:
-                        grid[x, y].InIt(x, y, RoomType.Normal);
-                        grid[x, y].SetSprite(roomSprites[0]);
-                        //grid[x, y].InIt(x, y, RoomType.Secret);
-                        //grid[x, y].SetSprite(roomSprites[4]);
+                        grid[x, y].InIt(x, y, RoomType.healOrUpgrade);
+                        grid[x, y].SetSprite(roomSprites[4]);
                         break;
                 }
 

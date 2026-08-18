@@ -76,11 +76,11 @@ public class BaseRoom : MonoBehaviour
                 AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("TreasurePanel").OpenPanel();
                 mapPanel.ClosePanel();
                 break;
-            case RoomType.Secret:
-                Debug.Log("Entered Secret Room");
+            case RoomType.healOrUpgrade:
+                Debug.Log("Entered Campfire Room");
                 GameManager.instance.SetRoom(this);
-                GameManager.instance.RoomCleared();
-                //mapPanel.ClosePanel();
+                AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("HealOrUpgradePanel").OpenPanel();
+                mapPanel.ClosePanel();
                 break;
             case RoomType.End:
                 Debug.Log("Entered End Room");
@@ -95,6 +95,6 @@ public class BaseRoom : MonoBehaviour
     Boss,
     Shop,
     Treasure,
-    Secret,
+    healOrUpgrade,
     End
 }
