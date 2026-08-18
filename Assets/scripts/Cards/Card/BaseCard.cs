@@ -14,6 +14,7 @@ namespace Card
         public bool isSingleUse = true; //Check if card is single use to allow is to ge in dead pile
         public bool usedOnEnemy;
 
+
         [HideInInspector] public SetCharacterUI characterUI;
         public virtual void Awake()
         {

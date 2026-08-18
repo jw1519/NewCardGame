@@ -6,20 +6,25 @@ using Enemy;
 namespace Card
 {
     [CreateAssetMenu(fileName = "New Card", menuName = "Cards/Attack/Basic Card")]
-    public class AttackCard : BaseCard
+    public class AttackCard : BaseCard, ICanUpgrade
     {
         public int damage;
-        int baseDamage;
+        public int upgradedDamage;
+        int originalDamage;
         public override void Awake()
         {
             base.Awake();
-            baseDamage = damage;
+            originalDamage = damage;
         }
         public override void Use(GameObject target)
         {
             base.Use(target);
             BaseEnemy enemy = target.GetComponent<SetEnemyUI>().enemy;
             EventQueue.EnqueueEvent(new PlayerAttackEvent(characterUI.character, enemy, damage, target.GetComponent<SetEnemyUI>()));
+        }
+        public void Upgrade()
+        {
+            damage = upgradedDamage;
         }
         public void IncreaseDamage(float multiplier)
         {
@@ -31,7 +36,7 @@ namespace Card
         }
         public void ResetDamage()
         {
-            damage = baseDamage;
+            damage = originalDamage;
         }
 }
 }
