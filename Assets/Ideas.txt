@@ -25,7 +25,7 @@ relic that addes an extra slot for a relic and can be used for a bonus towards a
 card ideas:
 
 attack:
-true damage - ignore shield but does low damage
+true damage - ignore shield but does low damage - maybe
 
 ability:
 strength for a few turns
@@ -44,5 +44,6 @@ add a room to heal e.g campfire or healing fountain
 
 
 issues:
+relics that add card seem to add double the cards to the deck instead of just one. need to fix this
 
 
