@@ -19,5 +19,7 @@ MonoBehaviour:
   description: the card defends for 5
   isInHand: 0
   isSingleUse: 0
-  player: {fileID: 0}
+  usedOnEnemy: 0
+  characterUI: {fileID: 0}
   defenceAmount: 5
+  upgradedDefenceAmount: 7

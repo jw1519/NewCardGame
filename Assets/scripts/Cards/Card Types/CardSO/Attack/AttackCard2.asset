@@ -22,3 +22,4 @@ MonoBehaviour:
   usedOnEnemy: 1
   characterUI: {fileID: 0}
   damage: 3
+  upgradedDamage: 5
