@@ -97,6 +97,7 @@ public class EventQueue : MonoBehaviour
                 GameObject newEnemy = AssetManager.Instance.GetAsset("EnemyFactory").GetComponent<EnemyFactory>().CreateEnemy(enemySummon.EnemyToSummon);
                 newEnemy.GetComponent<SetEnemyUI>().enemy.isSummon = true;
                 enemySummon.Summoner.SummonEnemy(enemySummon.EnemyToSummon);
+                AssetManager.Instance.GetAsset("GameManager").GetComponent<GameManager>().AddEnemyToCombat(newEnemy);
                 yield return new WaitForSeconds(1); //do animation here
                 break;
         }

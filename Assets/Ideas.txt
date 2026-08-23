@@ -45,5 +45,6 @@ add a room to heal e.g campfire or healing fountain
 
 issues:
 relics that add card seem to add double the cards to the deck instead of just one. need to fix this
+summon boss breaks game. stuck on enemy go when enemy is killed and summoned
 
 

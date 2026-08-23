@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public List<BaseEnemy> normalEnemies;
     public List<BaseEnemy> eliteEnemies;
     public Transform enemyParent;
+    public List<Transform> enemyPositions;
     int maxEnemyAmount = 3;
 
     SetCharacterUI player;
@@ -30,6 +31,10 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+        }
+        foreach (Transform child in enemyParent)
+        {
+            enemyPositions.Add(child);
         }
         roomsCleared = 0;
         player = FindAnyObjectByType<SetCharacterUI>();
@@ -61,7 +66,7 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(combatManager.StartCombat());
     }
-    public void NewRound(string roomType)
+    public void StartCombat(string roomType)
     {
         CardManager.instance.DiscardAllCards();
         CardManager.instance.EmptyDiscardPile();
@@ -76,7 +81,8 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < enemyAmount; i++)
             {
                 GameObject instance = enemyFactory.CreateEnemy(RandomEnemy());
-                instance.transform.SetParent(enemyParent);
+                instance.transform.SetParent(enemyPositions[i], true);
+                instance.transform.localPosition = Vector3.zero;
             }
         }
         else if (roomType == "Boss")
@@ -87,18 +93,29 @@ public class GameManager : MonoBehaviour
 
             int i = UnityEngine.Random.Range(0, eliteEnemies.Count);
             GameObject instance = enemyFactory.CreateEnemy(eliteEnemies[i]);
-            instance.transform.SetParent(enemyParent);
+            instance.transform.SetParent(enemyPositions[1], true);
+            instance.transform.localPosition = Vector3.zero;
         }
 
 
         combatManager.currentCombatIndex = 0;
         StartCoroutine(combatManager.StartCombat());
     }
+    public void AddEnemyToCombat(GameObject enemy)
+    {
+        enemy.transform.SetParent(enemyPositions.Find(pos => pos.childCount == 0), true);
+        enemy.transform.localPosition = Vector3.zero;
+    }
     public void EndRound()
     {
         foreach (Transform transform in enemyParent)
         {
-            Destroy(transform.gameObject);
+            if (transform.childCount > 0)
+            {
+                GameObject instance = transform.GetChild(0).GetComponent<SetEnemyUI>().gameObject;
+                if (instance != null)
+                    Destroy(instance);
+            }
             CardManager.instance.DiscardAllCards();
             CardManager.instance.ClearDeadCards();
         }

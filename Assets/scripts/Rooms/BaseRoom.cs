@@ -57,12 +57,12 @@ public class BaseRoom : MonoBehaviour
         switch (roomType)
         {
             case RoomType.Normal:
-                GameManager.instance.NewRound("Normal");
+                GameManager.instance.StartCombat("Normal");
                 mapPanel.ClosePanel();
                 GameManager.instance.SetRoom(this);
                 break;
             case RoomType.Boss:
-                GameManager.instance.NewRound("Boss");
+                GameManager.instance.StartCombat("Boss");
                 mapPanel.ClosePanel();
                 GameManager.instance.SetRoom(this);
                 break;
