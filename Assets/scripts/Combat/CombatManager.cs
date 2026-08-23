@@ -81,21 +81,13 @@ public class CombatManager : MonoBehaviour
     {
         if (enemy.GetComponent<SetEnemyUI>().enemy.isSummon) //if the enemy is a summon, destroy it
         {
+            combatOrder.Remove(enemy.gameObject);
             Destroy(enemy);
         }
-        if (enemy.GetComponent<SetEnemyUI>().enemy is EnemySummon)
+        else
         {
-            for (int i = combatOrder.Count - 1; i >= 0; i--)
-            {
-                GameObject obj = combatOrder[i];
-                if (obj != null && obj.GetComponent<SetEnemyUI>() != null && obj.GetComponent<SetEnemyUI>().enemy.isSummon)
-                {
-                    Destroy(obj);
-                    combatOrder.RemoveAt(i);
-                }
-            }
+            combatOrder.Remove(enemy.gameObject);
         }
-        combatOrder.Remove(enemy.gameObject);
         //check combat status
         bool isenemyAlive = EnemiesAlive();
         if (isenemyAlive == false)

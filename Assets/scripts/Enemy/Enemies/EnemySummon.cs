@@ -37,8 +37,16 @@ namespace Enemy
         }
         public void OnEnemyDied()
         {
+            for (int i = enemyList.Count - 1; i >= 0; i--)
+            {
+                if (!enemyList[i].isAlive)
+                {
+                    Debug.Log($"Enemy {enemyList[i].name} has died.");
+                    enemyList.RemoveAt(i);
+                }
+            }
             // Remove the dead enemy from the list
-            enemyList.RemoveAll(enemy => !enemy.isAlive);
+            //enemyList.RemoveAll(enemy => !enemy.isAlive);
         }
     }
 }

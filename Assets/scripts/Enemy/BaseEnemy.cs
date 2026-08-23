@@ -29,7 +29,7 @@ namespace Enemy
         //public string enemyName;
         public EnemyType enemyType;
         
-        [HideInInspector] public int health;
+        public int health;
         public int maxHealth;
 
         [HideInInspector] public int damage;

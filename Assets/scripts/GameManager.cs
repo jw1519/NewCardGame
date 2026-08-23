@@ -81,8 +81,7 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < enemyAmount; i++)
             {
                 GameObject instance = enemyFactory.CreateEnemy(RandomEnemy());
-                instance.transform.SetParent(enemyPositions[i], true);
-                instance.transform.localPosition = Vector3.zero;
+                AddEnemyToCombat(instance);
             }
         }
         else if (roomType == "Boss")
