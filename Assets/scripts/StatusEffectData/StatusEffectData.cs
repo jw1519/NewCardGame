@@ -8,6 +8,15 @@ public class StatusEffectData : ScriptableObject
     public int duration;
     public bool doesDamage;
 
+    public virtual void ApplyEffect(GameObject target)
+    {
+        Debug.Log("Applying effect: " + effectName);
+    }
+    public virtual void RemoveEffect(GameObject target)
+    {
+        Debug.Log("Removing effect: " + effectName);
+    }
+
 
     public GameObject effectIcon;
 }

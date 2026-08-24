@@ -76,9 +76,9 @@ namespace Character
 
     public class PlayerAddStatusEffectEvent : GameEvent
     {
-        public BaseCharacter Target;
+        public GameObject Target;
         public StatusEffectData Effect;
-        public PlayerAddStatusEffectEvent(BaseCharacter target, StatusEffectData effect)
+        public PlayerAddStatusEffectEvent(GameObject target, StatusEffectData effect)
         {
             Target = target;
             Effect = effect;

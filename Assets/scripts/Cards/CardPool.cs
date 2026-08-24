@@ -27,7 +27,7 @@ namespace Card
         {
             foreach (BaseCard card in cardSO)
             {
-                AddCardToPool(Instantiate(card));
+                AddAndCreateCardToPool(Instantiate(card));
             }
         }
         public GameObject GetPooledCard()
@@ -47,7 +47,7 @@ namespace Card
             }
             return null;
         }
-        public void AddCardToPool(BaseCard card)
+        public void AddAndCreateCardToPool(BaseCard card)
         {
             GameObject newCard = AssetManager.Instance.GetAsset("CardFactory").GetComponent<CardFactory>().CreateCard(card);
             newCard.transform.SetParent(cardParent);
