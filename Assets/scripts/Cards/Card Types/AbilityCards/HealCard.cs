@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Card
 {
-    [CreateAssetMenu(fileName = "New Card", menuName = "Cards/Ability Card/Heal")]
+    [CreateAssetMenu(fileName = "New Card", menuName = "Cards/Ability/Heal")]
     public class HealCard : AbilityCard
     {
         public override void Use(GameObject target)

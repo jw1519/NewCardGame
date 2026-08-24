@@ -10,11 +10,16 @@ namespace Card
     {
         public int damage;
         public int upgradedDamage;
-        int originalDamage;
+        public int originalDamage;
         public override void Awake()
         {
             base.Awake();
             originalDamage = damage;
+            UpdateDescritpion();
+        }
+        public override void UpdateDescritpion()
+        {
+            description = $"Attack an enemy for {damage} damage";
         }
         public override void Use(GameObject target)
         {

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Card
 {
-    [CreateAssetMenu(fileName = "New Card", menuName = "Cards/Ability Card/Play Random Card")]
+    [CreateAssetMenu(fileName = "New Card", menuName = "Cards/Ability/Play Random Card")]
     public class PlayRandomCard : BaseCard
     {
         CardManager cardManager;

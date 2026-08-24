@@ -75,7 +75,7 @@ public class EventQueue : MonoBehaviour
                 playerAddStatusEffect.Target.GetComponent<SetCharacterUI>().character.ApplyEffect(playerAddStatusEffect.Effect);
                 if (playerAddStatusEffect.Effect.doesDamage)
                 {
-                    ApplyDamage(playerAddStatusEffect.Target.GetComponent<SetCharacterUI>().character, playerAddStatusEffect.Effect.DOTAmount);
+                    ApplyDamage(playerAddStatusEffect.Target.GetComponent<SetCharacterUI>().character, Mathf.RoundToInt(playerAddStatusEffect.Effect.DOTAmount));
                 }
                 else
                     playerAddStatusEffect.Effect.ApplyEffect(playerAddStatusEffect.Target);

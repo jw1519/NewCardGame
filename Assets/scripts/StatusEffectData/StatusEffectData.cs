@@ -1,10 +1,10 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Status Effect", menuName = "Status Effect")]
+[CreateAssetMenu(fileName = "New Status Effect", menuName = "Status Effect/ DOT Effect")]
 public class StatusEffectData : ScriptableObject
 {
     public string effectName;
-    public int DOTAmount;
+    public float DOTAmount;
     public int duration;
     public bool doesDamage;
 
@@ -12,7 +12,7 @@ public class StatusEffectData : ScriptableObject
     {
         Debug.Log("Applying effect: " + effectName);
     }
-    public virtual void RemoveEffect(GameObject target)
+    public virtual void RemoveEffect()
     {
         Debug.Log("Removing effect: " + effectName);
     }

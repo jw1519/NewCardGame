@@ -20,8 +20,7 @@ MonoBehaviour:
   defence: 0
   energy: 4
   maxEnergy: 4
-  gold: 0
+  gold: 100
   totalGoldCollected: 0
   maxItemAmount: 4
-  isBurning: 0
   activeEffects: []

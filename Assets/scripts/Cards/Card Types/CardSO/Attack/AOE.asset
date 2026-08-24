@@ -16,9 +16,11 @@ MonoBehaviour:
   cardSprite: {fileID: 21300000, guid: 606d22313a4561b4f9c670419392c1a2, type: 3}
   cardType: 0
   cardEnergy: 2
-  description: the card attacks all enemies for 3
+  description: Attacks all enemies for 3 damage
   isInHand: 0
   isSingleUse: 0
   usedOnEnemy: 1
   characterUI: {fileID: 0}
   damage: 3
+  upgradedDamage: 0
+  originalDamage: 0

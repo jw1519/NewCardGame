@@ -124,7 +124,7 @@ namespace Character
                 StatusEffectData effect = activeEffects[i];
                 effect.duration--;
                 if (effect.doesDamage)
-                    TakeDamage(effect.DOTAmount);
+                    TakeDamage(Mathf.RoundToInt(effect.DOTAmount));
                 if (effect.duration <= 0)
                 {
                     RemoveEffect(effect.effectName);
@@ -133,7 +133,9 @@ namespace Character
         }
         public void RemoveEffect(string name)
         {
-            activeEffects.Remove(GetEffect(name));
+            StatusEffectData effect = GetEffect(name);
+            effect.RemoveEffect();
+            activeEffects.Remove(effect);
             RemoveEffectToPlayer?.Invoke(name);
         }
         public void RemoveAllEffects()

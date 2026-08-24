@@ -20,6 +20,10 @@ namespace Card
         {
             characterUI = AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>();
         }
+        public virtual void UpdateDescritpion()
+        {
+
+        }
         public enum CardType
         {
             Attack,
