@@ -15,4 +15,5 @@ MonoBehaviour:
   effectName: poison
   DOTAmount: 3
   duration: 3
+  doesDamage: 1
   effectIcon: {fileID: 0}

@@ -126,15 +126,15 @@ namespace Enemy
         }
         public void UpdateEffect()
         {
-            if (GetEffect("burn"))
+            for (int i = activeEffects.Count - 1; i >= 0; i--)
             {
-                StatusEffectData burn = GetEffect("burn");
-                TakeDamage(burn.DOTAmount);
-                burn.duration--;
-                Debug.Log("Burn effect applied to enemy: Damage = " + burn.DOTAmount + ", Remaining Duration = " + burn.duration);
-                if (burn.duration <= 0)
+                StatusEffectData effect = activeEffects[i];
+                effect.duration--;
+                if (effect.doesDamage)
+                    TakeDamage(effect.DOTAmount);
+                if (effect.duration <= 0)
                 {
-                    RemoveEffect("burn");
+                    RemoveEffect(effect.effectName);
                 }
             }
         }

@@ -119,16 +119,15 @@ namespace Character
         }
         public void UpdateEffect()
         {
-            if (GetEffect("burn") != null)
+            for (int i = activeEffects.Count - 1; i >= 0; i--)
             {
-                StatusEffectData burnEffect = GetEffect("burn");
-                TakeDamage(burnEffect.DOTAmount);
-                ChangeAnimation("TakeDamage");
-                burnEffect.duration--;
-                Debug.Log("Burn effect applied to enemy: Damage = " + burnEffect.DOTAmount + ", Remaining Duration = " + burnEffect.duration);
-                if (burnEffect.duration <= 0)
+                StatusEffectData effect = activeEffects[i];
+                effect.duration--;
+                if (effect.doesDamage)
+                    TakeDamage(effect.DOTAmount);
+                if (effect.duration <= 0)
                 {
-                    RemoveEffect("burn");
+                    RemoveEffect(effect.effectName);
                 }
             }
         }

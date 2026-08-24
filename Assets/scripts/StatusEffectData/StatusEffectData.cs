@@ -6,6 +6,8 @@ public class StatusEffectData : ScriptableObject
     public string effectName;
     public int DOTAmount;
     public int duration;
+    public bool doesDamage;
+
 
     public GameObject effectIcon;
 }

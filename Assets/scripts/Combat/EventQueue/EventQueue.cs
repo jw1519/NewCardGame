@@ -71,6 +71,14 @@ public class EventQueue : MonoBehaviour
                 playerRemoveAllStatusEffects.Target.RemoveAllEffects();
                 yield return new WaitForSeconds(1); //do animation here
                 break;
+            case PlayerAddStatusEffectEvent playerAddStatusEffect:
+                playerAddStatusEffect.Target.ApplyEffect(playerAddStatusEffect.Effect);
+                if (playerAddStatusEffect.Effect.doesDamage)
+                {
+                    ApplyDamage(playerAddStatusEffect.Target, playerAddStatusEffect.Effect.DOTAmount);
+                }
+                yield return new WaitForSeconds(1); //do animation here
+                break;
 
             // Enemy Events
             case EnemyAttackEvent enemyAttack:

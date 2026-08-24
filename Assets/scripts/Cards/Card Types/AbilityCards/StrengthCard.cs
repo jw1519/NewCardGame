@@ -1,3 +1,4 @@
+using Character;
 using UnityEngine;
 
 namespace Card
@@ -5,12 +6,10 @@ namespace Card
     [CreateAssetMenu(fileName = "New Card", menuName = "Cards/Ability/Strength Card")]
     public class StrengthCard : BaseCard
     {
-        public int strengthIncrease;
-        public int duration;
-
+        public StatusEffectData effectData;
         public override void Use(GameObject target)
         {
-            base.Use(target);
+            EventQueue.EnqueueEvent(new PlayerAddStatusEffectEvent(target.GetComponent<BaseCharacter>(), effectData));
         }
     }
 }
