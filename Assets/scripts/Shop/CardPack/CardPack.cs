@@ -28,14 +28,14 @@ namespace Card
             if (canBuy)
             {
                 StartCoroutine(OpenPackAnimation());
-                ShopManager.instance.OpenCardPack(amountCardsContained);
-                Destroy(gameObject);
             }
         }
         public IEnumerator OpenPackAnimation()
         {
             animator.SetTrigger("Open");
             yield return new WaitForSeconds(2f);
+            ShopManager.instance.OpenCardPack(amountCardsContained);
+            Destroy(gameObject);
         }
     }
 }
