@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Enemy
 {
-    [CreateAssetMenu(fileName = "New Enemy", menuName = "Enemy/EnemySplit")]
+    [CreateAssetMenu(fileName = "New Enemy", menuName = "Enemy/Enemy Split")]
     // enemy seperates into multiple enemies at low health
     public class MultipleEnemy : BaseEnemy
     {
