@@ -95,6 +95,17 @@ public class CombatManager : MonoBehaviour
             gameWonPanel.OpenPanel();
         }
     }
+    public GameObject GetEnemy(BaseEnemy enemy)
+    {
+        foreach (GameObject gameObject in combatOrder)
+        {
+            if(gameObject.GetComponent<SetEnemyUI>().enemy.name == enemy.name)
+            {
+                return gameObject;
+            }
+        }
+        return null;
+    }
     public bool EnemiesAlive()
     {
         foreach (GameObject gameObject in combatOrder)

@@ -1,4 +1,5 @@
 using Character;
+using UnityEngine;
 namespace Enemy
 {
     public class EnemyAttackEvent : GameEvent
@@ -58,6 +59,19 @@ namespace Enemy
         {
             Target = target;
             HealAmount = healAmount;
+        }
+    }
+    public class EnemySplitEvent : GameEvent
+    {
+        public BaseEnemy EnemyToSpawn;
+        public BaseEnemy Enemy;
+        public int Amount;
+
+        public EnemySplitEvent(BaseEnemy enemyToSpawn, BaseEnemy enemy, int amount)
+        {
+            EnemyToSpawn = enemyToSpawn;
+            Enemy = enemy;
+            Amount = amount;
         }
     }
 }

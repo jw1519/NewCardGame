@@ -111,6 +111,24 @@ public class EventQueue : MonoBehaviour
                 AssetManager.Instance.GetAsset("GameManager").GetComponent<GameManager>().AddEnemyToCombat(newEnemy);
                 yield return new WaitForSeconds(1); //do animation here
                 break;
+            case EnemySplitEvent enemySplit:
+                enemySplit.Enemy.ChangeAnimation("Die");
+                enemySplit.Enemy.isSummon = true;
+                
+                yield return new WaitForSeconds(1);
+
+                CombatManager combatManager = AssetManager.Instance.GetAsset("CombatManger").GetComponent<CombatManager>();
+                GameObject gameObject = combatManager.GetEnemy(enemySplit.Enemy);
+                combatManager.RemoveFromCombat(gameObject);
+                //spawn enemies
+                EnemyFactory enemyFactory = AssetManager.Instance.GetAsset("EnemyFactory").GetComponent<EnemyFactory>();
+                for (int i = 0; enemySplit.Amount > i; i++)
+                {
+                    GameObject obj = enemyFactory.CreateEnemy(enemySplit.EnemyToSpawn);
+                    combatManager.AddToCombat(obj);
+                }
+                yield return new WaitForSeconds(1);
+                break;
         }
     }
     public static void ApplyDamage(ITakeDamage target, int damage)

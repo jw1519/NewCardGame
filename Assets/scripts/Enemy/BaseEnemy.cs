@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -63,7 +64,7 @@ namespace Enemy
             enemyHealthChange?.Invoke();
         }
 
-        public void TakeDamage(int damageTaken)
+        public virtual void TakeDamage(int damageTaken)
         {
             //check for defences
             if (defence > 0)
