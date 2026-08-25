@@ -44,7 +44,7 @@ add a room to heal e.g campfire or healing fountain
 
 
 issues:
-relics that add card seem to add double the cards to the deck instead of just one. need to fix this
 the card that drwas a random card from deck is taking more energy than it should. need to fix this (only happends sometimes))
+stength card doesnt get reverted if enemys are defeated before stength buff ends
 
 

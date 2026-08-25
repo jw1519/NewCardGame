@@ -171,7 +171,6 @@ namespace Card
         {
             card.transform.SetParent(discardedCardParent, false);
             card.GetComponent<SetCardUI>().card.isInHand = false;
-            card.SetActive(false);
             cardsInHand.Remove(card);
             cardsInDiscard.Add(card);
         }

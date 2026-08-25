@@ -19,6 +19,7 @@ public class PlayerStrengthEffect : StatusEffectData
     }
     public override void RemoveEffect()
     {
+        Debug.Log("here");
         foreach (GameObject card in CardPool.instance.pooledCards)
         {
             if (card.GetComponent<SetCardUI>().card is AttackCard)

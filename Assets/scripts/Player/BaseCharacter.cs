@@ -134,6 +134,7 @@ namespace Character
         public void RemoveEffect(string name)
         {
             StatusEffectData effect = GetEffect(name);
+            Debug.Log("in here");
             effect.RemoveEffect();
             activeEffects.Remove(effect);
             RemoveEffectToPlayer?.Invoke(name);
@@ -142,6 +143,7 @@ namespace Character
         {
             foreach (StatusEffectData effectToRemove in activeEffects)
             {
+                Debug.Log($"{effectToRemove.effectName}");
                 RemoveEffectToPlayer?.Invoke(effectToRemove.effectName);
             }
             activeEffects.Clear();

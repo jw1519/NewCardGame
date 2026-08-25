@@ -14,6 +14,7 @@ namespace Card
         public bool isSingleUse = true; //Check if card is single use to allow is to ge in dead pile
         public bool usedOnEnemy;
 
+        public CardRarety cardRarety;
 
         [HideInInspector] public SetCharacterUI characterUI;
         public virtual void Awake()
@@ -36,5 +37,12 @@ namespace Card
             characterUI.UpdateEnergyUI();
             isInHand = false;
         }
+    }
+    public enum CardRarety
+    {
+        common,
+        uncommon,
+        rare,
+        unique,
     }
 }

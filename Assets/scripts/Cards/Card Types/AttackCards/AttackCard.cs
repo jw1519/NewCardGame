@@ -42,6 +42,7 @@ namespace Card
         public void ResetDamage()
         {
             damage = originalDamage;
+            UpdateDescritpion();
         }
 }
 }

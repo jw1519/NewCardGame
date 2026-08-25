@@ -37,4 +37,9 @@ public class GameWonPanel : BasePanel
     {
         goldEarned += goldAmount;
     }
+    public override void ClosePanel()
+    {
+        base.ClosePanel();
+        AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>().character.RemoveAllEffects();
+    }
 }

@@ -131,7 +131,9 @@ namespace Enemy
                 StatusEffectData effect = activeEffects[i];
                 effect.duration--;
                 if (effect.doesDamage)
-                    Mathf.RoundToInt(effect.DOTAmount);
+                {
+                    TakeDamage(Mathf.RoundToInt(effect.DOTAmount));
+                }
                 if (effect.duration <= 0)
                 {
                     RemoveEffect(effect.effectName);
