@@ -1,12 +1,5 @@
 Ideas for the game:
 
-
-enemies could be chained together. all take damage. all heal the same
-
-dot attack
-
-
-
 things to do:
 add more cards
 add relics with when you have a certain amount of the same type of relic get a bonus
@@ -28,7 +21,6 @@ attack:
 true damage - ignore shield but does low damage - maybe
 
 ability:
-strength for a few turns
 weakness for a few turns
 every time player takes damage they draw a cards
 
@@ -38,13 +30,15 @@ have a way to modify cards e.g
 cleanse card can be used on enemies to remove any buffs
 can permanently upgrade cards in deck to have a bonus effect
 
-Have Cards that dont go inot the discard pile until used or discarded maualy
 
-add a room to heal e.g campfire or healing fountain
+enemies
+enemies could be chained together. all take damage. all heal the same
+
+boss ideas
+a boss that splits into two when on half heath (two/three goblins in a trench coat)
 
 
 issues:
 the card that drwas a random card from deck is taking more energy than it should. need to fix this (only happends sometimes))
-stength card doesnt get reverted if enemys are defeated before stength buff ends
 
 
