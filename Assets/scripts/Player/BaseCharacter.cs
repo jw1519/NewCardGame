@@ -134,19 +134,20 @@ namespace Character
         public void RemoveEffect(string name)
         {
             StatusEffectData effect = GetEffect(name);
-            Debug.Log("in here");
             effect.RemoveEffect();
             activeEffects.Remove(effect);
+            effect.RemoveEffect();
             RemoveEffectToPlayer?.Invoke(name);
         }
         public void RemoveAllEffects()
         {
-            foreach (StatusEffectData effectToRemove in activeEffects)
+            if (activeEffects.Count == 0) return;
+            foreach (StatusEffectData effect in activeEffects)
             {
-                Debug.Log($"{effectToRemove.effectName}");
-                RemoveEffectToPlayer?.Invoke(effectToRemove.effectName);
+                if (effect != null)
+                    RemoveEffect(effect.effectName);
+                else return;
             }
-            activeEffects.Clear();
         }
         public StatusEffectData GetEffect(string name)
         {
