@@ -117,16 +117,16 @@ public class EventQueue : MonoBehaviour
                 
                 yield return new WaitForSeconds(1);
 
-                CombatManager combatManager = AssetManager.Instance.GetAsset("CombatManger").GetComponent<CombatManager>();
+                CombatManager combatManager = AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>();
                 GameObject gameObject = combatManager.GetEnemy(enemySplit.Enemy);
-                combatManager.RemoveFromCombat(gameObject);
                 //spawn enemies
                 EnemyFactory enemyFactory = AssetManager.Instance.GetAsset("EnemyFactory").GetComponent<EnemyFactory>();
                 for (int i = 0; enemySplit.Amount > i; i++)
                 {
                     GameObject obj = enemyFactory.CreateEnemy(enemySplit.EnemyToSpawn);
-                    combatManager.AddToCombat(obj);
+                    AssetManager.Instance.GetAsset("GameManager").GetComponent<GameManager>().AddEnemyToCombat(obj);
                 }
+                combatManager.RemoveFromCombat(gameObject);
                 yield return new WaitForSeconds(1);
                 break;
         }

@@ -27,7 +27,7 @@ namespace Enemy
         public Sprite abilitySprite;
 
         [Header("Stats")]
-        //public string enemyName;
+        public string enemyName;
         public EnemyType enemyType;
         
         public int health;

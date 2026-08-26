@@ -16,7 +16,7 @@ namespace Enemy
         public override void TakeDamage(int damageTaken)
         {
             base.TakeDamage(damageTaken);
-            if (health <= health/2)
+            if (health <= maxHealth/2)
             {
                 EventQueue.EnqueueEvent(new EnemySplitEvent(enemy, this, enemyToSpawnAmount));
             }

@@ -99,7 +99,8 @@ public class CombatManager : MonoBehaviour
     {
         foreach (GameObject gameObject in combatOrder)
         {
-            if(gameObject.GetComponent<SetEnemyUI>().enemy.name == enemy.name)
+            SetEnemyUI baseEnemy = gameObject.GetComponent<SetEnemyUI>();
+            if(baseEnemy != null && baseEnemy.enemy.enemyName == enemy.enemyName)
             {
                 return gameObject;
             }

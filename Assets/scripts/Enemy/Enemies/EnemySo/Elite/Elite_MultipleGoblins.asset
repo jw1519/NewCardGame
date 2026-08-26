@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Elite_MultipleGoblins
   m_EditorClassIdentifier: Assembly-CSharp::Enemy.MultipleEnemy
   enemySprite: {fileID: 0}
-  animatorController: {fileID: 0}
+  animatorController: {fileID: 9100000, guid: e4fdefbd45070fc4eac83b79148ffa81, type: 2}
   animator: {fileID: 0}
   action: 0
   attackSprite: {fileID: 21300000, guid: 300675427539b7842a89d514aaa349cd, type: 3}
@@ -34,3 +34,4 @@ MonoBehaviour:
   isSummon: 0
   activeEffects: []
   enemy: {fileID: 0}
+  enemyToSpawnAmount: 0
