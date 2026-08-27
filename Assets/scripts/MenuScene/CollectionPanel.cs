@@ -2,7 +2,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollectionPanel : MonoBehaviour
+public class CollectionPanel : BasePanel
 {
     public List<GameObject> panels;
 

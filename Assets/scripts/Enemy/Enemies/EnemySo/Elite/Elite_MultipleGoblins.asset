@@ -19,6 +19,7 @@ MonoBehaviour:
   attackSprite: {fileID: 21300000, guid: 300675427539b7842a89d514aaa349cd, type: 3}
   defenceSprite: {fileID: 21300000, guid: c07d8f2ef21dc634395f674f8766dcf6, type: 3}
   abilitySprite: {fileID: 21300000, guid: 0ad037c82e017d7429742ed757e5dafa, type: 3}
+  enemyName: Goblins In a Trench Coat
   enemyType: 0
   health: 0
   maxHealth: 60
@@ -33,5 +34,5 @@ MonoBehaviour:
   goldOnDefeat: 0
   isSummon: 0
   activeEffects: []
-  enemy: {fileID: 0}
-  enemyToSpawnAmount: 0
+  enemy: {fileID: 11400000, guid: b21cb89c2c41ccb47bee46fdb1652b6f, type: 2}
+  enemyToSpawnAmount: 2
