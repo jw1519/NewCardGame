@@ -133,11 +133,13 @@ namespace Character
         }
         public void UpdateStatusEffectUI()
         {
-            if (character.GetEffect("burn") != null)
+            foreach (GameObject icon in effectIcons)
             {
-                StatusEffectData burnEffect = character.GetEffect("burn");
-                GetEffectIcon("burn").GetComponentInChildren<TextMeshProUGUI>().text = burnEffect.duration.ToString();
-                if (!character.GetEffect("burn")) RemoveStatusEffects("burn");
+                StatusEffectData effectData = character.GetEffect(icon.name);
+                if (effectData != null)
+                {
+                    icon.GetComponentInChildren<TextMeshProUGUI>().text = effectData.duration.ToString();
+                }
             }
         }
         public void RemoveStatusEffects(string effectName)
