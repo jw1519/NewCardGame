@@ -10,7 +10,7 @@ namespace Enemy
     {
         public static event Action enemyHealthChange;
         public static event Action enemyDefenceChange;
-        public static event Action<string> addEffectToEnemy;
+        public static event Action<StatusEffectData> addEffectToEnemy;
         public static event Action UpdateEffectToEnemy;
         public static event Action<string> RemoveEffectToEnemy;
         public static event Action enemydied;
@@ -96,7 +96,10 @@ namespace Enemy
         }
         public virtual void UseAbility(GameObject target)
         {
-            Debug.Log("Use Ability here");
+            if (abilityEffect != null)
+            {
+                EventQueue.EnqueueEvent(new EnemyAddStatusEffectEvent(target, abilityEffect));
+            }
         }
         public void ChangeAnimation(string animationName)
         {
@@ -122,7 +125,7 @@ namespace Enemy
             else
             {
                 activeEffects.Add(Instantiate(data));
-                addEffectToEnemy?.Invoke(data.effectName);
+                addEffectToEnemy?.Invoke(data);
             }
         }
         public void UpdateEffect()

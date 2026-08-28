@@ -32,10 +32,10 @@ namespace Enemy
     }
     public class EnemyAddStatusEffectEvent : GameEvent
     {
-        public BaseCharacter Target;
+        public GameObject Target;
         public StatusEffectData statusEffect;
 
-        public EnemyAddStatusEffectEvent(BaseCharacter target, StatusEffectData effectData)
+        public EnemyAddStatusEffectEvent(GameObject target, StatusEffectData effectData)
         {
             Target = target;
             statusEffect = effectData;

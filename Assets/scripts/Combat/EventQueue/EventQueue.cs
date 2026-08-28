@@ -60,9 +60,9 @@ public class EventQueue : MonoBehaviour
                 yield return new WaitForSeconds(1); //do animation here
                 break;
             case PlayerAOEAttackEvent playerAOEAttack:
-                foreach (BaseEnemy enemy in playerAOEAttack.Targets)
+                foreach (BaseEnemy baseEnemy in playerAOEAttack.Targets)
                 {
-                    ApplyDamage(enemy, playerAOEAttack.Damage);
+                    ApplyDamage(baseEnemy, playerAOEAttack.Damage);
                 }
                 playerAOEAttack.Character.ChangeAnimation("Attack");
                 yield return new WaitForSeconds(1); //do animation here
@@ -101,7 +101,8 @@ public class EventQueue : MonoBehaviour
                 yield return new WaitForSeconds(1); //do animation here
                 break;
             case EnemyAddStatusEffectEvent enemyStatusEffect:
-                enemyStatusEffect.Target.ApplyEffect(enemyStatusEffect.statusEffect);
+                BaseEnemy enemy = enemyStatusEffect.Target.GetComponent<SetEnemyUI>().enemy;
+                enemy.ApplyEffect(enemyStatusEffect.statusEffect);
                 yield return new WaitForSeconds(1); //do animation here
                 break;
             case EnemySummonEvent enemySummon:

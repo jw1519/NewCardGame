@@ -3,7 +3,7 @@ using Card;
 
 namespace Enemy
 {
-    [CreateAssetMenu(fileName = "New Enemy", menuName = "Enemy/Goblin Theif")]
+    [CreateAssetMenu(fileName = "New Enemy", menuName = "Enemy/Theif")]
     public class Theif : BaseEnemy
     {
         public override void UseAbility(GameObject target)
@@ -15,11 +15,11 @@ namespace Enemy
                 int randomIndex = Random.Range(0, cardManager.cardsInHand.Count);
                 GameObject stolenCard = cardManager.cardsInHand[randomIndex];
                 stolenCard.GetComponent<UseCard>().DiscardCard();
-                Debug.Log("Goblin stole a card from the player!");
+                Debug.Log("stole a card from the player!");
             }
             else
             {
-                Debug.Log("Goblin tried to steal a card, but the player has no cards in hand.");
+                Debug.Log("tried to steal a card, but the player has no cards in hand.");
             }
         }
     }

@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,8 +25,8 @@ namespace Enemy
         public TextMeshProUGUI actionText;
 
         [Header("Effects")]
-        public GameObject burnSprite;
         public Animator effectAnimator;
+        public List<GameObject> effectIcons;
         private void Start()
         {
             enemy.health = enemy.maxHealth;
@@ -87,6 +89,10 @@ namespace Enemy
                 case EnemyAction.Attack:
                     actionSprite.sprite = enemy.attackSprite;
                     enemy.damage = Random.Range(enemy.minDamage, enemy.maxDamage);
+                    if (enemy.GetEffect("Strength"))
+                        enemy.damage = Mathf.RoundToInt(enemy.damage * 1.5f);
+                    if (enemy.GetEffect("Weakness"))
+                        enemy.damage = Mathf.RoundToInt(enemy.damage / 1.5f);
                     actionText.text = enemy.damage.ToString();
                     return;
 
@@ -101,37 +107,33 @@ namespace Enemy
                     return;
             }
         }
-        public void EnableStatusEffect(string effectname)
+        public void EnableStatusEffect(StatusEffectData data)
         {
-            switch (effectname)
+            if (enemy.activeEffects.Find(p => p.effectName == data.effectName) == null) return;
+            GameObject icon = GetEffectIcon(data.effectName);
+            if (icon != null)
             {
-                case "burn":
-                    if (enemy.GetEffect("burn") != true) return;
-                    burnSprite.SetActive(true);
-                    burnSprite.GetComponentInChildren<TextMeshProUGUI>().text = enemy.GetEffect("burn").duration.ToString();
-                    return;
+                icon.SetActive(true);
+                icon.GetComponentInChildren<TextMeshProUGUI>().text = data.duration.ToString();
             }
+            else
+                Debug.LogWarning("Unknown status effect: " + data.effectName);
         }
         public void UpdateStatusEffects()
         {
-            foreach (StatusEffectData data in enemy.activeEffects)
+            foreach(GameObject icon in effectIcons)
             {
-                if (data == null) return;
-                if (data.effectName == "burn")
+                StatusEffectData effectData = enemy.GetEffect(icon.name);
+                if (effectData != null)
                 {
-                    burnSprite.SetActive(true);
-                    burnSprite.GetComponentInChildren<TextMeshProUGUI>().text = enemy.GetEffect("burn").duration.ToString();
+                    icon.GetComponentInChildren<TextMeshProUGUI>().text = effectData.duration.ToString();
                 }
             }
         }
         public void RemoveStatusEffects(string effectname)
         {
-            switch (effectname)
-            {
-                case "burn":
-                    burnSprite.SetActive(false);
-                    return;
-            }
+            GameObject icon = GetEffectIcon(effectname);
+            icon.SetActive(false);
         }
         public void DisableUI()
         {
@@ -152,6 +154,15 @@ namespace Enemy
                 gameWonPanel.GetComponent<GameWonPanel>().UpdateGold(enemy.goldOnDefeat);
                 gameWonPanel.GetComponent<GameWonPanel>().UpdateStats();
             }
+        }
+        public GameObject GetEffectIcon(string name)
+        {
+            foreach (GameObject icon in effectIcons)
+            {
+                if (icon.name == name)
+                    return icon;
+            }
+            return null;
         }
         public void EffectAnimation(string effectName)
         {
