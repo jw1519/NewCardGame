@@ -8,7 +8,7 @@ public class CombatRoom : BaseRoom
     public BaseEnemy enemyToSpawn;
     public int enemyAmount;
 
-    public void CombatRoomSetUp(BaseEnemy enemy, int amount)
+    public void RoomSetUp(BaseEnemy enemy, int amount)
     {
         combatManager = AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>();
         enemyFactory = AssetManager.Instance.GetAsset("EnemyFactory").GetComponent<EnemyFactory>();

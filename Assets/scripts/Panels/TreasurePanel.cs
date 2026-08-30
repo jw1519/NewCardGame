@@ -9,37 +9,47 @@ public class TreasurePanel : BasePanel
 {
     public List<Relic> treasures;
 
-    public List<Relic> instantiatedTreasures;
+    //public List<Relic> instantiatedTreasures;
 
     public GameObject panel;
     public Image treasureImage;
-    Relic currentTreasure;
+    public Relic currentTreasure;
 
     public TextMeshProUGUI treasureDescrition;
 
-    private void Start()
+    //private void Start()
+    //{
+    //    for (int i = 0; i < treasures.Count; i++)
+    //    {
+    //        instantiatedTreasures.Add(Instantiate(treasures[i]));
+    //    }
+    //}
+    public void SetTreasure(Relic treasure)
     {
-        for (int i = 0; i < treasures.Count; i++)
-        {
-            instantiatedTreasures.Add(Instantiate(treasures[i]));
-        }
+        currentTreasure = treasure;
+        treasureDescrition.text = currentTreasure.description;
+        treasureImage.sprite = treasure.itemSprite;
     }
-
+    public Relic GetRelic()
+    {
+        int index = Random.Range(0, treasures.Count);
+        return treasures[index];
+    }
     public void OpenChest()
     {
-        if (instantiatedTreasures.Count == 0)
-        {
-            TakeTreasure();
-            return;
-        }
-        int randomIndex = Random.Range(0, instantiatedTreasures.Count);
-        if (treasures[randomIndex] != null)
-        {
-            treasureImage.sprite = instantiatedTreasures[randomIndex].itemSprite;
-            currentTreasure = instantiatedTreasures[randomIndex];
-        }
         panel.SetActive(true);
-        treasureDescrition.text = currentTreasure.description;
+        //if (instantiatedTreasures.Count == 0)
+        //{
+        //    TakeTreasure();
+        //    return;
+        //}
+        //int randomIndex = Random.Range(0, instantiatedTreasures.Count);
+        //if (treasures[randomIndex] != null)
+        //{
+        //    treasureImage.sprite = instantiatedTreasures[randomIndex].itemSprite;
+        //    currentTreasure = instantiatedTreasures[randomIndex];
+        //}
+        //treasureDescrition.text = currentTreasure.description;
     }
     public void TakeTreasure()
     {

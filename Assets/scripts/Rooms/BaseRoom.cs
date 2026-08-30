@@ -60,25 +60,10 @@ public class BaseRoom : MonoBehaviour
     {
         switch (roomType)
         {
-            case RoomType.Normal:
-                GameManager.instance.StartCombat();
-                mapPanel.ClosePanel();
-                GameManager.instance.SetRoom(this);
-                break;
-            case RoomType.Boss:
-                GameManager.instance.StartCombat();
-                mapPanel.ClosePanel();
-                GameManager.instance.SetRoom(this);
-                break;
             case RoomType.Shop:
                 mapPanel.ClosePanel();
                 AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("ShopPanel").OpenPanel();
                 GameManager.instance.SetRoom(this);
-                break;
-            case RoomType.Treasure:
-                GameManager.instance.SetRoom(this);
-                AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("TreasurePanel").OpenPanel();
-                mapPanel.ClosePanel();
                 break;
             case RoomType.healOrUpgrade:
                 Debug.Log("Entered Campfire Room");

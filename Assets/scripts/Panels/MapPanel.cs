@@ -89,7 +89,7 @@ public class MapPanel : BasePanel
                         grid[x, y].InIt(x, y, RoomType.Normal);
                         grid[x, y].SetSprite(roomSprites[0]);
                         BaseEnemy enemy = AssetManager.Instance.GetAsset("EnemyFactory").GetComponent<EnemyFactory>().GetEnemy(EnemyType.Basic);
-                        room.GetComponent<CombatRoom>().CombatRoomSetUp(enemy, 2);
+                        room.GetComponent<CombatRoom>().RoomSetUp(enemy, 2);
                         
                         break;
                     case int n when (n < 70):
@@ -97,7 +97,7 @@ public class MapPanel : BasePanel
                         grid[x, y].InIt(x, y, RoomType.Boss);
                         grid[x, y].SetSprite(roomSprites[1]);
                         BaseEnemy baseEnemy = AssetManager.Instance.GetAsset("EnemyFactory").GetComponent<EnemyFactory>().GetEnemy(EnemyType.Boss);
-                        room.GetComponent<CombatRoom>().CombatRoomSetUp(baseEnemy, 1);
+                        room.GetComponent<CombatRoom>().RoomSetUp(baseEnemy, 1);
                         break;
                     case int n when (n < 85):
                         grid[x, y] = room.AddComponent<BaseRoom>();
@@ -105,9 +105,11 @@ public class MapPanel : BasePanel
                         grid[x, y].SetSprite(roomSprites[2]);
                         break;
                     case int n when (n < 90):
-                        grid[x, y] = room.AddComponent<BaseRoom>();
+                        grid[x, y] = room.AddComponent<TreasureRoom>();
                         grid[x, y].InIt(x, y, RoomType.Treasure);
                         grid[x, y].SetSprite(roomSprites[3]);
+                        TreasurePanel panel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("TreasurePanel").GetComponent<TreasurePanel>();
+                        room.GetComponent<TreasureRoom>().RoomSetUp(panel.GetRelic());
                         break;
                     default:
                         grid[x, y] = room.AddComponent<BaseRoom>();
