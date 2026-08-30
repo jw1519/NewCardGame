@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Enemy
@@ -5,16 +6,27 @@ namespace Enemy
     public class EnemyFactory : MonoBehaviour
     {
         public GameObject enemyPrefab;
-        public Transform enemyParent;
+        public List<BaseEnemy> enemyList;
+        public List<BaseEnemy> eliteList;
 
+        public BaseEnemy GetEnemy(EnemyType type)
+        {
+            if (type == EnemyType.Basic)
+            {
+                int random = Random.Range(0, enemyList.Count);
+                return enemyList[random];
+            }
+            else
+            {
+                int random = Random.Range(0, eliteList.Count);
+                return eliteList[random];
+            }
+
+        }
         public GameObject CreateEnemy(BaseEnemy enemy)
         {
             enemyPrefab.GetComponent<SetEnemyUI>().enemy = Instantiate(enemy);
             GameObject instance = Instantiate(enemyPrefab);
-            if (enemyParent != null)
-            {
-                instance.transform.SetParent(enemyParent);
-            }
             return instance;
         }
     }

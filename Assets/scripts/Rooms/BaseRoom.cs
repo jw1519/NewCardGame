@@ -1,12 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using System.Collections.Generic;
 
 public class BaseRoom : MonoBehaviour
 {
     public RoomType roomType;
-    public Image image;
+    Image image;
     Button button;
     [HideInInspector] public MapPanel mapPanel;
 
@@ -20,7 +18,13 @@ public class BaseRoom : MonoBehaviour
         isRevealed = false;
         button = GetComponent<Button>();
         button.onClick.AddListener(EnterRoom);
+        image = transform.GetChild(0).GetComponent<Image>();
         image.gameObject.SetActive(false);
+    }
+
+    public virtual void RoomSetUp()
+    {
+
     }
     public void SetSprite(Sprite sprite)
     {
@@ -57,12 +61,12 @@ public class BaseRoom : MonoBehaviour
         switch (roomType)
         {
             case RoomType.Normal:
-                GameManager.instance.StartCombat("Normal");
+                GameManager.instance.StartCombat();
                 mapPanel.ClosePanel();
                 GameManager.instance.SetRoom(this);
                 break;
             case RoomType.Boss:
-                GameManager.instance.StartCombat("Boss");
+                GameManager.instance.StartCombat();
                 mapPanel.ClosePanel();
                 GameManager.instance.SetRoom(this);
                 break;
@@ -89,7 +93,7 @@ public class BaseRoom : MonoBehaviour
         }
     }
 }
-    public enum RoomType
+public enum RoomType
 {
     Normal,
     Boss,

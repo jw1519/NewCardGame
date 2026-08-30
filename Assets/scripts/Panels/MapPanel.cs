@@ -1,4 +1,4 @@
-using System;
+using Enemy;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -77,36 +77,40 @@ public class MapPanel : BasePanel
         {
             for (int y = 0; y < mapHeight; y++)
             {
-                if (grid [x, y]  == null)
-                {
-                    GameObject room = Instantiate(roomPrefab, new Vector3(x * roomSize - roomSize * 2, y * roomSize - roomSize * 3, 0), Quaternion.identity);
-                    room.transform.localScale = Vector3.one * roomSize;
-                    room.transform.SetParent(roomContainer, false);
-                    room.GetComponent<BaseRoom>().mapPanel = this; // Set reference to MapPanel in each room
-
-                    grid[x, y] = room.GetComponent<BaseRoom>();
-                }
-                int roomTypeRoll = UnityEngine.Random.Range(0, 100);
+                GameObject room = Instantiate(roomPrefab, new Vector3(x * roomSize - roomSize * 2, y * roomSize - roomSize * 3, 0), Quaternion.identity);
+                room.transform.localScale = Vector3.one * roomSize;
+                room.transform.SetParent(roomContainer, false);
+                int roomTypeRoll = Random.Range(0, 100);
 
                 switch (roomTypeRoll)
                 {
                     case int n when (n < 50):
+                        grid[x, y] = room.AddComponent<CombatRoom>();
                         grid[x, y].InIt(x, y, RoomType.Normal);
                         grid[x, y].SetSprite(roomSprites[0]);
+                        BaseEnemy enemy = AssetManager.Instance.GetAsset("EnemyFactory").GetComponent<EnemyFactory>().GetEnemy(EnemyType.Basic);
+                        room.GetComponent<CombatRoom>().CombatRoomSetUp(enemy, 2);
+                        
                         break;
                     case int n when (n < 70):
+                        grid[x, y] = room.AddComponent<CombatRoom>();
                         grid[x, y].InIt(x, y, RoomType.Boss);
                         grid[x, y].SetSprite(roomSprites[1]);
+                        BaseEnemy baseEnemy = AssetManager.Instance.GetAsset("EnemyFactory").GetComponent<EnemyFactory>().GetEnemy(EnemyType.Boss);
+                        room.GetComponent<CombatRoom>().CombatRoomSetUp(baseEnemy, 1);
                         break;
                     case int n when (n < 85):
+                        grid[x, y] = room.AddComponent<BaseRoom>();
                         grid[x, y].InIt(x, y, RoomType.Shop);
                         grid[x, y].SetSprite(roomSprites[2]);
                         break;
                     case int n when (n < 90):
+                        grid[x, y] = room.AddComponent<BaseRoom>();
                         grid[x, y].InIt(x, y, RoomType.Treasure);
                         grid[x, y].SetSprite(roomSprites[3]);
                         break;
                     default:
+                        grid[x, y] = room.AddComponent<BaseRoom>();
                         grid[x, y].InIt(x, y, RoomType.healOrUpgrade);
                         grid[x, y].SetSprite(roomSprites[4]);
                         break;
@@ -121,6 +125,7 @@ public class MapPanel : BasePanel
                     grid[x, y].InIt(x, y, RoomType.End);
                     grid[x, y].SetSprite(roomSprites[5]);
                 }
+                grid[x, y].mapPanel = this; // Set reference to MapPanel in each room
             }
         }
     }

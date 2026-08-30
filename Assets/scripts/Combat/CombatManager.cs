@@ -15,16 +15,36 @@ public class CombatManager : MonoBehaviour
     public int currentCombatIndex = 0;
     public int cardsDrawn = 2;
 
+    public Transform enemyParent;
+    public List<Transform> enemyPositions;
+
     BasePanel gameWonPanel;
 
 
     private void Start()
     {
         gameWonPanel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("GameWonPanel");
+
+        foreach (Transform child in enemyParent)
+            enemyPositions.Add(child);
     }
     public void AddToCombat(GameObject character)
     {
         combatOrder.Add(character);
+        if (character.GetComponent<SetEnemyUI>() != null)
+        {
+            BaseEnemy enemy = character.GetComponent<SetEnemyUI>().enemy;
+            if (enemy.enemyType == EnemyType.Basic)
+            {
+                character.transform.SetParent(enemyPositions.Find(pos => pos.childCount == 0), true);
+                character.transform.localPosition = Vector3.zero;
+            }
+            else
+            {
+                character.transform.SetParent(enemyPositions[1], true);
+                character.transform.localPosition = Vector3.zero;
+            }
+        }
     }
 
     public IEnumerator StartCombat()

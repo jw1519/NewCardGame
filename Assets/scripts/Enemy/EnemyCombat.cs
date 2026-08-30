@@ -16,7 +16,7 @@ namespace Enemy
             enemyUI = GetComponent<SetEnemyUI>();
             enemy = enemyUI.enemy;
             combatManager = AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>();
-            combatManager.AddToCombat(gameObject);
+            //combatManager.AddToCombat(gameObject);
             SelectNextAction();
         }
         public void StartTurn()

@@ -4340,6 +4340,8 @@ MonoBehaviour:
   combatOrder: []
   currentCombatIndex: 0
   cardsDrawn: 2
+  enemyParent: {fileID: 393091522}
+  enemyPositions: []
 --- !u!1 &662451420
 GameObject:
   m_ObjectHideFlags: 0
@@ -9675,7 +9677,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 8511036128161293653, guid: 64c5d4671c66b0d4288f7b9210b91945, type: 3}
-  enemyParent: {fileID: 393091522}
+  enemyList:
+  - {fileID: 11400000, guid: 362d6ce35d50f9443af4998c403dacc2, type: 2}
+  - {fileID: 11400000, guid: 948cf0e6ddc079541b744aca06efb982, type: 2}
+  - {fileID: 11400000, guid: 7ae7b768389e8dc47a3aab1199864ed1, type: 2}
+  - {fileID: 11400000, guid: b21cb89c2c41ccb47bee46fdb1652b6f, type: 2}
+  - {fileID: 11400000, guid: c3ea55c7bed440446bce4427ce6182dd, type: 2}
+  eliteList:
+  - {fileID: 11400000, guid: 8bf289ac19302ce4b8fea3bdb9699adb, type: 2}
+  - {fileID: 11400000, guid: 9a9318cee3a790145ba5126aec35cebf, type: 2}
 --- !u!1 &1556864869
 GameObject:
   m_ObjectHideFlags: 0

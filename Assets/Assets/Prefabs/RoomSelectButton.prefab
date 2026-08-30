@@ -87,7 +87,6 @@ GameObject:
   - component: {fileID: 3141251345914924125}
   - component: {fileID: 8446014708284453955}
   - component: {fileID: 4880940473902653774}
-  - component: {fileID: 7752729272577523183}
   m_Layer: 5
   m_Name: RoomSelectButton
   m_TagString: Untagged
@@ -197,30 +196,3 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7752729272577523183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5532612470889736156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b57d7b1c4a9836647bc7767099868e9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BaseRoom
-  roomType: 1
-  roomImage: {fileID: 21300000, guid: 82b951711fecb8e4396e8daa79cf2273, type: 3}
-  image: {fileID: 718881469550187952}
-  mapPanel: {fileID: 0}
-  roomSprites:
-  - {fileID: 21300000, guid: ba251359d39a20b428d63829f74087a3, type: 3}
-  - {fileID: 21300000, guid: 27d6d0fba72b8d944a816cee30e94d72, type: 3}
-  - {fileID: 21300000, guid: f3dfe5edd08116543b186ec2a9e3ff38, type: 3}
-  - {fileID: 21300000, guid: fb39b0cbdce1e6347adc13d8ac1a2f13, type: 3}
-  - {fileID: 21300000, guid: 88345431639f1b947807e60d28dda84f, type: 3}
-  - {fileID: 21300000, guid: b5becce8e1ee77d4fbf37cb3e16ae904, type: 3}
-  isCleared: 0
-  isRevealed: 0
-  x: 0
-  y: 0

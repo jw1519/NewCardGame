@@ -14,17 +14,13 @@ public class GameManager : MonoBehaviour
     public static event Action<int> updateRoomsCleared;
 
     [Header("enemy")]
-    public List<BaseEnemy> normalEnemies;
-    public List<BaseEnemy> eliteEnemies;
     public Transform enemyParent;
     public List<Transform> enemyPositions;
-    int maxEnemyAmount = 3;
 
     SetCharacterUI player;
     CombatManager combatManager;
     BaseRoom currentRoom;
     MapPanel mapPanel;
-    EnemyFactory enemyFactory;
 
     private void Start()
     {
@@ -40,7 +36,6 @@ public class GameManager : MonoBehaviour
         player = FindAnyObjectByType<SetCharacterUI>();
         combatManager = AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>();
         mapPanel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("MapPanel").GetComponent<MapPanel>();
-        enemyFactory = AssetManager.Instance.GetAsset("EnemyFactory").GetComponent<EnemyFactory>();
     }
     public void SetRoom(BaseRoom room)
     {
@@ -66,37 +61,13 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(combatManager.StartCombat());
     }
-    public void StartCombat(string roomType)
+    public void StartCombat()
     {
         CardManager.instance.DiscardAllCards();
         CardManager.instance.EmptyDiscardPile();
         player.character.energy = player.character.maxEnergy;
         player.UpdateEnergyUI();
-        EndRound();
         CardManager.instance.NewRound();
-
-        if (roomType == "Normal")
-        {
-            int enemyAmount = UnityEngine.Random.Range(1, maxEnemyAmount);
-            for (int i = 0; i < enemyAmount; i++)
-            {
-                GameObject instance = enemyFactory.CreateEnemy(RandomEnemy());
-                AddEnemyToCombat(instance);
-            }
-        }
-        else if (roomType == "Boss")
-        {
-            if (eliteEnemies.Count < 1) return;
-
-            Debug.Log("Creating Elite Enemy");
-
-            int i = UnityEngine.Random.Range(0, eliteEnemies.Count);
-            GameObject instance = enemyFactory.CreateEnemy(eliteEnemies[i]);
-            instance.transform.SetParent(enemyPositions[1], true);
-            instance.transform.localPosition = Vector3.zero;
-        }
-
-
         combatManager.currentCombatIndex = 0;
         StartCoroutine(combatManager.StartCombat());
     }
@@ -119,18 +90,6 @@ public class GameManager : MonoBehaviour
             CardManager.instance.ClearDeadCards();
         }
         player.character.RemoveAllEffects();
-    }
-    public BaseEnemy RandomEnemy()
-    {
-        if (normalEnemies.Count > 1)
-        {
-            int random = UnityEngine.Random.Range(0,normalEnemies.Count);
-            return normalEnemies[random];
-        }
-        else
-        {
-            return normalEnemies[0];
-        }
     }
     public void NewRun()
     {
