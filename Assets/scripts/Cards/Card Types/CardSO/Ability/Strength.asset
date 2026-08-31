@@ -20,5 +20,6 @@ MonoBehaviour:
   isInHand: 0
   isSingleUse: 0
   usedOnEnemy: 0
+  cardRarety: 2
   characterUI: {fileID: 0}
   effectData: {fileID: 11400000, guid: 83f5749defef6d546b21b9a3f9ab68ed, type: 2}

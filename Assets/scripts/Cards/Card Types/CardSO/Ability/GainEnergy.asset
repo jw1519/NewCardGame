@@ -20,5 +20,6 @@ MonoBehaviour:
   isInHand: 0
   isSingleUse: 1
   usedOnEnemy: 0
+  cardRarety: 3
   characterUI: {fileID: 0}
   abilityPower: 2

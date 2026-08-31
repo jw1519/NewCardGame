@@ -18,5 +18,8 @@ MonoBehaviour:
   cardEnergy: 0
   description: Heal player for 3hp
   isInHand: 0
-  player: {fileID: 0}
+  isSingleUse: 1
+  usedOnEnemy: 0
+  cardRarety: 3
+  characterUI: {fileID: 0}
   abilityPower: 3
