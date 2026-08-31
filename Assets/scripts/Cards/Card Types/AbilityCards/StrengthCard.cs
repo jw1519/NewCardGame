@@ -9,6 +9,7 @@ namespace Card
         public StatusEffectData effectData;
         public override void Use(GameObject target)
         {
+            base.Use(target);
             EventQueue.EnqueueEvent(new PlayerAddStatusEffectEvent(target, effectData));
         }
     }

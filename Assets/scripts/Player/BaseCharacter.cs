@@ -148,8 +148,7 @@ namespace Character
                 if (activeEffects[i] != null)
                 {
                     RemoveEffect(activeEffects[i].effectName);
-                }
-                    
+                }  
             }
         }
         public StatusEffectData GetEffect(string name)
