@@ -30,6 +30,8 @@ have a way to modify cards e.g
 cleanse card can be used on enemies to remove any buffs
 can permanently upgrade cards in deck to have a bonus effect
 
+have a hover over chaarcters and show what status effects are on them and what they do
+
 
 enemies
 enemies could be chained together. all take damage. all heal the same
