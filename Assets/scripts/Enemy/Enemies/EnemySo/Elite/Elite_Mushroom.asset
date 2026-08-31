@@ -19,6 +19,7 @@ MonoBehaviour:
   attackSprite: {fileID: 21300000, guid: 300675427539b7842a89d514aaa349cd, type: 3}
   defenceSprite: {fileID: 21300000, guid: c07d8f2ef21dc634395f674f8766dcf6, type: 3}
   abilitySprite: {fileID: 21300000, guid: 0ad037c82e017d7429742ed757e5dafa, type: 3}
+  enemyName: 
   enemyType: 1
   health: 0
   maxHealth: 60
@@ -30,7 +31,7 @@ MonoBehaviour:
   abilityTargetType: 0
   abilityAmount: 0
   abilityEffect: {fileID: 11400000, guid: ae3d3aa3db7bbdc4ebf18f4ab9e65020, type: 2}
-  goldOnDefeat: 60
+  goldOnDefeat: 30
   isSummon: 0
   activeEffects: []
   enemyToSpawn: {fileID: 11400000, guid: 7a36361897dd4584da1b918197b93ec9, type: 2}

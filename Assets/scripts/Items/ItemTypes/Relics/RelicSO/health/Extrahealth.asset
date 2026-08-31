@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item.HealthRelic
   itemSprite: {fileID: 21300000, guid: 169f7892d989c1c479b899cb7d34f10c, type: 3}
   itemName: 
-  itemCost: 100
+  itemCost: 60
   isBought: 0
   characterUI: {fileID: 0}
   relicType: 0

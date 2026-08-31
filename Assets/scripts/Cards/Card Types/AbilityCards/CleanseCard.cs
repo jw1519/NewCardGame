@@ -9,6 +9,7 @@ namespace Card
         public override void Awake()
         {
             base.Awake();
+            UpdateDescritpion();
         }
         public override void UpdateDescritpion()
         {

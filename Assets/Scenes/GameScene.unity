@@ -3519,9 +3519,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 347268d9eae99234fb1b34910ce5984e, type: 2}
   - {fileID: 11400000, guid: 3fe7e64120cd8ba429d086bf667ebd3b, type: 2}
   - {fileID: 11400000, guid: 00b1b5ce69eeeae40b35493cec8671ba, type: 2}
-  instantiatedTreasures: []
   panel: {fileID: 1585672899}
   treasureImage: {fileID: 53624806}
+  currentTreasure: {fileID: 0}
   treasureDescrition: {fileID: 1494961876}
 --- !u!1 &559026675
 GameObject:
@@ -6155,14 +6155,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endTurnButton: {fileID: 470624381}
   roomsCleared: 0
-  normalEnemies:
-  - {fileID: 11400000, guid: b21cb89c2c41ccb47bee46fdb1652b6f, type: 2}
-  - {fileID: 11400000, guid: 948cf0e6ddc079541b744aca06efb982, type: 2}
-  - {fileID: 11400000, guid: c3ea55c7bed440446bce4427ce6182dd, type: 2}
-  - {fileID: 11400000, guid: 362d6ce35d50f9443af4998c403dacc2, type: 2}
-  eliteEnemies:
-  - {fileID: 11400000, guid: 9a9318cee3a790145ba5126aec35cebf, type: 2}
-  - {fileID: 11400000, guid: 8bf289ac19302ce4b8fea3bdb9699adb, type: 2}
   enemyParent: {fileID: 393091522}
   enemyPositions: []
 --- !u!1 &984351638
@@ -6624,7 +6616,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Continue
+  m_text: Skip
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 20023d9e9a0763c4d9674ecb7040912c, type: 2}
   m_sharedMaterial: {fileID: 1231001594281757362, guid: 20023d9e9a0763c4d9674ecb7040912c, type: 2}
@@ -7579,7 +7571,7 @@ GameObject:
   - component: {fileID: 1259821322}
   - component: {fileID: 1259821321}
   m_Layer: 5
-  m_Name: ContinueButton
+  m_Name: SkipButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
