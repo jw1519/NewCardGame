@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     CombatManager combatManager;
     BaseRoom currentRoom;
     MapPanel mapPanel;
+    CardManager cardManager;
 
     private void Start()
     {
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
         player = FindAnyObjectByType<SetCharacterUI>();
         combatManager = AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>();
         mapPanel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("MapPanel").GetComponent<MapPanel>();
+        cardManager = AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>();
     }
     public void SetRoom(BaseRoom room)
     {
@@ -63,11 +65,11 @@ public class GameManager : MonoBehaviour
     }
     public void StartCombat()
     {
-        CardManager.instance.DiscardAllCards();
-        CardManager.instance.EmptyDiscardPile();
+        cardManager.DiscardAllCards();
+        cardManager.EmptyDiscardPile();
         player.character.energy = player.character.maxEnergy;
         player.UpdateEnergyUI();
-        CardManager.instance.NewRound();
+        cardManager.NewRound();
         combatManager.currentCombatIndex = 0;
         StartCoroutine(combatManager.StartCombat());
     }
@@ -86,8 +88,8 @@ public class GameManager : MonoBehaviour
                 if (instance != null)
                     Destroy(instance);
             }
-            CardManager.instance.DiscardAllCards();
-            CardManager.instance.ClearDeadCards();
+            cardManager.DiscardAllCards();
+            cardManager.ClearDeadCards();
         }
         player.character.RemoveAllEffects();
     }

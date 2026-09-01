@@ -1,3 +1,4 @@
+using Card;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,6 +15,21 @@ public class CardHand : MonoBehaviour
     {
         cards.Add(card);
         yield return UpdateCardPositions(0.15f);
+        foreach (GameObject baseCard in cards)
+        {
+            if (baseCard.GetComponent<UseCard>().isSelected == false)
+                baseCard.GetComponent<Hover>().index = baseCard.transform.GetSiblingIndex();
+        }
+    }
+    public IEnumerator RemoveCard(GameObject card)
+    {
+        cards.Remove(card);
+        yield return UpdateCardPositions(0.15f);
+        foreach (GameObject baseCard in cards)
+        {
+            if (baseCard.GetComponent<UseCard>().isSelected == false)
+                baseCard.GetComponent<Hover>().index = baseCard.transform.GetSiblingIndex();
+        }
     }
     public IEnumerator UpdateCardPositions(float duration)
     {
@@ -29,9 +45,12 @@ public class CardHand : MonoBehaviour
             Vector3 forward = spline.EvaluateTangent(position);
             Vector3 up = spline.EvaluateUpVector(position);
             Quaternion rotation = Quaternion.LookRotation(-up, Vector3.Cross(-up, forward).normalized);
-            cards[i].transform.DOMove(splinePosition + transform.position + .01f * i * Vector3.back, duration);
-            cards[i].transform.DORotate(rotation.eulerAngles, duration);
-            cards[i].transform.SetParent(transform, false);
+            if (cards[i].GetComponent<UseCard>().isSelected == false)
+            {
+                cards[i].transform.DOMove(splinePosition + transform.position + .01f * i * Vector3.back, duration);
+                cards[i].transform.DORotate(rotation.eulerAngles, duration);
+                cards[i].transform.SetParent(transform, false);
+            }
         }
         yield return new WaitForSeconds(duration);
     }

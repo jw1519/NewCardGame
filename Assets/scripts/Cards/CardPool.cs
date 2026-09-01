@@ -13,6 +13,7 @@ namespace Card
         public GameObject cardToPool;
         public Transform cardParent;
         public SplineContainer splineContainer;
+        CardManager cardManager;
 
         private void Awake()
         {
@@ -23,6 +24,7 @@ namespace Card
         }
         private void Start()
         {
+            cardManager = AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>();
             SetUp();
         }
         public void SetUp()
@@ -34,7 +36,7 @@ namespace Card
         }
         public GameObject GetPooledCard()
         {
-            List<GameObject> cardDeck = CardManager.instance.cardsInDeck;
+            List<GameObject> cardDeck = cardManager.cardsInDeck;
             GameObject randomCard = cardDeck[Random.Range(0, cardDeck.Count)];
             return randomCard;
         }
@@ -54,7 +56,7 @@ namespace Card
             GameObject newCard = AssetManager.Instance.GetAsset("CardFactory").GetComponent<CardFactory>().CreateCard(card);
             newCard.transform.SetParent(cardParent);
             pooledCards.Add(newCard);
-            CardManager.instance.cardsInDeck.Add(newCard);
+            cardManager.cardsInDeck.Add(newCard);
         }
         public void RemoveCardFromPool(BaseCard card)
         {
@@ -62,7 +64,7 @@ namespace Card
             if (cardToRemove != null)
             {
                 pooledCards.Remove(cardToRemove);
-                CardManager.instance.cardsInDeck.Remove(cardToRemove);
+                cardManager.cardsInDeck.Remove(cardToRemove);
                 Destroy(cardToRemove);
             }
         }

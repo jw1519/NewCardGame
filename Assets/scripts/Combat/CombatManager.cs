@@ -84,8 +84,7 @@ public class CombatManager : MonoBehaviour
 
         endTurnButton.GetComponentInChildren<TextMeshProUGUI>().text = "End Turn";
         endTurnButton.enabled = true;
-
-        CardManager.instance.DrawCard(cardsDrawn);
+        AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>().DrawCard(cardsDrawn);
     }
     public void EnemyTurn(GameObject enemy)
     {

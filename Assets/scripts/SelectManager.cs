@@ -7,7 +7,7 @@ namespace Card
 {
     public class SelectManager : MonoBehaviour
     {
-        [HideInInspector] public SetCardUI cardSelected;
+        public SetCardUI cardSelected;
         CardManager cardManager;
         CardHand cardHand;
 
@@ -20,18 +20,34 @@ namespace Card
         {
             if (cardSelected != null)
             {
-                DeselectCard();
+                DeselectCard(card);
             }
             cardSelected = card.GetComponent<SetCardUI>();
+            cardSelected.GetComponent<UseCard>().isSelected = true;
+            cardSelected.GetComponent<Hover>().enabled = false;
         }
-        public void DeselectCard()
+        public void DeselectCard(GameObject card = null)
         {
             if (cardSelected != null)
             {
-                cardSelected.GetComponent<UseCard>().DeselectCard();
-                cardSelected = null;
-                StartCoroutine(cardHand.UpdateCardPositions(0));
+                UseCard useCard = cardSelected.GetComponent<UseCard>();
+                useCard.isSelected = false;
+                useCard.discardButton.SetActive(false);
+                useCard.gameObject.GetComponent<Hover>().enabled = true;
+
+                if (card != null)
+                {
+                    card.transform.SetParent(cardHand.transform);
+                    cardSelected = card.GetComponent<SetCardUI>();
+                    cardSelected.GetComponent<Hover>().HoverCard();
+                }
+                else
+                {
+                    cardSelected = null;
+                }
+                useCard.gameObject.GetComponent<Hover>().ResetCard();
             }
+            cardHand.StartCoroutine(cardHand.UpdateCardPositions(0));
         }
         public void UseCard(GameObject target)
         {

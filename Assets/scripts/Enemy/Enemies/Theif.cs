@@ -9,7 +9,7 @@ namespace Enemy
         public override void UseAbility(GameObject target)
         {
             //ability: Steal 1 card from the player
-            CardManager cardManager = CardManager.instance;
+            CardManager cardManager = AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>();
             if (cardManager.cardsInHand.Count > 0)
             {
                 int randomIndex = Random.Range(0, cardManager.cardsInHand.Count);

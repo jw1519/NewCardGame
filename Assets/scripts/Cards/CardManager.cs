@@ -7,7 +7,7 @@ namespace Card
 {
     public class CardManager : MonoBehaviour
     {
-        public static CardManager instance;
+        //public static CardManager instance;
         CardHand hand;
 
         [Header("Card Lists")]
@@ -28,10 +28,10 @@ namespace Card
 
         private void Awake()
         {
-            if (instance == null)
-            {
-                instance = this;
-            }
+            //if (instance == null)
+            //{
+            //    instance = this;
+            //}
             hand = FindAnyObjectByType<CardHand>();
         }
         public void Start()
@@ -80,7 +80,7 @@ namespace Card
                         RandomCard.gameObject.SetActive(true);
                         RandomCard.transform.SetParent(hand.transform, false);
                         cardsInHand.Add(RandomCard);
-                        StartCoroutine(hand.AddCard(RandomCard));
+                        hand.StartCoroutine(hand.AddCard(RandomCard));
                         cardsInDeck.Remove(RandomCard);
                     }
                 }

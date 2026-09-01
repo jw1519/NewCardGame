@@ -6,7 +6,7 @@ namespace Card
 {
     public class Hover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        int index;
+        public int index;
         Transform parent;
         BaseCard card;
 
@@ -23,14 +23,27 @@ namespace Card
         {
             if (card.isInHand == false) return;
             if (selectManager.cardSelected == gameObject) return;
+            if (GetComponent<UseCard>().isSelected == true) return;
 
-            index = transform.GetSiblingIndex();
             parent = transform.parent;
+            transform.SetParent(parent);
             transform.SetParent(transform.root);
-
+            HoverCard();
+        }
+        public void HoverCard()
+        {
             Quaternion rotation = Quaternion.LookRotation(Vector3.zero);
             transform.DORotate(rotation.eulerAngles, 0.1f);
             transform.DOMove(transform.position + 100 * Vector3.up, 0.1f);
+        }
+        public void ResetCard()
+        {
+            transform.SetParent(parent);
+            transform.SetSiblingIndex(index);
+        }
+        public void UpdateIndex()
+        {
+            index = transform.GetSiblingIndex();
         }
 
         public void OnPointerExit(PointerEventData eventData)
@@ -38,10 +51,10 @@ namespace Card
             if (card.isInHand == false) return;
             if (selectManager.cardSelected == gameObject) return;
 
-            transform.SetParent(parent);
-            transform.SetSiblingIndex(index);
             if (GetComponent<UseCard>().isSelected == false)
             {
+                transform.SetParent(parent);
+                transform.SetSiblingIndex(index);
                 hand.StartCoroutine(hand.UpdateCardPositions(0.1f));
             }
         }
