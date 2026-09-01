@@ -1,5 +1,6 @@
 using Card;
 using Character;
+using DG.Tweening;
 using UnityEngine;
 
 public class UseCard : MonoBehaviour
@@ -11,7 +12,7 @@ public class UseCard : MonoBehaviour
     SelectManager selectManager;
     CardHand cardHand;
     public GameObject discardButton;
-    bool isSelected = false;
+    [HideInInspector] public bool isSelected = false;
     private void Start()
     {
         card = GetComponent<SetCardUI>().card;
@@ -46,10 +47,15 @@ public class UseCard : MonoBehaviour
         if (player.energy - card.cardEnergy >= 0)
         {
             selectManager.SelectCard(gameObject);
-            pos = transform.localPosition;
-            transform.localPosition = new Vector3(pos.x, pos.y + 100f, pos.z);
+            //pos = transform.localPosition;
+
             transform.SetParent(transform.parent.root);
             isSelected = true;
+            Quaternion rotation = Quaternion.LookRotation(Vector3.zero);
+            transform.DORotate(rotation.eulerAngles, 0.1f);
+            transform.DOMove(transform.position + 100 * Vector3.up, 0.1f);
+
+            //transform.localPosition = new Vector3(pos.x, pos.y + 100f, pos.z);
         }
         else
         {
@@ -67,7 +73,7 @@ public class UseCard : MonoBehaviour
     public void DeselectCard()
     {
         if (card.isInHand == false) return;
-        if (!isSelected) return;
+        //if (!isSelected) return;
         selectManager.cardSelected = null;
         isSelected = false;
         transform.SetParent(parent);

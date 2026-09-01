@@ -28,7 +28,7 @@ namespace Card
             parent = transform.parent;
             transform.SetParent(transform.root);
 
-            Quaternion rotation = Quaternion.LookRotation(Vector3.zero, Vector3.zero);
+            Quaternion rotation = Quaternion.LookRotation(Vector3.zero);
             transform.DORotate(rotation.eulerAngles, 0.1f);
             transform.DOMove(transform.position + 100 * Vector3.up, 0.1f);
         }
@@ -40,7 +40,10 @@ namespace Card
 
             transform.SetParent(parent);
             transform.SetSiblingIndex(index);
-            hand.StartCoroutine(hand.UpdateCardPositions(0.1f));
+            if (GetComponent<UseCard>().isSelected == false)
+            {
+                hand.StartCoroutine(hand.UpdateCardPositions(0.1f));
+            }
         }
     }
 }
