@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Splines;
 
 namespace Card
 {
@@ -11,6 +12,7 @@ namespace Card
 
         public GameObject cardToPool;
         public Transform cardParent;
+        public SplineContainer splineContainer;
 
         private void Awake()
         {
