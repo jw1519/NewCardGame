@@ -1,3 +1,4 @@
+using Character;
 using UnityEngine;
 
 namespace Card
@@ -9,6 +10,7 @@ namespace Card
         public GameObject CreateCard(BaseCard card)
         {
             GameObject instance = Instantiate(cardPrefab);
+            card.characterUI = AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>();
             instance.GetComponent<SetCardUI>().card = Instantiate(card);
             return instance;
         }

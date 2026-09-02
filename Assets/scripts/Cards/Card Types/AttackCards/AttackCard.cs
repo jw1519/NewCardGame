@@ -11,9 +11,8 @@ namespace Card
         public int damage;
         public int upgradedDamage;
         public int originalDamage;
-        public override void Awake()
+        public void Awake()
         {
-            base.Awake();
             originalDamage = damage;
             UpdateDescritpion();
         }

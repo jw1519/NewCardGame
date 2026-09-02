@@ -1,6 +1,5 @@
 using UnityEngine;
 using Enemy;
-using System.Collections.Generic;
 using Character;
 
 namespace Card
@@ -65,11 +64,14 @@ namespace Card
                 {
                     cardManager.DiscardCard(cardSelected.gameObject);
                 }
-            }
-            cardSelected.card.Use(target);
-            StartCoroutine(cardHand.UpdateCardPositions(0.15f));
+                cardSelected.card.Use(target);
+                StartCoroutine(cardHand.UpdateCardPositions(0.15f));
 
-            cardSelected = null;
+                cardSelected = null;
+            }
+             
+
+
         }
     }
 }

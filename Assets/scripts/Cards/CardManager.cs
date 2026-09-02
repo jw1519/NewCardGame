@@ -7,7 +7,6 @@ namespace Card
 {
     public class CardManager : MonoBehaviour
     {
-        //public static CardManager instance;
         CardHand hand;
 
         [Header("Card Lists")]
@@ -28,10 +27,6 @@ namespace Card
 
         private void Awake()
         {
-            //if (instance == null)
-            //{
-            //    instance = this;
-            //}
             hand = FindAnyObjectByType<CardHand>();
         }
         public void Start()
@@ -53,7 +48,7 @@ namespace Card
         }
         public void DrawCard(int amount)
         {
-            AssetManager.Instance.GetAsset("SelectManager").GetComponent<SelectManager>().DeselectCard();
+            //AssetManager.Instance.GetAsset("SelectManager").GetComponent<SelectManager>().DeselectCard();
             if (cardsInDeck.Count < amount)
             {
                 EmptyDiscardPile();
@@ -80,7 +75,7 @@ namespace Card
                         RandomCard.gameObject.SetActive(true);
                         RandomCard.transform.SetParent(hand.transform, false);
                         cardsInHand.Add(RandomCard);
-                        hand.StartCoroutine(hand.AddCard(RandomCard));
+                        StartCoroutine(hand.AddCard(RandomCard));
                         cardsInDeck.Remove(RandomCard);
                     }
                 }
@@ -98,6 +93,7 @@ namespace Card
             if (cardsInDeck.Count > 0)
             {
                 GameObject RandomCard = CardPool.instance.GetPooledCard();
+                Debug.Log(RandomCard);
                 if (RandomCard != null)
                 {
                     RandomCard.transform.SetParent(discardedCardParent.transform, false);
@@ -169,7 +165,7 @@ namespace Card
         }
         public void DiscardCard(GameObject card)
         {
-            card.transform.SetParent(discardedCardParent, false);
+            card.transform.SetParent(discardedCardParent, true);
             card.GetComponent<SetCardUI>().card.isInHand = false;
             cardsInHand.Remove(card);
             cardsInDiscard.Add(card);

@@ -10,9 +10,8 @@ namespace Card
         int originalDefenceAmount;
         public int upgradedDefenceAmount;
 
-        public override void Awake()
+        public void Awake()
         {
-            base.Awake();
             originalDefenceAmount = defenceAmount;
         }
         public override void Use(GameObject target)

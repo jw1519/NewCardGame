@@ -6,9 +6,8 @@ namespace Card
     [CreateAssetMenu(fileName = "New Card", menuName = "Cards/Ability/Cleanse Card")]
     public class CleanseCard : BaseCard
     {
-        public override void Awake()
+        public void Awake()
         {
-            base.Awake();
             UpdateDescritpion();
         }
         public override void UpdateDescritpion()

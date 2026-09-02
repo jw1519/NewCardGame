@@ -7,9 +7,8 @@ namespace Card
     {
         CardManager cardManager;
         public int cardsToDraw;
-        public override void Awake()
+        public void Awake()
         {
-            base.Awake();
             cardManager = AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>();
         }
         public override void Use(GameObject target)

@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
     }
     public void EndPlayerTurn()
     {
+        AssetManager.Instance.GetAsset("SelectManager").GetComponent<SelectManager>().DeselectCard();
         StartCoroutine(combatManager.StartCombat());
     }
     public void StartCombat()

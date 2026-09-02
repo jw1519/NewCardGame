@@ -17,10 +17,6 @@ namespace Card
         public CardRarety cardRarety;
 
         [HideInInspector] public SetCharacterUI characterUI;
-        public virtual void Awake()
-        {
-            characterUI = AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>();
-        }
         public virtual void UpdateDescritpion()
         {
 

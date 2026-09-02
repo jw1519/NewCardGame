@@ -9,9 +9,8 @@ namespace Card
     {
         public StatusEffectData effectData;
 
-        public override void Awake()
+        public void Awake()
         {
-            base.Awake();
             if (effectData == null)
             {
                 Debug.LogWarning("Effect data is not assigned for " + cardName);
