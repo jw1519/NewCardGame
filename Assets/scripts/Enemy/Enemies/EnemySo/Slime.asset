@@ -22,7 +22,7 @@ MonoBehaviour:
   enemyName: 
   enemyType: 0
   health: 10
-  maxHealth: 12
+  maxHealth: 15
   damage: 3
   maxDamage: 5
   minDamage: 1

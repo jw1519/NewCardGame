@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,7 +8,6 @@ namespace Card
     public class Hover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         public int index;
-        Transform parent;
         BaseCard card;
 
         SelectManager selectManager;
@@ -24,10 +24,7 @@ namespace Card
             if (card.isInHand == false) return;
             if (selectManager.cardSelected == gameObject) return;
             if (GetComponent<UseCard>().isSelected == true) return;
-
-            parent = transform.parent;
-            transform.SetParent(parent);
-            transform.SetParent(transform.root);
+            hand.Hover(gameObject);
             HoverCard();
         }
         public void HoverCard()
@@ -38,7 +35,6 @@ namespace Card
         }
         public void ResetCard()
         {
-            transform.SetParent(parent);
             transform.SetSiblingIndex(index);
         }
         public void UpdateIndex()
@@ -53,7 +49,6 @@ namespace Card
 
             if (GetComponent<UseCard>().isSelected == false)
             {
-                transform.SetParent(parent);
                 transform.SetSiblingIndex(index);
                 hand.StartCoroutine(hand.UpdateCardPositions(0.1f));
             }

@@ -36,9 +36,9 @@ namespace Card
 
                 if (card != null)
                 {
-                    card.transform.SetParent(cardHand.transform);
-                    cardSelected = card.GetComponent<SetCardUI>();
-                    cardSelected.GetComponent<Hover>().HoverCard();
+                    //card.transform.SetParent(cardHand.transform);
+                    //cardSelected = card.GetComponent<SetCardUI>();
+                    //cardSelected.GetComponent<Hover>().HoverCard();
                 }
                 else
                 {
@@ -66,6 +66,7 @@ namespace Card
                 }
                 cardSelected.card.Use(target);
                 StartCoroutine(cardHand.UpdateCardPositions(0.15f));
+                cardHand.UpdateCards();
 
                 cardSelected = null;
             }

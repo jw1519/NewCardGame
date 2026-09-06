@@ -30,8 +30,8 @@ public class CombatRoom : BaseRoom
         {
             combatManager.AddToCombat(instance);
         }
-        mapPanel.ClosePanel();
         GameManager.instance.SetRoom(this);
         GameManager.instance.StartCombat();
+        mapPanel.ClosePanel();
     }
 }

@@ -47,11 +47,24 @@ public class CardHand : MonoBehaviour
             Quaternion rotation = Quaternion.LookRotation(-up, Vector3.Cross(-up, forward).normalized);
             if (cards[i].GetComponent<UseCard>().isSelected == false)
             {
-                cards[i].transform.DOMove(splinePosition + transform.position + .01f * i * Vector3.back, duration);
+                cards[i].transform.DOMove(splinePosition + transform.position + .05f * i * Vector3.back, duration);
                 cards[i].transform.DORotate(rotation.eulerAngles, duration);
                 cards[i].transform.SetParent(transform, false);
+                cards[i].GetComponent<Hover>().enabled = true;
             }
         }
         yield return new WaitForSeconds(duration);
+    }
+    public void UpdateCards()
+    {
+        foreach (GameObject baseCard in cards)
+        {
+            if (baseCard.GetComponent<UseCard>().isSelected == false)
+                baseCard.GetComponent<Hover>().index = baseCard.transform.GetSiblingIndex();
+        }
+    }
+    public void Hover(GameObject card)
+    {
+        card.transform.SetSiblingIndex(cards.Count - 1);
     }
 }

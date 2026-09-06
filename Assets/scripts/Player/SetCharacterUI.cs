@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Character
 {
-    public class SetCharacterUI : MonoBehaviour
+    public class SetCharacterUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         [Header("Character")]
         public BaseCharacter character;
@@ -25,6 +26,7 @@ namespace Character
         public GameObject defenceIcon;
 
         [Header("Effects")]
+        public EffectDataPanel effectPanel;
         public List<GameObject> effectIcons;
         public Animator effectAnimator;
 
@@ -130,6 +132,7 @@ namespace Character
             }
             else
                 Debug.LogWarning("Unknown status effect: " + data.effectName);
+            effectPanel.AddEffectUI(data);
         }
         public void UpdateStatusEffectUI()
         {
@@ -163,6 +166,17 @@ namespace Character
                     effectAnimator.SetBool("hasDefence", false);
                     return;
             }
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if (character.activeEffects.Count == 0) return;
+            effectPanel.OpenPanel();
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            effectPanel.ClosePanel();
         }
     }
 }

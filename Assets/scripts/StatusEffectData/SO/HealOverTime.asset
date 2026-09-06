@@ -15,4 +15,6 @@ MonoBehaviour:
   effectName: heal
   DOTAmount: -3
   duration: 3
-  effectIcon: {fileID: 0}
+  doesDamage: 0
+  description: heals for 3hp each turn
+  effectSprite: {fileID: 21300000, guid: 0ad037c82e017d7429742ed757e5dafa, type: 3}

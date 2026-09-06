@@ -48,7 +48,6 @@ namespace Card
         }
         public void DrawCard(int amount)
         {
-            //AssetManager.Instance.GetAsset("SelectManager").GetComponent<SelectManager>().DeselectCard();
             if (cardsInDeck.Count < amount)
             {
                 EmptyDiscardPile();

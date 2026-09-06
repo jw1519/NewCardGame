@@ -7,6 +7,8 @@ public class StatusEffectData : ScriptableObject
     public float DOTAmount;
     public int duration;
     public bool doesDamage;
+    public string description;
+    public Sprite effectSprite;
 
     public virtual void ApplyEffect(GameObject target)
     {
@@ -16,7 +18,4 @@ public class StatusEffectData : ScriptableObject
     {
         Debug.Log("Removing effect: " + effectName);
     }
-
-
-    public GameObject effectIcon;
 }

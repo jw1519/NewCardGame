@@ -1034,7 +1034,6 @@ MonoBehaviour:
   defenceIcon: {fileID: 5057695834363814083}
   actionSprite: {fileID: 1659267606528451363}
   actionText: {fileID: 6254949349737948592}
-  burnSprite: {fileID: 4576678711612735681}
   effectAnimator: {fileID: 5564920270262241031}
   effectIcons:
   - {fileID: 4576678711612735681}

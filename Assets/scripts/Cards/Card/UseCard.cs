@@ -39,7 +39,8 @@ public class UseCard : MonoBehaviour
         if (player.energy - card.cardEnergy >= 0)
         {
             selectManager.SelectCard(gameObject);
-            transform.SetParent(transform.parent.root);
+            //transform.SetParent(transform.parent.root);
+            cardHand.Hover(gameObject);
             isSelected = true;
             Quaternion rotation = Quaternion.LookRotation(Vector3.zero);
             transform.DORotate(rotation.eulerAngles, 0.1f);
