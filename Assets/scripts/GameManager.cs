@@ -53,7 +53,8 @@ public class GameManager : MonoBehaviour
     }
     public void RoomCleared()
     {
-        Events.OnRoomCleared(currentRoom.x, currentRoom.y);
+        if (currentRoom != null)
+            Events.OnRoomCleared(currentRoom.x, currentRoom.y);
         mapPanel.canClosePanel = false;
         roomsCleared++;
         updateRoomsCleared?.Invoke(roomsCleared);
@@ -101,9 +102,10 @@ public class GameManager : MonoBehaviour
         combatManager.ClearCombat();
         player.NewRun();
         AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().CloseAllPanels();
-        AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PlayerStatsPanel").GetComponent<PlayerStatsPanel>().OpenPanel();
-        mapPanel.CreateNewMap();
+        AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PlayerStatsPanel").OpenPanel();
+        //mapPanel.CreateNewMap();
         mapPanel.canClosePanel = false;
         mapPanel.OpenPanel();
+        AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("SeedPanel").OpenPanel();
     }
 }

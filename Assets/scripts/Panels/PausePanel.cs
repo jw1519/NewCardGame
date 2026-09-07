@@ -1,7 +1,9 @@
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class PausePanel : BasePanel
 {
+    public TextMeshProUGUI seedText;
     public void EndRun()
     {
         ClosePanel();

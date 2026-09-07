@@ -1,5 +1,6 @@
 using Enemy;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,12 +19,14 @@ public class MapPanel : BasePanel
 
     bool isPanelOpen = true;
     [HideInInspector] public bool canClosePanel = false;
+
+    [SerializeField] int seedNumber;
+    [SerializeField] TMP_InputField seedInputField;
     public void Start()
     {
         grid = new BaseRoom[mapWidth, mapHeight];
         canClosePanel = false;
         Events.roomCleared += ClearRoom; // Subscribe to the roomCleared event
-        CreateMap();
     }
     private void OnDestroy()
     {
@@ -64,15 +67,22 @@ public class MapPanel : BasePanel
     }
     public void CreateNewMap()
     {
-        foreach (Transform child in roomContainer)
+        if (roomContainer.childCount != 0)
         {
-            child.GetComponent<BaseRoom>().HideRoom();
+            foreach (Transform child in roomContainer)
+            {
+                child.GetComponent<BaseRoom>().HideRoom();
+            }
         }
         CreateMap();
     }
 
     public void CreateMap()
     {
+        seedNumber = int.Parse(seedInputField.text);
+        Random.InitState(seedNumber); // Initialize the random number generator with the seed
+        AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PausePanel").GetComponent<PausePanel>().seedText.text = "Seed " + seedNumber.ToString();
+
         for (int  x = 0; x < mapWidth; x++)
         {
             for (int y = 0; y < mapHeight; y++)
