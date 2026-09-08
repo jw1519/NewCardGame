@@ -16,5 +16,5 @@ MonoBehaviour:
   DOTAmount: 3
   duration: 3
   doesDamage: 1
-  description: damages the player for 3hp each turn
+  description: Target takes 3 damage each turn
   effectSprite: {fileID: 0}

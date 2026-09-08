@@ -62,6 +62,7 @@ namespace Card
             {
                 for (int i = 0; i < amount; i++)
                 {
+                    Debug.Log(i);
                     if (cardsInHand.Count == maxCardsInHand)
                     {
                         Debug.Log("hand is full");
@@ -92,7 +93,6 @@ namespace Card
             if (cardsInDeck.Count > 0)
             {
                 GameObject RandomCard = CardPool.instance.GetPooledCard();
-                Debug.Log(RandomCard);
                 if (RandomCard != null)
                 {
                     RandomCard.transform.SetParent(discardedCardParent.transform, false);

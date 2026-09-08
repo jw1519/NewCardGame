@@ -35,26 +35,22 @@ namespace Enemy
                 case EnemyAction.Attack:
                     GameObject Target = FindTarget();
                     EventQueue.EnqueueEvent(new EnemyAttackEvent(Target.GetComponent<SetCharacterUI>().character, enemy, enemy.damage, enemyUI));
-                    Debug.Log("Attack");
                     break;
 
                 case EnemyAction.Defend:
                     EventQueue.EnqueueEvent(new EnemyDefenceEvent(enemy, enemy.defenceAmount, enemyUI));
-                    Debug.Log("Defend");
                     break;
 
                 case EnemyAction.Ability:
                     if (enemy.abilityTargetType == AbilityTargetType.Self)
                     {
                         enemy.UseAbility(gameObject);
-                        Debug.Log("Ability used");
                         break;
                     }
                     else if (enemy.abilityTargetType == AbilityTargetType.Player)
                     {
                         GameObject abilityTarget = FindTarget();
                         EventQueue.EnqueueEvent(new PlayerAddStatusEffectEvent(abilityTarget, enemy.abilityEffect));
-                        Debug.Log("Ability used");
                         break;
                     }
 
