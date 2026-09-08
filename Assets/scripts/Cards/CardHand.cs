@@ -14,12 +14,14 @@ public class CardHand : MonoBehaviour
     public IEnumerator AddCard(GameObject card)
     {
         cards.Add(card);
-        yield return UpdateCardPositions(0.15f);
         foreach (GameObject baseCard in cards)
         {
             if (baseCard.GetComponent<UseCard>().isSelected == false)
-                baseCard.GetComponent<Hover>().index = baseCard.transform.GetSiblingIndex();
+                baseCard.GetComponent<Hover>().SetIndex(baseCard.transform.GetSiblingIndex());
+            baseCard.GetComponent<UseCard>().isSelected = false;
+            baseCard.GetComponent<Hover>().enabled = true;
         }
+        yield return UpdateCardPositions(0.15f);
     }
     public IEnumerator RemoveCard(GameObject card)
     {
@@ -28,7 +30,7 @@ public class CardHand : MonoBehaviour
         foreach (GameObject baseCard in cards)
         {
             if (baseCard.GetComponent<UseCard>().isSelected == false)
-                baseCard.GetComponent<Hover>().index = baseCard.transform.GetSiblingIndex();
+                baseCard.GetComponent<Hover>().SetIndex(baseCard.transform.GetSiblingIndex());
         }
     }
     public IEnumerator UpdateCardPositions(float duration)
@@ -60,7 +62,7 @@ public class CardHand : MonoBehaviour
         foreach (GameObject baseCard in cards)
         {
             if (baseCard.GetComponent<UseCard>().isSelected == false)
-                baseCard.GetComponent<Hover>().index = baseCard.transform.GetSiblingIndex();
+                baseCard.GetComponent<Hover>().SetIndex(baseCard.transform.GetSiblingIndex());
         }
     }
     public void Hover(GameObject card)

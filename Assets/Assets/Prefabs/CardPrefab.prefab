@@ -675,11 +675,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6792751333631855732}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28787073e10995d43bce063c5ad10a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
+  hand: {fileID: 0}
 --- !u!114 &909865027881991033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -776,9 +778,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cbd35acc6899124c8c23fded88bbf52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UseCard
-  pos: {x: 0, y: 0, z: 0}
-  parent: {fileID: 0}
   discardButton: {fileID: 8353349939513845272}
+  isSelected: 0
 --- !u!1 &8353349939513845272
 GameObject:
   m_ObjectHideFlags: 0

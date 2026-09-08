@@ -34,13 +34,7 @@ namespace Card
                 useCard.discardButton.SetActive(false);
                 useCard.gameObject.GetComponent<Hover>().enabled = true;
 
-                if (card != null)
-                {
-                    //card.transform.SetParent(cardHand.transform);
-                    //cardSelected = card.GetComponent<SetCardUI>();
-                    //cardSelected.GetComponent<Hover>().HoverCard();
-                }
-                else
+                if (card == null)
                 {
                     cardSelected = null;
                 }

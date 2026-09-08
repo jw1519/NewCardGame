@@ -1,5 +1,4 @@
 using DG.Tweening;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,7 +6,7 @@ namespace Card
 {
     public class Hover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        public int index;
+        int index;
         BaseCard card;
 
         SelectManager selectManager;
@@ -37,9 +36,9 @@ namespace Card
         {
             transform.SetSiblingIndex(index);
         }
-        public void UpdateIndex()
+        public void SetIndex(int newIndex)
         {
-            index = transform.GetSiblingIndex();
+            index = newIndex;
         }
 
         public void OnPointerExit(PointerEventData eventData)

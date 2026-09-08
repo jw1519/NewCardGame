@@ -10,7 +10,7 @@ public class UseCard : MonoBehaviour
     SelectManager selectManager;
     CardHand cardHand;
     public GameObject discardButton;
-    [HideInInspector] public bool isSelected = false;
+    public bool isSelected = false;
     private void Start()
     {
         card = GetComponent<SetCardUI>().card;

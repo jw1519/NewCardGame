@@ -11,7 +11,7 @@ namespace Card
         }
         public void OnSelect()
         {
-            AssetManager.Instance.GetAsset("SelectManager").GetComponent<CardManager>().AddCard(gameObject);
+            AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>().AddCard(gameObject);
             CardPool.instance.pooledCards.Add(gameObject);
             ShopManager.instance.CardSelected();
             Destroy(gameObject.GetComponent<CardSelect>());

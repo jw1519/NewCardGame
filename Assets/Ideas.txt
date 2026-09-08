@@ -42,5 +42,6 @@ a boss that splits into two when on half heath (two/three goblins in a trench co
 
 issues:
 the card that drwas a random card from deck is taking more energy than it should. need to fix this (only happends sometimes))
-
+card hand, cards index goes out of order when two cards are hovered at thew same time
+draw two cards is drawing four cards sometimes
 
