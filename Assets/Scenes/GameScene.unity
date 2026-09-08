@@ -3059,8 +3059,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -533.0547, y: -58.78192}
-  m_SizeDelta: {x: 1066.1096, y: -117.5638}
+  m_AnchoredPosition: {x: -533.0547, y: 43.641}
+  m_SizeDelta: {x: 1066.1096, y: -322.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &393754975
 GameObject:
@@ -15372,7 +15372,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Generate
+  m_text: Start
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 20023d9e9a0763c4d9674ecb7040912c, type: 2}
   m_sharedMaterial: {fileID: 1231001594281757362, guid: 20023d9e9a0763c4d9674ecb7040912c, type: 2}
@@ -15638,7 +15638,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8973329978903795256, guid: 7d8b080c520b6c046b61b91061241f92, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -54
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8973329978903795256, guid: 7d8b080c520b6c046b61b91061241f92, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
