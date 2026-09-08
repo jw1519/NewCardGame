@@ -36,20 +36,13 @@ public class UseCard : MonoBehaviour
             selectManager.DeselectCard();
             return;
         }
-        if (player.energy - card.cardEnergy >= 0)
-        {
-            selectManager.SelectCard(gameObject);
-            //transform.SetParent(transform.parent.root);
-            cardHand.Hover(gameObject);
-            isSelected = true;
-            Quaternion rotation = Quaternion.LookRotation(Vector3.zero);
-            transform.DORotate(rotation.eulerAngles, 0.1f);
-            transform.DOMove(transform.position + 100 * Vector3.up, 0.1f);
-        }
-        else
-        {
-            Debug.Log("not enough energy");
-        }
+        selectManager.SelectCard(gameObject);
+        cardHand.Hover(gameObject);
+        isSelected = true;
+        Quaternion rotation = Quaternion.LookRotation(Vector3.zero);
+        transform.DORotate(rotation.eulerAngles, 0.1f);
+        transform.DOMove(transform.position + 100 * Vector3.up, 0.1f);
+
         if (discardButton.activeSelf == false)
         {
             discardButton.SetActive(true);

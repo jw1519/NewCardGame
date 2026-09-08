@@ -15,6 +15,7 @@ namespace Card
         {
             base.Use(target);
             cardManager.DrawCard(cardsToDraw);
+            Debug.Log("Drew " + cardsToDraw + " cards");
         }
     }
 }

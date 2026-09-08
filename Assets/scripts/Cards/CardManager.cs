@@ -62,7 +62,6 @@ namespace Card
             {
                 for (int i = 0; i < amount; i++)
                 {
-                    Debug.Log(i);
                     if (cardsInHand.Count == maxCardsInHand)
                     {
                         Debug.Log("hand is full");

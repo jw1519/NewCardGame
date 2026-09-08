@@ -46,6 +46,11 @@ namespace Card
         {
             if (cardSelected != null)
             {
+                if (AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>().character.energy - cardSelected.card.cardEnergy < 0)
+                {
+                    Debug.Log("not enough energy");
+                    return;
+                }
                 if (cardSelected.card.usedOnEnemy && target.GetComponent<SetEnemyUI>() == null) return;
                 if (!cardSelected.card.usedOnEnemy && target.GetComponent<SetCharacterUI>() == null) return;
 

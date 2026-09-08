@@ -11,6 +11,7 @@ namespace Card
         public TextMeshProUGUI cardTypeText;
         public TextMeshProUGUI descriptionText;
         public TextMeshProUGUI energyText;
+        public Image cardImage;
         private void Start()
         {
             cardTypeText.text = card.cardType.ToString();
@@ -21,7 +22,7 @@ namespace Card
 
             if (card.cardSprite != null)
             {
-                GetComponentInChildren<Image>().sprite = card.cardSprite;
+                cardImage.sprite = card.cardSprite;
             }
         }
         public void UpdateDescriptionText()
