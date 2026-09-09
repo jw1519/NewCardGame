@@ -67,22 +67,27 @@ public class MapPanel : BasePanel
     }
     public void CreateNewMap()
     {
-        if (roomContainer.childCount != 0)
+        for (int i = roomContainer.childCount - 1; i >= 0; i--)
         {
-            foreach (Transform child in roomContainer)
-            {
-                child.GetComponent<BaseRoom>().HideRoom();
-            }
+            Destroy(roomContainer.GetChild(i).gameObject);
+            grid = new BaseRoom[mapWidth, mapHeight]; // Reset the grid
         }
         CreateMap();
+    }
+    public void SetSeed()
+    {
+        if (string.IsNullOrEmpty(seedInputField.text))
+        {
+            seedNumber = Random.Range(0, int.MaxValue); // Generate a random seed if the input field is empty
+            seedInputField.text = seedNumber.ToString(); // Update the input field with the generated seed
+        }
+        seedNumber = int.Parse(seedInputField.text);
+        Random.InitState(seedNumber); // Initialize the random number generator with the seed
+        AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PausePanel").GetComponent<PausePanel>().seedText.text = "Seed " + seedNumber.ToString();
     }
 
     public void CreateMap()
     {
-        seedNumber = int.Parse(seedInputField.text);
-        Random.InitState(seedNumber); // Initialize the random number generator with the seed
-        AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PausePanel").GetComponent<PausePanel>().seedText.text = "Seed " + seedNumber.ToString();
-
         for (int  x = 0; x < mapWidth; x++)
         {
             for (int y = 0; y < mapHeight; y++)
@@ -95,19 +100,28 @@ public class MapPanel : BasePanel
                 switch (roomTypeRoll)
                 {
                     case int n when (n < 50):
-                        grid[x, y] = room.AddComponent<CombatRoom>();
-                        grid[x, y].InIt(x, y, RoomType.Normal);
-                        grid[x, y].SetSprite(roomSprites[0]);
-                        BaseEnemy enemy = AssetManager.Instance.GetAsset("EnemyFactory").GetComponent<EnemyFactory>().GetEnemy(EnemyType.Basic);
-                        room.GetComponent<CombatRoom>().RoomSetUp(enemy, 2);
-                        
+                        if (y == mapHeight - 1)
+                            grid[x, y] = room.AddComponent<BaseRoom>();
+                        else
+                        {
+                            grid[x, y] = room.AddComponent<CombatRoom>();
+                            grid[x, y].InIt(x, y, RoomType.Normal);
+                            grid[x, y].SetSprite(roomSprites[0]);
+                            BaseEnemy enemy = AssetManager.Instance.GetAsset("EnemyFactory").GetComponent<EnemyFactory>().GetEnemy(EnemyType.Basic);
+                            room.GetComponent<CombatRoom>().RoomSetUp(enemy, 2);
+                        }
                         break;
                     case int n when (n < 70):
-                        grid[x, y] = room.AddComponent<CombatRoom>();
-                        grid[x, y].InIt(x, y, RoomType.Boss);
-                        grid[x, y].SetSprite(roomSprites[1]);
-                        BaseEnemy baseEnemy = AssetManager.Instance.GetAsset("EnemyFactory").GetComponent<EnemyFactory>().GetEnemy(EnemyType.Boss);
-                        room.GetComponent<CombatRoom>().RoomSetUp(baseEnemy, 1);
+                        if (y == mapHeight - 1)
+                            grid[x, y] = room.AddComponent<BaseRoom>();
+                        else
+                        {
+                            grid[x, y] = room.AddComponent<CombatRoom>();
+                            grid[x, y].InIt(x, y, RoomType.Boss);
+                            grid[x, y].SetSprite(roomSprites[1]);
+                            BaseEnemy baseEnemy = AssetManager.Instance.GetAsset("EnemyFactory").GetComponent<EnemyFactory>().GetEnemy(EnemyType.Boss);
+                            room.GetComponent<CombatRoom>().RoomSetUp(baseEnemy, 1);
+                        }
                         break;
                     case int n when (n < 85):
                         grid[x, y] = room.AddComponent<BaseRoom>();
@@ -115,11 +129,16 @@ public class MapPanel : BasePanel
                         grid[x, y].SetSprite(roomSprites[2]);
                         break;
                     case int n when (n < 90):
-                        grid[x, y] = room.AddComponent<TreasureRoom>();
-                        grid[x, y].InIt(x, y, RoomType.Treasure);
-                        grid[x, y].SetSprite(roomSprites[3]);
-                        TreasurePanel panel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("TreasurePanel").GetComponent<TreasurePanel>();
-                        room.GetComponent<TreasureRoom>().RoomSetUp(panel.GetRelic());
+                        if (y == mapHeight - 1)
+                            grid[x, y] = room.AddComponent<BaseRoom>();
+                        else
+                        {
+                            grid[x, y] = room.AddComponent<TreasureRoom>();
+                            grid[x, y].InIt(x, y, RoomType.Treasure);
+                            grid[x, y].SetSprite(roomSprites[3]);
+                            TreasurePanel panel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("TreasurePanel").GetComponent<TreasurePanel>();
+                            room.GetComponent<TreasureRoom>().RoomSetUp(panel.GetRelic());
+                        }
                         break;
                     default:
                         grid[x, y] = room.AddComponent<BaseRoom>();
