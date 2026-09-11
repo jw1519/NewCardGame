@@ -34,7 +34,6 @@ public class GameManager : MonoBehaviour
             enemyPositions.Add(child);
         }
         roomsCleared = 0;
-        player = FindAnyObjectByType<SetCharacterUI>();
         combatManager = AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>();
         mapPanel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("MapPanel").GetComponent<MapPanel>();
         cardManager = AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>();
@@ -69,6 +68,8 @@ public class GameManager : MonoBehaviour
     {
         cardManager.DiscardAllCards();
         cardManager.EmptyDiscardPile();
+        if (player == null)
+            player = AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>();
         player.character.energy = player.character.maxEnergy;
         player.UpdateEnergyUI();
         cardManager.NewRound();
@@ -100,12 +101,17 @@ public class GameManager : MonoBehaviour
         roomsCleared = 0;
         updateRoomsCleared?.Invoke(roomsCleared);
         combatManager.ClearCombat();
+        if (player == null)
+            player = AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>();
         player.NewRun();
-        AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().CloseAllPanels();
-        AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PlayerStatsPanel").OpenPanel();
-        //mapPanel.CreateNewMap();
+        UIManager UI = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>();
+        UI.CloseAllPanels();
+        UI.GetPanel("PlayerStatsPanel").OpenPanel();
         mapPanel.canClosePanel = false;
         mapPanel.OpenPanel();
-        AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("SeedPanel").OpenPanel();
+        UI.GetPanel("SeedPanel").OpenPanel();
+        UI.GetPanel("CharacterSelectPanel").OpenPanel();
+        CardPool.instance.RemoveAllCardsFromPool();
+        cardManager.RemoveAllCards();
     }
 }

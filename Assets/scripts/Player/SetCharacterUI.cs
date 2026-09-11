@@ -31,10 +31,8 @@ namespace Character
         public Animator effectAnimator;
 
         PlayerStatsPanel playerStatsPanel;
-
-        private void Start()
+        public void SetUp()
         {
-            character = Instantiate(character);
             baseCharacter = character;
 
             character.animator = spriteObject.GetComponent<Animator>();

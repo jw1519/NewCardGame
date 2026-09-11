@@ -31,10 +31,6 @@ public class ShopManager : MonoBehaviour
         if (instance == null)
             instance = this;
     }
-    private void Start()
-    {
-        characterUI = AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>();
-    }
     public void SetUpShop()
     {
         for (int i = 0; i < maxCardPackAmount; i++ )
@@ -91,6 +87,10 @@ public class ShopManager : MonoBehaviour
     PlayerStatsPanel playerStatsPanel;
     public bool CanBuy(int cost)
     {
+        if (characterUI == null)
+        {
+            characterUI = AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>();
+        }
         if (characterUI.character.gold >= cost)
         {
             characterUI.character.gold -= cost;

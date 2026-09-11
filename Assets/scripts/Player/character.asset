@@ -14,10 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Character.Archer
   animator: {fileID: 0}
   animatorController: {fileID: 9100000, guid: dad08993fd5b9fe428ddc371a1a3a536, type: 2}
-  characterName: 
+  characterName: Knight
   health: 40
   maxHealth: 40
   defence: 0
+  characterDescription: Starts with more Attack cards
+  startingDeck:
+  - {fileID: 11400000, guid: 0f36b209e06d40540aa651fca13fac7c, type: 2}
+  - {fileID: 11400000, guid: 0f36b209e06d40540aa651fca13fac7c, type: 2}
+  - {fileID: 11400000, guid: 0f36b209e06d40540aa651fca13fac7c, type: 2}
+  - {fileID: 11400000, guid: 8500291f446882c4786a257ea10167d7, type: 2}
+  - {fileID: 11400000, guid: 8500291f446882c4786a257ea10167d7, type: 2}
+  - {fileID: 11400000, guid: c84c8cb46f276a8479dadcad7c3f5e50, type: 2}
+  - {fileID: 11400000, guid: e30b3f93467184a4f9259233989b1b10, type: 2}
+  - {fileID: 11400000, guid: e30b3f93467184a4f9259233989b1b10, type: 2}
+  - {fileID: 11400000, guid: e30b3f93467184a4f9259233989b1b10, type: 2}
+  - {fileID: 11400000, guid: 95799eb3a1b5c704c8f5498fad2ece7e, type: 2}
+  - {fileID: 11400000, guid: 95799eb3a1b5c704c8f5498fad2ece7e, type: 2}
+  - {fileID: 11400000, guid: 95799eb3a1b5c704c8f5498fad2ece7e, type: 2}
+  characterImage: {fileID: -3318188226485093758, guid: ae72133dacba6ec4eb33ecde48f50e56, type: 3}
   energy: 4
   maxEnergy: 4
   gold: 100

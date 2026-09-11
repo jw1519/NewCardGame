@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Card;
 
 namespace Character
 {
@@ -22,6 +23,11 @@ namespace Character
         public int maxHealth;
         public int defence;
         public bool isAlive => health > 0;
+
+        [Header("Details")]
+        public string characterDescription;
+        public List<BaseCard> startingDeck;
+        public Sprite characterImage;
 
         [Header("Energy")]
         public int energy;

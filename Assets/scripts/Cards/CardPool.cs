@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Splines;
 
 namespace Card
 {
@@ -8,11 +7,9 @@ namespace Card
     {
         public static CardPool instance;
         public List<GameObject> pooledCards;
-        public List<BaseCard> cardSO = new();
 
         public GameObject cardToPool;
         public Transform cardParent;
-        public SplineContainer splineContainer;
         CardManager cardManager;
 
         private void Awake()
@@ -25,11 +22,10 @@ namespace Card
         private void Start()
         {
             cardManager = AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>();
-            SetUp();
         }
-        public void SetUp()
+        public void SetUp(List<BaseCard> cards)
         {
-            foreach (BaseCard card in cardSO)
+            foreach (BaseCard card in cards)
             {
                 AddAndCreateCardToPool(Instantiate(card));
             }
@@ -67,6 +63,15 @@ namespace Card
                 cardManager.cardsInDeck.Remove(cardToRemove);
                 Destroy(cardToRemove);
             }
+        }
+        public void RemoveAllCardsFromPool()
+        {
+            foreach (GameObject pooledCard in pooledCards)
+            {
+                Destroy(pooledCard);
+            }
+            pooledCards.Clear();
+            cardManager.cardsInDeck.Clear();
         }
     }
 }

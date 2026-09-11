@@ -23,15 +23,9 @@ namespace Card
         public int startingCardsInHand;
         public int maxCardsInHand;
 
-        SetCharacterUI characterUI;
-
         private void Awake()
         {
             hand = FindAnyObjectByType<CardHand>();
-        }
-        public void Start()
-        {
-            characterUI = AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>();
         }
         public void NewRound()
         {
@@ -101,7 +95,7 @@ namespace Card
                     BaseCard card = RandomCard.GetComponent<SetCardUI>().card;
 
                     CombatManager combatManager = AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>();
-                    characterUI.character.GainEnergy(card.cardEnergy);
+                    AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>().character.GainEnergy(card.cardEnergy);
                     switch (card.cardType)
                     {
                         case BaseCard.CardType.Attack:
@@ -189,6 +183,13 @@ namespace Card
                 card.transform.SetParent(deckCardParent);
             }
             deadCards.Clear();
+        }
+        public void RemoveAllCards()
+        {
+            deadCards.Clear();
+            cardsInHand.Clear();
+            cardsInDeck.Clear();
+            cardsInDiscard.Clear();
         }
     }
 }

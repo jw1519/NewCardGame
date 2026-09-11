@@ -24,8 +24,6 @@ namespace Character
 
         public void Start()
         {
-            maxItemAmount = AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>().character.maxItemAmount;
-            itemAmountText.text = "0/" + maxItemAmount.ToString();
             UpdateRoomUI(0);
 
             for (int i = 0; i < maxRelicAmount; i++)
@@ -39,6 +37,11 @@ namespace Character
         private void OnEnable()
         {
             GameManager.updateRoomsCleared += UpdateRoomUI;
+        }
+        public void SetUp(BaseCharacter baseCharacter)
+        {
+            maxItemAmount = baseCharacter.maxItemAmount;
+            itemAmountText.text = "0/" + maxItemAmount.ToString();
         }
 
         public void UpdatePlayerHealthUI(int health, int maxHealth)

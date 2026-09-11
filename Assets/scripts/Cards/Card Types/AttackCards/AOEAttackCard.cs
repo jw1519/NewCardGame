@@ -12,6 +12,8 @@ namespace Card
         }
         public override void Use(GameObject target)
         {
+            if (characterUI == null)
+                characterUI = AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>();
             characterUI.character.UseEnergy(cardEnergy);
             characterUI.UpdateEnergyUI();
             isInHand = false;
