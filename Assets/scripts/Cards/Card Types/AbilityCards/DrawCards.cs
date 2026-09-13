@@ -7,12 +7,10 @@ namespace Card
     {
         CardManager cardManager;
         public int cardsToDraw;
-        public void Awake()
-        {
-            cardManager = AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>();
-        }
         public override void Use(GameObject target)
         {
+            if (cardManager == null)
+                cardManager = AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>();
             base.Use(target);
             cardManager.DrawCard(cardsToDraw);
             Debug.Log("Drew " + cardsToDraw + " cards");
