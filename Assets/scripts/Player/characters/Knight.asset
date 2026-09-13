@@ -9,33 +9,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aebdbee3439420c4c9ffd97c7c8ab6f8, type: 3}
-  m_Name: character
-  m_EditorClassIdentifier: Assembly-CSharp::Character.Archer
+  m_Script: {fileID: 11500000, guid: d901e06b970069f4ea3e80cf0f263297, type: 3}
+  m_Name: Knight
+  m_EditorClassIdentifier: Assembly-CSharp::Character.BaseCharacter
   animator: {fileID: 0}
   animatorController: {fileID: 9100000, guid: dad08993fd5b9fe428ddc371a1a3a536, type: 2}
   characterName: Knight
   health: 40
   maxHealth: 40
   defence: 0
-  characterDescription: Starts with more Attack cards
+  characterDescription: Starts with more Attak cards
   startingDeck:
   - {fileID: 11400000, guid: 0f36b209e06d40540aa651fca13fac7c, type: 2}
   - {fileID: 11400000, guid: 0f36b209e06d40540aa651fca13fac7c, type: 2}
   - {fileID: 11400000, guid: 0f36b209e06d40540aa651fca13fac7c, type: 2}
+  - {fileID: 11400000, guid: 0f36b209e06d40540aa651fca13fac7c, type: 2}
+  - {fileID: 11400000, guid: 95799eb3a1b5c704c8f5498fad2ece7e, type: 2}
+  - {fileID: 11400000, guid: 95799eb3a1b5c704c8f5498fad2ece7e, type: 2}
   - {fileID: 11400000, guid: 8500291f446882c4786a257ea10167d7, type: 2}
   - {fileID: 11400000, guid: 8500291f446882c4786a257ea10167d7, type: 2}
-  - {fileID: 11400000, guid: c84c8cb46f276a8479dadcad7c3f5e50, type: 2}
   - {fileID: 11400000, guid: e30b3f93467184a4f9259233989b1b10, type: 2}
   - {fileID: 11400000, guid: e30b3f93467184a4f9259233989b1b10, type: 2}
   - {fileID: 11400000, guid: e30b3f93467184a4f9259233989b1b10, type: 2}
-  - {fileID: 11400000, guid: 95799eb3a1b5c704c8f5498fad2ece7e, type: 2}
-  - {fileID: 11400000, guid: 95799eb3a1b5c704c8f5498fad2ece7e, type: 2}
-  - {fileID: 11400000, guid: 95799eb3a1b5c704c8f5498fad2ece7e, type: 2}
-  characterImage: {fileID: -3318188226485093758, guid: ae72133dacba6ec4eb33ecde48f50e56, type: 3}
+  - {fileID: 11400000, guid: 5a6d1c80cd595da459464ebb7e88852c, type: 2}
+  - {fileID: 11400000, guid: 5a6d1c80cd595da459464ebb7e88852c, type: 2}
+  - {fileID: 11400000, guid: fbd1858f2733a5e4497955d31afdff7b, type: 2}
+  - {fileID: 11400000, guid: fbd1858f2733a5e4497955d31afdff7b, type: 2}
+  characterImage: {fileID: -1938354968663525734, guid: ae72133dacba6ec4eb33ecde48f50e56, type: 3}
   energy: 4
   maxEnergy: 4
-  gold: 100
+  gold: 0
   totalGoldCollected: 0
   maxItemAmount: 4
   activeEffects: []

@@ -5,7 +5,8 @@ using Card;
 
 namespace Character
 {
-    public abstract class BaseCharacter : ScriptableObject, ITakeDamage, IHeal, IUseEnergy, IEffectable, IChangeAnimation
+    [CreateAssetMenu(fileName = "New Character", menuName = "Character")]
+    public class BaseCharacter : ScriptableObject, ITakeDamage, IHeal, IUseEnergy, IEffectable, IChangeAnimation
     {
         public static event Action playerHealthChanged;
         public static event Action playerDefenceChanged;
