@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wizard
   m_EditorClassIdentifier: Assembly-CSharp::Character.BaseCharacter
   animator: {fileID: 0}
-  animatorController: {fileID: 0}
+  animatorController: {fileID: 9100000, guid: dad08993fd5b9fe428ddc371a1a3a536, type: 2}
   characterName: Wizard
   health: 40
   maxHealth: 40
