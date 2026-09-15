@@ -20,6 +20,7 @@ public class CombatManager : MonoBehaviour
 
     BasePanel gameWonPanel;
 
+    public static bool inCombat = false;
 
     private void Start()
     {
@@ -49,7 +50,7 @@ public class CombatManager : MonoBehaviour
 
     public IEnumerator StartCombat()
     {
-
+        inCombat = true;
         yield return new WaitForSeconds(1f);
 
         if (combatOrder[currentCombatIndex] != null)
@@ -113,6 +114,7 @@ public class CombatManager : MonoBehaviour
         if (isenemyAlive == false)
         {
             gameWonPanel.OpenPanel();
+            inCombat = false;
         }
     }
     public GameObject GetEnemy(BaseEnemy enemy)

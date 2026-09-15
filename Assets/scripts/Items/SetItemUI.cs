@@ -37,7 +37,7 @@ namespace Item
         }
         public void Use()
         {
-            if (item.isBought)
+            if (item.isBought && CombatManager.inCombat == true)
             {
                 item.Use();
                 GetComponentInParent<PlayerStatsPanel>().RemoveItem(gameObject);
