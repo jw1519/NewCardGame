@@ -14749,7 +14749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AmountOfCards: 3
-  rerollCost: 5
+  rerollCost: 20
   rerollText: {fileID: 1482111232}
   reRollButton: {fileID: 192604596}
   healthRestoreText: {fileID: 1921385485}
