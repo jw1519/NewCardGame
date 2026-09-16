@@ -30,6 +30,8 @@ have a way to modify cards e.g
 cleanse card can be used on enemies to remove any buffs
 can permanently upgrade cards in deck to have a bonus effect
 
+player
+defender that has less health but defence is not got rid of at the end of turn
 
 
 enemies
@@ -37,6 +39,8 @@ enemies could be chained together. all take damage. all heal the same
 
 boss ideas
 a boss that splits into two when on half heath (two/three goblins in a trench coat)
+
+armour filled with slime, everytime it takes damage spawn slime
 
 
 issues:
