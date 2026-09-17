@@ -105,7 +105,10 @@ namespace Character
             if (character.defence == 0)
             {
                 EffectAnimation("DefenceBreak");
+                character.animator.SetBool("hasShield", false);
             }
+            else
+                character.animator.SetBool("hasShield", true);
         }
         public void UpdateGoldUI()
         {

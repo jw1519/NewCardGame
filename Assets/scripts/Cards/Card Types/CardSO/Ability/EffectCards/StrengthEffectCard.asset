@@ -7,19 +7,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77865c8ea5f8ce44abf73f5598c3b163, type: 3}
-  m_Name: Strength
-  m_EditorClassIdentifier: Assembly-CSharp::Card.StrengthCard
+  m_Script: {fileID: 11500000, guid: d156b9f417efd9f49bde954bceb060ec, type: 3}
+  m_Name: StrengthEffectCard
+  m_EditorClassIdentifier: Assembly-CSharp::Card.StatusEffectCard
   cardName: Strength
   cardSprite: {fileID: 21300000, guid: 4737458a873698843a310c4d17bfefb4, type: 3}
   cardType: 2
   cardEnergy: 1
-  description: 'increases damage of Attack cards for 2 turns '
+  description: Increase Strength of Attacks
   isInHand: 0
   isSingleUse: 0
   usedOnEnemy: 0
-  cardRarety: 2
+  cardRarety: 0
   characterUI: {fileID: 0}
   effectData: {fileID: 11400000, guid: 83f5749defef6d546b21b9a3f9ab68ed, type: 2}

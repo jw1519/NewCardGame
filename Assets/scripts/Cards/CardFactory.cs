@@ -10,6 +10,7 @@ namespace Card
         {
             GameObject instance = Instantiate(cardPrefab);
             instance.GetComponent<SetCardUI>().card = Instantiate(card);
+            instance.GetComponent<SetCardUI>().UpdateDescriptionText();
             return instance;
         }
     }
