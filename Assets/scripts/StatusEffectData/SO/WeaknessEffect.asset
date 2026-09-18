@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd6b8e33571be4f4caefcb9e512da921, type: 3}
   m_Name: WeaknessEffect
   m_EditorClassIdentifier: Assembly-CSharp::WeaknessEffect
-  effectName: 
-  DOTAmount: 0
-  duration: 0
+  effectName: Weakness
+  DOTAmount: 1.5
+  duration: 2
   doesDamage: 0
-  description: 
+  description: Targets strength is reduced
   effectSprite: {fileID: 0}

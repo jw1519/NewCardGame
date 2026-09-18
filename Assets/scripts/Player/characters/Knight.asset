@@ -15,15 +15,15 @@ MonoBehaviour:
   animator: {fileID: 0}
   animatorController: {fileID: 9100000, guid: dad08993fd5b9fe428ddc371a1a3a536, type: 2}
   characterName: Knight
-  health: 35
+  health: 50
   maxHealth: 50
-  defence: 0
+  defence: 5
   characterDescription: Starts with more Attack cards
   startingDeck:
   - {fileID: 11400000, guid: 0f36b209e06d40540aa651fca13fac7c, type: 2}
   - {fileID: 11400000, guid: 0f36b209e06d40540aa651fca13fac7c, type: 2}
   - {fileID: 11400000, guid: 0f36b209e06d40540aa651fca13fac7c, type: 2}
-  - {fileID: 11400000, guid: 0f36b209e06d40540aa651fca13fac7c, type: 2}
+  - {fileID: 11400000, guid: 77c66da010a6e2141ac07b1143d2b1f2, type: 2}
   - {fileID: 11400000, guid: 95799eb3a1b5c704c8f5498fad2ece7e, type: 2}
   - {fileID: 11400000, guid: 95799eb3a1b5c704c8f5498fad2ece7e, type: 2}
   - {fileID: 11400000, guid: 8500291f446882c4786a257ea10167d7, type: 2}
@@ -36,10 +36,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c72d750079ed74f45aa2d992dd7268fb, type: 2}
   - {fileID: 11400000, guid: c72d750079ed74f45aa2d992dd7268fb, type: 2}
   characterImage: {fileID: -1938354968663525734, guid: ae72133dacba6ec4eb33ecde48f50e56, type: 3}
-  energy: 4
+  energy: 2
   maxEnergy: 4
   gold: 0
   totalGoldCollected: 0
   maxItemAmount: 3
-  activeEffects:
-  - {fileID: 0}
+  activeEffects: []

@@ -160,6 +160,7 @@ namespace Character
         }
         public StatusEffectData GetEffect(string name)
         {
+            if (activeEffects.Count <= 0) return null;
             return activeEffects.Find(j => j.effectName == name);
         }
 

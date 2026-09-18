@@ -26,7 +26,7 @@ public class CharacterSelectPanel : BasePanel
         foreach (BaseCharacter character in characters)
         {
             GameObject panel = Instantiate(characterPanelPrefab, transform);
-            panel.GetComponent<CharacterPanel>().SetCharacter(character);
+            panel.GetComponent<CharacterPanel>().SetCharacter(Instantiate(character));
             characterpanels.Add(panel);
             panel.SetActive(false);
         }
