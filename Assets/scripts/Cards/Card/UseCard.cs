@@ -6,7 +6,6 @@ using UnityEngine;
 public class UseCard : MonoBehaviour
 {
     BaseCard card;
-    BaseCharacter player;
     SelectManager selectManager;
     CardHand cardHand;
     public GameObject discardButton;
@@ -14,7 +13,6 @@ public class UseCard : MonoBehaviour
     private void Start()
     {
         card = GetComponent<SetCardUI>().card;
-        player = AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>().character;
         selectManager = AssetManager.Instance.GetAsset("SelectManager").GetComponent<SelectManager>();
         cardHand = AssetManager.Instance.GetAsset("CardHand").GetComponent<CardHand>();
     }
@@ -37,11 +35,9 @@ public class UseCard : MonoBehaviour
             return;
         }
         selectManager.SelectCard(gameObject);
-        //cardHand.Hover(gameObject);
         isSelected = true;
         Quaternion rotation = Quaternion.LookRotation(Vector3.zero);
         transform.DORotate(rotation.eulerAngles, 0.1f);
-        //transform.DOMove(transform.position + 100 * Vector3.up, 0.1f);
 
         if (discardButton.activeSelf == false)
         {

@@ -1,6 +1,7 @@
 using UnityEngine;
 using Enemy;
 using Character;
+using DG.Tweening;
 
 namespace Card
 {
@@ -11,6 +12,7 @@ namespace Card
         CardHand cardHand;
 
         public Transform useCardParent;
+        Vector2 anchoredPosition;
 
         private void Start()
         {
@@ -23,11 +25,13 @@ namespace Card
             {
                 DeselectCard(card);
             }
+            
             cardSelected = card.GetComponent<SetCardUI>();
             cardSelected.GetComponent<UseCard>().isSelected = true;
             cardSelected.GetComponent<Hover>().enabled = false;
-            cardSelected.transform.SetParent(useCardParent, false);
-            cardSelected.transform.position = useCardParent.transform.position;
+            cardSelected.transform.SetParent(useCardParent, true);
+            anchoredPosition = card.GetComponent<RectTransform>().anchoredPosition;
+            cardSelected.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, 0.3f);
         }
         public void DeselectCard(GameObject card = null)
         {
@@ -37,15 +41,16 @@ namespace Card
                 useCard.isSelected = false;
                 useCard.discardButton.SetActive(false);
                 useCard.gameObject.GetComponent<Hover>().enabled = true;
-                useCard.gameObject.transform.SetParent(cardHand.transform, false);
+                useCard.gameObject.transform.SetParent(cardHand.transform, true);
+                cardSelected.GetComponent<RectTransform>().DOAnchorPos(anchoredPosition, 0.3f);
 
                 if (card == null)
                 {
                     cardSelected = null;
                 }
-                useCard.gameObject.GetComponent<Hover>().ResetCard();
+                //useCard.gameObject.GetComponent<Hover>().ResetCard();
             }
-            cardHand.StartCoroutine(cardHand.UpdateCardPositions(0.2f));
+            //cardHand.StartCoroutine(cardHand.UpdateCardPositions(0));
         }
         public void UseCard(GameObject target)
         {
