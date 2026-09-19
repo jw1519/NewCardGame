@@ -10,6 +10,8 @@ namespace Card
         CardManager cardManager;
         CardHand cardHand;
 
+        public Transform useCardParent;
+
         private void Start()
         {
             cardManager = AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>();
@@ -24,6 +26,8 @@ namespace Card
             cardSelected = card.GetComponent<SetCardUI>();
             cardSelected.GetComponent<UseCard>().isSelected = true;
             cardSelected.GetComponent<Hover>().enabled = false;
+            cardSelected.transform.SetParent(useCardParent, false);
+            cardSelected.transform.position = useCardParent.transform.position;
         }
         public void DeselectCard(GameObject card = null)
         {
@@ -33,6 +37,7 @@ namespace Card
                 useCard.isSelected = false;
                 useCard.discardButton.SetActive(false);
                 useCard.gameObject.GetComponent<Hover>().enabled = true;
+                useCard.gameObject.transform.SetParent(cardHand.transform, false);
 
                 if (card == null)
                 {
@@ -40,7 +45,7 @@ namespace Card
                 }
                 useCard.gameObject.GetComponent<Hover>().ResetCard();
             }
-            cardHand.StartCoroutine(cardHand.UpdateCardPositions(0));
+            cardHand.StartCoroutine(cardHand.UpdateCardPositions(0.2f));
         }
         public void UseCard(GameObject target)
         {

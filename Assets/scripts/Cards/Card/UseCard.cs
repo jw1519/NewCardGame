@@ -37,11 +37,11 @@ public class UseCard : MonoBehaviour
             return;
         }
         selectManager.SelectCard(gameObject);
-        cardHand.Hover(gameObject);
+        //cardHand.Hover(gameObject);
         isSelected = true;
         Quaternion rotation = Quaternion.LookRotation(Vector3.zero);
         transform.DORotate(rotation.eulerAngles, 0.1f);
-        transform.DOMove(transform.position + 100 * Vector3.up, 0.1f);
+        //transform.DOMove(transform.position + 100 * Vector3.up, 0.1f);
 
         if (discardButton.activeSelf == false)
         {
