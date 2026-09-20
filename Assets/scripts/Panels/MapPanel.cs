@@ -92,7 +92,7 @@ public class MapPanel : BasePanel
         {
             for (int y = 0; y < mapHeight; y++)
             {
-                GameObject room = Instantiate(roomPrefab, new Vector3(x * roomSize - roomSize * 2, y * roomSize - roomSize * 3, 0), Quaternion.identity);
+                GameObject room = Instantiate(roomPrefab, new Vector2(x * roomSize - roomSize * 2, y * roomSize - roomSize * 3), Quaternion.identity);
                 room.transform.localScale = Vector3.one * roomSize;
                 room.transform.SetParent(roomContainer, false);
                 int roomTypeRoll = Random.Range(0, 100);
