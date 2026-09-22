@@ -90,8 +90,8 @@ namespace Enemy
             else
             {
                 health = 0;
-                enemydiedGold?.Invoke(goldOnDefeat);
                 enemydied?.Invoke();
+
             }
         }
         public virtual void UseAbility(GameObject target)

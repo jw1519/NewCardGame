@@ -153,6 +153,7 @@ namespace Enemy
                 GameObject gameWonPanel = UIManager.instance.panelList.Find(panel => panel.name == "GameWonPanel").gameObject;
                 gameWonPanel.GetComponent<GameWonPanel>().UpdateGold(enemy.goldOnDefeat);
                 gameWonPanel.GetComponent<GameWonPanel>().UpdateStats();
+                enabled = false;
             }
         }
         public GameObject GetEffectIcon(string name)

@@ -31,7 +31,7 @@ MonoBehaviour:
   abilityTargetType: 0
   abilityAmount: 0
   abilityEffect: {fileID: 11400000, guid: ae3d3aa3db7bbdc4ebf18f4ab9e65020, type: 2}
-  goldOnDefeat: 20
+  goldOnDefeat: 25
   isSummon: 0
   activeEffects: []
   enemyToSpawn: {fileID: 11400000, guid: 7a36361897dd4584da1b918197b93ec9, type: 2}

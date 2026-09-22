@@ -110,6 +110,12 @@ namespace Character
             }
             playerEnergyChanged?.Invoke();
         }
+        public void GainGold(int amount)
+        {
+            Debug.Log(amount);
+            gold += amount;
+            totalGoldCollected += amount;
+        }
         public void ApplyEffect(StatusEffectData data)
         {
             if (data == null) return;

@@ -17,17 +17,18 @@ public class CombatRoom : BaseRoom
     }
     public override void EnterRoom()
     {
-        GameObject instance = enemyFactory.CreateEnemy(enemyToSpawn);
+        
         if (roomType == RoomType.Normal)
         {
             for (int i = 0; i < enemyAmount; i++)
             {
-                instance = enemyFactory.CreateEnemy(enemyToSpawn);
+                GameObject instance = enemyFactory.CreateEnemy(enemyToSpawn);
                 combatManager.AddToCombat(instance);
             }
         }
         else
         {
+            GameObject instance = enemyFactory.CreateEnemy(enemyToSpawn);
             combatManager.AddToCombat(instance);
         }
         GameManager.instance.SetRoom(this);

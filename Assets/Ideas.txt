@@ -45,6 +45,7 @@ armour filled with slime, everytime it takes damage spawn slime
 
 issues:
 the card that drwas a random card from deck is taking more energy than it should. need to fix this (only happends sometimes))
-draw two cards is drawing four cards sometimes
+draw two cards fraws cards twice sometimes
 strength cards stack (unsure if this is an issue) causeing cards to do even more damage. can keep this but the turns dont reset 
+effect dont clear between rounds
 
