@@ -157,12 +157,15 @@ namespace Character
             if (activeEffects.Count == 0) return;
             for (int i = activeEffects.Count + 1; i > 0; i--)
             {
-                Debug.Log(activeEffects[i]);
                 if (activeEffects[i] != null)
                 {
                     RemoveEffect(activeEffects[i].effectName);
-                }  
+                    i--;
+                }
+                else
+                    activeEffects.Remove(activeEffects[i]);
             }
+            activeEffects.Clear();
         }
         public StatusEffectData GetEffect(string name)
         {

@@ -46,6 +46,7 @@ namespace Enemy
         public int goldOnDefeat;
 
         public bool isAlive => health > 0;
+        public bool hasDied = false;
         public bool isSummon = false;
 
         [Header("Status Effects")]

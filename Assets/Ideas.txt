@@ -38,9 +38,11 @@ enemies
 enemies could be chained together. all take damage. all heal the same
 
 boss ideas
-a boss that splits into two when on half heath (two/three goblins in a trench coat)
+a boss that splits into two when on half heath (two/three gnomes in a trench coat)
 
 armour filled with slime, everytime it takes damage spawn slime
+
+weakness cards should cause weakness on current attacks of enemies
 
 
 issues:
@@ -48,4 +50,4 @@ the card that drwas a random card from deck is taking more energy than it should
 draw two cards fraws cards twice sometimes
 strength cards stack (unsure if this is an issue) causeing cards to do even more damage. can keep this but the turns dont reset 
 effect dont clear between rounds
-
+cure ability that makes player not beable to see enemy health.
