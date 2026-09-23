@@ -50,7 +50,8 @@ namespace Card
                 }
                 //useCard.gameObject.GetComponent<Hover>().ResetCard();
             }
-            //cardHand.StartCoroutine(cardHand.UpdateCardPositions(0));
+            cardHand.StartCoroutine(cardHand.UpdateCardPositions(0.5f));
+            cardHand.UpdateCards();
         }
         public void UseCard(GameObject target)
         {

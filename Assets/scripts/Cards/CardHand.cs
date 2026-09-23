@@ -42,6 +42,8 @@ public class CardHand : MonoBehaviour
         Spline spline = splineContainer.Spline;
         for (int i = 0; i < cards.Count; i++)
         {
+            cards[i].GetComponent<Hover>().SetIndex(i);
+            cards[i].transform.SetSiblingIndex(i);
             float position = 0.1f + i * cardSpacing;
             Vector3 splinePosition = spline.EvaluatePosition(position);
             Vector3 forward = spline.EvaluateTangent(position);
