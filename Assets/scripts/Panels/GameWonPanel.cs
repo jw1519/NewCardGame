@@ -20,11 +20,11 @@ public class GameWonPanel : BasePanel
     private void OnDisable()
     {
         characterUI.character.GainGold(goldEarned);
+        characterUI.gameObject.GetComponent<SetCharacterUI>().UpdateGoldUI();
         goldEarned = 0;
         GameManager.instance.RoomCleared();
         GameManager.instance.EndRound();
         AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("MapPanel").OpenPanel();
-        characterUI.gameObject.GetComponent<SetCharacterUI>().UpdateGoldUI();
     }
     public void UpdateStats()
     {

@@ -132,6 +132,7 @@ namespace Character
         }
         public void UpdateEffect()
         {
+            if (activeEffects.Count == 0) return;
             for (int i = activeEffects.Count - 1; i >= 0; i--)
             {
                 StatusEffectData effect = activeEffects[i];
@@ -147,9 +148,9 @@ namespace Character
         public void RemoveEffect(string name)
         {
             StatusEffectData effect = GetEffect(name);
+            if (effect == null) return;
             effect.RemoveEffect();
             activeEffects.Remove(effect);
-            effect.RemoveEffect();
             RemoveEffectToPlayer?.Invoke(name);
         }
         public void RemoveAllEffects()
@@ -160,7 +161,6 @@ namespace Character
                 if (activeEffects[i] != null)
                 {
                     RemoveEffect(activeEffects[i].effectName);
-                    i--;
                 }
                 else
                     activeEffects.Remove(activeEffects[i]);

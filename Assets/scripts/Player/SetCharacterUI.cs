@@ -86,7 +86,6 @@ namespace Character
             if (character.health <= 0)
             {
                 BasePanel panel = UIManager.instance.panelList.Find(panels => panels.name == "GameOverPanel");
-                //panel.gameObject.GetComponent<GameOverPanel>().PlayerStatsDisplay(character);
                 panel.OpenPanel();
             }
         }
