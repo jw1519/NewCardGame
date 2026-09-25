@@ -14,7 +14,6 @@ namespace Enemy
         public static event Action UpdateEffectToEnemy;
         public static event Action<string> RemoveEffectToEnemy;
         public static event Action enemydied;
-        public static event Action<int> enemydiedGold;
 
         public Sprite enemySprite;
         public RuntimeAnimatorController animatorController;

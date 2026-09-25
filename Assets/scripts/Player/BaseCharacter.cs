@@ -11,7 +11,6 @@ namespace Character
         public static event Action playerHealthChanged;
         public static event Action playerDefenceChanged;
         public static event Action playerEnergyChanged;
-        public static event Action<StatusEffectData> AddEffectToPlayer;
         public static event Action<string> RemoveEffectToPlayer;
 
         [Header("Animation")]
@@ -112,7 +111,6 @@ namespace Character
         }
         public void GainGold(int amount)
         {
-            Debug.Log(amount);
             gold += amount;
             totalGoldCollected += amount;
         }
@@ -126,8 +124,8 @@ namespace Character
             }
             else
             {
+                Debug.Log(data);
                 activeEffects.Add(Instantiate(data));
-                AddEffectToPlayer?.Invoke(data);
             }
         }
         public void UpdateEffect()
@@ -136,7 +134,13 @@ namespace Character
             for (int i = activeEffects.Count - 1; i >= 0; i--)
             {
                 StatusEffectData effect = activeEffects[i];
+                if (effect == null)
+                {
+                    activeEffects.Remove(activeEffects[i]);
+                    continue;
+                }
                 effect.duration--;
+               
                 if (effect.doesDamage)
                     TakeDamage(Mathf.RoundToInt(effect.DOTAmount));
                 if (effect.duration <= 0)
@@ -156,11 +160,12 @@ namespace Character
         public void RemoveAllEffects()
         {
             if (activeEffects.Count == 0) return;
-            for (int i = activeEffects.Count + 1; i > 0; i--)
+            for (int i = activeEffects.Count - 1; i >= 0; i--)
             {
                 if (activeEffects[i] != null)
                 {
                     RemoveEffect(activeEffects[i].effectName);
+                    i--;
                 }
                 else
                     activeEffects.Remove(activeEffects[i]);

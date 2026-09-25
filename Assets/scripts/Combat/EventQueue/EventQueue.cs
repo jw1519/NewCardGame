@@ -72,7 +72,9 @@ public class EventQueue : MonoBehaviour
                 yield return new WaitForSeconds(1); //do animation here
                 break;
             case PlayerAddStatusEffectEvent playerAddStatusEffect:
-                playerAddStatusEffect.Target.GetComponent<SetCharacterUI>().character.ApplyEffect(playerAddStatusEffect.Effect);
+                SetCharacterUI characterUI = playerAddStatusEffect.Target.GetComponent<SetCharacterUI>();
+                characterUI.character.ApplyEffect(playerAddStatusEffect.Effect);
+                characterUI.EnableStatusEffect(playerAddStatusEffect.Effect);
                 if (playerAddStatusEffect.Effect.doesDamage)
                 {
                     ApplyDamage(playerAddStatusEffect.Target.GetComponent<SetCharacterUI>().character, Mathf.RoundToInt(playerAddStatusEffect.Effect.DOTAmount));

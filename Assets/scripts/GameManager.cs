@@ -95,6 +95,7 @@ public class GameManager : MonoBehaviour
             cardManager.ClearDeadCards();
         }
         player.character.RemoveAllEffects();
+        player.RemoveAllStatusEffectsUI();
     }
     public void NewRun()
     {

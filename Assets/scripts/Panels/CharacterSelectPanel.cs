@@ -36,7 +36,7 @@ public class CharacterSelectPanel : BasePanel
     {
         if (character != null)
         {
-            character.GetComponent<SetCharacterUI>().character = characters[selectedCharacterIndex];
+            character.GetComponent<SetCharacterUI>().character = Instantiate(characters[selectedCharacterIndex]);
             AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PlayerStatsPanel").GetComponent<PlayerStatsPanel>().SetUp(characters[selectedCharacterIndex]);
             CardPool.instance.SetUp(characters[selectedCharacterIndex].startingDeck);
             character.GetComponent<SetCharacterUI>().SetUp();

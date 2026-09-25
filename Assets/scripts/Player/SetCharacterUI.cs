@@ -46,7 +46,6 @@ namespace Character
             BaseCharacter.playerHealthChanged += UpdateHealthUI;
             BaseCharacter.playerDefenceChanged += UpdateDefenceUI;
             BaseCharacter.playerEnergyChanged += UpdateEnergyUI;
-            BaseCharacter.AddEffectToPlayer += EnableStatusEffect;
             BaseCharacter.RemoveEffectToPlayer += RemoveStatusEffects;
         }
         public void OnDisable()
@@ -54,7 +53,6 @@ namespace Character
             BaseCharacter.playerHealthChanged -= UpdateHealthUI;
             BaseCharacter.playerDefenceChanged -= UpdateDefenceUI;
             BaseCharacter.playerEnergyChanged -= UpdateEnergyUI;
-            BaseCharacter.AddEffectToPlayer -= EnableStatusEffect;
             BaseCharacter.RemoveEffectToPlayer -= RemoveStatusEffects;
         }
         public void NewRun()
@@ -136,6 +134,8 @@ namespace Character
         }
         public void UpdateStatusEffectUI()
         {
+            if (character.activeEffects.Count == 0)
+                RemoveAllStatusEffectsUI();
             foreach (GameObject icon in effectIcons)
             {
                 StatusEffectData effectData = character.GetEffect(icon.name);
@@ -149,6 +149,13 @@ namespace Character
         {
             GameObject icon = GetEffectIcon(effectName);
             if (icon != null)
+            {
+                icon.SetActive(false);
+            }
+        }
+        public void RemoveAllStatusEffectsUI()
+        {
+            foreach (GameObject icon in effectIcons)
             {
                 icon.SetActive(false);
             }
