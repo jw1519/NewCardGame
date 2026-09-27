@@ -19,7 +19,6 @@ public class CardHand : MonoBehaviour
             if (baseCard.GetComponent<UseCard>().isSelected == false)
                 baseCard.GetComponent<Hover>().SetIndex(baseCard.transform.GetSiblingIndex());
             baseCard.GetComponent<UseCard>().isSelected = false;
-            //baseCard.GetComponent<Hover>().enabled = true;
         }
         yield return UpdateCardPositions(0.15f);
     }

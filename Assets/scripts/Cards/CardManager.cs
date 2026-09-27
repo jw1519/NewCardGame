@@ -65,6 +65,7 @@ namespace Card
                     if (RandomCard != null)
                     {
                         RandomCard.GetComponent<SetCardUI>().card.isInHand = true;
+                        AssetManager.Instance.GetAsset("AudioManager").GetComponent<AudioManager>().Play("DealCard");
                         RandomCard.gameObject.SetActive(true);
                         RandomCard.transform.SetParent(hand.transform, false);
                         cardsInHand.Add(RandomCard);
