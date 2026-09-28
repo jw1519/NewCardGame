@@ -31,6 +31,7 @@ MonoBehaviour:
   abilityTargetType: 1
   abilityAmount: 3
   abilityEffect: {fileID: 11400000, guid: c140013c4532aad458d4ffd4ec0851cb, type: 2}
-  goldOnDefeat: 5
+  goldOnDefeat: 10
+  hasDied: 0
   isSummon: 0
   activeEffects: []

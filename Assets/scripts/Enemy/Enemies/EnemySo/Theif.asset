@@ -31,6 +31,7 @@ MonoBehaviour:
   abilityTargetType: 0
   abilityAmount: 0
   abilityEffect: {fileID: 0}
-  goldOnDefeat: 15
+  goldOnDefeat: 20
+  hasDied: 0
   isSummon: 0
   activeEffects: []

@@ -7,6 +7,7 @@ namespace Item
     {
         public Sprite itemSprite;
         public string itemName;
+        public string description;
         public int itemCost;
         public bool isBought;
         public SetCharacterUI characterUI;
