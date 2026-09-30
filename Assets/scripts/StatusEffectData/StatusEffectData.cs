@@ -12,10 +12,8 @@ public class StatusEffectData : ScriptableObject
 
     public virtual void ApplyEffect(GameObject target)
     {
-        Debug.Log("Applying effect: " + effectName);
     }
     public virtual void RemoveEffect()
     {
-        Debug.Log("Removing effect: " + effectName);
     }
 }
