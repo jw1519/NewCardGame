@@ -124,7 +124,6 @@ namespace Character
             }
             else
             {
-                Debug.Log(data);
                 activeEffects.Add(Instantiate(data));
             }
         }

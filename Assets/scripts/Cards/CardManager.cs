@@ -46,6 +46,7 @@ namespace Card
             {
                 EmptyDiscardPile();
                 DrawCard(amount);
+                return;
             }
             if (cardsInHand.Count >= maxCardsInHand)
             {
@@ -79,6 +80,7 @@ namespace Card
             {
                 EmptyDiscardPile();
                 DrawCard(amount);
+                return;
             }
         }
 
