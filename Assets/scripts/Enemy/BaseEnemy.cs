@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,7 +27,8 @@ namespace Enemy
         [Header("Stats")]
         public string enemyName;
         public EnemyType enemyType;
-        
+        public string description;
+
         public int health;
         public int maxHealth;
 
@@ -47,6 +47,7 @@ namespace Enemy
         public bool isAlive => health > 0;
         public bool hasDied = false;
         public bool isSummon = false;
+        public bool isUnlocked = false;
 
         [Header("Status Effects")]
         public List<StatusEffectData> activeEffects = new List<StatusEffectData>();
