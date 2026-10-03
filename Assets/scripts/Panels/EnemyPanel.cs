@@ -1,7 +1,6 @@
 using UnityEngine;
 using Enemy;
 using UnityEngine.UI;
-using TMPro;
 
 public class EnemyPanel : MonoBehaviour
 {

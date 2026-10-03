@@ -1,16 +1,26 @@
-using UnityEngine;
+using Character;
 
-public class GameData : MonoBehaviour
+public class GameData
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public BaseCharacter baseCharacter;
+
+    //map
+    public int seed;
+    public RoomData[] rooms;
+
+    [System.Serializable]
+    public class RoomData
     {
-        
+        public int x, y = 0;
+        public bool isCleared = false;
+        public bool isRevealed = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public GameData()
     {
-        
+        baseCharacter = null;
+        seed = 0;
+        rooms = null;
     }
 }
+

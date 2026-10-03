@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Character
 {
-    public class SetCharacterUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class SetCharacterUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISave
     {
         [Header("Character")]
         public BaseCharacter character;
@@ -184,6 +184,16 @@ namespace Character
         public void OnPointerExit(PointerEventData eventData)
         {
             effectPanel.ClosePanel();
+        }
+
+        public void SaveData(ref GameData data)
+        {
+            data.baseCharacter = baseCharacter;
+        }
+
+        public void LoadData(GameData data)
+        {
+            baseCharacter = data.baseCharacter;
         }
     }
 }

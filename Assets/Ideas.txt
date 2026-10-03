@@ -49,3 +49,4 @@ issues:
 the card that drwas a random card from deck is taking more energy than it should. need to fix this (only happends sometimes))
 strength cards stack (unsure if this is an issue) causeing cards to do even more damage. can keep this but the turns dont reset 
 cure ability that makes player not beable to see enemy health.
+map seeds are differnet even though they are the same number. need to fix this so that the same seed gives the same map every time

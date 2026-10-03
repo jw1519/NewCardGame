@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MapPanel : BasePanel
+public class MapPanel : BasePanel, ISave
 {
     public Transform roomContainer;
     public GameObject roomPrefab;
@@ -174,5 +174,49 @@ public class MapPanel : BasePanel
         grid[x, y].ClearRoom();
         canClosePanel = false;
         OpenPanel();
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.seed = seedNumber;
+        foreach (BaseRoom room in grid)
+        {
+            if (room != null)
+            {
+                GameData.RoomData roomData = new GameData.RoomData
+                {
+                    x = room.x,
+                    y = room.y,
+                    isCleared = room.isCleared,
+                    isRevealed = room.isRevealed
+                };
+                data.rooms = data.rooms ?? new GameData.RoomData[mapWidth * mapHeight];
+                data.rooms[room.x * mapHeight + room.y] = roomData;
+            }
+        }
+    }
+
+    public void LoadData(GameData data)
+    {
+        seedNumber = data.seed;
+        AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PausePanel").GetComponent<PausePanel>().seedText.text = "Seed " + seedNumber.ToString();
+        grid = new BaseRoom[mapWidth, mapHeight]; // Reset the grid
+        CreateMap();
+        foreach (BaseRoom room in grid)
+        {
+            if (room != null)
+            {
+                GameData.RoomData roomData = data.rooms[room.x * mapHeight + room.y];
+                if (roomData != null)
+                {
+                    room.isCleared = roomData.isCleared;
+                    room.isRevealed = roomData.isRevealed;
+                    if (room.isRevealed)
+                    {
+                        room.RevealRoom();
+                    }
+                }
+            }
+        }
     }
 }
