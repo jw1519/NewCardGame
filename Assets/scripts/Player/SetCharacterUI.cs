@@ -188,12 +188,54 @@ namespace Character
 
         public void SaveData(ref GameData data)
         {
-            data.baseCharacter = baseCharacter;
+            data.characterData.maxHealth = character.maxHealth;
+            data.characterData.maxEnergy = character.maxEnergy;
+            data.characterData.health = character.health;
+            data.characterData.energy = character.energy;
+            data.characterData.defence = character.defence;
+            data.characterData.gold = character.gold;
+            data.characterData.totalGoldCollected = character.totalGoldCollected;
+
+            if (data.characterData.activeEffects.Count > 0)
+            {
+                foreach (StatusEffectData effect in character.activeEffects)
+                {
+                    GameData.EffectData effectData = new GameData.EffectData
+                    {
+                        effectName = effect.effectName,
+                        DOTAmount = effect.DOTAmount,
+                        duration = effect.duration,
+                        doesDamage = effect.doesDamage,
+                        description = effect.description
+                    };
+                    data.characterData.activeEffects.Add(effectData);
+                }
+            }
         }
 
         public void LoadData(GameData data)
         {
-            baseCharacter = data.baseCharacter;
+            var saved = data.characterData;
+
+            if (saved == null || string.IsNullOrEmpty(saved.characterName)) return;
+            character.maxHealth = data.characterData.maxHealth;
+            character.maxEnergy = data.characterData.maxEnergy;
+            character.health = data.characterData.health;
+            character.energy = data.characterData.energy;
+            character.defence = data.characterData.defence;
+            character.gold = data.characterData.gold;
+            character.totalGoldCollected = data.characterData.totalGoldCollected;
+
+            foreach (GameData.EffectData effectData in data.characterData.activeEffects)
+            {
+                StatusEffectData effect = ScriptableObject.CreateInstance<StatusEffectData>();
+                effect.effectName = effectData.effectName;
+                effect.DOTAmount = effectData.DOTAmount;
+                effect.duration = effectData.duration;
+                effect.doesDamage = effectData.doesDamage;
+                effect.description = effectData.description;
+                character.activeEffects.Add(effect);
+            }
         }
     }
 }
