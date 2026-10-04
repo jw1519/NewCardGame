@@ -9,6 +9,14 @@ public class GameData
     public int seed;
     public RoomData[] rooms;
 
+    public GameData()
+    {
+        seed = 0;
+        rooms = null;
+        characterData = new CharacterData();
+        rooms = new RoomData[35];
+    }
+
     [System.Serializable]
     public class RoomData
     {
@@ -16,6 +24,7 @@ public class GameData
         public bool isCleared = false;
         public bool isRevealed = false;
     }
+    [System.Serializable]
     public class CharacterData
     {
         public string characterName = null;
@@ -26,9 +35,9 @@ public class GameData
         public int maxEnergy = 3;
         public int gold = 0;
         public int totalGoldCollected = 0;
-        public List<EffectData> activeEffects = new List<EffectData>();
-        public List<string> startingDeck = new List<string>();
+        public List<EffectData> activeEffects = new();
     }
+    [System.Serializable]
     public class EffectData
     {
         public string effectName;
@@ -36,13 +45,6 @@ public class GameData
         public int duration;
         public bool doesDamage;
         public string description;
-    }
-    public GameData()
-    {
-        seed = 0;
-        rooms = null;
-        characterData = new CharacterData();
-        rooms = new RoomData[35];
     }
 }
 
