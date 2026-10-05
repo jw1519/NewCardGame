@@ -14,7 +14,7 @@ public class MenuButtons : MonoBehaviour
     }
     public void LoadRun()
     {
-        
+        UIManager.GetPanel("LoadGamePanel").OpenPanel();
     }
     public void Settings()
     {
