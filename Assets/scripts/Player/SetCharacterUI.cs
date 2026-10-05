@@ -216,6 +216,8 @@ namespace Character
         public void LoadData(GameData data)
         {
             var saved = data.characterData;
+            baseCharacter = ScriptableObject.CreateInstance<BaseCharacter>();
+            character = baseCharacter;
 
             if (saved == null || string.IsNullOrEmpty(saved.characterName)) return;
             character.maxHealth = data.characterData.maxHealth;

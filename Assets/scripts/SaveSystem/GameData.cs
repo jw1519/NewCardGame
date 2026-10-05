@@ -23,6 +23,7 @@ public class GameData
         public int x, y = 0;
         public bool isCleared = false;
         public bool isRevealed = false;
+        public RoomType roomType = RoomType.Normal;
     }
     [System.Serializable]
     public class CharacterData

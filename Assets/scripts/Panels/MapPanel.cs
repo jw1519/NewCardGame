@@ -188,7 +188,8 @@ public class MapPanel : BasePanel, ISave
                     x = room.x,
                     y = room.y,
                     isCleared = room.isCleared,
-                    isRevealed = room.isRevealed
+                    isRevealed = room.isRevealed,
+                    roomType = room.roomType
                 };
                 data.rooms = data.rooms ?? new GameData.RoomData[mapWidth * mapHeight];
                 data.rooms[room.x * mapHeight + room.y] = roomData;
@@ -200,21 +201,68 @@ public class MapPanel : BasePanel, ISave
     {
         seedNumber = data.seed;
         AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PausePanel").GetComponent<PausePanel>().seedText.text = "Seed " + seedNumber.ToString();
-        grid = new BaseRoom[mapWidth, mapHeight]; // Reset the grid
-        CreateMap();
-        foreach (BaseRoom room in grid)
+        CreateSavedMap(data);
+    }
+    private void CreateSavedMap(GameData savedData)
+    {
+        grid = new BaseRoom[mapWidth, mapHeight];
+        for (int x = 0; x < mapWidth; x++)
         {
-            if (room != null)
+            for (int y = 0; y < mapHeight; y++)
             {
-                GameData.RoomData roomData = data.rooms[room.x * mapHeight + room.y];
-                if (roomData != null)
+                GameObject room = Instantiate(roomPrefab, new Vector2(x * roomSize - roomSize * 2, y * roomSize - roomSize * 3), Quaternion.identity);
+                room.transform.localScale = Vector3.one * roomSize;
+                room.transform.SetParent(roomContainer, false);
+
+                GameData.RoomData roomData = savedData.rooms[x * mapHeight + y];
+                switch (roomData.roomType)
                 {
-                    room.isCleared = roomData.isCleared;
-                    room.isRevealed = roomData.isRevealed;
-                    if (room.isRevealed)
-                    {
-                        room.RevealRoom();
-                    }
+                    case RoomType.Normal:
+                        grid[x, y] = room.AddComponent<CombatRoom>();
+                        grid[x, y].InIt(x, y, RoomType.Normal);
+                        grid[x, y].SetSprite(roomSprites[0]);
+                        break;
+                    case RoomType.Boss:
+                        grid[x, y] = room.AddComponent<CombatRoom>();
+                        grid[x, y].InIt(x, y, RoomType.Boss);
+                        grid[x, y].SetSprite(roomSprites[1]);
+                        break;
+                    case RoomType.Shop:
+                        grid[x, y] = room.AddComponent<BaseRoom>();
+                        grid[x, y].InIt(x, y, RoomType.Shop);
+                        grid[x, y].SetSprite(roomSprites[2]);
+                        break;
+                    case RoomType.Treasure:
+                        grid[x, y] = room.AddComponent<TreasureRoom>();
+                        grid[x, y].InIt(x, y, RoomType.Treasure);
+                        grid[x, y].SetSprite(roomSprites[3]);
+                        break;
+                    case RoomType.healOrUpgrade:
+                        grid[x, y] = room.AddComponent<BaseRoom>();
+                        grid[x, y].InIt(x, y, RoomType.healOrUpgrade);
+                        grid[x, y].SetSprite(roomSprites[4]);
+                        break;
+                    case RoomType.End:
+                        grid[x, y] = room.AddComponent<BaseRoom>();
+                        grid[x, y].InIt(x, y, RoomType.End);
+                        grid[x, y].SetSprite(roomSprites[5]);
+                        break;
+                }
+                if (roomData.isRevealed)
+                {
+                    grid[x, y].RevealRoom();
+                }
+                grid[x, y].mapPanel = this; // Set reference to MapPanel in each room
+            }
+        }
+        for (int x = 0; x < mapWidth; x++)
+        {
+            for (int y = 0; y < mapHeight; y++)
+            {
+                GameData.RoomData roomData = savedData.rooms[x * mapHeight + y];
+                if (roomData.isCleared)
+                {
+                    grid[x, y].ClearRoom();
                 }
             }
         }
