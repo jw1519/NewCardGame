@@ -220,6 +220,7 @@ namespace Character
             character = baseCharacter;
 
             if (saved == null || string.IsNullOrEmpty(saved.characterName)) return;
+
             character.maxHealth = data.characterData.maxHealth;
             character.maxEnergy = data.characterData.maxEnergy;
             character.health = data.characterData.health;
@@ -227,6 +228,7 @@ namespace Character
             character.defence = data.characterData.defence;
             character.gold = data.characterData.gold;
             character.totalGoldCollected = data.characterData.totalGoldCollected;
+            character.animatorController = Resources.Load<RuntimeAnimatorController>("Resources/AnimatorController/" + data.characterData.characterName);
 
             foreach (GameData.EffectData effectData in data.characterData.activeEffects)
             {

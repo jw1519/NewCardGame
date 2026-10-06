@@ -9,12 +9,22 @@ public class GameData
     public int seed;
     public RoomData[] rooms;
 
+    //cards
+    public List<CardData> cardsIndeck;
+    public List<CardData> cardsInHand;
+    public List<CardData> cardsInDiscard;
+    public List<CardData> deadCards;
+
     public GameData()
     {
         seed = 0;
         rooms = null;
         characterData = new CharacterData();
         rooms = new RoomData[35];
+        cardsIndeck = new List<CardData>();
+        cardsInHand = new List<CardData>();
+        cardsInDiscard = new List<CardData>();
+        deadCards = new List<CardData>();
     }
 
     [System.Serializable]
@@ -46,6 +56,14 @@ public class GameData
         public int duration;
         public bool doesDamage;
         public string description;
+    }
+    [System.Serializable]
+    public class CardData
+    {
+        public string cardName;
+        public int cardEnergy;
+        public string cardDescription;
+
     }
 }
 

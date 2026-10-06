@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Card
 {
-    public class CardManager : MonoBehaviour
+    public class CardManager : MonoBehaviour, ISave
     {
         CardHand hand;
 
@@ -193,6 +193,19 @@ namespace Card
             cardsInHand.Clear();
             cardsInDeck.Clear();
             cardsInDiscard.Clear();
+        }
+
+        public void SaveData(ref GameData data)
+        {
+            foreach(GameObject card in deadCards)
+            {
+
+            }
+        }
+
+        public void LoadData(GameData data)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

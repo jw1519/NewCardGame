@@ -42,6 +42,7 @@ public class ShopManager : MonoBehaviour
         {
             GameObject instance = ItemFactory.instance.CreateItem(items[UnityEngine.Random.Range(0, items.Count)]);
             instance.transform.SetParent(itemParent, false);
+            instance.GetComponent<SetItemUI>().item.characterUI = AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>();
         }
     }
     public CardPackType GetRandomEnumValue<Action>()

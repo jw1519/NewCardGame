@@ -14,7 +14,7 @@ namespace Item
 
         public virtual void Awake()
         {
-            characterUI = AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>();
+            //characterUI = AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>();
         }
         public virtual void Use()
         {
