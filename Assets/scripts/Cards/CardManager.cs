@@ -205,7 +205,7 @@ namespace Card
 
         public void LoadData(GameData data)
         {
-            throw new System.NotImplementedException();
+
         }
     }
 }

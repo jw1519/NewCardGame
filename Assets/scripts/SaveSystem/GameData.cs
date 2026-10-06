@@ -44,6 +44,7 @@ public class GameData
         public int defence = 0;
         public int energy = 3;
         public int maxEnergy = 3;
+        public int maxItemAmount = 3;
         public int gold = 0;
         public int totalGoldCollected = 0;
         public List<EffectData> activeEffects = new();

@@ -10,7 +10,7 @@ namespace Character
     {
         [Header("Character")]
         public BaseCharacter character;
-        BaseCharacter baseCharacter;
+        //BaseCharacter baseCharacter;
         public Image spriteObject;
 
         [Header("Health")]
@@ -33,13 +33,11 @@ namespace Character
         PlayerStatsPanel playerStatsPanel;
         public void SetUp()
         {
-            baseCharacter = character;
+            //baseCharacter = character;
 
             character.animator = spriteObject.GetComponent<Animator>();
             character.animator.runtimeAnimatorController = character.animatorController;
-
             playerStatsPanel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PlayerStatsPanel").GetComponent<PlayerStatsPanel>();
-            NewRun();
         }
         private void OnEnable()
         {
@@ -58,7 +56,7 @@ namespace Character
         public void NewRun()
         {
             //Reset Stats
-            character = baseCharacter;
+            //character = baseCharacter;
 
             healthSlider.maxValue = character.maxHealth;
             energySlider.maxValue = character.maxEnergy;
@@ -188,6 +186,7 @@ namespace Character
 
         public void SaveData(ref GameData data)
         {
+            data.characterData.characterName = character.characterName;
             data.characterData.maxHealth = character.maxHealth;
             data.characterData.maxEnergy = character.maxEnergy;
             data.characterData.health = character.health;
@@ -195,6 +194,7 @@ namespace Character
             data.characterData.defence = character.defence;
             data.characterData.gold = character.gold;
             data.characterData.totalGoldCollected = character.totalGoldCollected;
+            data.characterData.maxItemAmount = character.maxItemAmount;
 
             if (data.characterData.activeEffects.Count > 0)
             {
@@ -216,11 +216,11 @@ namespace Character
         public void LoadData(GameData data)
         {
             var saved = data.characterData;
-            baseCharacter = ScriptableObject.CreateInstance<BaseCharacter>();
-            character = baseCharacter;
+            character = ScriptableObject.CreateInstance<BaseCharacter>();
+            //character = baseCharacter;
 
             if (saved == null || string.IsNullOrEmpty(saved.characterName)) return;
-
+            character.characterName = data.characterData.characterName;
             character.maxHealth = data.characterData.maxHealth;
             character.maxEnergy = data.characterData.maxEnergy;
             character.health = data.characterData.health;
@@ -228,7 +228,13 @@ namespace Character
             character.defence = data.characterData.defence;
             character.gold = data.characterData.gold;
             character.totalGoldCollected = data.characterData.totalGoldCollected;
-            character.animatorController = Resources.Load<RuntimeAnimatorController>("Resources/AnimatorController/" + data.characterData.characterName);
+            character.maxItemAmount = data.characterData.maxItemAmount;
+
+            var controller = Resources.Load<RuntimeAnimatorController>("AnimatorController/" + data.characterData.characterName);
+            if (controller != null)
+            {
+                character.animatorController = controller;
+            }
 
             foreach (GameData.EffectData effectData in data.characterData.activeEffects)
             {
@@ -240,6 +246,12 @@ namespace Character
                 effect.description = effectData.description;
                 character.activeEffects.Add(effect);
             }
+            SetUp();
+            UpdateHealthUI();
+            UpdateEnergyUI();
+            UpdateDefenceUI();
+            UpdateGoldUI();
+            AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>().AddToCombat(gameObject);
         }
     }
 }

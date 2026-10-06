@@ -40,6 +40,7 @@ public class CharacterSelectPanel : BasePanel
             AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PlayerStatsPanel").GetComponent<PlayerStatsPanel>().SetUp(characters[selectedCharacterIndex]);
             CardPool.instance.SetUp(characters[selectedCharacterIndex].startingDeck);
             character.GetComponent<SetCharacterUI>().SetUp();
+            character.GetComponent<SetCharacterUI>().NewRun();
             ClosePanel();
         }
     }
