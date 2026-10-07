@@ -197,15 +197,82 @@ namespace Card
 
         public void SaveData(ref GameData data)
         {
-            foreach(GameObject card in deadCards)
+            if (deadCards.Count != 0)
             {
-
+                foreach (GameObject card in deadCards)
+                {
+                    GameData.CardData cardData = new GameData.CardData
+                    {
+                        cardName = card.GetComponent<SetCardUI>().card.cardName
+                    };
+                    data.deadCards.Add(cardData);
+                }
+            }
+            if (cardsInHand.Count != 0)
+            {
+                foreach (GameObject card in cardsInHand)
+                {
+                    GameData.CardData cardData = new GameData.CardData
+                    {
+                        cardName = card.GetComponent<SetCardUI>().card.cardName
+                    };
+                    data.cardsInHand.Add(cardData);
+                }
+            }
+            if (cardsInDeck.Count != 0)
+            {
+                foreach (GameObject card in cardsInDeck)
+                {
+                    GameData.CardData cardData = new GameData.CardData
+                    {
+                        cardName = card.GetComponent<SetCardUI>().card.cardName
+                    };
+                    data.cardsInDeck.Add(cardData);
+                }
+            }
+            if (cardsInDiscard.Count != 0)
+            {
+                foreach (GameObject card in cardsInDiscard)
+                {
+                    GameData.CardData cardData = new GameData.CardData
+                    {
+                        cardName = card.GetComponent<SetCardUI>().card.cardName
+                    };
+                    data.cardsInDiscard.Add(cardData);
+                }
             }
         }
 
         public void LoadData(GameData data)
         {
+            if (data.deadCards.Count != 0)
+            {
+                foreach (GameData.CardData card in data.deadCards)
+                {
 
+                }
+            }
+            if (data.cardsInHand.Count != 0)
+            {
+                foreach (GameData.CardData card in data.cardsInHand)
+                {
+
+                }
+            }
+            if (data.cardsInDeck.Count != 0)
+            {
+                foreach (GameData.CardData card in data.cardsInDeck)
+                {
+
+                }
+            }
+            if (data.cardsInDiscard.Count != 0)
+            {
+                foreach (GameData.CardData card in data.cardsInDiscard)
+                {
+
+                }
+            }
         }
     }
 }

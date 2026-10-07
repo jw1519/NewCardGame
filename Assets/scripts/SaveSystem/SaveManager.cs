@@ -21,7 +21,7 @@ public class SaveManager : MonoBehaviour
     {
         dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
         saveableObjects = FindAllSavableObjects();
-        LoadGame();
+        //LoadGame();
     }
 
     public void NewGame()
