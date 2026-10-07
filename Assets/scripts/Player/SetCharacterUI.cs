@@ -186,6 +186,7 @@ namespace Character
 
         public void SaveData(ref GameData data)
         {
+            if (data == null) return;
             data.characterData.characterName = character.characterName;
             data.characterData.maxHealth = character.maxHealth;
             data.characterData.maxEnergy = character.maxEnergy;

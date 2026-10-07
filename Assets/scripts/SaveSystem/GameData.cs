@@ -4,6 +4,8 @@ using System.Collections.Generic;
 public class GameData
 {
     public CharacterData characterData;
+    public List<string> items;
+    public List<string> relics;
 
     //map
     public int seed;
@@ -25,6 +27,8 @@ public class GameData
         cardsInHand = new List<CardData>();
         cardsInDiscard = new List<CardData>();
         deadCards = new List<CardData>();
+        items = new();
+        relics = new();
     }
 
     [System.Serializable]

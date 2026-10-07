@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Character
 {
-    public class PlayerStatsPanel : BasePanel
+    public class PlayerStatsPanel : BasePanel, ISave
     {
         public TextMeshProUGUI healthText;
         public TextMeshProUGUI goldText;
@@ -102,6 +102,24 @@ namespace Character
                 }
             }
             return false;
+        }
+
+        public void SaveData(ref GameData data)
+        {
+            //save relics and items
+            if (itemContainer.childCount !=0)
+            {
+
+            }
+            if (relicContainer.childCount != 0)
+            {
+
+            }
+
+        }
+        public void LoadData(GameData data)
+        {
+
         }
     }
 }

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5604e8c9fdf0cfb40944945a97965f6e, type: 3}
   m_Name: CleanseCard
   m_EditorClassIdentifier: Assembly-CSharp::Card.CleanseCard
-  cardName: 
+  cardName: Cleanse
   cardSprite: {fileID: 21300000, guid: 4737458a873698843a310c4d17bfefb4, type: 3}
   cardType: 2
   cardEnergy: 1
-  description: 
+  description: Cleanse character of all current status effects
   isInHand: 0
   isSingleUse: 0
   usedOnEnemy: 0

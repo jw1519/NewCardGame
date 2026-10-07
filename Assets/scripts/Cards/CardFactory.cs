@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 
 namespace Card
@@ -5,6 +7,7 @@ namespace Card
     public class CardFactory : MonoBehaviour
     {
         public static CardFactory instance;
+        public List<BaseCard> cardSO;
         public GameObject cardPrefab;
         public GameObject CreateCard(BaseCard card)
         {

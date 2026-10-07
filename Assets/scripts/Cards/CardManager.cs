@@ -199,6 +199,7 @@ namespace Card
         {
             if (deadCards.Count != 0)
             {
+                data.cardsInDiscard.Clear();
                 foreach (GameObject card in deadCards)
                 {
                     GameData.CardData cardData = new GameData.CardData
@@ -210,6 +211,7 @@ namespace Card
             }
             if (cardsInHand.Count != 0)
             {
+                data.cardsInHand.Clear();
                 foreach (GameObject card in cardsInHand)
                 {
                     GameData.CardData cardData = new GameData.CardData
@@ -221,6 +223,7 @@ namespace Card
             }
             if (cardsInDeck.Count != 0)
             {
+                data.cardsInDeck.Clear();
                 foreach (GameObject card in cardsInDeck)
                 {
                     GameData.CardData cardData = new GameData.CardData
@@ -232,6 +235,7 @@ namespace Card
             }
             if (cardsInDiscard.Count != 0)
             {
+                data.cardsInDiscard.Clear();
                 foreach (GameObject card in cardsInDiscard)
                 {
                     GameData.CardData cardData = new GameData.CardData
