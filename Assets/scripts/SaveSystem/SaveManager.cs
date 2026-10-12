@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class SaveManager : MonoBehaviour
 {
+    public static bool loadOnStart = false;
+
     [Header("File Storage Config")]
     [SerializeField] private string fileName;
 
@@ -21,7 +23,18 @@ public class SaveManager : MonoBehaviour
     {
         dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
         saveableObjects = FindAllSavableObjects();
-        LoadGame();
+        if (loadOnStart)
+        {
+            LoadGame();
+            UIManager uiManager = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>();
+            uiManager.CloseAllPanels();
+            uiManager.GetPanel("PlayerStatsPanel").OpenPanel();
+            uiManager.GetPanel("MapPanel").OpenPanel();
+        }
+        else
+        {
+            NewGame();
+        }
     }
 
     public void NewGame()

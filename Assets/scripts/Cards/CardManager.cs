@@ -202,11 +202,8 @@ namespace Card
                 data.cardsInDiscard.Clear();
                 foreach (GameObject card in deadCards)
                 {
-                    GameData.CardData cardData = new GameData.CardData
-                    {
-                        cardName = card.GetComponent<SetCardUI>().card.cardName
-                    };
-                    data.deadCards.Add(cardData);
+                    BaseCard cardData = card.GetComponent<SetCardUI>().card;
+                    data.deadCards.Add(cardData.cardName);
                 }
             }
             if (cardsInHand.Count != 0)
@@ -214,11 +211,8 @@ namespace Card
                 data.cardsInHand.Clear();
                 foreach (GameObject card in cardsInHand)
                 {
-                    GameData.CardData cardData = new GameData.CardData
-                    {
-                        cardName = card.GetComponent<SetCardUI>().card.cardName
-                    };
-                    data.cardsInHand.Add(cardData);
+                    BaseCard cardData = card.GetComponent<SetCardUI>().card;
+                    data.cardsInHand.Add(cardData.cardName);
                 }
             }
             if (cardsInDeck.Count != 0)
@@ -226,11 +220,8 @@ namespace Card
                 data.cardsInDeck.Clear();
                 foreach (GameObject card in cardsInDeck)
                 {
-                    GameData.CardData cardData = new GameData.CardData
-                    {
-                        cardName = card.GetComponent<SetCardUI>().card.cardName
-                    };
-                    data.cardsInDeck.Add(cardData);
+                    BaseCard cardData = card.GetComponent<SetCardUI>().card;
+                    data.cardsInDeck.Add(cardData.cardName);
                 }
             }
             if (cardsInDiscard.Count != 0)
@@ -238,11 +229,8 @@ namespace Card
                 data.cardsInDiscard.Clear();
                 foreach (GameObject card in cardsInDiscard)
                 {
-                    GameData.CardData cardData = new GameData.CardData
-                    {
-                        cardName = card.GetComponent<SetCardUI>().card.cardName
-                    };
-                    data.cardsInDiscard.Add(cardData);
+                    BaseCard cardData = card.GetComponent<SetCardUI>().card;
+                    data.cardsInDiscard.Add(cardData.cardName);
                 }
             }
         }
@@ -251,30 +239,42 @@ namespace Card
         {
             if (data.deadCards.Count != 0)
             {
-                foreach (GameData.CardData card in data.deadCards)
+                foreach (string name in data.deadCards)
                 {
-
+                    GameObject card = AssetManager.Instance.GetAsset("CardFactory").GetComponent<CardFactory>().CreateCard(name);
+                    card.transform.SetParent(deadCardParent, false);
+                    deadCards.Add(card);
+                    CardPool.instance.pooledCards.Add(card);
                 }
             }
             if (data.cardsInHand.Count != 0)
             {
-                foreach (GameData.CardData card in data.cardsInHand)
+                foreach (string name in data.cardsInHand)
                 {
-
+                    GameObject card = AssetManager.Instance.GetAsset("CardFactory").GetComponent<CardFactory>().CreateCard(name);
+                    card.transform.SetParent(hand.transform, false);
+                    cardsInHand.Add(card);
+                    CardPool.instance.pooledCards.Add(card);
                 }
             }
             if (data.cardsInDeck.Count != 0)
             {
-                foreach (GameData.CardData card in data.cardsInDeck)
+                foreach (string name in data.cardsInDeck)
                 {
-
+                    GameObject card = AssetManager.Instance.GetAsset("CardFactory").GetComponent<CardFactory>().CreateCard(name);
+                    card.transform.SetParent(deckCardParent, false);
+                    cardsInDeck.Add(card);
+                    CardPool.instance.pooledCards.Add(card);
                 }
             }
             if (data.cardsInDiscard.Count != 0)
             {
-                foreach (GameData.CardData card in data.cardsInDiscard)
+                foreach (string name in data.cardsInDiscard)
                 {
-
+                    GameObject card = AssetManager.Instance.GetAsset("CardFactory").GetComponent<CardFactory>().CreateCard(name);
+                    card.transform.SetParent(discardedCardParent, false);
+                    cardsInDiscard.Add(card);
+                    CardPool.instance.pooledCards.Add(card);
                 }
             }
         }

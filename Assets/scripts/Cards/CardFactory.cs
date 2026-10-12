@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using NUnit.Framework;
 using UnityEngine;
 
 namespace Card
@@ -15,6 +14,16 @@ namespace Card
             instance.GetComponent<SetCardUI>().card = Instantiate(card);
             instance.GetComponent<SetCardUI>().UpdateDescriptionText();
             return instance;
+        }
+        public GameObject CreateCard(string cardName)
+        {
+            BaseCard card = cardSO.Find(c => c.cardName == cardName);
+            if (card == null)
+            {
+                Debug.LogError("Card not found: " + cardName);
+                return null;
+            }
+            return CreateCard(card);
         }
     }
 }

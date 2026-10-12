@@ -12,10 +12,10 @@ public class GameData
     public RoomData[] rooms;
 
     //cards
-    public List<CardData> cardsInDeck;
-    public List<CardData> cardsInHand;
-    public List<CardData> cardsInDiscard;
-    public List<CardData> deadCards;
+    public List<string> cardsInDeck;
+    public List<string> cardsInHand;
+    public List<string> cardsInDiscard;
+    public List<string> deadCards;
 
     public GameData()
     {
@@ -23,10 +23,10 @@ public class GameData
         rooms = null;
         characterData = new CharacterData();
         rooms = new RoomData[35];
-        cardsInDeck = new List<CardData>();
-        cardsInHand = new List<CardData>();
-        cardsInDiscard = new List<CardData>();
-        deadCards = new List<CardData>();
+        cardsInDeck = new();
+        cardsInHand = new();
+        cardsInDiscard = new();
+        deadCards = new();
         items = new();
         relics = new();
     }

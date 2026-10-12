@@ -69,8 +69,10 @@ public class TreasurePanel : BasePanel
     }
     public override void ClosePanel()
     {
-        base.ClosePanel();
-        GameManager.instance.RoomCleared();
-        panel.SetActive(false);
+        if (gameObject.activeSelf)
+        {
+            base.ClosePanel();
+            GameManager.instance.RoomCleared();
+        }
     }
 }
