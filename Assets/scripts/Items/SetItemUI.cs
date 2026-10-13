@@ -30,9 +30,16 @@ namespace Item
             bool canBuy = ShopManager.instance.ItemCanBeBought(item.itemCost);
             if (canBuy && !item.isBought)
             {
-                costText.enabled = false;
                 AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PlayerStatsPanel").GetComponent<PlayerStatsPanel>().AddItem(gameObject);
                 item.isBought = true;
+                HasBeenBought();
+            }
+        }
+        public void HasBeenBought()
+        {
+            if (item.isBought)
+            {
+                costText.enabled = false;
                 GetComponent<Button>().onClick.RemoveAllListeners();
                 GetComponent<Button>().onClick.AddListener(OpenFunctionPanel);
                 itemDescriptionText.text = item.description;

@@ -11,11 +11,6 @@ namespace Item
         public int itemCost;
         public bool isBought;
         public SetCharacterUI characterUI;
-
-        public virtual void Awake()
-        {
-            //characterUI = AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>();
-        }
         public virtual void Use()
         {
             if (isBought)

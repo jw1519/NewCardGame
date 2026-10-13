@@ -106,10 +106,15 @@ namespace Character
 
         public void SaveData(ref GameData data)
         {
+            data.items.Clear();
+            data.relics.Clear();
             //save relics and items
             if (itemContainer.childCount !=0)
             {
-
+                foreach (Transform transform in itemContainer.transform)
+                {
+                    data.items.Add(transform.GetComponent<SetItemUI>().item.itemName);
+                }
             }
             if (relicContainer.childCount != 0)
             {
@@ -119,7 +124,25 @@ namespace Character
         }
         public void LoadData(GameData data)
         {
-
+            if (data.items.Count != 0)
+            {
+                foreach (string itemName in data.items)
+                {
+                    BaseItem item = Resources.Load<BaseItem>("ItemSO/" + itemName.Replace(" ", ""));
+                    item.isBought = true;
+                    GameObject gameObject = ItemFactory.instance.CreateItem(item);
+                    gameObject.GetComponent<SetItemUI>().HasBeenBought();
+                    AddItem(gameObject);
+                }
+            }
+            if (data.relics.Count != 0)
+            {
+                foreach (string relicName in data.relics)
+                {
+                    Relic relic = Resources.Load<Relic>("Relics/" + relicName.Replace(" ", ""));
+                    AddRelic(relic);
+                }
+            }
         }
     }
 }

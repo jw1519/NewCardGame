@@ -62,13 +62,5 @@ public class GameData
         public bool doesDamage;
         public string description;
     }
-    [System.Serializable]
-    public class CardData
-    {
-        public string cardName;
-        public int cardEnergy;
-        public string cardDescription;
-
-    }
 }
 

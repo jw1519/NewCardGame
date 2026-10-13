@@ -11,9 +11,8 @@ namespace Item
         public int cardAmount;
         List<GameObject> cards = new List<GameObject>();
 
-        public override void Awake()
+        public void Awake()
         {
-            base.Awake();
             description = "Adds " + cardAmount + " extra " + extraCard.cardName + " cards to your deck that " + extraCard.description;
         }
 

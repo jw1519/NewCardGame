@@ -1,3 +1,4 @@
+using Character;
 using UnityEngine;
 
 namespace Item
@@ -10,6 +11,7 @@ namespace Item
         {
             if (isBought)
             {
+                if (characterUI == null) characterUI = AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>();
                 characterUI.character.GainEnergy(energyAmount);
                 Debug.Log("Used energy potion");
             }
