@@ -10,6 +10,7 @@ namespace Item
 
         public override void Equip()
         {
+            base.Equip();
             characterUI.character.maxHealth += abilityValue;
             characterUI.character.health += abilityValue;
             characterUI.UpdateHealthUI();

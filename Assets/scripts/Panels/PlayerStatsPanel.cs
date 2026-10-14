@@ -79,7 +79,9 @@ namespace Character
             {
                 if (!transform.gameObject.activeSelf)
                 {
+                    Debug.Log("here");
                     transform.GetComponent<RelicUI>().SetRelic(Instantiate(item));
+                    transform.gameObject.SetActive(true);
                     return;
                 }
             }

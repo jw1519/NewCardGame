@@ -1,3 +1,4 @@
+using Character;
 using UnityEngine;
 
 namespace Item
@@ -8,7 +9,10 @@ namespace Item
         public RelicType relicType;
         public int abilityValue;
 
-        public virtual void Equip() { }
+        public virtual void Equip()
+        {
+            if (characterUI == null) characterUI = AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>();
+        }
         public virtual void UnEquip() { }
     }
     public enum RelicType
