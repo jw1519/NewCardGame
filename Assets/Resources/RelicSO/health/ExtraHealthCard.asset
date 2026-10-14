@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: ExtraHealthCard
   m_EditorClassIdentifier: Assembly-CSharp::Item.ExtraCardRelic
   itemSprite: {fileID: 21300000, guid: 87ffdc72ebabfe445939a345394ba587, type: 3}
-  itemName: 
+  itemName: Extra Health Cards
+  description: Adds 2 extra Heal cards to your deck that Heal player for 3hp
   itemCost: 75
   isBought: 0
   characterUI: {fileID: 0}
   relicType: 0
   abilityValue: 0
-  description: 
   extraCard: {fileID: 11400000, guid: 2fae6f5db0967ba4f91703e5ec7aed82, type: 2}
   cardAmount: 2
