@@ -79,7 +79,7 @@ namespace Character
             {
                 if (!transform.gameObject.activeSelf)
                 {
-                    transform.GetComponent<RelicUI>().SetRelic(item);
+                    transform.GetComponent<RelicUI>().SetRelic(Instantiate(item));
                     return;
                 }
             }
@@ -118,7 +118,11 @@ namespace Character
             }
             if (relicContainer.childCount != 0)
             {
-
+                foreach (Transform transform in relicContainer.transform)
+                {
+                    if (transform.GetComponent<RelicUI>().relic != null)
+                        data.relics.Add(transform.GetComponent<RelicUI>().relic.itemName);
+                }
             }
 
         }

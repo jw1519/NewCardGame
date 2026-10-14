@@ -24,7 +24,6 @@ public class MapPanel : BasePanel, ISave
     [SerializeField] TMP_InputField seedInputField;
     public void Start()
     {
-        grid = new BaseRoom[mapWidth, mapHeight];
         canClosePanel = false;
         Events.roomCleared += ClearRoom; // Subscribe to the roomCleared event
     }
@@ -88,6 +87,7 @@ public class MapPanel : BasePanel, ISave
 
     public void CreateMap()
     {
+        grid = new BaseRoom[mapWidth, mapHeight];
         for (int  x = 0; x < mapWidth; x++)
         {
             for (int y = 0; y < mapHeight; y++)
