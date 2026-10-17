@@ -18,6 +18,9 @@ public class GameData
     public List<string> cardsInDiscard;
     public List<string> deadCards;
 
+    //collection panel
+    public List<string> enemiesFound;
+
     public GameData()
     {
         seed = 0;
