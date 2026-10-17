@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 [System.Serializable]
 public class GameData
@@ -38,6 +39,8 @@ public class GameData
         public bool isCleared = false;
         public bool isRevealed = false;
         public RoomType roomType = RoomType.Normal;
+        public string enemyName;
+        public int enemyAmount;
     }
     [System.Serializable]
     public class CharacterData

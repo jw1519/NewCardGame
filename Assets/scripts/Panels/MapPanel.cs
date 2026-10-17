@@ -183,16 +183,55 @@ public class MapPanel : BasePanel, ISave
         {
             if (room != null)
             {
-                GameData.RoomData roomData = new GameData.RoomData
+                if (room.roomType == RoomType.Normal)
                 {
-                    x = room.x,
-                    y = room.y,
-                    isCleared = room.isCleared,
-                    isRevealed = room.isRevealed,
-                    roomType = room.roomType
-                };
-                data.rooms = data.rooms ?? new GameData.RoomData[mapWidth * mapHeight];
-                data.rooms[room.x * mapHeight + room.y] = roomData;
+                    CombatRoom combat = room as CombatRoom;
+                    GameData.RoomData roomData = new()
+                    {
+                        x = room.x,
+                        y = room.y,
+                        isCleared = room.isCleared,
+                        isRevealed = room.isRevealed,
+                        roomType = room.roomType,
+                        enemyName = combat.enemyToSpawn.name,
+                        enemyAmount = combat.enemyAmount,
+
+                    };
+                    data.rooms = data.rooms ?? new GameData.RoomData[mapWidth * mapHeight];
+                    data.rooms[room.x * mapHeight + room.y] = roomData;
+                }
+                else if (room.roomType == RoomType.Boss)
+                {
+                    CombatRoom combat = room as CombatRoom;
+                    GameData.RoomData roomData = new()
+                    {
+                        x = room.x,
+                        y = room.y,
+                        isCleared = room.isCleared,
+                        isRevealed = room.isRevealed,
+                        roomType = room.roomType,
+                        enemyName = combat.enemyToSpawn.name,
+                        enemyAmount = combat.enemyAmount,
+
+                    };
+                    data.rooms = data.rooms ?? new GameData.RoomData[mapWidth * mapHeight];
+                    data.rooms[room.x * mapHeight + room.y] = roomData;
+                }
+                else
+                {
+                    GameData.RoomData roomData = new()
+                    {
+                        x = room.x,
+                        y = room.y,
+                        isCleared = room.isCleared,
+                        isRevealed = room.isRevealed,
+                        roomType = room.roomType
+                    };
+                    data.rooms = data.rooms ?? new GameData.RoomData[mapWidth * mapHeight];
+                    data.rooms[room.x * mapHeight + room.y] = roomData;
+                }
+
+
             }
         }
     }
@@ -221,11 +260,15 @@ public class MapPanel : BasePanel, ISave
                         grid[x, y] = room.AddComponent<CombatRoom>();
                         grid[x, y].InIt(x, y, RoomType.Normal);
                         grid[x, y].SetSprite(roomSprites[0]);
+                        CombatRoom combat = room.GetComponent<CombatRoom>();
+                        combat.RoomSetUp(Resources.Load<BaseEnemy>("EnemySO/" + roomData.enemyName), roomData.enemyAmount);
                         break;
                     case RoomType.Boss:
                         grid[x, y] = room.AddComponent<CombatRoom>();
                         grid[x, y].InIt(x, y, RoomType.Boss);
                         grid[x, y].SetSprite(roomSprites[1]);
+                        CombatRoom boss = room.GetComponent<CombatRoom>();
+                        boss.RoomSetUp(Resources.Load<BaseEnemy>("EnemySO/" + roomData.enemyName), roomData.enemyAmount);
                         break;
                     case RoomType.Shop:
                         grid[x, y] = room.AddComponent<BaseRoom>();
