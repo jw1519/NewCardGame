@@ -21,7 +21,8 @@ namespace Item
             relic = item;
             itemImage.sprite = item.itemSprite;
             descriptionText.text = item.description;
-            item.Equip();
+            if (!relic.isEquiped)
+                item.Equip();
             gameObject.SetActive(true);
         }
         public void RemoveRelic()

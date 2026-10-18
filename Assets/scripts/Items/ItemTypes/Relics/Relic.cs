@@ -8,12 +8,17 @@ namespace Item
     {
         public RelicType relicType;
         public int abilityValue;
+        public bool isEquiped;
 
         public virtual void Equip()
         {
             if (characterUI == null) characterUI = AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>();
+            isEquiped = true;
         }
-        public virtual void UnEquip() { }
+        public virtual void UnEquip()
+        {
+            isEquiped = false;
+        }
     }
     public enum RelicType
     {

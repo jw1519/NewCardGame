@@ -22,7 +22,7 @@ namespace Character
         public Transform relicContainer;
         public GameObject relicPrefab;
 
-        public void Start()
+        private void Awake()
         {
             UpdateRoomUI(0);
 
@@ -79,7 +79,6 @@ namespace Character
             {
                 if (!transform.gameObject.activeSelf)
                 {
-                    Debug.Log("here");
                     transform.GetComponent<RelicUI>().SetRelic(Instantiate(item));
                     transform.gameObject.SetActive(true);
                     return;
@@ -145,7 +144,9 @@ namespace Character
             {
                 foreach (string relicName in data.relics)
                 {
-                    Relic relic = Resources.Load<Relic>("Relics/" + relicName.Replace(" ", ""));
+                    Relic relic = Resources.Load<Relic>("RelicSO/" + relicName.Replace(" ", ""));
+                    relic.isBought = true;
+                    relic.isEquiped = true;
                     AddRelic(relic);
                 }
             }
