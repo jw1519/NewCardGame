@@ -173,6 +173,16 @@ public class MapPanel : BasePanel, ISave
     {
         grid[x, y].ClearRoom();
         canClosePanel = false;
+        //if (grid[x,y].roomType == RoomType.Normal)
+        //{
+        //    CombatRoom combat = grid[x,y] as CombatRoom;
+        //    SaveManager.Instance.AddFoundEnemy(combat.enemyToSpawn.enemyName);
+        //}
+        //else if (grid[x,y].roomType == RoomType.Boss)
+        //{
+        //    CombatRoom combat = grid[x, y] as CombatRoom;
+        //    SaveManager.Instance.AddFoundEnemy(combat.enemyToSpawn.enemyName);
+        //}
         OpenPanel();
     }
 

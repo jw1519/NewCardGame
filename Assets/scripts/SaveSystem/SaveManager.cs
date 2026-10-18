@@ -62,13 +62,14 @@ public class SaveManager : MonoBehaviour
         }
         dataHandler.Save(gameData);
     }
-    private void OnApplicationQuit()
-    {
-        SaveGame();
-    }
     public List<ISave> FindAllSavableObjects()
     {
         IEnumerable<ISave> savableObjects = FindObjectsByType<MonoBehaviour>().OfType<ISave>();
         return new List<ISave>(savableObjects);
+    }
+    public void AddFoundEnemy(string enemyName)
+    {
+        if (!gameData.enemiesFound.Contains(enemyName))
+            gameData.enemiesFound.Add(enemyName);
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 using Enemy;
 using UnityEngine.UIElements;
 using System.Collections.Generic;
-public class EnemiesPanel : BasePanel
+public class EnemiesPanel : BasePanel, ISave
 {
     public BaseEnemy[] enemies;
     List<GameObject> enemyImages = new List<GameObject>();
@@ -50,4 +50,15 @@ public class EnemiesPanel : BasePanel
             }
         }
     }
+
+    public void SaveData(ref GameData data)
+    {
+
+    }
+
+    public void LoadData(GameData data)
+    {
+
+    }
+
 }
