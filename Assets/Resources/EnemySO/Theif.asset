@@ -21,6 +21,7 @@ MonoBehaviour:
   abilitySprite: {fileID: 21300000, guid: 0ad037c82e017d7429742ed757e5dafa, type: 3}
   enemyName: 
   enemyType: 0
+  description: A flying creature that can steal the players cards
   health: 0
   maxHealth: 30
   damage: 0
@@ -34,4 +35,5 @@ MonoBehaviour:
   goldOnDefeat: 20
   hasDied: 0
   isSummon: 0
+  isUnlocked: 0
   activeEffects: []

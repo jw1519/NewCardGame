@@ -21,6 +21,7 @@ MonoBehaviour:
   abilitySprite: {fileID: 21300000, guid: 0ad037c82e017d7429742ed757e5dafa, type: 3}
   enemyName: 
   enemyType: 0
+  description: A slime that can put itsself back together
   health: 10
   maxHealth: 15
   damage: 3
@@ -34,4 +35,5 @@ MonoBehaviour:
   goldOnDefeat: 8
   hasDied: 0
   isSummon: 0
+  isUnlocked: 0
   activeEffects: []

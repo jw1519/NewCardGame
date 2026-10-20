@@ -13,7 +13,6 @@ namespace Card
                 cardManager = AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>();
             base.Use(target);
             cardManager.DrawCard(cardsToDraw);
-            Debug.Log("Drew " + cardsToDraw + " cards");
         }
     }
 }

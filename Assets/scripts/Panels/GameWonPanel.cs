@@ -1,7 +1,5 @@
 using Character;
-using Enemy;
 using TMPro;
-using UnityEngine;
 public class GameWonPanel : BasePanel
 {
     public int goldEarned;
@@ -33,7 +31,6 @@ public class GameWonPanel : BasePanel
     }
     public void UpdateGold(int goldAmount)
     {
-        Debug.Log(goldAmount);
         goldEarned += goldAmount;
     }
 }

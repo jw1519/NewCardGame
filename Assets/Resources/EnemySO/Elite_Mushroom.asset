@@ -21,6 +21,7 @@ MonoBehaviour:
   abilitySprite: {fileID: 21300000, guid: 0ad037c82e017d7429742ed757e5dafa, type: 3}
   enemyName: 
   enemyType: 1
+  description: A mushroom that can summon minion to aid them
   health: 0
   maxHealth: 60
   damage: 0
@@ -32,7 +33,9 @@ MonoBehaviour:
   abilityAmount: 0
   abilityEffect: {fileID: 11400000, guid: ae3d3aa3db7bbdc4ebf18f4ab9e65020, type: 2}
   goldOnDefeat: 25
+  hasDied: 0
   isSummon: 0
+  isUnlocked: 0
   activeEffects: []
   enemyToSpawn: {fileID: 11400000, guid: 7a36361897dd4584da1b918197b93ec9, type: 2}
   maxEnemySummons: 2

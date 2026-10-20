@@ -39,6 +39,7 @@ enemies could be chained together. all take damage. all heal the same
 
 boss ideas
 a boss that splits into two when on half heath (two/three gnomes in a trench coat)
+gnome ability grab bomb out of hat (can be weakness/poisen or stop player from seeing next move)
 
 armour filled with slime, everytime it takes damage spawn slime
 
