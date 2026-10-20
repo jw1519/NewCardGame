@@ -9,7 +9,7 @@ public class StatusEffectData : ScriptableObject
     public bool doesDamage;
     public string description;
     public Sprite effectSprite;
-
+    public bool applyOnEnemy;
     public virtual void ApplyEffect(GameObject target)
     {
     }

@@ -16,7 +16,6 @@ namespace Enemy
             enemyUI = GetComponent<SetEnemyUI>();
             enemy = enemyUI.enemy;
             combatManager = AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>();
-            //combatManager.AddToCombat(gameObject);
             SelectNextAction();
         }
         public void StartTurn()
@@ -76,6 +75,17 @@ namespace Enemy
         {
             EnemyAction action = GetRandomEnumValue<EnemyAction>();
             enemy.action = action;
+            if (action == EnemyAction.Attack && enemy.activeEffects.Count != 0)
+            {
+                if (enemy.GetEffect("Weakness"))
+                {
+                    enemy.DecreaseDamage(enemy.GetEffect("Weakness").DOTAmount);
+                }
+                else if (enemy.GetEffect("Strength"))
+                {
+                    enemy.DecreaseDamage(enemy.GetEffect("Strength").DOTAmount);
+                }
+            }
             enemyUI.UpdateActionUI();
 
         }

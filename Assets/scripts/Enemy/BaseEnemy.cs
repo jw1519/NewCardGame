@@ -155,6 +155,14 @@ namespace Enemy
         {
             return activeEffects.Find(j => j.effectName == name);
         }
+        public void IncreaseDamage(float multiplier)
+        {
+            damage = Mathf.RoundToInt(damage * multiplier);
+        }
+        public void DecreaseDamage(float multiplier)
+        {
+            damage = Mathf.RoundToInt(damage / multiplier);
+        }
     }
     public enum EnemyAction
     {
