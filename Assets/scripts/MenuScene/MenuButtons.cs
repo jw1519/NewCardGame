@@ -10,6 +10,7 @@ public class MenuButtons : MonoBehaviour
     }
     public void NewRun()
     {
+        SaveManager.loadOnStart = false;
         SceneManager.LoadScene("GameScene");
     }
     public void LoadRun()

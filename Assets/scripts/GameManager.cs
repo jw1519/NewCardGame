@@ -6,7 +6,7 @@ using Character;
 using System.Collections.Generic;
 using System;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, ISave
 {
     public static GameManager instance;
     public Button endTurnButton;
@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
         {
             enemyPositions.Add(child);
         }
-        roomsCleared = 0;
         combatManager = AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>();
         mapPanel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("MapPanel").GetComponent<MapPanel>();
         cardManager = AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>();
@@ -114,5 +113,14 @@ public class GameManager : MonoBehaviour
         UI.GetPanel("CharacterSelectPanel").OpenPanel();
         CardPool.instance.RemoveAllCardsFromPool();
         cardManager.RemoveAllCards();
+    }
+    public void SaveData(ref GameData data)
+    {
+        data.roomsCleared = roomsCleared;
+    }
+    public void LoadData(GameData data)
+    {
+        roomsCleared = data.roomsCleared;
+        updateRoomsCleared?.Invoke(roomsCleared);
     }
 }

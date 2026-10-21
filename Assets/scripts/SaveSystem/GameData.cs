@@ -12,15 +12,13 @@ public class GameData
     //map
     public int seed;
     public RoomData[] rooms;
+    public int roomsCleared;
 
     //cards
     public List<string> cardsInDeck;
     public List<string> cardsInHand;
     public List<string> cardsInDiscard;
     public List<string> deadCards;
-
-    //collection panel
-    public List<string> enemiesFound;
 
     public GameData()
     {
@@ -34,6 +32,7 @@ public class GameData
         deadCards = new();
         items = new();
         relics = new();
+        roomsCleared = 0;
     }
 
     [System.Serializable]
