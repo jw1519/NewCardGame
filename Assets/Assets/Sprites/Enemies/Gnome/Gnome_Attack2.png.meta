@@ -1,0 +1,520 @@
+fileFormatVersion: 2
+guid: 2309c3e0d27fbf845a6580bb57fad970
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5716842978615009475
+    second: Gnome_Attack2_0
+  - first:
+      213: 4213407544785418350
+    second: Gnome_Attack2_1
+  - first:
+      213: 6824122444268679559
+    second: Gnome_Attack2_2
+  - first:
+      213: 6503131302500545200
+    second: Gnome_Attack2_3
+  - first:
+      213: -6716044891322570317
+    second: Gnome_Attack2_4
+  - first:
+      213: 9003693541399946954
+    second: Gnome_Attack2_5
+  - first:
+      213: -8771592142235859678
+    second: Gnome_Attack2_6
+  - first:
+      213: -1590003886608816315
+    second: Gnome_Attack2_7
+  - first:
+      213: 4971386095110296484
+    second: Gnome_Attack2_8
+  - first:
+      213: -6239400714578260713
+    second: Gnome_Attack2_9
+  - first:
+      213: 2613166039114496004
+    second: Gnome_Attack2_10
+  - first:
+      213: 143325252971967007
+    second: Gnome_Attack2_11
+  - first:
+      213: -1198119146055745355
+    second: Gnome_Attack2_12
+  - first:
+      213: -1726162891085533937
+    second: Gnome_Attack2_13
+  - first:
+      213: -718151142720907876
+    second: Gnome_Attack2_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Gnome_Attack2_0
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 15
+        width: 40
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3f57fe9991b9a0b0800000000000000
+      internalID: -5716842978615009475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnome_Attack2_1
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 15
+        width: 40
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e68b2e0a6d7097a30800000000000000
+      internalID: 4213407544785418350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnome_Attack2_2
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 15
+        width: 40
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 781b762153724be50800000000000000
+      internalID: 6824122444268679559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnome_Attack2_3
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 15
+        width: 40
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b2b44de673cf3a50800000000000000
+      internalID: 6503131302500545200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnome_Attack2_4
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 15
+        width: 40
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b9242521c0dbc2a0800000000000000
+      internalID: -6716044891322570317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnome_Attack2_5
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 15
+        width: 40
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac66f91829b83fc70800000000000000
+      internalID: 9003693541399946954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnome_Attack2_6
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 15
+        width: 40
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2258c67ab6b054680800000000000000
+      internalID: -8771592142235859678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnome_Attack2_7
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 15
+        width: 40
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 547e03ba3eb2fe9e0800000000000000
+      internalID: -1590003886608816315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnome_Attack2_8
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 15
+        width: 40
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a39d506059edf440800000000000000
+      internalID: 4971386095110296484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnome_Attack2_9
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 15
+        width: 40
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71d8e3c9b123969a0800000000000000
+      internalID: -6239400714578260713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnome_Attack2_10
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 15
+        width: 40
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 408b88cdaa4d34420800000000000000
+      internalID: 2613166039114496004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnome_Attack2_11
+      rect:
+        serializedVersion: 2
+        x: 1131
+        y: 15
+        width: 40
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f12bcb6ee813df100800000000000000
+      internalID: 143325252971967007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnome_Attack2_12
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 15
+        width: 40
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b0c0cc0cfc6f5fe0800000000000000
+      internalID: -1198119146055745355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnome_Attack2_13
+      rect:
+        serializedVersion: 2
+        x: 1297
+        y: 23
+        width: 7
+        height: 8
+      alignment: 9
+      pivot: {x: -1.7023054, y: -0.54728556}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0da2640fff6b08e0800000000000000
+      internalID: -1726162891085533937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnome_Attack2_14
+      rect:
+        serializedVersion: 2
+        x: 1322
+        y: 14
+        width: 47
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c955413375d9806f0800000000000000
+      internalID: -718151142720907876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 217c4c7caee7ae44e8a2af5a0da1515d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Gnome_Attack2_0: -5716842978615009475
+      Gnome_Attack2_1: 4213407544785418350
+      Gnome_Attack2_10: 2613166039114496004
+      Gnome_Attack2_11: 143325252971967007
+      Gnome_Attack2_12: -1198119146055745355
+      Gnome_Attack2_13: -1726162891085533937
+      Gnome_Attack2_14: -718151142720907876
+      Gnome_Attack2_2: 6824122444268679559
+      Gnome_Attack2_3: 6503131302500545200
+      Gnome_Attack2_4: -6716044891322570317
+      Gnome_Attack2_5: 9003693541399946954
+      Gnome_Attack2_6: -8771592142235859678
+      Gnome_Attack2_7: -1590003886608816315
+      Gnome_Attack2_8: 4971386095110296484
+      Gnome_Attack2_9: -6239400714578260713
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
