@@ -49,12 +49,12 @@ public class SaveManager : MonoBehaviour
     }
     public void LoadProfile(string profileName)
     {
+        selectedProfile = profileHandler.LoadProfile();
         foreach (ProfileData data in profileData)
         {
             if (data.profileName == profileName)
             {
-                //selectedProfile = profileHandler.Load();
-                
+                selectedProfile = profileHandler.LoadProfile();
             }
         }
     }
