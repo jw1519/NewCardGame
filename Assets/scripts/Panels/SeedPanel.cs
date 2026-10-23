@@ -10,4 +10,9 @@ public class SeedPanel : BasePanel
         seedInputField.text = randomSeed.ToString();
         AssetManager.Instance.GetAsset("AudioManager").GetComponent<AudioManager>().Play("UIButtonPress");
     }
+    public override void ClosePanel()
+    {
+        base.ClosePanel();
+        AssetManager.Instance.GetAsset("AudioManager").GetComponent<AudioManager>().Play("UIButtonPress");
+    }
 }

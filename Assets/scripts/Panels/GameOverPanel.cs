@@ -32,6 +32,7 @@ public class GameOverPanel : BasePanel
     }
     public void NewRun()
     {
+        AssetManager.Instance.GetAsset("AudioManager").GetComponent<AudioManager>().Play("UIButtonPress");
         roomsCleared = 0;
         totalGoldEarned = 0;
         GameManager.instance.NewRun();
@@ -48,6 +49,7 @@ public class GameOverPanel : BasePanel
     }
     public void MainMenu()
     {
+        AssetManager.Instance.GetAsset("AudioManager").GetComponent<AudioManager>().Play("UIButtonPress");
         ClosePanel();
         SceneManager.LoadScene("Menu");
     }
