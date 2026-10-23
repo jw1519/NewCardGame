@@ -41,12 +41,14 @@ public class CharacterSelectPanel : BasePanel
             CardPool.instance.SetUp(characters[selectedCharacterIndex].startingDeck);
             character.GetComponent<SetCharacterUI>().SetUp();
             character.GetComponent<SetCharacterUI>().NewRun();
+            AssetManager.Instance.GetAsset("AudioManager").GetComponent<AudioManager>().Play("UIButtonPress");
             ClosePanel();
         }
     }
     public void NextCharacter()
     {
         characterpanels[selectedCharacterIndex].SetActive(false);
+        AssetManager.Instance.GetAsset("AudioManager").GetComponent<AudioManager>().Play("UIButtonPress");
 
         selectedCharacterIndex++;
         if (selectedCharacterIndex >= characters.Count)
@@ -56,6 +58,7 @@ public class CharacterSelectPanel : BasePanel
     public void PreviousCharacter()
     {
         characterpanels[selectedCharacterIndex].SetActive(false);
+        AssetManager.Instance.GetAsset("AudioManager").GetComponent<AudioManager>().Play("UIButtonPress");
         selectedCharacterIndex--;
         if (selectedCharacterIndex < 0)
             selectedCharacterIndex = characters.Count - 1;

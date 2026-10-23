@@ -3000,6 +3000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaveManager
   fileName: gameData.game
+  ProfileName: 
 --- !u!1 &381407198
 GameObject:
   m_ObjectHideFlags: 0
@@ -11422,8 +11423,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   sounds:
-  - name: DealCard
-    clip: {fileID: 8300000, guid: d43d516966d0fcc458fcdcb0d8740505, type: 3}
+  - name: DealSingleCard
+    clip: {fileID: 8300000, guid: 93a388ac45d674f7bb6a1650d79d983d, type: 3}
+    volume: 0.5
+    pitch: 0.5
+    source: {fileID: 0}
+  - name: MoveCard
+    clip: {fileID: 8300000, guid: 3f0f9cc00def644bc98873c7ec33a4cb, type: 3}
+    volume: 0.5
+    pitch: 0.5
+    source: {fileID: 0}
+  - name: UIButtonPress
+    clip: {fileID: 8300000, guid: 3c7c8ec337e194708b0e38a386fefb23, type: 3}
+    volume: 0.5
+    pitch: 0.5
+    source: {fileID: 0}
+  - name: CantDoThat
+    clip: {fileID: 8300000, guid: f31f7f4edc4224e14993ff15a1958767, type: 3}
+    volume: 0.5
+    pitch: 0.5
+    source: {fileID: 0}
+  - name: ShieldBreak
+    clip: {fileID: 8300000, guid: 2e016eb28c3a44894a87af7e0f75e376, type: 3}
     volume: 0.5
     pitch: 0.5
     source: {fileID: 0}

@@ -25,7 +25,7 @@ namespace Card
             {
                 DeselectCard(card);
             }
-            
+            AssetManager.Instance.GetAsset("AudioManager").GetComponent<AudioManager>().Play("MoveCard");
             cardSelected = card.GetComponent<SetCardUI>();
             cardSelected.GetComponent<UseCard>().isSelected = true;
             cardSelected.GetComponent<Hover>().enabled = false;
@@ -48,7 +48,7 @@ namespace Card
                 {
                     cardSelected = null;
                 }
-                //useCard.gameObject.GetComponent<Hover>().ResetCard();
+                AssetManager.Instance.GetAsset("AudioManager").GetComponent<AudioManager>().Play("MoveCard");
             }
             cardHand.StartCoroutine(cardHand.UpdateCardPositions(0.5f));
             cardHand.UpdateCards();
@@ -60,6 +60,7 @@ namespace Card
                 if (AssetManager.Instance.GetAsset("Player").GetComponent<SetCharacterUI>().character.energy - cardSelected.card.cardEnergy < 0)
                 {
                     Debug.Log("not enough energy");
+                    AssetManager.Instance.GetAsset("AudioManager").GetComponent<AudioManager>().Play("CantDoThat");
                     return;
                 }
                 if (cardSelected.card.usedOnEnemy && target.GetComponent<SetEnemyUI>() == null) return;

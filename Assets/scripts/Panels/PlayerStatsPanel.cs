@@ -92,6 +92,7 @@ namespace Character
         public void Pause()
         {
             AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("PausePanel").OpenPanel();
+            AssetManager.Instance.GetAsset("AudioManager").GetComponent<AudioManager>().Play("UIButtonPress");
         }
         public bool CanAddRelic()
         {

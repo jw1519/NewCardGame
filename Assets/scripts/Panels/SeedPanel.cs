@@ -8,5 +8,6 @@ public class SeedPanel : BasePanel
     {
         int randomSeed = Random.Range(int.MinValue, int.MaxValue);
         seedInputField.text = randomSeed.ToString();
+        AssetManager.Instance.GetAsset("AudioManager").GetComponent<AudioManager>().Play("UIButtonPress");
     }
 }

@@ -14,6 +14,7 @@ public class CardHand : MonoBehaviour
     public IEnumerator AddCard(GameObject card)
     {
         cards.Add(card);
+        AssetManager.Instance.GetAsset("AudioManager").GetComponent<AudioManager>().Play("DealSingleCard");
         foreach (GameObject baseCard in cards)
         {
             if (baseCard.GetComponent<UseCard>().isSelected == false)
