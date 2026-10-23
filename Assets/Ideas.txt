@@ -51,3 +51,4 @@ the card that drwas a random card from deck is taking more energy than it should
 strength cards stack (unsure if this is an issue) causeing cards to do even more damage. can keep this but the turns dont reset 
 cure ability that makes player not beable to see enemy health.
 gaps between cards in hand sometimes
+strength affect doesnt get removed (the ui does) the cards attack dont reset

@@ -65,5 +65,58 @@ public class FileDataHandler
             Debug.LogError("Error occured when trying to load data from file: " + fullPath + "\n" + e);
         }
     }
+    public ProfileData LoadProfile()
+    {
+        string fullPath = Path.Combine(dataDirPath, dataFileName);
+        ProfileData loadedData = null;
+        if (File.Exists(fullPath))
+        {
+            try
+            {
+                // read the serialized data from the file
+                string dataToLoad = "";
+                using (FileStream stream = new FileStream(fullPath, FileMode.Open))
+                {
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        dataToLoad = reader.ReadToEnd();
+                    }
+                }
+                // deserialize the data from json format
+                loadedData = JsonUtility.FromJson<ProfileData>(dataToLoad);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("Error occured when trying to load data from file: " + fullPath + "\n" + e);
+            }
+        }
+
+        return loadedData;
+    }
+    public void SaveProfile(ProfileData data)
+    {
+        string fullPath = Path.Combine(dataDirPath, dataFileName);
+        try
+        {
+            //creat a directory path if one doesnt exsist
+            Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
+
+            // serialize the data into json format
+            string dataToStore = JsonUtility.ToJson(data, true);
+
+            // write the serialized data to a file
+            using (FileStream stream = new FileStream(fullPath, FileMode.Create))
+            {
+                using (StreamWriter writer = new StreamWriter(stream))
+                {
+                    writer.Write(dataToStore);
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Error occured when trying to load data from file: " + fullPath + "\n" + e);
+        }
+    }
 }
 

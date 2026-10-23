@@ -52,7 +52,6 @@ namespace Enemy
                         EventQueue.EnqueueEvent(new PlayerAddStatusEffectEvent(abilityTarget, enemy.abilityEffect));
                         break;
                     }
-
                     break;
             }
             StartCoroutine(combatManager.StartCombat());
