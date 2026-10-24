@@ -11448,6 +11448,11 @@ MonoBehaviour:
     volume: 0.5
     pitch: 0.5
     source: {fileID: 0}
+  - name: ForestAmbience
+    clip: {fileID: 8300000, guid: f872fbeed870c452f990f9f27884a45a, type: 3}
+    volume: 0.3
+    pitch: 0.5
+    source: {fileID: 0}
 --- !u!1 &1568330959
 GameObject:
   m_ObjectHideFlags: 0
