@@ -357,6 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProfileButton
   profileName: Profile 2
+  panel: {fileID: 0}
 --- !u!1 &64247828
 GameObject:
   m_ObjectHideFlags: 0
@@ -4295,6 +4296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProfileButton
   profileName: profile 1
+  panel: {fileID: 0}
 --- !u!1 &1049842365
 GameObject:
   m_ObjectHideFlags: 0
@@ -5122,6 +5124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProfileButton
   profileName: Profile 4
+  panel: {fileID: 0}
 --- !u!1001 &1226726480
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6141,6 +6144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProfileButton
   profileName: Profile 3
+  panel: {fileID: 0}
 --- !u!1 &1505018372
 GameObject:
   m_ObjectHideFlags: 0

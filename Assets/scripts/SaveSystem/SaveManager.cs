@@ -17,7 +17,7 @@ public class SaveManager : MonoBehaviour
     FileDataHandler profileHandler;
     GameData gameData;
 
-    List<ProfileData> profileData;
+    List<ProfileData> profileData = new();
     ProfileData selectedProfile;
 
     private void Awake()
@@ -26,11 +26,13 @@ public class SaveManager : MonoBehaviour
             Destroy(Instance);
 
         Instance = this;
+
+        DontDestroyOnLoad(gameObject);
+        dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+        profileHandler = new FileDataHandler(Application.persistentDataPath, ProfileName);
     }
     private void Start()
     {
-        dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
-        profileHandler = new FileDataHandler(Application.persistentDataPath, ProfileName);
         saveableObjects = FindAllSavableObjects();
         if (loadOnStart)
         {
@@ -55,8 +57,18 @@ public class SaveManager : MonoBehaviour
             if (data.profileName == profileName)
             {
                 selectedProfile = profileHandler.LoadProfile();
+                if (selectedProfile.savedGameData != null)
+                    gameData = selectedProfile.savedGameData;
             }
         }
+    }
+    public void SaveProfile()
+    {
+        foreach (ISave savable in saveableObjects)
+        {
+            savable.SaveData(ref gameData);
+        }
+        profileHandler.SaveProfile(selectedProfile);
     }
     public List<ProfileData> GetProfileDatas()
     {

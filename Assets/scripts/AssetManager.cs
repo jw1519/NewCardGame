@@ -19,6 +19,9 @@ public class AssetManager : MonoBehaviour
     {
         foreach (GameObject asset in assets)
         {
+            if (asset == null)
+                assets.Remove(asset);
+
             if (asset.name == assetName)
             {
                 return asset;

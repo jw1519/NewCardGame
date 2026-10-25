@@ -49,12 +49,16 @@ public class ShopPanel : BasePanel
     }
     public void Reroll()
     {
+
         bool canReroll = ShopManager.instance.CanBuy(rerollCost);
         if (canReroll)
         {
+            AssetManager.Instance.GetAsset("AudioManager").GetComponent<AudioManager>().Play("UIButtonPress");
             ShopManager.instance.ClearShop();
             ShopManager.instance.SetUpShop();
         }
+        else
+            AssetManager.Instance.GetAsset("AudioManager").GetComponent<AudioManager>().Play("CantDoThat");
     }
     public void RestoreHealth()
     {
@@ -64,7 +68,10 @@ public class ShopPanel : BasePanel
             characterUI.character.health = characterUI.character.maxHealth;
             characterUI.gameObject.GetComponent<SetCharacterUI>().UpdateHealthUI();
             healthRestoreText.transform.parent.gameObject.SetActive(false);
+            AssetManager.Instance.GetAsset("AudioManager").GetComponent<AudioManager>().Play("UIButtonPress");
         }
+        else
+            AssetManager.Instance.GetAsset("AudioManager").GetComponent<AudioManager>().Play("CantDoThat");
     }
     public void UpdateHealthRestoreUI()
     {
