@@ -30,7 +30,6 @@ public class SaveManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
         dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
-
     }
 
     public void StartGame()

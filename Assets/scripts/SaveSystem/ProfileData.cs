@@ -11,6 +11,6 @@ public class ProfileData
     {
         profileName = "profile";
         enemiesFound = new();
-        savedGameData = new GameData();
+        savedGameData = null;
     }
 }
