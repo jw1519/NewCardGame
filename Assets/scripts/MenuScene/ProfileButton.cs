@@ -15,9 +15,4 @@ public class ProfileButton : MonoBehaviour
         SaveManager.Instance.LoadProfile(profileName);
         panel.ClosePanel();
     }
-    public void NewProfile()
-    {
-        SaveManager.Instance.NewProfile(profileName);
-        panel.ClosePanel();
-    }
 }

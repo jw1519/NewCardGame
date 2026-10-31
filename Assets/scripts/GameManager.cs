@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour, ISave
         combatManager = AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>();
         mapPanel = AssetManager.Instance.GetAsset("UIManager").GetComponent<UIManager>().GetPanel("MapPanel").GetComponent<MapPanel>();
         cardManager = AssetManager.Instance.GetAsset("CardManager").GetComponent<CardManager>();
+
+        SaveManager.Instance.StartGame();
     }
     public void SetRoom(BaseRoom room)
     {

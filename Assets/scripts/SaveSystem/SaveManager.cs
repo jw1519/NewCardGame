@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class SaveManager : MonoBehaviour
 {
@@ -23,16 +24,18 @@ public class SaveManager : MonoBehaviour
     private void Awake()
     {
         if (Instance != null)
-            Destroy(Instance);
+            Destroy(gameObject);
 
         Instance = this;
 
         DontDestroyOnLoad(gameObject);
         dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
-        profileHandler = new FileDataHandler(Application.persistentDataPath, ProfileName);
+
     }
-    private void Start()
+
+    public void StartGame()
     {
+        if (!SceneManager.GetSceneByName("GameScene").isLoaded) return;
         saveableObjects = FindAllSavableObjects();
         if (loadOnStart)
         {
@@ -45,12 +48,20 @@ public class SaveManager : MonoBehaviour
     }
     public void NewProfile(string name)
     {
+        profileHandler = new FileDataHandler(Application.persistentDataPath, name);
         ProfileData data = new ProfileData();
         data.profileName = name;
         profileData.Add(data);
+        selectedProfile = data;
     }
     public void LoadProfile(string profileName)
     {
+        if (profileData.Find(p => p.profileName == profileName) == null)
+        {
+            NewProfile(profileName);
+            return;
+        }
+        profileHandler = new FileDataHandler(Application.persistentDataPath, profileName);
         selectedProfile = profileHandler.LoadProfile();
         foreach (ProfileData data in profileData)
         {
@@ -103,6 +114,8 @@ public class SaveManager : MonoBehaviour
             savable.SaveData(ref gameData);
         }
         dataHandler.Save(gameData);
+        selectedProfile.savedGameData = gameData;
+        profileHandler.SaveProfile(selectedProfile);
     }
     public List<ISave> FindAllSavableObjects()
     {
