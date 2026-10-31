@@ -108,6 +108,7 @@ public class SaveManager : MonoBehaviour
     }
     public void SaveGame()
     {
+        //dataHandler = new FileDataHandler(Application.persistentDataPath, selectedProfile.profileName + "game");
         foreach (ISave savable in saveableObjects)
         {
             savable.SaveData(ref gameData);
