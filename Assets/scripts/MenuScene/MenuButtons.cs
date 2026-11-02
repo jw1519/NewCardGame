@@ -19,6 +19,10 @@ public class MenuButtons : MonoBehaviour
         Debug.Log(SaveManager.loadOnStart);
         SceneManager.LoadScene("GameScene");
     }
+    public void ChangeProfile()
+    {
+        UIManager.GetPanel("ProfileSelectPanel").OpenPanel();
+    }
     public void Settings()
     {
         

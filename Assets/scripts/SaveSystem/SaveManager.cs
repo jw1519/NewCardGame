@@ -15,7 +15,7 @@ public class SaveManager : MonoBehaviour
 
     public List<ISave> saveableObjects = new List<ISave>();
     FileDataHandler dataHandler;
-    FileDataHandler profileHandler;
+    public FileDataHandler profileHandler {  get; private set; }
     GameData gameData;
 
     List<ProfileData> profileData = new();
@@ -53,14 +53,14 @@ public class SaveManager : MonoBehaviour
         profileData.Add(data);
         selectedProfile = data;
     }
-    public void LoadProfile(string profileName)
+    public void LoadProf(string profileName)
     {
         if (profileData.Find(p => p.profileName == profileName) == null)
         {
             NewProfile(profileName);
             return;
         }
-        profileHandler = new FileDataHandler(Application.persistentDataPath, profileName);
+        profileHandler = new FileDataHandler(Application.persistentDataPath, "Slot " + LoadProfile.SelectedProfile);
         selectedProfile = profileHandler.LoadProfile();
         foreach (ProfileData data in profileData)
         {
@@ -114,8 +114,8 @@ public class SaveManager : MonoBehaviour
             savable.SaveData(ref gameData);
         }
         dataHandler.Save(gameData);
-        selectedProfile.savedGameData = gameData;
-        profileHandler.SaveProfile(selectedProfile);
+        //selectedProfile.savedGameData = gameData;
+        //profileHandler.SaveProfile(selectedProfile);
     }
     public List<ISave> FindAllSavableObjects()
     {
