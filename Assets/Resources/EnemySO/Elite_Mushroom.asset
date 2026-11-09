@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c69f32c82075554cbca367ef52f56ce, type: 3}
   m_Name: Elite_Mushroom
   m_EditorClassIdentifier: Assembly-CSharp::Enemy.EnemySummon
-  enemySprite: {fileID: 0}
+  enemySprite: {fileID: 3234629978573100161, guid: f8b30c2afe165d645b54d500a9c30862, type: 3}
   animatorController: {fileID: 9100000, guid: 17d16f35975c5db49a66515ada0a5971, type: 2}
   animator: {fileID: 0}
   action: 0

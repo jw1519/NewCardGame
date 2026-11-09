@@ -12,7 +12,6 @@ public class ProfileSelectPanel : BasePanel
         {
             if (SlotExist(i))
             {
-                Debug.Log("here");
                 buttons[i].gameObject.name = i.ToString();
                 buttons[i].transform.GetComponentInChildren<TextMeshProUGUI>().text = "Profile " + i.ToString();
             }

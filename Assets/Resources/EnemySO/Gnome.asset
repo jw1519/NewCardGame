@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980d7b3c70f581b46a903758297ed3c9, type: 3}
   m_Name: Gnome
   m_EditorClassIdentifier: Assembly-CSharp::Enemy.BaseEnemy
-  enemySprite: {fileID: 0}
+  enemySprite: {fileID: -5716842978615009475, guid: 2309c3e0d27fbf845a6580bb57fad970, type: 3}
   animatorController: {fileID: 9100000, guid: 8a7eb7d8eac3d2b49b59d89b0061642f, type: 2}
   animator: {fileID: 0}
   action: 0

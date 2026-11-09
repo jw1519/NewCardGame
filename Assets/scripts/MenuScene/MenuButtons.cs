@@ -25,6 +25,10 @@ public class MenuButtons : MonoBehaviour
     {
         UIManager.GetPanel("ProfileSelectPanel").OpenPanel();
     }
+    public void CollectionPanel()
+    {
+        UIManager.GetPanel("CollectionPanel").OpenPanel();
+    }
     public void Settings()
     {
         

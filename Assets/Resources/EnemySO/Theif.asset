@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8c04c2af0d9fd4d8b658d75c16abfe, type: 3}
   m_Name: Theif
   m_EditorClassIdentifier: Assembly-CSharp::Enemy.Goblin
-  enemySprite: {fileID: 21300000, guid: 30a64e91fb6af3d4eb4d7c8280e3aca8, type: 3}
+  enemySprite: {fileID: -4262185617143388622, guid: 6d7cd4f7505dc674c891ca8946cfd98b, type: 3}
   animatorController: {fileID: 9100000, guid: 69bce7be2db9f894693975be65d50d5f, type: 2}
   animator: {fileID: 0}
   action: 0

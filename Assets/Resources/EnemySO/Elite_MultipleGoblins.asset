@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d89243ce01472a4991143242214a3a5, type: 3}
   m_Name: Elite_MultipleGoblins
   m_EditorClassIdentifier: Assembly-CSharp::Enemy.MultipleEnemy
-  enemySprite: {fileID: 0}
+  enemySprite: {fileID: 1901907511, guid: f84c06efa9991bd49b5553f54f400348, type: 3}
   animatorController: {fileID: 9100000, guid: e4fdefbd45070fc4eac83b79148ffa81, type: 2}
   animator: {fileID: 0}
   action: 0

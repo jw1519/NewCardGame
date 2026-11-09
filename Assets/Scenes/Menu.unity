@@ -662,7 +662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6008447460906240088, guid: e0cc8ee43b1e9ea4bb6c9b35d559ea8b, type: 3}
       propertyPath: m_Interactable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6008447460906240088, guid: e0cc8ee43b1e9ea4bb6c9b35d559ea8b, type: 3}
       propertyPath: m_SpriteState.m_HighlightedSprite
@@ -686,7 +686,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6008447460906240088, guid: e0cc8ee43b1e9ea4bb6c9b35d559ea8b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: NewRun
+      value: CollectionPanel
       objectReference: {fileID: 0}
     - target: {fileID: 6008447460906240088, guid: e0cc8ee43b1e9ea4bb6c9b35d559ea8b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1366,12 +1366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a5efadeecbaa048ac9f059caef7cec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemiesPanel
-  enemies:
-  - {fileID: 11400000, guid: 8bf289ac19302ce4b8fea3bdb9699adb, type: 2}
-  - {fileID: 11400000, guid: 9a9318cee3a790145ba5126aec35cebf, type: 2}
-  - {fileID: 11400000, guid: 362d6ce35d50f9443af4998c403dacc2, type: 2}
-  - {fileID: 11400000, guid: 7ae7b768389e8dc47a3aab1199864ed1, type: 2}
-  - {fileID: 11400000, guid: b21cb89c2c41ccb47bee46fdb1652b6f, type: 2}
+  enemies: []
   enemyPanelPrefab: {fileID: 8062094828042926510, guid: adbd828be6ff16d409eeea5d606386fd, type: 3}
   content: {fileID: 66736111}
   descriptionPanel: {fileID: 7111935148236694356}
@@ -1623,6 +1618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollectionPanel
   panels:
   - {fileID: 5362105}
+  - {fileID: 230599155}
 --- !u!1 &351790502
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980d7b3c70f581b46a903758297ed3c9, type: 3}
   m_Name: FireSlime
   m_EditorClassIdentifier: Assembly-CSharp::Enemy.BaseEnemy
-  enemySprite: {fileID: 0}
+  enemySprite: {fileID: 8225411298239176505, guid: 00eefe271e3ea7342a9c64a90e0106d4, type: 3}
   animatorController: {fileID: 9100000, guid: 88b9d288d41f94549942fb3bc954fb50, type: 2}
   animator: {fileID: 0}
   action: 0

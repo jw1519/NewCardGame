@@ -13,6 +13,7 @@ public class EnemiesPanel : BasePanel, ISave
 
     void Start()
     {
+        enemies = Resources.LoadAll<BaseEnemy>("EnemySO");
         foreach (BaseEnemy enemy in enemies)
         {
             GameObject instance = Instantiate(enemyPanelPrefab, transform);
@@ -29,7 +30,7 @@ public class EnemiesPanel : BasePanel, ISave
         {
             if (enemy.isUnlocked)
             {
-                
+                UnlockEnemy(enemy.enemyName);
             }
         }
     }
