@@ -4,9 +4,11 @@ using UnityEngine.SceneManagement;
 public class MenuButtons : MonoBehaviour
 {
     UIManager UIManager;
-    private void Awake()
+    private void Start()
     {
         UIManager = GetComponent<UIManager>();
+        if (SaveManager.Instance.selectedProfile == null)
+            UIManager.GetPanel("ProfileSelectPanel").OpenPanel();
     }
     public void NewRun()
     {

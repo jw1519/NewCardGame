@@ -6,11 +6,11 @@ public class ProfileData
 {
     public string profileName;
     public List<string> enemiesFound;
-    public GameData savedGameData;
+    public string savedGameDataName;
     public ProfileData()
     {
-        profileName = "profile";
+        profileName = "Profile ";
         enemiesFound = new();
-        savedGameData = null;
+        savedGameDataName = "";
     }
 }

@@ -19,7 +19,7 @@ public class SaveManager : MonoBehaviour
     GameData gameData;
 
     List<ProfileData> profileData = new();
-    ProfileData selectedProfile;
+    public ProfileData selectedProfile;
 
     private void Awake()
     {
@@ -60,37 +60,35 @@ public class SaveManager : MonoBehaviour
             NewProfile(profileName);
             return;
         }
-        profileHandler = new FileDataHandler(Application.persistentDataPath, "Slot " + LoadProfile.SelectedProfile);
+        profileHandler = new FileDataHandler(Application.persistentDataPath, "Profile " + LoadProfile.SelectedProfile);
+        dataHandler = new FileDataHandler(Application.persistentDataPath, selectedProfile.profileName + " game");
         selectedProfile = profileHandler.LoadProfile();
         foreach (ProfileData data in profileData)
         {
             if (data.profileName == profileName)
             {
                 selectedProfile = profileHandler.LoadProfile();
-                if (selectedProfile.savedGameData != null)
-                    gameData = selectedProfile.savedGameData;
+                if (selectedProfile.savedGameDataName != null)
+                {
+                    gameData = new FileDataHandler(Application.persistentDataPath, data.profileName + " game").Load();
+                    Debug.Log(gameData);
+                }
             }
         }
     }
     public void SaveProfile()
     {
-        foreach (ISave savable in saveableObjects)
-        {
-            savable.SaveData(ref gameData);
-        }
+        profileHandler = new FileDataHandler(Application.persistentDataPath, selectedProfile.profileName);
+        selectedProfile.savedGameDataName = selectedProfile.profileName + " game";
         profileHandler.SaveProfile(selectedProfile);
     }
-    public List<ProfileData> GetProfileDatas()
-    {
-        return profileData;
-    }
-
     public void NewGame()
     {
         gameData = new GameData();
     }
     public void LoadGame()
     {
+        dataHandler = new FileDataHandler(Application.persistentDataPath, selectedProfile.profileName + " game");
         gameData = dataHandler.Load();
         if (gameData == null)
         {
@@ -108,14 +106,13 @@ public class SaveManager : MonoBehaviour
     }
     public void SaveGame()
     {
-        //dataHandler = new FileDataHandler(Application.persistentDataPath, selectedProfile.profileName + "game");
         foreach (ISave savable in saveableObjects)
         {
             savable.SaveData(ref gameData);
         }
+        dataHandler = new FileDataHandler(Application.persistentDataPath, selectedProfile.profileName + " game");
         dataHandler.Save(gameData);
-        //selectedProfile.savedGameData = gameData;
-        //profileHandler.SaveProfile(selectedProfile);
+        SaveProfile();
     }
     public List<ISave> FindAllSavableObjects()
     {

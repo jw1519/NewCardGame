@@ -6,17 +6,6 @@ public class ProfileSelectPanel : BasePanel
 {
     public Button[] buttons;
     FileDataHandler fileHandler;
-    public void Start()
-    {
-        //List<ProfileData> datas = SaveManager.Instance.GetProfileDatas();
-        //Debug.Log(datas.Count);
-        //for (int i = 0; i < datas.Count - 1; i++)
-        //{
-        //    Debug.Log(datas[i].profileName);
-        //    buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = datas[i].profileName;
-        //}
-
-    }
     public void OnEnable()
     {
         for (int i = 0; i < buttons.Length; i++)
@@ -32,7 +21,7 @@ public class ProfileSelectPanel : BasePanel
     private bool SlotExist(int slot)
     {
         fileHandler = null;
-        fileHandler = new FileDataHandler(Application.persistentDataPath, "Slot " + slot);
+        fileHandler = new FileDataHandler(Application.persistentDataPath, "Profile " + slot);
         if (fileHandler.LoadProfile() == null)
         {
             return false;

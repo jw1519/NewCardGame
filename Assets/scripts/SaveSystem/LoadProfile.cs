@@ -1,6 +1,4 @@
-using UnityEngine;
-
 public static class LoadProfile
 {
-    public static int SelectedProfile = 0;
+    public static int SelectedProfile = -1;
 }

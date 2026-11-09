@@ -8,7 +8,7 @@ public class ProfileButton : MonoBehaviour
     public void LoadProfile()
     {
         SaveManager.Instance.LoadProf(profileName);
-        SaveManager.Instance.SaveProfile();
+        //SaveManager.Instance.SaveProfile();
         panel.ClosePanel();
     }
 }

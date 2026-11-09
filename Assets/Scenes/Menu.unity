@@ -324,7 +324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7646801126078334435, guid: e0cc8ee43b1e9ea4bb6c9b35d559ea8b, type: 3}
       propertyPath: m_Name
-      value: NewProfileButton (1)
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -356,7 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e0978e44029ccc4dacdb9d87cf78c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProfileButton
-  profileName: Profile 2
+  profileName: Profile 1
   panel: {fileID: 1342073243}
 --- !u!114 &39745632 stripped
 MonoBehaviour:
@@ -969,7 +969,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6008447460906240088, guid: e0cc8ee43b1e9ea4bb6c9b35d559ea8b, type: 3}
       propertyPath: m_Interactable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6008447460906240088, guid: e0cc8ee43b1e9ea4bb6c9b35d559ea8b, type: 3}
       propertyPath: m_SpriteState.m_HighlightedSprite
@@ -2287,6 +2287,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SaveManager
   fileName: gameData.game
   ProfileName: ProfileData.data
+  selectedProfile:
+    profileName: 'Profile '
+    enemiesFound: []
+    savedGameDataName: 
 --- !u!4 &528922147
 Transform:
   m_ObjectHideFlags: 0
@@ -4468,7 +4472,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7646801126078334435, guid: e0cc8ee43b1e9ea4bb6c9b35d559ea8b, type: 3}
       propertyPath: m_Name
-      value: NewProfileButton
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4500,7 +4504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e0978e44029ccc4dacdb9d87cf78c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProfileButton
-  profileName: profile 1
+  profileName: profile 0
   panel: {fileID: 1342073243}
 --- !u!114 &1049601958 stripped
 MonoBehaviour:
@@ -5307,7 +5311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7646801126078334435, guid: e0cc8ee43b1e9ea4bb6c9b35d559ea8b, type: 3}
       propertyPath: m_Name
-      value: NewProfileButton (3)
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5339,7 +5343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e0978e44029ccc4dacdb9d87cf78c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProfileButton
-  profileName: Profile 4
+  profileName: Profile 3
   panel: {fileID: 1342073243}
 --- !u!114 &1214035959 stripped
 MonoBehaviour:
@@ -6299,7 +6303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7646801126078334435, guid: e0cc8ee43b1e9ea4bb6c9b35d559ea8b, type: 3}
       propertyPath: m_Name
-      value: NewProfileButton (2)
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6331,7 +6335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e0978e44029ccc4dacdb9d87cf78c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProfileButton
-  profileName: Profile 3
+  profileName: Profile 2
   panel: {fileID: 1342073243}
 --- !u!114 &1503749388 stripped
 MonoBehaviour:
