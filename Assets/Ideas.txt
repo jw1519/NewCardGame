@@ -45,6 +45,9 @@ armour filled with slime, everytime it takes damage spawn slime
 
 weakness cards should cause weakness on current attacks of enemies
 
+Things to do:
+figure out how to get card upgraded bool to save
+
 
 issues:
 the card that drwas a random card from deck is taking more energy than it should. need to fix this (only happends sometimes))

@@ -13,6 +13,7 @@ namespace Card
         public bool isInHand = false; //Check if card is in hand to prevent using it from discard pile or deck
         public bool isSingleUse = true; //Check if card is single use to allow is to ge in dead pile
         public bool usedOnEnemy;
+        public bool isUpgraded;
 
         public CardRarety cardRarety;
 
