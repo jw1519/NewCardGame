@@ -6,6 +6,13 @@ public class ProfileSelectPanel : BasePanel
 {
     public Button[] buttons;
     FileDataHandler fileHandler;
+    private void Start()
+    {
+        if (SaveManager.Instance.selectedProfile == null)
+        {
+            ClosePanel();
+        }
+    }
     public void OnEnable()
     {
         for (int i = 0; i < buttons.Length; i++)

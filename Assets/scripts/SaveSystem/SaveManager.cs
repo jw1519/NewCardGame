@@ -62,6 +62,11 @@ public class SaveManager : MonoBehaviour
         }
         profileHandler = new FileDataHandler(Application.persistentDataPath, "Profile " + LoadProfile.SelectedProfile);
         dataHandler = new FileDataHandler(Application.persistentDataPath, selectedProfile.profileName + " game");
+        if (selectedProfile.profileName == profileName)
+        {
+            UIManager.instance.GetPanel("ProfileSelectPanel").ClosePanel();
+            return;
+        }
         selectedProfile = profileHandler.LoadProfile();
         foreach (ProfileData data in profileData)
         {

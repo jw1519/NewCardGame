@@ -4,7 +4,7 @@ using Character;
 namespace Card
 {
     [CreateAssetMenu(fileName = "New Card", menuName = "Cards/Attack/AOE Attack Card")]
-    public class AOEAttackCard : AttackCard, ICanUpgrade
+    public class AOEAttackCard : AttackCard
     {
         public override void UpdateDescritpion()
         {
