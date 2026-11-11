@@ -116,7 +116,6 @@ public class EventQueue : MonoBehaviour
                 break;
             case EnemySplitEvent enemySplit:
                 enemySplit.Enemy.ChangeAnimation("Die");
-                enemySplit.Enemy.isSummon = true;
                 
                 yield return new WaitForSeconds(1);
 
@@ -128,6 +127,7 @@ public class EventQueue : MonoBehaviour
                 {
                     GameObject obj = enemyFactory.CreateEnemy(enemySplit.EnemyToSpawn);
                     AssetManager.Instance.GetAsset("GameManager").GetComponent<GameManager>().AddEnemyToCombat(obj);
+                    AssetManager.Instance.GetAsset("CombatManager").GetComponent<CombatManager>().AddToCombat(obj);
                 }
                 combatManager.RemoveFromCombat(gameObject);
                 yield return new WaitForSeconds(1);

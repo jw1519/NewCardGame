@@ -42,9 +42,6 @@ a boss that splits into two when on half heath (two/three gnomes in a trench coa
 gnome ability grab bomb out of hat (can be weakness/poisen or stop player from seeing next move)
 
 armour filled with slime, everytime it takes damage spawn slime
-
-weakness cards should cause weakness on current attacks of enemies
-
 Things to do:
 figure out how to get card upgraded bool to save
 
@@ -54,4 +51,7 @@ the card that drwas a random card from deck is taking more energy than it should
 strength cards stack (unsure if this is an issue) causeing cards to do even more damage. can keep this but the turns dont reset 
 cure ability that makes player not beable to see enemy health.
 gaps between cards in hand sometimes
-strength affect doesnt get removed (the ui does) the cards attack dont reset
+weakness doesnt effect the enemies current attack. need to fix this
+relics added cards twice
+
+multiple enemy enemy split event. doesnt work properly. need fix!

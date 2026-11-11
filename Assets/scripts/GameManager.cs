@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviour, ISave
     public void AddEnemyToCombat(GameObject enemy)
     {
         enemy.transform.SetParent(enemyPositions.Find(pos => pos.childCount == 0), true);
+        Debug.Log(enemy.transform.parent.name);
         enemy.transform.localPosition = Vector3.zero;
     }
     public void EndRound()
