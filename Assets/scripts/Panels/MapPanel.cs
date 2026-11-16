@@ -1,4 +1,5 @@
 using Enemy;
+using Item;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -227,6 +228,19 @@ public class MapPanel : BasePanel, ISave
                     data.rooms = data.rooms ?? new GameData.RoomData[mapWidth * mapHeight];
                     data.rooms[room.x * mapHeight + room.y] = roomData;
                 }
+                else if (room.roomType == RoomType.Treasure)
+                {
+                    TreasureRoom treasure = room as TreasureRoom;
+                    GameData.RoomData roomData = new()
+                    {
+                        x = room.x,
+                        y = room.y,
+                        isCleared = room.isCleared,
+                        isRevealed = room.isRevealed,
+                        roomType = room.roomType,
+                        enemyName = treasure.treasure.itemName,
+                    };
+                }
                 else
                 {
                     GameData.RoomData roomData = new()
@@ -287,6 +301,7 @@ public class MapPanel : BasePanel, ISave
                         break;
                     case RoomType.Treasure:
                         grid[x, y] = room.AddComponent<TreasureRoom>();
+                        grid[x, y].GetComponent<TreasureRoom>().RoomSetUp(Resources.Load<Relic>("RelicSO/" + roomData.enemyName));
                         grid[x, y].InIt(x, y, RoomType.Treasure);
                         grid[x, y].SetSprite(roomSprites[3]);
                         break;

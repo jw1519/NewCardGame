@@ -26,6 +26,7 @@ public class TreasurePanel : BasePanel
     //}
     public void SetTreasure(Relic treasure)
     {
+        Debug.Log(treasure.ToString());
         currentTreasure = treasure;
         treasureDescrition.text = currentTreasure.description;
         treasureImage.sprite = treasure.itemSprite;
@@ -38,18 +39,6 @@ public class TreasurePanel : BasePanel
     public void OpenChest()
     {
         panel.SetActive(true);
-        //if (instantiatedTreasures.Count == 0)
-        //{
-        //    TakeTreasure();
-        //    return;
-        //}
-        //int randomIndex = Random.Range(0, instantiatedTreasures.Count);
-        //if (treasures[randomIndex] != null)
-        //{
-        //    treasureImage.sprite = instantiatedTreasures[randomIndex].itemSprite;
-        //    currentTreasure = instantiatedTreasures[randomIndex];
-        //}
-        //treasureDescrition.text = currentTreasure.description;
     }
     public void TakeTreasure()
     {

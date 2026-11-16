@@ -24,7 +24,7 @@ public class SaveManager : MonoBehaviour
     private void Awake()
     {
         if (Instance != null)
-            Destroy(gameObject);
+            Destroy(Instance.gameObject);
 
         Instance = this;
 
