@@ -37,5 +37,5 @@ MonoBehaviour:
   isSummon: 0
   isUnlocked: 0
   activeEffects: []
-  enemy: {fileID: 11400000, guid: b21cb89c2c41ccb47bee46fdb1652b6f, type: 2}
+  enemy: {fileID: 11400000, guid: 1607085489b3ef04b90f3b5f3e6c5179, type: 2}
   enemyToSpawnAmount: 2

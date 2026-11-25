@@ -23,13 +23,19 @@ public class SaveManager : MonoBehaviour
     private void Awake()
     {
         if (Instance != null && Instance != this)
+        {
+            selectedProfile = Instance.selectedProfile;
+            gameData = Instance.gameData;
             Destroy(Instance.gameObject);
-
+        }
+        else
+        {
+            dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+            selectedProfile.profileName = null;
+        }
         Instance = this;
-
         DontDestroyOnLoad(gameObject);
-        dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
-        selectedProfile.profileName = null;
+
     }
 
     public void StartGame()
@@ -78,6 +84,7 @@ public class SaveManager : MonoBehaviour
                     selectedProfile.enemiesFound.Add(enemy);
                     Debug.Log("Enemy found: " + enemy);
                 }
+                Debug.Log(selectedProfile.savedGameDataName);
                 if (selectedProfile.savedGameDataName != null)
                 {
                     gameData = new FileDataHandler(Application.persistentDataPath, data.profileName + " game").Load();

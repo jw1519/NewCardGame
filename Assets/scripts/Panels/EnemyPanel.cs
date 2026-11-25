@@ -14,6 +14,11 @@ public class EnemyPanel : MonoBehaviour
         name = enemy.enemyName;
         enemyImage.sprite = enemy.enemySprite;
         enemyImage.color = enemy.isUnlocked ? Color.white : Color.black;
+        if (SaveManager.Instance.selectedProfile.enemiesFound.Contains(name))
+        {
+            enemy.isUnlocked = true;
+            Unlock();
+        }
     }
     public void Unlock()
     {
