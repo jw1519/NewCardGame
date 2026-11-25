@@ -174,16 +174,16 @@ public class MapPanel : BasePanel, ISave
     {
         grid[x, y].ClearRoom();
         canClosePanel = false;
-        //if (grid[x,y].roomType == RoomType.Normal)
-        //{
-        //    CombatRoom combat = grid[x,y] as CombatRoom;
-        //    SaveManager.Instance.AddFoundEnemy(combat.enemyToSpawn.enemyName);
-        //}
-        //else if (grid[x,y].roomType == RoomType.Boss)
-        //{
-        //    CombatRoom combat = grid[x, y] as CombatRoom;
-        //    SaveManager.Instance.AddFoundEnemy(combat.enemyToSpawn.enemyName);
-        //}
+        if (grid[x, y].roomType == RoomType.Normal)
+        {
+            CombatRoom combat = grid[x, y] as CombatRoom;
+            SaveManager.Instance.AddFoundEnemy(combat.enemyToSpawn.enemyName);
+        }
+        else if (grid[x, y].roomType == RoomType.Boss)
+        {
+            CombatRoom combat = grid[x, y] as CombatRoom;
+            SaveManager.Instance.AddFoundEnemy(combat.enemyToSpawn.enemyName);
+        }
         OpenPanel();
     }
 
@@ -197,7 +197,7 @@ public class MapPanel : BasePanel, ISave
                 if (room.roomType == RoomType.Normal)
                 {
                     CombatRoom combat = room as CombatRoom;
-                    GameData.RoomData roomData = new()
+                    GameData.RoomData roomData = new() //error here
                     {
                         x = room.x,
                         y = room.y,

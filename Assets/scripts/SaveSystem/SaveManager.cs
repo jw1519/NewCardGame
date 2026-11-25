@@ -8,8 +8,7 @@ public class SaveManager : MonoBehaviour
     public static bool loadOnStart = false;
 
     [Header("File Storage Config")]
-    [SerializeField] private string fileName;
-    [SerializeField] private string ProfileName;
+    private string fileName = "game.data";
 
     public static SaveManager Instance { get; private set; }
 
@@ -23,13 +22,14 @@ public class SaveManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null)
+        if (Instance != null && Instance != this)
             Destroy(Instance.gameObject);
 
         Instance = this;
 
         DontDestroyOnLoad(gameObject);
         dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+        selectedProfile.profileName = null;
     }
 
     public void StartGame()
@@ -73,6 +73,11 @@ public class SaveManager : MonoBehaviour
             if (data.profileName == profileName)
             {
                 selectedProfile = profileHandler.LoadProfile();
+                foreach (string enemy in data.enemiesFound)
+                {
+                    selectedProfile.enemiesFound.Add(enemy);
+                    Debug.Log("Enemy found: " + enemy);
+                }
                 if (selectedProfile.savedGameDataName != null)
                 {
                     gameData = new FileDataHandler(Application.persistentDataPath, data.profileName + " game").Load();
@@ -80,6 +85,7 @@ public class SaveManager : MonoBehaviour
                 }
             }
         }
+
     }
     public void SaveProfile()
     {
@@ -95,6 +101,7 @@ public class SaveManager : MonoBehaviour
     {
         dataHandler = new FileDataHandler(Application.persistentDataPath, selectedProfile.profileName + " game");
         gameData = dataHandler.Load();
+        selectedProfile.savedGameDataName = selectedProfile.profileName + " game";
         if (gameData == null)
         {
             Debug.Log("GameData is null. creating new game");

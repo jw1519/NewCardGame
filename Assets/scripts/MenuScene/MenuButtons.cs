@@ -7,7 +7,7 @@ public class MenuButtons : MonoBehaviour
     private void Start()
     {
         UIManager = GetComponent<UIManager>();
-        if (SaveManager.Instance.selectedProfile == null)
+        if (SaveManager.Instance.selectedProfile.profileName == null)
             UIManager.GetPanel("ProfileSelectPanel").OpenPanel();
     }
     public void NewRun()

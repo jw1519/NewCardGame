@@ -8,7 +8,7 @@ public class ProfileSelectPanel : BasePanel
     FileDataHandler fileHandler;
     private void Start()
     {
-        if (SaveManager.Instance.selectedProfile == null)
+        if (SaveManager.Instance.selectedProfile.profileName != null)
         {
             ClosePanel();
         }
