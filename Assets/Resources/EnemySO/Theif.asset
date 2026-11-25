@@ -19,7 +19,7 @@ MonoBehaviour:
   attackSprite: {fileID: 21300000, guid: 300675427539b7842a89d514aaa349cd, type: 3}
   defenceSprite: {fileID: 21300000, guid: c07d8f2ef21dc634395f674f8766dcf6, type: 3}
   abilitySprite: {fileID: 21300000, guid: 0ad037c82e017d7429742ed757e5dafa, type: 3}
-  enemyName: 
+  enemyName: Flying eye
   enemyType: 0
   description: A flying creature that can steal the players cards
   health: 0
