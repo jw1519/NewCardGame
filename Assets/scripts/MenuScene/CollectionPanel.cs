@@ -9,6 +9,17 @@ public class CollectionPanel : BasePanel
     private void Start()
     {
     }
+    public GameObject GetPanel(string name)
+    {
+        foreach (GameObject panel in panels)
+        {
+            if (name == panel.name)
+            {
+                return panel;
+            }
+        }
+        return null;
+    }
     public void ClosePanels()
     {
         foreach (GameObject panel in panels)

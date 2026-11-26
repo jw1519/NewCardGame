@@ -55,3 +55,6 @@ weakness doesnt effect the enemies current attack. need to fix this
 relics added cards twice
 
 multiple enemy enemy split event. doesnt work properly. need fix!
+
+
+Save system try getting rid os list of profiles might not need them!!!

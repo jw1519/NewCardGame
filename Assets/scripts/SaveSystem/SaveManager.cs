@@ -1,6 +1,7 @@
-using UnityEngine;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.IO.LowLevel.Unsafe;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SaveManager : MonoBehaviour
@@ -17,7 +18,6 @@ public class SaveManager : MonoBehaviour
     public FileDataHandler profileHandler {  get; private set; }
     GameData gameData;
 
-    List<ProfileData> profileData = new();
     public ProfileData selectedProfile;
 
     private void Awake()
@@ -56,43 +56,29 @@ public class SaveManager : MonoBehaviour
         profileHandler = new FileDataHandler(Application.persistentDataPath, name);
         ProfileData data = new ProfileData();
         data.profileName = name;
-        profileData.Add(data);
+        //profileData.Add(data);
         selectedProfile = data;
     }
     public void LoadProf(string profileName)
     {
-        if (profileData.Find(p => p.profileName == profileName) == null)
+        profileHandler = new FileDataHandler(Application.persistentDataPath, "Profile " + LoadProfile.SelectedProfile);
+        dataHandler = new FileDataHandler(Application.persistentDataPath, selectedProfile.profileName + " game");
+        if (profileHandler.LoadProfile() == null)
         {
             NewProfile(profileName);
             return;
         }
-        profileHandler = new FileDataHandler(Application.persistentDataPath, "Profile " + LoadProfile.SelectedProfile);
-        dataHandler = new FileDataHandler(Application.persistentDataPath, selectedProfile.profileName + " game");
         if (selectedProfile.profileName == profileName)
         {
             UIManager.instance.GetPanel("ProfileSelectPanel").ClosePanel();
             return;
         }
         selectedProfile = profileHandler.LoadProfile();
-        foreach (ProfileData data in profileData)
+        if (UIManager.instance.GetPanel("CollectionPanel").GetComponent<CollectionPanel>() != null)
         {
-            if (data.profileName == profileName)
-            {
-                selectedProfile = profileHandler.LoadProfile();
-                foreach (string enemy in data.enemiesFound)
-                {
-                    selectedProfile.enemiesFound.Add(enemy);
-                    Debug.Log("Enemy found: " + enemy);
-                }
-                Debug.Log(selectedProfile.savedGameDataName);
-                if (selectedProfile.savedGameDataName != null)
-                {
-                    gameData = new FileDataHandler(Application.persistentDataPath, data.profileName + " game").Load();
-                    Debug.Log(gameData);
-                }
-            }
+            EnemiesPanel panel = UIManager.instance.GetPanel("CollectionPanel").GetComponent<CollectionPanel>().GetPanel("EnemiesPanel").GetComponent<EnemiesPanel>();
+            panel.CheckEnemies(selectedProfile.enemiesFound);
         }
-
     }
     public void SaveProfile()
     {
